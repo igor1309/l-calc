@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ueD-fW-VRY">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TrebuchetMS.ttf">
+            <string>TrebuchetMS</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Кредит-->
+        <scene sceneID="Jkq-Cm-KvH">
+            <objects>
+                <tableViewController id="E0D-tb-aBS" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fg3-MY-nma">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="lfF-OW-06V">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="132" id="gDn-X9-AjP">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="132"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gDn-X9-AjP" id="FSt-tc-uTj">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="131.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99,999.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gng-d6-opf" userLabel="Monthly Pay Sum">
+                                                    <rect key="frame" x="247.5" y="20" width="273.5" height="72"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="62"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЕЖЕМЕСЯЧНЫЙ ПЛАТЕЖ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXv-o5-o9M">
+                                                    <rect key="frame" x="286.5" y="99.5" width="195" height="20"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                    <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Gng-d6-opf" firstAttribute="centerX" secondItem="FSt-tc-uTj" secondAttribute="centerX" id="0Hw-b8-Erf"/>
+                                                <constraint firstItem="OXv-o5-o9M" firstAttribute="centerX" secondItem="FSt-tc-uTj" secondAttribute="centerX" id="75y-To-cum"/>
+                                                <constraint firstItem="Gng-d6-opf" firstAttribute="top" secondItem="FSt-tc-uTj" secondAttribute="top" constant="20" symbolic="YES" id="m5U-hy-KGE"/>
+                                                <constraint firstItem="OXv-o5-o9M" firstAttribute="top" secondItem="Gng-d6-opf" secondAttribute="bottom" constant="8" symbolic="YES" id="qAt-eR-KeP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="36" id="V3L-ql-EFR">
+                                        <rect key="frame" x="0.0" y="132" width="768" height="36"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="V3L-ql-EFR" id="rBK-8F-uVC">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="35.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="ПРОЦЕНТЫ, ВСЕГО" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cf-nc-JWW">
+                                                    <rect key="frame" x="20" y="9" width="139" height="19"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                                    <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9,999,999,999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGH-k4-oTd">
+                                                    <rect key="frame" x="652.5" y="9.5" width="95.5" height="17.5"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                                    <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3cf-nc-JWW" secondAttribute="trailing" constant="20" symbolic="YES" id="8Nr-jh-I8x"/>
+                                                <constraint firstItem="3cf-nc-JWW" firstAttribute="centerY" secondItem="rBK-8F-uVC" secondAttribute="centerY" id="ZeY-O6-Fcb"/>
+                                                <constraint firstAttribute="trailing" secondItem="bGH-k4-oTd" secondAttribute="trailing" constant="20" symbolic="YES" id="dln-rG-Nij"/>
+                                                <constraint firstItem="bGH-k4-oTd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rBK-8F-uVC" secondAttribute="leading" constant="20" symbolic="YES" id="hui-NG-QJX"/>
+                                                <constraint firstItem="bGH-k4-oTd" firstAttribute="centerY" secondItem="rBK-8F-uVC" secondAttribute="centerY" id="tJo-Jd-FP5"/>
+                                                <constraint firstItem="3cf-nc-JWW" firstAttribute="leading" secondItem="rBK-8F-uVC" secondAttribute="leading" constant="20" symbolic="YES" id="yhv-tK-gIo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="36" id="SaJ-H6-Zeu">
+                                        <rect key="frame" x="0.0" y="168" width="768" height="36"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SaJ-H6-Zeu" id="ldr-2I-B79">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="35.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="КРЕДИТ И ПРОЦЕНТЫ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAw-iC-mXs">
+                                                    <rect key="frame" x="20" y="9" width="161.5" height="19"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                                    <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99,999,999,999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkF-tc-Z0L">
+                                                    <rect key="frame" x="644.5" y="9.5" width="103.5" height="17.5"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                                    <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fkF-tc-Z0L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ldr-2I-B79" secondAttribute="leading" constant="20" symbolic="YES" id="5z6-7P-6z1"/>
+                                                <constraint firstItem="KAw-iC-mXs" firstAttribute="leading" secondItem="ldr-2I-B79" secondAttribute="leading" constant="20" symbolic="YES" id="Kqs-MA-5FO"/>
+                                                <constraint firstItem="fkF-tc-Z0L" firstAttribute="centerY" secondItem="ldr-2I-B79" secondAttribute="centerY" id="ga4-PX-ogr"/>
+                                                <constraint firstItem="KAw-iC-mXs" firstAttribute="centerY" secondItem="ldr-2I-B79" secondAttribute="centerY" id="gyT-gO-ZfJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="fkF-tc-Z0L" secondAttribute="trailing" constant="20" symbolic="YES" id="oO1-yZ-zTy"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KAw-iC-mXs" secondAttribute="trailing" constant="20" symbolic="YES" id="shZ-4I-0ri"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="oCB-sC-mPk">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="sqv-PT-3An">
+                                        <rect key="frame" x="0.0" y="204" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sqv-PT-3An" id="7VQ-YO-x7H">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="eMG-q9-D2V">
+                                                    <rect key="frame" x="280.5" y="20" width="207" height="3"/>
+                                                    <segments>
+                                                        <segment title="В КОНЦЕ СРОКА"/>
+                                                        <segment title="АННУИТЕТ"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="eMG-q9-D2V" firstAttribute="top" secondItem="7VQ-YO-x7H" secondAttribute="top" constant="20" symbolic="YES" id="3nJ-ae-o1V"/>
+                                                <constraint firstItem="eMG-q9-D2V" firstAttribute="centerY" secondItem="7VQ-YO-x7H" secondAttribute="centerY" id="89k-Ha-dHb"/>
+                                                <constraint firstItem="eMG-q9-D2V" firstAttribute="centerX" secondItem="7VQ-YO-x7H" secondAttribute="centerX" id="FRh-za-ROH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="124" id="ncF-wY-a2v">
+                                        <rect key="frame" x="0.0" y="248" width="768" height="124"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ncF-wY-a2v" id="m50-5n-rJA">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="123.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999,999,999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ic-6s-TJu">
+                                                    <rect key="frame" x="231" y="20" width="306" height="66"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="56"/>
+                                                    <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СУММА КРЕДИТА" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijr-I8-yda">
+                                                    <rect key="frame" x="312" y="94" width="144" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ijr-I8-yda" firstAttribute="centerX" secondItem="m50-5n-rJA" secondAttribute="centerX" id="EjY-V6-DXy"/>
+                                                <constraint firstItem="5Ic-6s-TJu" firstAttribute="centerX" secondItem="m50-5n-rJA" secondAttribute="centerX" id="R3O-9A-Jwo"/>
+                                                <constraint firstItem="ijr-I8-yda" firstAttribute="top" secondItem="5Ic-6s-TJu" secondAttribute="bottom" constant="8" symbolic="YES" id="ZYK-BS-FgD"/>
+                                                <constraint firstItem="5Ic-6s-TJu" firstAttribute="top" secondItem="m50-5n-rJA" secondAttribute="top" constant="20" symbolic="YES" id="mSG-pc-b4c"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="125" id="Mge-9Q-Jib">
+                                        <rect key="frame" x="0.0" y="372" width="768" height="125"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mge-9Q-Jib" id="NNd-sA-zbO">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="124.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.40%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iut-6L-trW">
+                                                    <rect key="frame" x="313" y="20" width="142.5" height="66"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="56"/>
+                                                    <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ГОДОВАЯ ПРОЦЕНТНАЯ СТАВКА" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHE-VK-r3S">
+                                                    <rect key="frame" x="250" y="94" width="269" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WHE-VK-r3S" firstAttribute="centerX" secondItem="NNd-sA-zbO" secondAttribute="centerX" id="I1O-vo-nDj"/>
+                                                <constraint firstItem="WHE-VK-r3S" firstAttribute="top" secondItem="iut-6L-trW" secondAttribute="bottom" constant="8" symbolic="YES" id="R3i-GR-MyF"/>
+                                                <constraint firstItem="iut-6L-trW" firstAttribute="top" secondItem="NNd-sA-zbO" secondAttribute="top" constant="20" symbolic="YES" id="TSm-Ho-61A"/>
+                                                <constraint firstItem="iut-6L-trW" firstAttribute="centerX" secondItem="NNd-sA-zbO" secondAttribute="centerX" id="YQ2-8B-xxa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="124" id="tsw-t1-iMS">
+                                        <rect key="frame" x="0.0" y="497" width="768" height="124"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tsw-t1-iMS" id="hAZ-fQ-dkd">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="123.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СРОК КРЕДИТА В МЕСЯЦАХ (5.0 ЛЕТ)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Myo-XN-cWX">
+                                                    <rect key="frame" x="231" y="93.5" width="307" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUJ-e7-9m5">
+                                                    <rect key="frame" x="355" y="20" width="59" height="65.5"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="56"/>
+                                                    <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Myo-XN-cWX" firstAttribute="top" secondItem="pUJ-e7-9m5" secondAttribute="bottom" constant="8" symbolic="YES" id="0sF-40-ONP"/>
+                                                <constraint firstItem="pUJ-e7-9m5" firstAttribute="centerX" secondItem="hAZ-fQ-dkd" secondAttribute="centerX" id="6dS-cy-VZG"/>
+                                                <constraint firstItem="pUJ-e7-9m5" firstAttribute="top" secondItem="hAZ-fQ-dkd" secondAttribute="top" constant="20" symbolic="YES" id="IZ0-5B-j2h"/>
+                                                <constraint firstItem="Myo-XN-cWX" firstAttribute="centerX" secondItem="hAZ-fQ-dkd" secondAttribute="centerX" id="JpB-Fd-zOl"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="E0D-tb-aBS" id="YQd-WZ-Thi"/>
+                            <outlet property="delegate" destination="E0D-tb-aBS" id="U3H-6f-tA3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Кредит" largeTitleDisplayMode="always" id="Xuu-gT-Lra">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="8YN-wJ-5UP">
+                            <color key="tintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cY1-Dg-kua" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1643.75" y="-1585.546875"/>
+        </scene>
+        <!--Loan-->
+        <scene sceneID="WUp-JT-Rqh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ueD-fW-VRY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Loan" image="Today Icon" id="AKq-U7-XnT">
+                        <color key="badgeColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Znv-D0-AA2">
+                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="E0D-tb-aBS" kind="relationship" relationship="rootViewController" id="y3e-EO-yZX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DQs-ge-XbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="892" y="-1585"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Today Icon" width="18" height="22"/>
+    </resources>
+</document>

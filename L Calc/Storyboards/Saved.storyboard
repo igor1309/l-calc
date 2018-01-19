@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cf2-Zx-VCU">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Saved-->
+        <scene sceneID="Cn1-0f-130">
+            <objects>
+                <viewController id="Cf2-Zx-VCU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h1a-de-V6m">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="39X-DG-Vsh"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Saved" selectedImage="Fav Icon Full" id="Wj2-kh-JIC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F89-D0-fau" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="401" y="-89"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Fav Icon Full" width="25" height="25"/>
+    </resources>
+</document>

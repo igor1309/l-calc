@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="od9-hM-Dbj">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TrebuchetMS.ttf">
+            <string>TrebuchetMS</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Saved-->
+        <scene sceneID="Cn1-0f-130">
+            <objects>
+                <viewController id="Cf2-Zx-VCU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h1a-de-V6m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="39X-DG-Vsh"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Saved" selectedImage="Fav Icon Full" id="Wj2-kh-JIC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F89-D0-fau" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="401" y="-89"/>
+        </scene>
+        <!--Платежи-->
+        <scene sceneID="amx-AO-xwh">
+            <objects>
+                <viewController id="8Qp-le-DWq" customClass="LoanCalculationController" customModule="L_Calc" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3kB-Yu-4Sf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="XA0-IA-ZFO"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Платежи" image="Payments" id="E4i-kq-e6F"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6I9-Ud-nYQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-553" y="-89"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="zU1-6p-MA7">
+            <objects>
+                <tabBarController id="od9-hM-Dbj" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="S4N-uh-XTZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="8Qp-le-DWq" kind="relationship" relationship="viewControllers" id="Ma2-VL-ODv"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="8Y2-Ln-NLS"/>
+                        <segue destination="Cf2-Zx-VCU" kind="relationship" relationship="viewControllers" id="OcU-2T-JVA"/>
+                        <segue destination="rqc-KJ-FYU" kind="relationship" relationship="viewControllers" id="icS-dR-1kn"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jbQ-ta-ZKV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-164" y="-1076"/>
+        </scene>
+        <!--Расчет-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="L_Calc" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p35-Sc-cx0" userLabel="Results View">
+                                <rect key="frame" x="0.0" y="44" width="375" height="262"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="ICw-Xm-MeW" userLabel="Results Stack View">
+                                        <rect key="frame" x="20" y="12" width="335" height="226"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Xtx-OG-wCb" userLabel="Graph Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="24"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mat-zf-uQR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="245" height="24"/>
+                                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="B0B-mp-fn8"/>
+                                                            <constraint firstAttribute="width" constant="245" id="RsZ-sw-RwE"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LjC-zN-QfG">
+                                                        <rect key="frame" x="277" y="0.0" width="58" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="56"/>
+                                                        <state key="normal" title="☐"/>
+                                                        <connections>
+                                                            <action selector="showGraphButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gJh-wV-jow"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="mat-zf-uQR" firstAttribute="leading" secondItem="Xtx-OG-wCb" secondAttribute="leading" id="8A1-Nn-WFu"/>
+                                                    <constraint firstItem="mat-zf-uQR" firstAttribute="top" secondItem="Xtx-OG-wCb" secondAttribute="top" id="fRO-dV-HRZ"/>
+                                                    <constraint firstItem="LjC-zN-QfG" firstAttribute="leading" secondItem="mat-zf-uQR" secondAttribute="trailing" constant="32" id="xKs-Ne-iSG"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9fP-0U-Wwc" userLabel="Monthly Payment Stack View">
+                                                <rect key="frame" x="0.0" y="56" width="335" height="92"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99,999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dDD-1a-ZVg">
+                                                        <rect key="frame" x="74.666666666666671" y="0.0" width="185.66666666666663" height="72"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="72" id="0M5-yK-W5n"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="62"/>
+                                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЕЖЕМЕСЯЧНЫЙ ПЛАТЕЖ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="S36-ph-TfR">
+                                                        <rect key="frame" x="70.333333333333329" y="80" width="194.33333333333337" height="12"/>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Agt-IU-Fr3" userLabel="Additional Results Stack View">
+                                                <rect key="frame" x="0.0" y="180" width="335" height="46"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wBZ-wg-Ka0" userLabel="Percent Total Stack View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="20"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="ПРОЦЕНТЫ, ВСЕГО" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rnz-9b-CkB">
+                                                                <rect key="frame" x="0.0" y="0.0" width="166" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="166" id="Kfp-Cy-GEO"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                                                <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9,999,999,999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FW3-JN-5aA">
+                                                                <rect key="frame" x="166" y="0.0" width="169" height="20"/>
+                                                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                                <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U8Y-lv-lRU" userLabel="Total Sum Stack View">
+                                                        <rect key="frame" x="0.0" y="26" width="335" height="20"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="КРЕДИТ И ПРОЦЕНТЫ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Tfv-7Y-P9G">
+                                                                <rect key="frame" x="0.0" y="0.0" width="166" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="166" id="qg1-zP-wbg"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                                                <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" verticalHuggingPriority="251" text="99,999,999,999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JLP-go-2u6">
+                                                                <rect key="frame" x="166" y="0.0" width="169" height="20"/>
+                                                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                                <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ICw-Xm-MeW" firstAttribute="leading" secondItem="p35-Sc-cx0" secondAttribute="leading" constant="20" id="3Jw-gl-Nmj"/>
+                                    <constraint firstItem="ICw-Xm-MeW" firstAttribute="top" secondItem="p35-Sc-cx0" secondAttribute="top" constant="12" id="5jh-6n-Luj"/>
+                                    <constraint firstAttribute="trailing" secondItem="ICw-Xm-MeW" secondAttribute="trailing" constant="20" id="95l-he-6v8"/>
+                                    <constraint firstAttribute="bottom" secondItem="ICw-Xm-MeW" secondAttribute="bottom" constant="24" id="Ijv-Of-x9D"/>
+                                    <constraint firstItem="ICw-Xm-MeW" firstAttribute="centerX" secondItem="p35-Sc-cx0" secondAttribute="centerX" id="OHX-jH-uGU"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdv-Q5-jED" userLabel="Parameters View">
+                                <rect key="frame" x="0.0" y="306" width="375" height="423"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="k0E-KA-jsZ" userLabel="Parameters Stack View">
+                                        <rect key="frame" x="8" y="24" width="359" height="370"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="32L-kA-hY5" userLabel="Annuity Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="28"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAB-X0-DOk" userLabel="Share Button">
+                                                        <rect key="frame" x="0.0" y="0.0" width="19" height="28"/>
+                                                        <state key="normal" image="Share Icon"/>
+                                                    </button>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="V4F-fk-fqB">
+                                                        <rect key="frame" x="27" y="0.0" width="263" height="29"/>
+                                                        <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <segments>
+                                                            <segment title="В КОНЦЕ СРОКА"/>
+                                                            <segment title="АННУИТЕТ"/>
+                                                        </segments>
+                                                        <color key="tintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="annuitySegmentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="dgi-rK-7hD"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJo-tS-GUg" userLabel="Empty Save Button">
+                                                        <rect key="frame" x="298" y="0.0" width="28" height="28"/>
+                                                        <state key="normal" image="Fav Icon Empty"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRZ-Nv-m0B" userLabel="Fill Save Button">
+                                                        <rect key="frame" x="334" y="1.6666666666666856" width="25" height="25"/>
+                                                        <state key="normal" image="Fav Icon Full"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3mJ-5W-4ls" userLabel="Sum Stack View">
+                                                <rect key="frame" x="0.0" y="50" width="359" height="92"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999,999,999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="F5T-n7-hFx" userLabel="Sum Label">
+                                                        <rect key="frame" x="26.666666666666657" y="0.0" width="305.66666666666674" height="72"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="72" id="rhv-Zu-MiT"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="56"/>
+                                                        <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СУММА КРЕДИТА" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s29-GF-Wzo">
+                                                        <rect key="frame" x="113.00000000000001" y="72" width="133.33333333333337" height="20"/>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                        <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="2aY-5x-tn1" appends="YES" id="6Ha-jA-WX9"/>
+                                                    <outletCollection property="gestureRecognizers" destination="LSQ-KE-dnl" appends="YES" id="gce-kX-zRp"/>
+                                                </connections>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Iup-cX-Sca" userLabel="Rate Stack View">
+                                                <rect key="frame" x="0.0" y="164" width="359" height="92"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.45%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7Ef-wZ-IEd">
+                                                        <rect key="frame" x="108.33333333333333" y="0.0" width="142.33333333333337" height="72"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="72" id="K9M-jO-EbY"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="56"/>
+                                                        <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ГОДОВАЯ ПРОЦЕНТНАЯ СТАВКА" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ckr-uh-1wp">
+                                                        <rect key="frame" x="54.666666666666671" y="72" width="249.66666666666663" height="20"/>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                        <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="tX0-mz-3AU" appends="YES" id="NFZ-Zn-c67"/>
+                                                </connections>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oj1-Xk-vhB" userLabel="Term Stack View">
+                                                <rect key="frame" x="0.0" y="278" width="359" height="92"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KN4-Wc-EU5">
+                                                        <rect key="frame" x="135.33333333333334" y="0.0" width="88.333333333333343" height="72"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="72" id="S03-e0-IOs"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="56"/>
+                                                        <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СРОК КРЕДИТА В МЕСЯЦАХ (5.0 ЛЕТ)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5g-c2-TVC">
+                                                        <rect key="frame" x="34.333333333333343" y="72" width="290.33333333333326" height="20"/>
+                                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                        <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="3kM-hG-65p" appends="YES" id="g8B-n2-Vq5"/>
+                                                </connections>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="k0E-KA-jsZ" firstAttribute="top" secondItem="bdv-Q5-jED" secondAttribute="top" constant="24" id="Fbk-yM-cjw"/>
+                                    <constraint firstAttribute="trailing" secondItem="k0E-KA-jsZ" secondAttribute="trailing" constant="8" id="rKJ-yE-bdq"/>
+                                    <constraint firstItem="k0E-KA-jsZ" firstAttribute="leading" secondItem="bdv-Q5-jED" secondAttribute="leading" constant="8" id="whI-z2-EMd"/>
+                                </constraints>
+                            </view>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hn3-Ts-Pgi">
+                                <rect key="frame" x="0.0" y="729" width="375" height="83"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="MKI-zX-2WS"/>
+                                    <tabBarItem title="Item" id="Pf4-Cw-QR3"/>
+                                    <tabBarItem systemItem="more" id="5Wc-Mm-DiY"/>
+                                </items>
+                            </tabBar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bdv-Q5-jED" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BNh-pJ-zH1"/>
+                            <constraint firstItem="p35-Sc-cx0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DRN-9L-b5n"/>
+                            <constraint firstAttribute="trailing" secondItem="hn3-Ts-Pgi" secondAttribute="trailing" id="Hag-Yt-86P"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bdv-Q5-jED" secondAttribute="bottom" id="ag5-Z0-hH5"/>
+                            <constraint firstItem="bdv-Q5-jED" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cy8-ko-jZd"/>
+                            <constraint firstItem="p35-Sc-cx0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kAu-Z6-oT4"/>
+                            <constraint firstAttribute="bottom" secondItem="hn3-Ts-Pgi" secondAttribute="bottom" id="n1b-dY-U17"/>
+                            <constraint firstItem="hn3-Ts-Pgi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sZn-Cj-bQs"/>
+                            <constraint firstItem="bdv-Q5-jED" firstAttribute="top" secondItem="p35-Sc-cx0" secondAttribute="bottom" id="v3S-l7-h2R"/>
+                            <constraint firstItem="p35-Sc-cx0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wRL-wW-CyC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Расчет" image="Today Icon" id="GMH-xt-8gb"/>
+                    <connections>
+                        <outlet property="annuitySegment" destination="V4F-fk-fqB" id="LRK-tH-2ku"/>
+                        <outlet property="monthlyPayment" destination="dDD-1a-ZVg" id="OLV-9D-sP1"/>
+                        <outlet property="monthlyPaymentCommentLabel" destination="S36-ph-TfR" id="93i-1c-Ted"/>
+                        <outlet property="rateLabel" destination="7Ef-wZ-IEd" id="ldH-oQ-P3z"/>
+                        <outlet property="rateStack" destination="Iup-cX-Sca" id="mzH-9j-e07"/>
+                        <outlet property="sumLabel" destination="F5T-n7-hFx" id="MHM-I0-J9n"/>
+                        <outlet property="sumStack" destination="3mJ-5W-4ls" id="d9m-hC-gVU"/>
+                        <outlet property="termLabel" destination="KN4-Wc-EU5" id="w2B-W3-Wnj"/>
+                        <outlet property="termStack" destination="oj1-Xk-vhB" id="VyZ-f7-Twq"/>
+                        <outlet property="termSubLabel" destination="J5g-c2-TVC" id="k58-SF-7Fz"/>
+                        <outlet property="totalInterest" destination="FW3-JN-5aA" id="i8P-54-jTL"/>
+                        <outlet property="totalPayment" destination="JLP-go-2u6" id="nDi-c3-3h1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="2aY-5x-tn1" userLabel="Sum 1 Pan Gesture Recognizer">
+                    <connections>
+                        <action selector="panDetected1:" destination="BYZ-38-t0r" id="J9u-St-AFQ"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="2" id="LSQ-KE-dnl" userLabel="Sum 2 Pan Gesture Recognizer">
+                    <connections>
+                        <action selector="panDetected2:" destination="BYZ-38-t0r" id="hyi-ae-nRe"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="tX0-mz-3AU" userLabel="Rate Pan Gesture Recognizer">
+                    <connections>
+                        <action selector="ratePanDetected:" destination="BYZ-38-t0r" id="Kr0-rk-WXu"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="3kM-hG-65p" userLabel="Term Pan Gesture Recognizer">
+                    <connections>
+                        <action selector="termPanDetected:" destination="BYZ-38-t0r" id="Gd0-YE-Wfr"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-1577" y="-89"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="GG2-lr-HQv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="rqc-KJ-FYU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="4Bt-GD-VYi"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6XD-TE-cRc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1388" y="-89.408866995073893"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Fav Icon Empty" width="28" height="28"/>
+        <image name="Fav Icon Full" width="25" height="25"/>
+        <image name="Payments" width="28" height="28"/>
+        <image name="Share Icon" width="19" height="28"/>
+        <image name="Today Icon" width="18" height="22"/>
+    </resources>
+</document>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lpW-UW-kzL">
+    <device id="retina5_9" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TrebuchetMS.ttf">
+            <string>TrebuchetMS</string>
+        </array>
+        <array key="TrebuchetMSBold.ttf">
+            <string>TrebuchetMS-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Payments Table View Controller-->
+        <scene sceneID="Y8k-Zn-MhG">
+            <objects>
+                <tableViewController id="UD6-eY-ckJ" userLabel="Payments Table View Controller" customClass="PaymentsTableViewController" customModule="L_Calc" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DED-uf-2ju">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MonthlyPayment" rowHeight="34" id="pXe-Xf-dud">
+                                <rect key="frame" x="0.0" y="28" width="812" height="34"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pXe-Xf-dud" id="Txm-TW-ePR">
+                                    <rect key="frame" x="44" y="0.0" width="724" height="33.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apc-FE-Xcd">
+                                            <rect key="frame" x="20" y="0.0" width="684" height="33.666666666666664"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1006" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="##" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pf-uj-cHO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="17" height="33.666666666666664"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="17" id="YiL-DI-zMB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                                    <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="enR-XI-7eE">
+                                                    <rect key="frame" x="17" y="0.0" width="667" height="33.666666666666664"/>
+                                                    <subviews>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999,999,999.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70X-Jb-wuF" userLabel="Beginning Balance">
+                                                            <rect key="frame" x="0.0" y="0.0" width="127" height="33.666666666666664"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <variation key="heightClass=compact-widthClass=compact" hidden="NO"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9,999,999.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uar-ht-cRp" userLabel="Principal">
+                                                            <rect key="frame" x="135" y="0.0" width="127" height="33.666666666666664"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                                            <color key="textColor" red="0.0" green="0.41960784313725491" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1003" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99,999,999.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmX-3R-x9A" userLabel="Interest">
+                                                            <rect key="frame" x="270" y="0.0" width="127" height="33.666666666666664"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                                            <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNV-qK-cbM" userLabel="Total View">
+                                                            <rect key="frame" x="405" y="0.0" width="127" height="33.666666666666664"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" tag="1004" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99,999,999.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyZ-nj-Doe" userLabel="Total">
+                                                                    <rect key="frame" x="14.333333333333321" y="8.6666666666666661" width="104.66666666666669" height="17.666666666666671"/>
+                                                                    <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="15"/>
+                                                                    <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="VyZ-nj-Doe" secondAttribute="trailing" constant="8" id="BvE-3d-trS"/>
+                                                                <constraint firstItem="VyZ-nj-Doe" firstAttribute="centerY" secondItem="KNV-qK-cbM" secondAttribute="centerY" id="ZS9-C8-9W2"/>
+                                                                <constraint firstAttribute="height" constant="34" id="nmE-d5-Shs"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999,999,999.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQ5-oc-Aqp" userLabel="Ending Balance">
+                                                            <rect key="frame" x="540" y="0.0" width="127" height="33.666666666666664"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <variation key="heightClass=compact-widthClass=compact" hidden="NO"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3Pf-uj-cHO" firstAttribute="leading" secondItem="apc-FE-Xcd" secondAttribute="leading" id="6ej-N8-Vf4"/>
+                                                <constraint firstItem="enR-XI-7eE" firstAttribute="top" secondItem="apc-FE-Xcd" secondAttribute="top" id="lAr-RT-ClH"/>
+                                                <constraint firstAttribute="bottom" secondItem="enR-XI-7eE" secondAttribute="bottom" id="zcB-VO-bZZ"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="apc-FE-Xcd" firstAttribute="centerY" secondItem="Txm-TW-ePR" secondAttribute="centerY" id="9tr-FG-bPu"/>
+                                        <constraint firstItem="apc-FE-Xcd" firstAttribute="top" secondItem="Txm-TW-ePR" secondAttribute="top" id="EHs-U8-VAD"/>
+                                        <constraint firstItem="apc-FE-Xcd" firstAttribute="leading" secondItem="Txm-TW-ePR" secondAttribute="leading" constant="20" symbolic="YES" id="QZB-Qm-Zmh"/>
+                                        <constraint firstAttribute="bottom" secondItem="apc-FE-Xcd" secondAttribute="bottom" id="Tyh-Dt-gW7"/>
+                                        <constraint firstAttribute="trailing" secondItem="apc-FE-Xcd" secondAttribute="trailing" constant="20" symbolic="YES" id="nVe-ES-Fsr"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UD6-eY-ckJ" id="zWL-XT-7Qe"/>
+                            <outlet property="delegate" destination="UD6-eY-ckJ" id="0PZ-v0-h39"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="WEg-7f-wTm"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zC7-Cp-FvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="347.29064039408871" y="-92"/>
+        </scene>
+        <!--Payments-->
+        <scene sceneID="rss-IP-hDq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lpW-UW-kzL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Payments" image="Payments" id="hzC-UP-mW2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q0X-sx-0DZ">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UD6-eY-ckJ" kind="relationship" relationship="rootViewController" id="r7V-Em-qbi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w8U-Kn-A3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-514" y="-92"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Payments" width="28" height="28"/>
+    </resources>
+</document>
