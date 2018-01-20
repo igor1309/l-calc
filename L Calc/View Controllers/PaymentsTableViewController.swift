@@ -24,6 +24,7 @@ class PaymentsTableViewController: UITableViewController {
 //    var term = UserDefaults.standard.double(forKey: "Term")
     // FIXME: forKey: "AnnuitySegment"
     
+    // FIXME: данные должны передаваться из расчетов!
     var payments = Payments(for: Loan(5000000.0, 9.4, 13.0, .decliningBalance))
     
     override func viewDidAppear(_ animated: Bool) {
