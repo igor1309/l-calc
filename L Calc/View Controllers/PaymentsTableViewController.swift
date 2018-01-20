@@ -27,7 +27,8 @@ class PaymentsTableViewController: UITableViewController {
     var payments = Payments(for: Loan(5000000.0, 9.4, 13.0, .decliningBalance))
     
     override func viewDidAppear(_ animated: Bool) {
-//        print(calcPaymentsSchedule(loan: Loan(amount, rate, term, .decliningBalance)))
+        // FIXME: check if usind decimals settings has been changed
+        // if changed reload table
     }
     
     override func viewDidLoad() {
@@ -52,14 +53,18 @@ class PaymentsTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return Int(term) + 1
     }
-
     
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let numFormat: String
+        if UserDefaults.standard.bool(forKey: "UseDecimals") {
+            numFormat = "%.2f"
+        } else {
+            numFormat = "%.0f"
+        }
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "MonthlyPayment",
             for: indexPath)
-
 
         let month = cell.viewWithTag(1006) as! UILabel
         let beginningBalance = cell.viewWithTag(1001) as! UILabel
@@ -75,7 +80,7 @@ class PaymentsTableViewController: UITableViewController {
         // http://www.thecalculatorsite.com/finance/calculators/loancalculator.php
         let p = pow(1 + r, 0 - term)
         let monthlyPayment = amount / ((1 - p) / r)
-        totalPayment.text = String(format: "%.2f",
+        totalPayment.text = String(format: numFormat,
                                    locale: loc,
                                    monthlyPayment)
         
@@ -104,19 +109,19 @@ class PaymentsTableViewController: UITableViewController {
                        locale: loc,
                        indexPath.row)
             beginningBalance.text =
-                String(format: "%.2f",
+                String(format: numFormat,
                        locale: loc,
                        payment.beginningBalance)
             interest.text =
-                String(format: "%.2f",
+                String(format: numFormat,
                        locale: loc,
                        payment.interest)
             principal.text =
-                String(format: "%.2f",
+                String(format: numFormat,
                        locale: loc,
                        payment.principal)
             endingBalance.text =
-                String(format: "%.2f",
+                String(format: numFormat,
                        locale: loc,
                        payment.endingBalance)
         }

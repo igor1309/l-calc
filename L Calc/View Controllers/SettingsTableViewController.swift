@@ -17,6 +17,8 @@ class SettingsTableViewController: UITableViewController {
         UserDefaults.standard.set(sender.isOn,
                                   forKey: "UseDecimals")
         useDecimals = sender.isOn
+        // FIXME: send notification that using decimals swich changed
+        // Payments Schedule and Loan Calc should be listening for notification
     }
     
     override func viewDidLoad() {
