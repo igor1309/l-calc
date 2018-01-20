@@ -28,22 +28,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use US" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="x70-aI-Jbt">
+                                                    <rect key="frame" x="20" y="10.5" width="57.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NcH-xP-s85">
                                                     <rect key="frame" x="306" y="7" width="51" height="31"/>
                                                     <color key="onTintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="thumbTintColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use US" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="x70-aI-Jbt">
-                                                    <rect key="frame" x="16" y="11" width="57.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="NcH-xP-s85" secondAttribute="trailing" constant="20" symbolic="YES" id="9A8-Tz-0sS"/>
-                                                <constraint firstItem="x70-aI-Jbt" firstAttribute="leading" secondItem="ENh-dj-rRm" secondAttribute="leadingMargin" id="S1L-FN-3Ww"/>
-                                                <constraint firstItem="NcH-xP-s85" firstAttribute="centerY" secondItem="ENh-dj-rRm" secondAttribute="centerY" id="Wxu-Lt-HB3"/>
+                                                <constraint firstItem="x70-aI-Jbt" firstAttribute="leading" secondItem="ENh-dj-rRm" secondAttribute="leading" constant="20" symbolic="YES" id="hEh-01-ZZP"/>
+                                                <constraint firstItem="NcH-xP-s85" firstAttribute="centerY" secondItem="ENh-dj-rRm" secondAttribute="centerY" id="jfg-AV-hrE"/>
                                                 <constraint firstItem="x70-aI-Jbt" firstAttribute="centerY" secondItem="ENh-dj-rRm" secondAttribute="centerY" id="tLZ-x1-n4p"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -59,16 +59,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Use Decimals in Payments Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlY-3w-6ui">
-                                                    <rect key="frame" x="16" y="11" width="278" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Decimals in Payments Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlY-3w-6ui">
+                                                    <rect key="frame" x="16" y="11.5" width="278" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g1n-rv-6uA">
-                                                    <rect key="frame" x="310" y="6" width="49" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g1n-rv-6uA">
+                                                    <rect key="frame" x="306" y="6" width="51" height="31"/>
                                                     <color key="onTintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="thumbTintColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
@@ -77,6 +75,12 @@
                                                     </connections>
                                                 </switch>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="g1n-rv-6uA" firstAttribute="centerY" secondItem="3Am-k8-Vlq" secondAttribute="centerY" id="5GQ-D2-gKa"/>
+                                                <constraint firstItem="qlY-3w-6ui" firstAttribute="centerY" secondItem="3Am-k8-Vlq" secondAttribute="centerY" id="FAA-Kh-6kI"/>
+                                                <constraint firstItem="qlY-3w-6ui" firstAttribute="leading" secondItem="3Am-k8-Vlq" secondAttribute="leadingMargin" id="rhz-et-ufU"/>
+                                                <constraint firstAttribute="trailing" secondItem="g1n-rv-6uA" secondAttribute="trailing" constant="20" symbolic="YES" id="xL4-oJ-9Rh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
