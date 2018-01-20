@@ -13,7 +13,7 @@
         <!--Settings-->
         <scene sceneID="NB6-XF-IaX">
             <objects>
-                <tableViewController id="16l-kt-i4T" sceneMemberID="viewController">
+                <tableViewController id="16l-kt-i4T" customClass="SettingsTableViewController" customModule="L_Calc" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Jjr-Zh-00R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -73,6 +73,7 @@
                                                     <color key="thumbTintColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="useDecimalsSwitch:" destination="PN4-7m-iZF" eventType="valueChanged" id="Ghw-Gt-eyJ"/>
+                                                        <action selector="useDecimalsSwitch:" destination="16l-kt-i4T" eventType="valueChanged" id="Sh1-33-alG"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -87,6 +88,9 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Settings" image="Settings Icon" id="3yN-ha-m3Q"/>
+                    <connections>
+                        <outlet property="useDecimalsSwitch" destination="g1n-rv-6uA" id="18e-Fz-rEi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TbF-o3-JpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="PN4-7m-iZF" userLabel="Exit" sceneMemberID="exit"/>
