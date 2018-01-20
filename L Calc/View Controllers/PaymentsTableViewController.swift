@@ -27,14 +27,20 @@ class PaymentsTableViewController: UITableViewController {
     // FIXME: данные должны передаваться из расчетов!
     var payments = Payments(for: Loan(5000000.0, 9.4, 13.0, .decliningBalance))
     
+    
     override func viewDidAppear(_ animated: Bool) {
-        // FIXME: check if usind decimals settings has been changed
-        // if changed reload table
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         payments = Payments(for: Loan(amount, rate, term, .decliningBalance))
+        
+        NotificationCenter.default.addObserver(
+            forName: .decimalsUsageChanged,
+            object: .none,
+            queue: OperationQueue.main) { [weak self] _ in
+                self?.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -129,6 +135,12 @@ class PaymentsTableViewController: UITableViewController {
         
         return cell
     }
+    
+    @objc func refreshTable(notification: NSNotification) {
+        //TODO: write refresh method usind code in tableView(_:cellForRowAt:)
+        print("тут будет код по обновлению таблицы")
+    }
+    
     
     /*
      struct Payment {
