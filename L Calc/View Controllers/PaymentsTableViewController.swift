@@ -10,6 +10,12 @@ import UIKit
 
 class PaymentsTableViewController: UITableViewController {
     
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        // FIXME: Tell view controller to dissapper
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
     var numFormat = ""
     
     // FIXME:   var loc = Locale.current
