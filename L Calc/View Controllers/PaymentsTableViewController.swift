@@ -15,6 +15,9 @@ class PaymentsTableViewController: UITableViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func shareSchedule(_ sender: UIBarButtonItem) {
+        // TODO: create share action
+    }
     
     var numFormat = ""
     
