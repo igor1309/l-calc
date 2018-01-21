@@ -56,10 +56,26 @@ class Payments {
         }
     }
     
+/*
     convenience init (amount: Double = 5000000.0,
                       rate: Double = 9.4,
                       term: Double = 12.0,
                       type: Loan.InterestType = .decliningBalance) {
         self.init(for: Loan(amount, rate, term, type))
     }
+ */
+    
+    convenience init (
+        amount: Double = UserDefaults.standard.double(forKey: "Principal"),
+        rate: Double = UserDefaults.standard.double(
+        forKey: "Rate"),
+        term: Double = UserDefaults.standard.double(
+        forKey: "Term"),
+        // FIXME: forKey: "AnnuitySegment"
+        type: Loan.InterestType = .decliningBalance) {
+        
+        self.init(for: Loan(amount, rate, term, type))
+    }
+
+    
 }

@@ -21,9 +21,11 @@ class ViewController: UIViewController {
     
 
     @IBOutlet weak var sumLabel: UILabel! // Trebuchet MS 56.0
+    @IBOutlet weak var sumSubLabel: UILabel!
     @IBOutlet weak var sumStack: UIStackView!
 
     @IBOutlet weak var rateLabel: UILabel!
+    @IBOutlet weak var rateSubLabel: UILabel!
     @IBOutlet weak var rateStack: UIStackView!
     
     var previousX: CGPoint!
@@ -88,7 +90,8 @@ class ViewController: UIViewController {
             previousX = .zero
             normalLabelColor = sumLabel.textColor
             sumLabel.textColor = .orange
-        
+            sumSubLabel.textColor = .orange
+
         case .changed:
             let x = gestureRecognizer.translation(in: self.view).x
             let distanceX = x - previousX.x
@@ -121,7 +124,8 @@ class ViewController: UIViewController {
         case .ended:
             change.selectionChanged()
             sumLabel.textColor = normalLabelColor
-        
+            sumSubLabel.textColor = normalLabelColor
+
         default:
             print("smth else")
         }
@@ -139,7 +143,8 @@ class ViewController: UIViewController {
             ratePreviousX = .zero
             normalLabelColor = rateLabel.textColor
             rateLabel.textColor = .orange
-    
+            rateSubLabel.textColor = .orange
+
         case .changed:
             let x = gestureRecognizer.translation(in: self.view).x
             let distanceX = x - ratePreviousX.x
@@ -163,7 +168,8 @@ class ViewController: UIViewController {
         case .ended:
             change.selectionChanged()
             rateLabel.textColor = normalLabelColor
-    
+            rateSubLabel.textColor = normalLabelColor
+
         default:
             print("smth else")
         }
@@ -179,6 +185,8 @@ class ViewController: UIViewController {
             termPreviousX = .zero
             normalLabelColor = termLabel.textColor
             termLabel.textColor = .orange
+            termSubLabel.textColor = .orange
+
         case .changed:
             let x = gestureRecognizer.translation(in: self.view).x
             let distanceX = x - termPreviousX.x
@@ -218,9 +226,12 @@ class ViewController: UIViewController {
                 
                 calculateLoan()
             }
+            
         case .ended:
             change.selectionChanged()
             termLabel.textColor = normalLabelColor
+            termSubLabel.textColor = normalLabelColor
+
         default:
             print("smth else")
         }
@@ -390,6 +401,9 @@ class ViewController: UIViewController {
 
         //  provide haptic feedback
         change.selectionChanged()
+        
+        // sync user defaults
+        UserDefaults.standard.synchronize()
         
         // notify that load has beed changed
         NotificationCenter.default.post(

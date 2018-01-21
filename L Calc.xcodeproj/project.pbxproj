@@ -19,6 +19,7 @@
 		2A1D5C0F200E56C8009199C5 /* PaymentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D5C0E200E56C8009199C5 /* PaymentsTableViewController.swift */; };
 		2A58C9C02007619600516471 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A58C9BF2007619600516471 /* Settings.storyboard */; };
 		2A68A10F2014F075000B947F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68A10E2014F075000B947F /* Notifications.swift */; };
+		2A68A1112014F240000B947F /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68A1102014F240000B947F /* Fonts.swift */; };
 		2A908F762006604700F08AFA /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A908F752006604700F08AFA /* Loan.swift */; };
 		2A908F782006A7A700F08AFA /* LoanCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A908F772006A7A700F08AFA /* LoanCalculation.swift */; };
 		2ABAD49D200B3C8D004E7EB5 /* LoanCalcTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABAD49C200B3C8D004E7EB5 /* LoanCalcTableViewController.swift */; };
@@ -66,6 +67,7 @@
 		2A58C9BF2007619600516471 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2A68A10D2014CF57000B947F /* L Calc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "L Calc.entitlements"; sourceTree = "<group>"; };
 		2A68A10E2014F075000B947F /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		2A68A1102014F240000B947F /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		2A908F752006604700F08AFA /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		2A908F772006A7A700F08AFA /* LoanCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCalculation.swift; sourceTree = "<group>"; };
 		2ABAD49C200B3C8D004E7EB5 /* LoanCalcTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCalcTableViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				2A68A10D2014CF57000B947F /* L Calc.entitlements */,
-				2AF4FBE82003868300C94300 /* Colors.swift */,
+				2A68A1122014F27A000B947F /* Extensions */,
 				2ABAD49B200B3C4D004E7EB5 /* Data Model */,
 				2A58C9C2200761F600516471 /* View Controllers */,
 				2A58C9C1200761DD00516471 /* Storyboards */,
@@ -176,9 +178,18 @@
 				2A908F772006A7A700F08AFA /* LoanCalculation.swift */,
 				2A1B3FCA1FF2D95100E912B8 /* ViewController.swift */,
 				2ABAD49C200B3C8D004E7EB5 /* LoanCalcTableViewController.swift */,
-				2A68A10E2014F075000B947F /* Notifications.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		2A68A1122014F27A000B947F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2AF4FBE82003868300C94300 /* Colors.swift */,
+				2A68A10E2014F075000B947F /* Notifications.swift */,
+				2A68A1102014F240000B947F /* Fonts.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2ABAD49B200B3C4D004E7EB5 /* Data Model */ = {
@@ -342,6 +353,7 @@
 				2A1B3FC91FF2D95100E912B8 /* AppDelegate.swift in Sources */,
 				2A1D5C0F200E56C8009199C5 /* PaymentsTableViewController.swift in Sources */,
 				2A908F762006604700F08AFA /* Loan.swift in Sources */,
+				2A68A1112014F240000B947F /* Fonts.swift in Sources */,
 				2A18630C200F554C00D96887 /* PaymentsSchedule.swift in Sources */,
 				2A0CD7962013252600FE8404 /* SettingsTableViewController.swift in Sources */,
 			);

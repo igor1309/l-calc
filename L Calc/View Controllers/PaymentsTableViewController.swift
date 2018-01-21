@@ -10,35 +10,42 @@ import UIKit
 
 class PaymentsTableViewController: UITableViewController {
     
+    var numFormat = ""
+    
     // FIXME:   var loc = Locale.current
     var loc = Locale(identifier: "en_US")
 
-    
+    var amount = UserDefaults.standard.double(forKey: "Principal")
+    var rate = UserDefaults.standard.double(forKey: "Rate")
+    var term = UserDefaults.standard.double(forKey: "Term")
+    // FIXME: forKey: "AnnuitySegment"
+
     // FIXME: move everything to data model (?)
     
-    var amount = Double(5000000)
-    var rate = Double(9.4)
-    var term = Double(13)
-//    var amount = UserDefaults.standard.double(forKey: "Principal")
-//    var rate = UserDefaults.standard.double(forKey: "Rate")
-//    var term = UserDefaults.standard.double(forKey: "Term")
-    // FIXME: forKey: "AnnuitySegment"
-    
+//    var amount = Double(5000000)
+//    var rate = Double(9.4)
+//    var term = Double(13)
+
     // FIXME: данные должны передаваться из расчетов!
-    var payments = Payments(for: Loan(5000000.0, 9.4, 13.0, .decliningBalance))
-    
+//    var payments = Payments(for: Loan(5000000.0, 9.4, 13.0, .decliningBalance))
+    var payments = Payments()
     
     override func viewDidAppear(_ animated: Bool) {
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        payments = Payments(for: Loan(amount, rate, term, .decliningBalance))
+        changeNumFormat()
+        payments = Payments(for: Loan(amount,
+                                      rate,
+                                      term,
+                                      .decliningBalance))
         
         NotificationCenter.default.addObserver(
             forName: .decimalsUsageChanged,
             object: .none,
             queue: OperationQueue.main) { [weak self] _ in
+                self?.changeNumFormat()
                 self?.tableView.reloadData()
         }
 
@@ -46,6 +53,16 @@ class PaymentsTableViewController: UITableViewController {
             forName: .loanChanged,
             object: .none,
             queue: OperationQueue.main) { [weak self] _ in
+                self?.amount = UserDefaults.standard.double(
+                    forKey: "Principal")
+                self?.rate = UserDefaults.standard.double(
+                    forKey: "Rate")
+                self?.term = UserDefaults.standard.double(
+                    forKey: "Term")
+                print(self?.term as Any)
+                // FIXME: forKey: "AnnuitySegment"
+                // ????
+
                 self?.tableView.reloadData()
         }
 }
@@ -70,12 +87,6 @@ class PaymentsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let numFormat: String
-        if UserDefaults.standard.bool(forKey: "UseDecimals") {
-            numFormat = "%.2f"
-        } else {
-            numFormat = "%.0f"
-        }
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "MonthlyPayment",
             for: indexPath)
@@ -143,13 +154,23 @@ class PaymentsTableViewController: UITableViewController {
         return cell
     }
     
+    func changeNumFormat() {
+        if UserDefaults.standard.bool(forKey: "UseDecimals") {
+            numFormat = "%.2f"
+        } else {
+            numFormat = "%.0f"
+        }
+    }
+
+
+    /*
+
     @objc func refreshTable(notification: NSNotification) {
         //TODO: write refresh method usind code in tableView(_:cellForRowAt:)
         print("тут будет код по обновлению таблицы")
     }
     
     
-    /*
      struct Payment {
      var beginningBalance: Double
      var interest: Double
@@ -184,15 +205,4 @@ class PaymentsTableViewController: UITableViewController {
      */
 }
 
-extension UIFont {
-    
-    func withTraits(traits:UIFontDescriptorSymbolicTraits...) -> UIFont {
-        let descriptor = self.fontDescriptor
-            .withSymbolicTraits(UIFontDescriptorSymbolicTraits(traits))
-        return UIFont(descriptor: descriptor!, size: 0)
-    }
-    
-    func bold() -> UIFont {
-        return withTraits(traits: .traitBold)
-    }
-}
+
