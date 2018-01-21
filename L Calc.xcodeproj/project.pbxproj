@@ -18,6 +18,7 @@
 		2A1B3FE91FF2D95100E912B8 /* L_CalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3FE81FF2D95100E912B8 /* L_CalcUITests.swift */; };
 		2A1D5C0F200E56C8009199C5 /* PaymentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D5C0E200E56C8009199C5 /* PaymentsTableViewController.swift */; };
 		2A58C9C02007619600516471 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A58C9BF2007619600516471 /* Settings.storyboard */; };
+		2A68A10F2014F075000B947F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68A10E2014F075000B947F /* Notifications.swift */; };
 		2A908F762006604700F08AFA /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A908F752006604700F08AFA /* Loan.swift */; };
 		2A908F782006A7A700F08AFA /* LoanCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A908F772006A7A700F08AFA /* LoanCalculation.swift */; };
 		2ABAD49D200B3C8D004E7EB5 /* LoanCalcTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABAD49C200B3C8D004E7EB5 /* LoanCalcTableViewController.swift */; };
@@ -63,6 +64,8 @@
 		2A1B3FEA1FF2D95100E912B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A1D5C0E200E56C8009199C5 /* PaymentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsTableViewController.swift; sourceTree = "<group>"; };
 		2A58C9BF2007619600516471 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		2A68A10D2014CF57000B947F /* L Calc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "L Calc.entitlements"; sourceTree = "<group>"; };
+		2A68A10E2014F075000B947F /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		2A908F752006604700F08AFA /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		2A908F772006A7A700F08AFA /* LoanCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCalculation.swift; sourceTree = "<group>"; };
 		2ABAD49C200B3C8D004E7EB5 /* LoanCalcTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCalcTableViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 		2A1B3FC71FF2D95100E912B8 /* L Calc */ = {
 			isa = PBXGroup;
 			children = (
+				2A68A10D2014CF57000B947F /* L Calc.entitlements */,
 				2AF4FBE82003868300C94300 /* Colors.swift */,
 				2ABAD49B200B3C4D004E7EB5 /* Data Model */,
 				2A58C9C2200761F600516471 /* View Controllers */,
@@ -172,6 +176,7 @@
 				2A908F772006A7A700F08AFA /* LoanCalculation.swift */,
 				2A1B3FCA1FF2D95100E912B8 /* ViewController.swift */,
 				2ABAD49C200B3C8D004E7EB5 /* LoanCalcTableViewController.swift */,
+				2A68A10E2014F075000B947F /* Notifications.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -254,6 +259,11 @@
 					2A1B3FC41FF2D95100E912B8 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2A1B3FD81FF2D95100E912B8 = {
 						CreatedOnToolsVersion = 9.2;
@@ -324,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A68A10F2014F075000B947F /* Notifications.swift in Sources */,
 				2ABAD49D200B3C8D004E7EB5 /* LoanCalcTableViewController.swift in Sources */,
 				2A908F782006A7A700F08AFA /* LoanCalculation.swift in Sources */,
 				2A1B3FCB1FF2D95100E912B8 /* ViewController.swift in Sources */,
@@ -506,6 +517,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "L Calc/L Calc.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VRVJ9YNRQU;
 				INFOPLIST_FILE = "L Calc/Info.plist";
@@ -521,6 +533,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "L Calc/L Calc.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VRVJ9YNRQU;
 				INFOPLIST_FILE = "L Calc/Info.plist";

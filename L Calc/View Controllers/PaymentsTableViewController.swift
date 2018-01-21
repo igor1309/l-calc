@@ -41,7 +41,14 @@ class PaymentsTableViewController: UITableViewController {
             queue: OperationQueue.main) { [weak self] _ in
                 self?.tableView.reloadData()
         }
-    }
+
+        NotificationCenter.default.addObserver(
+            forName: .loanChanged,
+            object: .none,
+            queue: OperationQueue.main) { [weak self] _ in
+                self?.tableView.reloadData()
+        }
+}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

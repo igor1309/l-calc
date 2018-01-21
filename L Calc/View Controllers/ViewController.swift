@@ -391,6 +391,11 @@ class ViewController: UIViewController {
         //  provide haptic feedback
         change.selectionChanged()
         
+        // notify that load has beed changed
+        NotificationCenter.default.post(
+            Notification(name: .loanChanged))
+
+        
 /*
         // MARK: - test Payments class
         let ps = Payments(for: Loan(sum, rate, term, .decliningBalance))

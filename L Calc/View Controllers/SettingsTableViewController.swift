@@ -33,8 +33,3 @@ class SettingsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 }
-
-
-extension Notification.Name {
-    static let decimalsUsageChanged = Notification.Name("decimalsUsageChanged")
-}
