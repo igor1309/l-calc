@@ -5,6 +5,12 @@
 //  Created by Igor Malyarov on 17.01.2018.
 //  Copyright © 2018 Igor Malyarov. All rights reserved.
 //
+//
+// http://financeformulas.net/Annuity_Payment_Formula.html
+// http://www.thecalculatorsite.com/finance/calculators/loancalculator.php
+// https://brownmath.com/bsci/loan.htm
+// https://stackoverflow.com/questions/27745263/create-loop-for-amortization-schedule-in-swift
+//
 
 import Foundation
 
@@ -22,10 +28,7 @@ class Payments {
 
     init (for loan: Loan) {
         // using: loan.amount loan.rate loan.term loan.type: InterestType
-        // http://financeformulas.net/Annuity_Payment_Formula.html
-        // http://www.thecalculatorsite.com/finance/calculators/loancalculator.php
-        // https://brownmath.com/bsci/loan.htm
-        
+
         let r = loan.rate / 100 / 12    // monthly interest rate
         var payment = Payment()
 

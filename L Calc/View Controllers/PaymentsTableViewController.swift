@@ -13,7 +13,8 @@ class PaymentsTableViewController: UITableViewController {
     
     // TODO: настроить передачу Loan из основного view controller
     
-    
+    var loan: Loan?
+
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         // FIXME: Tell view controller to dissapper
@@ -21,7 +22,8 @@ class PaymentsTableViewController: UITableViewController {
     }
     
     @IBAction func shareSchedule(_ sender: UIBarButtonItem) {
-        // TODO: create share action
+        // FIXME: create share action
+        print("TODO: print and other schedule sharing")
     }
     
     var numFormat = ""
@@ -29,8 +31,6 @@ class PaymentsTableViewController: UITableViewController {
     // FIXME:   var loc = Locale.current
     var loc = Locale(identifier: "en_US")
 
-    var loan: Loan?
-    
     var amount = UserDefaults.standard.double(forKey: "Principal")
     var rate = UserDefaults.standard.double(forKey: "Rate")
     var term = UserDefaults.standard.double(forKey: "Term")
@@ -131,7 +131,7 @@ class PaymentsTableViewController: UITableViewController {
 //        totalPayment.font = totalPayment.font.bold()
 
         if indexPath.row == 0 {
-            month.text = "###"
+            month.text = "#"
 //            month.font = month.font.bold()
             beginningBalance.text = "-> BALANCE"
 //            beginningBalance.font = beginningBalance.font.bold()
@@ -177,48 +177,4 @@ class PaymentsTableViewController: UITableViewController {
             numFormat = "%.0f"
         }
     }
-    
-
-    /*
-
-    @objc func refreshTable(notification: NSNotification) {
-        //TODO: write refresh method usind code in tableView(_:cellForRowAt:)
-        print("тут будет код по обновлению таблицы")
-    }
-    
-    
-     struct Payment {
-     var beginningBalance: Double
-     var interest: Double
-     var principal: Double
-     var totalPayment: Double
-     var endingBalance: Double
-     }
-     
-     // NSDecimalNumber monthlyPayment = LoanAmount * interestRateDecimal / (1 - (pow(1/(1 + interestRateDecimal), months)));
-     
-     // https://stackoverflow.com/questions/27745263/create-loop-for-amortization-schedule-in-swift
-     
-     func calcPaymentsSchedule(loan: Loan) -> [Payment] {
-     var payments = [Payment]()
-     for m in 1...Int(loan.term) {
-     let beginningBalance = loan.amount + Double(m)
-     let interest = loan.amount * loan.rate / 100
-     let principal = loan.amount / loan.term
-     let totalPayment = interest + principal
-     let endingBalance = beginningBalance - principal
-     let pay = Payment(beginningBalance: beginningBalance,
-     interest: interest,
-     principal: principal,
-     totalPayment: totalPayment,
-     endingBalance: endingBalance
-     )
-     
-     payments.append(pay)
-     }
-     return payments
-     }
-     */
 }
-
-

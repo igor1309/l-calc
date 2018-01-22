@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // MARK: IBOutlets
+    // MARK: @IBOutlets
+    // Trebuchet MS 56.0
     
     @IBOutlet weak var monthlyPayment: UILabel!
     @IBOutlet weak var monthlyPaymentCommentLabel: UILabel!
@@ -18,8 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalPayment: UILabel!
     @IBOutlet weak var annuitySegment: UISegmentedControl!
     
-
-    @IBOutlet weak var sumLabel: UILabel! // Trebuchet MS 56.0
+    @IBOutlet weak var sumLabel: UILabel!
     @IBOutlet weak var sumSubLabel: UILabel!
     @IBOutlet weak var sumStack: UIStackView!
 
@@ -55,6 +55,8 @@ class ViewController: UIViewController {
     let change = UISelectionFeedbackGenerator()
     let impact = UIImpactFeedbackGenerator()
 
+    
+    // MARK: @IBActions
     @IBAction func annuitySegmentChanged(
         _ sender: UISegmentedControl) {
         UserDefaults.standard.set(annuitySegment.selectedSegmentIndex,
@@ -216,24 +218,7 @@ class ViewController: UIViewController {
                 termLabel.text = String(format: "%.0f", term)
                 UserDefaults.standard.set(term, forKey: "Term")
                 
-                var yearsString = String(format: "%.1f", term/12)  + " YEARS)"
-                //                if loc == Locale(identifier: "ru_RU") {
-                //FIXME: 1 год, 1.2 и далее 2 — 4 года, 5 лет…
-                let yearsInTerm = term/12
-                if yearsInTerm == 1 {
-                    yearsString = "1 ГОД)"
-                } else if yearsInTerm < 5 {
-                    if yearsInTerm.truncatingRemainder(dividingBy: 1.0) == 0 {
-                        yearsString = String(format: "%.0f", term/12)  + " ГОДА)"
-                    } else {
-                        yearsString = String(format: "%.1f", term/12)  + " ГОДА)"
-                    }
-                } else {
-                    yearsString = String(format: "%.1f", term/12)  + " ЛЕТ)"
-                }
-                //                }
-
-                termSubLabel.text = "СРОК КРЕДИТА, МЕСЯЦЕВ (" + yearsString
+                termSubLabel.text = termSubLabelText(for: term)
                 termPreviousX.x = x
                 
                 calculateLoan()
@@ -283,11 +268,35 @@ class ViewController: UIViewController {
             term = 12
         }
         termLabel.text = String(format: "%.0f", term)
-        termSubLabel.text = "–    СРОК КРЕДИТА, МЕСЯЦЕВ (" + String(format: "%.1f", term/12) + " ЛЕТ)    +"
-        
+        // FIXME дать красиво срок кредита
+//        termSubLabel.text = "СРОК КРЕДИТА, МЕСЯЦЕВ (" + String(format: "%.1f", term/12) + " ЛЕТ)"
+        termSubLabel.text = termSubLabelText(for: term)
+
         calculateLoan()
     }
 
+    func termSubLabelText(for term: Double) -> String {
+        var yearsString = String(format: "%.1f", term/12)  + " YEARS)"
+        
+        // FIXME: localization: if loc == Locale(identifier: "ru_RU") {
+        
+        let yearsInTerm = term/12
+        //MARK: 1 год, 1.1, 1.2 и далее 2 — 4: «года», а 5 и далее — «лет»
+        if yearsInTerm == 1 {
+            yearsString = "1 ГОД)"
+        } else if yearsInTerm < 5 {
+            if yearsInTerm.truncatingRemainder(dividingBy: 1.0) == 0 {
+                yearsString = String(format: "%.0f", term/12)  + " ГОДА)"
+            } else {
+                yearsString = String(format: "%.1f", term/12)  + " ГОДА)"
+            }
+        } else {
+            yearsString = String(format: "%.1f", term/12)  + " ЛЕТ)"
+        }
+        
+        return "СРОК КРЕДИТА, МЕСЯЦЕВ (" + yearsString
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -375,7 +384,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // TODO: make String extension instead of function inside this class??
+    // FIXME: make String extension instead of function inside this class??
     func numberAsNiceString(_ number: Double) -> String {
         let formatter = NumberFormatter()
         formatter.usesGroupingSeparator = true
@@ -387,7 +396,7 @@ class ViewController: UIViewController {
     }
     
     
-    // TODO: make String extension instead of function inside this class
+    // FIXME: make String extension instead of function inside this class
     func percentageAsNiceString(_ number: Double) -> String {
         return String(format: "%.2f",
                       locale: loc,
