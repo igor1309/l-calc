@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoanCalculationController: UIViewController, LoanDelegate {
+class LoanCalculationController: UIViewController {
 
 //    @IBOutlet weak var iceCreamDescription: UILabel!
 //    @IBOutlet weak var iceCreamPriceLabel: UILabel!
@@ -80,10 +80,4 @@ class LoanCalculationController: UIViewController, LoanDelegate {
         type = (Loan.InterestType(rawValue: t)?.rawValue)!
     }
 
-    
-//MARK: Delegates
-    
-    func loanDidChange() {
-        refreshDisplay()
-    }
 }

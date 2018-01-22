@@ -8,13 +8,7 @@
 
 import Foundation
 
-protocol LoanDelegate{
-    func loanDidChange()
-}
-
 struct Loan {
-    
-    var delegate: LoanDelegate? = nil
     
     enum InterestType: String {
         case fixedFlat          = "Fixed"       //  в конце срока
@@ -27,8 +21,6 @@ struct Loan {
     var amount: Double {     //  сумма кредита
         
         didSet {
-            delegate?.loanDidChange()
-            
             // контроль границ диапазона суммы кредита
             if amount > maxPrincipal {
                 amount = maxPrincipal
@@ -46,10 +38,6 @@ struct Loan {
         }
     }
     var rate: Double {    //  годовая процентная ставка
-        didSet {
-            delegate?.loanDidChange()
-        }
-        
         willSet {
             if rate != newValue {  // save if value changes
                 UserDefaults.standard.set(rate, forKey: "Rate")
@@ -58,10 +46,6 @@ struct Loan {
     }
 
     var term: Double {    //  срок кредита в месяцах
-        didSet {
-            delegate?.loanDidChange()
-        }
-        
         willSet {
             if term != newValue {  // save if value changes
                 UserDefaults.standard.set(term, forKey: "Term")
@@ -70,10 +54,6 @@ struct Loan {
     }
 
     var type: InterestType {   //  аннуитет
-        didSet {
-            delegate?.loanDidChange()
-        }
-        
         willSet {
             if type != newValue {  // save if value changes
                 UserDefaults.standard.set(type, forKey: "InterestType")
@@ -135,23 +115,23 @@ struct Loan {
     init() {
         // MARK: + First Time handling
         let userDefaults = UserDefaults.standard
-        let firstTime = userDefaults.bool(forKey: "FirstTime")
+        let notFirstTime = userDefaults.bool(forKey: "NotFirstTime")
         
-        if firstTime {
-            self.amount = 5000000.0
-            self.rate = 9.4
-            self.term = 12.0
-            self.type = .decliningBalance
-            
-            userDefaults.set(false, forKey: "FirstTime")
-            userDefaults.synchronize()
-        } else {
+        if notFirstTime {
             amount = userDefaults.double(forKey: "Principal")
             rate = userDefaults.double(forKey: "Rate")
             term = userDefaults.double(forKey: "Term")
             // FIXME: read UserDefaults forKey: "AnnuitySegment"
             // FIXME: допилить: определить и использовать loan type as property of class
             type = .decliningBalance
+        } else {
+            self.amount = 5000000.0
+            self.rate = 9.4
+            self.term = 60.0
+            self.type = .decliningBalance
+            
+            userDefaults.set(true, forKey: "NotFirstTime")
+            userDefaults.synchronize()
         }
     }
     
