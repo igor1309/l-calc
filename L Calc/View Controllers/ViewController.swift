@@ -35,23 +35,16 @@ class ViewController: UIViewController {
     //    var loc = Locale.current
     var loc = Locale(identifier: "en_US")
     
+    // FIXME: должно ли это быть здесь или переменные должны быть спрятаны в методы?
     var previousX: CGPoint!
     var ratePreviousX: CGPoint!
     var termPreviousX: CGPoint!
     
-    var sum = UserDefaults.standard.double(forKey: "Principal")
-    var rate = UserDefaults.standard.double(forKey: "Rate")
-    var term = UserDefaults.standard.double(forKey: "Term")
-    // FIXME: initialize annuitySegment
     
-    let loan = Loan(UserDefaults.standard.double(forKey: "Principal"),
-                    UserDefaults.standard.double(forKey: "Rate"),
-                    UserDefaults.standard.double(forKey: "Term"),
-                    // FIXME: допилить: определить и использовать loan type as property of class
-                    .decliningBalance)
-
+    var loan = Loan()
     
-    // Feedback Generators
+    
+    // MARK: prepare Feedback Generators
     let change = UISelectionFeedbackGenerator()
     let impact = UIImpactFeedbackGenerator()
 
@@ -122,13 +115,13 @@ class ViewController: UIViewController {
             if abs(distanceX) > threshold {
                 
                 if distanceX > 0 {
-                    sum = stepUp(sum)
+                    loan.amount = stepUp(loan.amount)
                 } else if distanceX < 0 {
-                    sum = stepDown(sum)
+                    loan.amount = stepDown(loan.amount)
                 }
                
-                sumLabel.text = numberAsNiceString(sum)
-                UserDefaults.standard.set(sum, forKey: "Principal")
+                sumLabel.text = numberAsNiceString(loan.amount)
+                UserDefaults.standard.set(loan.amount, forKey: "Principal")
                 
                 previousX.x = x
                 
@@ -167,12 +160,12 @@ class ViewController: UIViewController {
             if abs(distanceX) > threshold {
                 
                 if distanceX > 0 {
-                    rate = rateUp(rate)
+                    loan.rate = rateUp(loan.rate)
                 } else if distanceX < 0 {
-                    rate = rateDown(rate)
+                    loan.rate = rateDown(loan.rate)
                 }
-                rateLabel.text = percentageAsNiceString(rate)
-                UserDefaults.standard.set(rate, forKey: "Rate")
+                rateLabel.text = percentageAsNiceString(loan.rate)
+                UserDefaults.standard.set(loan.rate, forKey: "Rate")
                 
                 ratePreviousX.x = x
                 
@@ -209,16 +202,16 @@ class ViewController: UIViewController {
             if abs(distanceX) > threshold {
                 
                 if distanceX > 0 {
-                    term += 1
+                    loan.term += 1
                 } else if distanceX < 0 {
-                    if term > 1 {
-                        term -= 1
+                    if loan.term > 1 {
+                        loan.term -= 1
                     }
                 }
-                termLabel.text = String(format: "%.0f", term)
-                UserDefaults.standard.set(term, forKey: "Term")
+                termLabel.text = String(format: "%.0f", loan.term)
+                UserDefaults.standard.set(loan.term, forKey: "Term")
                 
-                termSubLabel.text = termSubLabelText(for: term)
+                termSubLabel.text = termSubLabelText(for: loan.term)
                 termPreviousX.x = x
                 
                 calculateLoan()
@@ -237,35 +230,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
+        
+        
+        
         let defaults = UserDefaults.standard
 
-        
         // FIXME: move to Data Model
         annuitySegment.selectedSegmentIndex = defaults.integer(
             forKey: "AnnuitySegment")
         
-        // FIXME: move to Data Model
-        sum = defaults.double(forKey: "Principal")
-        if sum == 0 {
-            sum = 1000000.0
-        }
-        sumLabel.text = numberAsNiceString(sum)
-        
-        // FIXME: move to Data Model
-        rate = defaults.double(forKey: "Rate")
-        if rate == 0 {
-            rate = 9.0
-        }
-        rateLabel.text = percentageAsNiceString(rate)
-
-        // FIXME: move to Data Model
-        term = defaults.double(forKey: "Term")
-        if term == 0 {
-            term = 12
-        }
-        termLabel.text = String(format: "%.0f", term)
-        termSubLabel.text = termSubLabelText(for: term)
-
         calculateLoan()
     }
 
@@ -307,6 +283,7 @@ class ViewController: UIViewController {
 
     func stepUp(_ number: Double) -> Double {
         
+        // FIXME:
         // вставить код проверки? is number = nil?
         // а нужен ли Double? Может достаточно Int?
         
@@ -399,39 +376,36 @@ class ViewController: UIViewController {
     
     func calculateLoan() {
         // MARK: TODO вычисления по кредиту
-        let r = rate / 100 / 12    // monthly interest rate
+        let r = loan.rate / 100 / 12    // monthly interest rate
         if annuitySegment.selectedSegmentIndex == 1 {
             //  выбран аннуитет
             //  http://financeformulas.net/Annuity_Payment_Formula.html
-            let p = pow(1 + r, 0 - term)
-            let mp = sum / ((1 - p) / r)
+            let p = pow(1 + r, 0 - loan.term)
+            let mp = loan.amount / ((1 - p) / r)
             monthlyPayment.text = String(format: "%.0f",
                                          locale: loc,
                                          mp)
             totalInterest.text = String(format: "%.0f",
                                         locale: loc,
-                                        mp * term - sum)
+                                        mp * loan.term - loan.amount)
             totalPayment.text = String(format: "%.0f",
                                        locale: loc,
-                                       mp * term)
+                                       mp * loan.term)
         } else {
             monthlyPayment.text = String(format: "%.0f",
                                          locale: loc,
-                                         sum * r)
+                                         loan.amount * r)
             totalInterest.text = String(format: "%.0f",
                                         locale: loc,
-                                        sum * r * term)
+                                        loan.amount * r * loan.term)
             totalPayment.text = String(format: "%.0f",
                                         locale: loc,
-                                        sum * (1 + r * term))
+                                        loan.amount * (1 + r * loan.term))
         }
 
         //  provide haptic feedback
         change.selectionChanged()
-        
-        // sync user defaults
-        UserDefaults.standard.synchronize()
-        
+                
         // notify that load has beed changed
         NotificationCenter.default.post(
             Notification(name: .loanChanged))

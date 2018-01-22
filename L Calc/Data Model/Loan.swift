@@ -150,27 +150,7 @@ struct Loan {
             rate = userDefaults.double(forKey: "Rate")
             term = userDefaults.double(forKey: "Term")
             // FIXME: read UserDefaults forKey: "AnnuitySegment"
-            type = .decliningBalance
-        }
-    }
-    
-    mutating func handleFirstTime() {
-        let userDefaults = UserDefaults.standard
-        let firstTime = userDefaults.bool(forKey: "FirstTime")
-        
-        if firstTime {
-            self.amount = 5000000.0
-            self.rate = 9.4
-            self.term = 12.0
-            self.type = .decliningBalance
-        
-            userDefaults.set(false, forKey: "FirstTime")
-            userDefaults.synchronize()
-        } else {
-            amount = userDefaults.double(forKey: "Principal")
-            rate = userDefaults.double(forKey: "Rate")
-            term = userDefaults.double(forKey: "Term")
-            // FIXME: read UserDefaults forKey: "AnnuitySegment"
+            // FIXME: допилить: определить и использовать loan type as property of class
             type = .decliningBalance
         }
     }

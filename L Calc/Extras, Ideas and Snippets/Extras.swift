@@ -18,3 +18,31 @@
 //            monthlyPayment.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: font)
 //        }
 
+
+
+//NotificationCenter.default.addObserver(
+//    forName: .decimalsUsageChanged,
+//    object: .none,
+//    queue: OperationQueue.main) { [weak self] _ in
+//        self?.changeNumFormat()
+//        self?.tableView.reloadData()
+//}
+//
+//NotificationCenter.default.addObserver(
+//    forName: .loanChanged,
+//    object: .none,
+//    queue: OperationQueue.main) { [weak self] _ in
+//        self?.amount = UserDefaults.standard.double(
+//            forKey: "Principal")
+//        self?.rate = UserDefaults.standard.double(
+//            forKey: "Rate")
+//        self?.term = UserDefaults.standard.double(
+//            forKey: "Term")
+//        print(self?.term as Any)
+//        // FIXME: forKey: "AnnuitySegment"
+//        // ????
+//
+//        self?.tableView.reloadData()
+//}
+
+

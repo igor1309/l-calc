@@ -31,19 +31,12 @@ class PaymentsTableViewController: UITableViewController {
     // FIXME:   var loc = Locale.current
     var loc = Locale(identifier: "en_US")
 
-    var amount = UserDefaults.standard.double(forKey: "Principal")
-    var rate = UserDefaults.standard.double(forKey: "Rate")
-    var term = UserDefaults.standard.double(forKey: "Term")
+//    var amount = UserDefaults.standard.double(forKey: "Principal")
+//    var rate = UserDefaults.standard.double(forKey: "Rate")
+//    var term = UserDefaults.standard.double(forKey: "Term")
     // FIXME: forKey: "AnnuitySegment"
 
-    // FIXME: move everything to data model (?)
-    
-//    var amount = Double(5000000)
-//    var rate = Double(9.4)
-//    var term = Double(13)
 
-    // FIXME: данные должны передаваться из расчетов!
-//    var payments = Payments(for: Loan(5000000.0, 9.4, 13.0, .decliningBalance))
     var payments = Payments()
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,55 +45,29 @@ class PaymentsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         changeNumFormat()
-        payments = Payments(for: Loan(amount,
-                                      rate,
-                                      term,
-                                      .decliningBalance))
-        
-/*        NotificationCenter.default.addObserver(
-            forName: .decimalsUsageChanged,
-            object: .none,
-            queue: OperationQueue.main) { [weak self] _ in
-                self?.changeNumFormat()
-                self?.tableView.reloadData()
-        }
-
-        NotificationCenter.default.addObserver(
-            forName: .loanChanged,
-            object: .none,
-            queue: OperationQueue.main) { [weak self] _ in
-                self?.amount = UserDefaults.standard.double(
-                    forKey: "Principal")
-                self?.rate = UserDefaults.standard.double(
-                    forKey: "Rate")
-                self?.term = UserDefaults.standard.double(
-                    forKey: "Term")
-                print(self?.term as Any)
-                // FIXME: forKey: "AnnuitySegment"
-                // ????
-
-                self?.tableView.reloadData()
-        }
- */
-        
-}
+        payments = Payments(for: loan!)
+//        payments = Payments(for: Loan(amount,
+//                                      rate,
+//                                      term,
+//                                      .decliningBalance))
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Int(term) + 1
+        return Int(loan!.term) + 1
     }
     
     override func tableView(_ tableView: UITableView,
@@ -116,13 +83,13 @@ class PaymentsTableViewController: UITableViewController {
         let totalPayment = cell.viewWithTag(1004) as! UILabel
         let endingBalance = cell.viewWithTag(1005) as! UILabel
 
-        let r = rate / 100 / 12    // monthly interest rate
+        let r = (loan?.rate)! / 100 / 12    // monthly interest rate
         //            if annuitySegment.selectedSegmentIndex == 1 {
         //  выбран аннуитет
         //  http://financeformulas.net/Annuity_Payment_Formula.html
         // http://www.thecalculatorsite.com/finance/calculators/loancalculator.php
-        let p = pow(1 + r, 0 - term)
-        let monthlyPayment = amount / ((1 - p) / r)
+        let p = pow(1 + r, 0 - (loan?.term)!)
+        let monthlyPayment = (loan?.amount)! / ((1 - p) / r)
         totalPayment.text = String(format: numFormat,
                                    locale: loc,
                                    monthlyPayment)
