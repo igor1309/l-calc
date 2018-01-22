@@ -19,7 +19,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Кредит-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="L_Calc" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,7 +50,7 @@
                                                         <state key="normal" title="☐"/>
                                                         <connections>
                                                             <action selector="showGraphButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gJh-wV-jow"/>
-                                                            <segue destination="5Jj-Xy-nyX" kind="show" id="x0W-lz-xqv"/>
+                                                            <segue destination="5Jj-Xy-nyX" kind="show" identifier="CreateSchedule" id="x0W-lz-xqv"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -280,15 +280,23 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ehZ-mC-RoX"/>
+                    <navigationItem key="navigationItem" title="Кредит" largeTitleDisplayMode="always" id="ehZ-mC-RoX">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="acw-BK-SdE">
+                            <connections>
+                                <segue destination="5Jj-Xy-nyX" kind="show" id="iNt-zh-IoZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="annuitySegment" destination="V4F-fk-fqB" id="LRK-tH-2ku"/>
                         <outlet property="monthlyPayment" destination="dDD-1a-ZVg" id="OLV-9D-sP1"/>
                         <outlet property="monthlyPaymentCommentLabel" destination="S36-ph-TfR" id="93i-1c-Ted"/>
                         <outlet property="rateLabel" destination="7Ef-wZ-IEd" id="ldH-oQ-P3z"/>
                         <outlet property="rateStack" destination="Iup-cX-Sca" id="mzH-9j-e07"/>
+                        <outlet property="rateSubLabel" destination="Ckr-uh-1wp" id="76I-BM-6ub"/>
                         <outlet property="sumLabel" destination="F5T-n7-hFx" id="MHM-I0-J9n"/>
                         <outlet property="sumStack" destination="3mJ-5W-4ls" id="d9m-hC-gVU"/>
+                        <outlet property="sumSubLabel" destination="s29-GF-Wzo" id="oKe-QW-u8p"/>
                         <outlet property="termLabel" destination="KN4-Wc-EU5" id="w2B-W3-Wnj"/>
                         <outlet property="termStack" destination="oj1-Xk-vhB" id="VyZ-f7-Twq"/>
                         <outlet property="termSubLabel" destination="J5g-c2-TVC" id="k58-SF-7Fz"/>
@@ -427,6 +435,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="iOA-Ud-Xtx">
+                            <color key="tintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="shareSchedule:" destination="5Jj-Xy-nyX" id="pch-X5-PJL"/>
                             </connections>
@@ -464,4 +473,7 @@
         <image name="Share Icon" width="19" height="28"/>
         <image name="Today Icon" width="18" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="x0W-lz-xqv"/>
+    </inferredMetricsTieBreakers>
 </document>

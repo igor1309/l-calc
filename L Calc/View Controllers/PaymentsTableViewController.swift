@@ -10,6 +10,11 @@ import UIKit
 
 class PaymentsTableViewController: UITableViewController {
     
+    
+    // TODO: настроить передачу Loan из основного view controller
+    
+    
+    
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         // FIXME: Tell view controller to dissapper
         navigationController?.popViewController(animated: true)
@@ -24,6 +29,8 @@ class PaymentsTableViewController: UITableViewController {
     // FIXME:   var loc = Locale.current
     var loc = Locale(identifier: "en_US")
 
+    var loan: Loan?
+    
     var amount = UserDefaults.standard.double(forKey: "Principal")
     var rate = UserDefaults.standard.double(forKey: "Rate")
     var term = UserDefaults.standard.double(forKey: "Term")
@@ -124,7 +131,7 @@ class PaymentsTableViewController: UITableViewController {
 //        totalPayment.font = totalPayment.font.bold()
 
         if indexPath.row == 0 {
-            month.text = "##"
+            month.text = "###"
 //            month.font = month.font.bold()
             beginningBalance.text = "-> BALANCE"
 //            beginningBalance.font = beginningBalance.font.bold()
@@ -170,7 +177,7 @@ class PaymentsTableViewController: UITableViewController {
             numFormat = "%.0f"
         }
     }
-
+    
 
     /*
 

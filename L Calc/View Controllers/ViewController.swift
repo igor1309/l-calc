@@ -10,8 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-//    var loc = Locale.current
-    var loc = Locale(identifier: "en_US")
+    // MARK: IBOutlets
     
     @IBOutlet weak var monthlyPayment: UILabel!
     @IBOutlet weak var monthlyPaymentCommentLabel: UILabel!
@@ -28,18 +27,31 @@ class ViewController: UIViewController {
     @IBOutlet weak var rateSubLabel: UILabel!
     @IBOutlet weak var rateStack: UIStackView!
     
-    var previousX: CGPoint!
-    var ratePreviousX: CGPoint!
-    var termPreviousX: CGPoint!
-
     @IBOutlet weak var termLabel: UILabel!
     @IBOutlet weak var termSubLabel: UILabel!
     @IBOutlet weak var termStack: UIStackView!
     
+    // MARK: vars
+    //    var loc = Locale.current
+    var loc = Locale(identifier: "en_US")
+    
+    var previousX: CGPoint!
+    var ratePreviousX: CGPoint!
+    var termPreviousX: CGPoint!
+    
     var sum = UserDefaults.standard.double(forKey: "Principal")
     var rate = UserDefaults.standard.double(forKey: "Rate")
     var term = UserDefaults.standard.double(forKey: "Term")
+    // FIXME: initialize annuitySegment
     
+    let loan = Loan(UserDefaults.standard.double(forKey: "Principal"),
+                    UserDefaults.standard.double(forKey: "Rate"),
+                    UserDefaults.standard.double(forKey: "Term"),
+                    // FIXME: допилить: определить и использовать loan type as property of class
+                    .decliningBalance)
+
+    
+    // Feedback Generators
     let change = UISelectionFeedbackGenerator()
     let impact = UIImpactFeedbackGenerator()
 
@@ -280,6 +292,15 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue,
+                          sender: Any?) {
+        if let destinationViewController = segue.destination as? PaymentsTableViewController {
+            destinationViewController.loan = loan
+        }
+    }
+    
 
     func stepUp(_ number: Double) -> Double {
         
@@ -354,6 +375,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // TODO: make String extension instead of function inside this class??
     func numberAsNiceString(_ number: Double) -> String {
         let formatter = NumberFormatter()
         formatter.usesGroupingSeparator = true
@@ -364,6 +386,8 @@ class ViewController: UIViewController {
         return String(describing: formatter.string(for: number)!)
     }
     
+    
+    // TODO: make String extension instead of function inside this class
     func percentageAsNiceString(_ number: Double) -> String {
         return String(format: "%.2f",
                       locale: loc,
@@ -409,12 +433,6 @@ class ViewController: UIViewController {
         NotificationCenter.default.post(
             Notification(name: .loanChanged))
 
-        
-/*
-        // MARK: - test Payments class
-        let ps = Payments(for: Loan(sum, rate, term, .decliningBalance))
-        print(ps.paymentsSchedule)
-//        print(Payments().paymentsSchedule)
-         */
+
     }
 }
