@@ -23,7 +23,6 @@
                         <segue destination="IyD-h3-Tm8" kind="relationship" relationship="viewControllers" id="OcU-2T-JVA"/>
                         <segue destination="rqc-KJ-FYU" kind="relationship" relationship="viewControllers" id="icS-dR-1kn"/>
                         <segue destination="5xQ-Nr-TgM" kind="relationship" relationship="viewControllers" id="aGc-3D-oqk"/>
-                        <segue destination="mAq-YX-iJk" kind="relationship" relationship="viewControllers" id="Ma2-VL-ODv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbQ-ta-ZKV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -49,16 +48,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kj-h0-ntd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="756" y="-1259"/>
-        </scene>
-        <!--Payments-->
-        <scene sceneID="cht-Wd-DWt">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Payments" id="mAq-YX-iJk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Nes-y3-sPD"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3ON-gF-yQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="544" y="-828"/>
         </scene>
         <!--Loan-->
         <scene sceneID="BFe-2U-hpy">

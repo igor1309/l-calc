@@ -239,37 +239,31 @@ class ViewController: UIViewController {
         
         let defaults = UserDefaults.standard
 
-        // MARK: TODO Scale Font
-//        if let font = UIFont(name: "Trebuchet MS", size: 17) {
-//            monthlyPaymentCommentLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
-//        }
-//
-//        if let font = UIFont(name: "Trebuchet MS", size: 62) {
-//            monthlyPayment.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: font)
-//        }
         
+        // FIXME: move to Data Model
         annuitySegment.selectedSegmentIndex = defaults.integer(
             forKey: "AnnuitySegment")
         
+        // FIXME: move to Data Model
         sum = defaults.double(forKey: "Principal")
         if sum == 0 {
             sum = 1000000.0
         }
         sumLabel.text = numberAsNiceString(sum)
         
+        // FIXME: move to Data Model
         rate = defaults.double(forKey: "Rate")
         if rate == 0 {
             rate = 9.0
         }
         rateLabel.text = percentageAsNiceString(rate)
 
+        // FIXME: move to Data Model
         term = defaults.double(forKey: "Term")
         if term == 0 {
             term = 12
         }
         termLabel.text = String(format: "%.0f", term)
-        // FIXME дать красиво срок кредита
-//        termSubLabel.text = "СРОК КРЕДИТА, МЕСЯЦЕВ (" + String(format: "%.1f", term/12) + " ЛЕТ)"
         termSubLabel.text = termSubLabelText(for: term)
 
         calculateLoan()

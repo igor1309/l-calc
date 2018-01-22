@@ -23,6 +23,7 @@
 		2A908F762006604700F08AFA /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A908F752006604700F08AFA /* Loan.swift */; };
 		2A908F782006A7A700F08AFA /* LoanCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A908F772006A7A700F08AFA /* LoanCalculation.swift */; };
 		2ABAD49D200B3C8D004E7EB5 /* LoanCalcTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABAD49C200B3C8D004E7EB5 /* LoanCalcTableViewController.swift */; };
+		2AC473B92016384F00777C7E /* Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC473B82016384F00777C7E /* Extras.swift */; };
 		2ACBB244200763720068C3FC /* Saved.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACBB243200763720068C3FC /* Saved.storyboard */; };
 		2ACBB246200763AA0068C3FC /* Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACBB245200763AA0068C3FC /* Payments.storyboard */; };
 		2ACBB248200763E70068C3FC /* Loan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACBB247200763E70068C3FC /* Loan.storyboard */; };
@@ -71,6 +72,7 @@
 		2A908F752006604700F08AFA /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		2A908F772006A7A700F08AFA /* LoanCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCalculation.swift; sourceTree = "<group>"; };
 		2ABAD49C200B3C8D004E7EB5 /* LoanCalcTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCalcTableViewController.swift; sourceTree = "<group>"; };
+		2AC473B82016384F00777C7E /* Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extras.swift; sourceTree = "<group>"; };
 		2ACBB243200763720068C3FC /* Saved.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Saved.storyboard; sourceTree = "<group>"; };
 		2ACBB245200763AA0068C3FC /* Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Payments.storyboard; sourceTree = "<group>"; };
 		2ACBB247200763E70068C3FC /* Loan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loan.storyboard; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		2A1B3FC71FF2D95100E912B8 /* L Calc */ = {
 			isa = PBXGroup;
 			children = (
+				2AC473B72016381100777C7E /* Extras, Ideas and Snippets */,
 				2A68A10D2014CF57000B947F /* L Calc.entitlements */,
 				2A68A1122014F27A000B947F /* Extensions */,
 				2ABAD49B200B3C4D004E7EB5 /* Data Model */,
@@ -199,6 +202,14 @@
 				2A18630B200F554C00D96887 /* PaymentsSchedule.swift */,
 			);
 			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		2AC473B72016381100777C7E /* Extras, Ideas and Snippets */ = {
+			isa = PBXGroup;
+			children = (
+				2AC473B82016384F00777C7E /* Extras.swift */,
+			);
+			path = "Extras, Ideas and Snippets";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +366,7 @@
 				2A908F762006604700F08AFA /* Loan.swift in Sources */,
 				2A68A1112014F240000B947F /* Fonts.swift in Sources */,
 				2A18630C200F554C00D96887 /* PaymentsSchedule.swift in Sources */,
+				2AC473B92016384F00777C7E /* Extras.swift in Sources */,
 				2A0CD7962013252600FE8404 /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

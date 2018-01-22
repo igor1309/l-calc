@@ -57,7 +57,7 @@ class PaymentsTableViewController: UITableViewController {
                                       term,
                                       .decliningBalance))
         
-        NotificationCenter.default.addObserver(
+/*        NotificationCenter.default.addObserver(
             forName: .decimalsUsageChanged,
             object: .none,
             queue: OperationQueue.main) { [weak self] _ in
@@ -81,6 +81,8 @@ class PaymentsTableViewController: UITableViewController {
 
                 self?.tableView.reloadData()
         }
+ */
+        
 }
 
     override func didReceiveMemoryWarning() {
