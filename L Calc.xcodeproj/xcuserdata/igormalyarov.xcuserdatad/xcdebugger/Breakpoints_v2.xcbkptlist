@@ -2,4 +2,132 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "L Calc/View Controllers/ViewController.swift"
+            timestampString = "538335918.1597331"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "annuitySegmentChanged(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "L Calc/Data Model/Loan.swift"
+            timestampString = "538335918.1611"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "type"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "L Calc/View Controllers/ViewController.swift"
+            timestampString = "538335918.161523"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "L Calc/View Controllers/ViewController.swift"
+            timestampString = "538335918.162573"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "L_Calc.ViewController.loan.getter : L_Calc.Loan"
+                  moduleName = "L Calc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/igormalyarov/Desktop/App%20Dev%20with%20Swift/L%20Calc%20Apps/L%20Calc/L%20Calc/View%20Controllers/ViewController.swift"
+                  timestampString = "538334671.284375"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "249">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "L_Calc.ViewController.loan.setter : L_Calc.Loan"
+                  moduleName = "L Calc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/igormalyarov/Desktop/App%20Dev%20with%20Swift/L%20Calc%20Apps/L%20Calc/L%20Calc/View%20Controllers/ViewController.swift"
+                  timestampString = "538334671.288393"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "703">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "L_Calc.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; L_Calc.ViewController"
+                  moduleName = "L Calc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/igormalyarov/Desktop/App%20Dev%20with%20Swift/L%20Calc%20Apps/L%20Calc/L%20Calc/View%20Controllers/ViewController.swift"
+                  timestampString = "538334671.2930681"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "2007">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "L_Calc.ViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;L_Calc.ViewController&gt;"
+                  moduleName = "L Calc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/igormalyarov/Desktop/App%20Dev%20with%20Swift/L%20Calc%20Apps/L%20Calc/L%20Calc/View%20Controllers/ViewController.swift"
+                  timestampString = "538334671.298297"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "1869">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
