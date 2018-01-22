@@ -58,6 +58,7 @@ class ViewController: UIViewController {
     func showLoanData() {
         sumLabel.text = numberAsNiceString(loan.amount)
         rateLabel.text = percentageAsNiceString(loan.rate)
+        termLabel.text = numberAsNiceString(loan.term)
         termSubLabel.text = termSubLabelText(for: loan.term)
         
         monthlyPayment.text = String(format: "%.0f",
@@ -95,10 +96,7 @@ class ViewController: UIViewController {
     // MARK: @IBActions
     @IBAction func annuitySegmentChanged(
         _ sender: UISegmentedControl) {
-        // FIXME: здесь или в дата модел??
-        UserDefaults.standard.set(annuitySegment.selectedSegmentIndex,
-                                  forKey: "AnnuitySegment")
-        
+
         if annuitySegment.selectedSegmentIndex == 0 {
             loan.type = .fixedFlat
         } else {

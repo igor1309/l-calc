@@ -32,32 +32,32 @@ struct Loan {
         }
         
         willSet {
-            if amount != newValue {  // save if value changes
-                UserDefaults.standard.set(amount, forKey: "Principal")
-            }
+            UserDefaults.standard.set(newValue,
+                                      forKey: "Principal")
         }
     }
     var rate: Double {    //  годовая процентная ставка
         willSet {
-            if rate != newValue {  // save if value changes
-                UserDefaults.standard.set(rate, forKey: "Rate")
-            }
+            UserDefaults.standard.set(newValue,
+                                      forKey: "Rate")
         }
     }
 
     var term: Double {    //  срок кредита в месяцах
         willSet {
-            if term != newValue {  // save if value changes
-                UserDefaults.standard.set(term, forKey: "Term")
-            }
+//            if term != newValue {  // save if value changes
+            UserDefaults.standard.set(newValue,
+                                      forKey: "Term")
+//            }
         }
     }
 
+    
+//    var type: InterestType
     var type: InterestType {   //  аннуитет
         willSet {
-            if type != newValue {  // save if value changes
-                UserDefaults.standard.set(type, forKey: "InterestType")
-            }
+            UserDefaults.standard.set(newValue.rawValue,
+                                      forKey: "InterestType")
         }
     }
     
@@ -100,7 +100,7 @@ struct Loan {
         }
     }
     
-    
+    // MARK: inits
     init(
         _ principal: Double,
         _ rate: Double,
@@ -112,26 +112,26 @@ struct Loan {
         self.type = type
     }
     
-    init() {
-        // MARK: + First Time handling
+
+    init() {    // MARK: + First Time handling
         let userDefaults = UserDefaults.standard
-        let notFirstTime = userDefaults.bool(forKey: "NotFirstTime")
         
-        if notFirstTime {
-            amount = userDefaults.double(forKey: "Principal")
-            rate = userDefaults.double(forKey: "Rate")
-            term = userDefaults.double(forKey: "Term")
-            // FIXME: read UserDefaults forKey: "AnnuitySegment"
-            // FIXME: допилить: определить и использовать loan type as property of class
-            type = .decliningBalance
-        } else {
-            self.amount = 5000000.0
+        amount = userDefaults.double(forKey: "Principal")
+        rate = userDefaults.double(forKey: "Rate")
+        term = userDefaults.double(forKey: "Term")
+        type = .decliningBalance
+
+        if amount == 0 {    // First Time! or crash
+            amount = 5000000.0
             self.rate = 9.4
-            self.term = 60.0
-            self.type = .decliningBalance
-            
-            userDefaults.set(true, forKey: "NotFirstTime")
-            userDefaults.synchronize()
+            term = 60.0
+        }
+        
+        if let savedType = userDefaults.string(
+            forKey: "InterestType") {
+            if savedType == "Fixed" {
+                type = .fixedFlat
+            }
         }
     }
     
