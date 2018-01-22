@@ -20,7 +20,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="Vp6-9I-aRb" kind="relationship" relationship="viewControllers" id="8Y2-Ln-NLS"/>
-                        <segue destination="mAq-YX-iJk" kind="relationship" relationship="viewControllers" id="Ma2-VL-ODv"/>
                         <segue destination="5xQ-Nr-TgM" kind="relationship" relationship="viewControllers" id="aGc-3D-oqk"/>
                         <segue destination="IyD-h3-Tm8" kind="relationship" relationship="viewControllers" id="OcU-2T-JVA"/>
                         <segue destination="rqc-KJ-FYU" kind="relationship" relationship="viewControllers" id="icS-dR-1kn"/>
@@ -38,7 +37,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6XD-TE-cRc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="-786"/>
+            <point key="canvasLocation" x="782" y="-787"/>
         </scene>
         <!--Saved-->
         <scene sceneID="gl4-mI-4LQ">
@@ -48,17 +47,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kj-h0-ntd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="767" y="-924"/>
-        </scene>
-        <!--Payments-->
-        <scene sceneID="cht-Wd-DWt">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Payments" id="mAq-YX-iJk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Nes-y3-sPD"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3ON-gF-yQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="750" y="-1077"/>
+            <point key="canvasLocation" x="783" y="-989"/>
         </scene>
         <!--Loan-->
         <scene sceneID="BFe-2U-hpy">
@@ -68,7 +57,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j7r-c5-sOl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="794" y="-1233"/>
+            <point key="canvasLocation" x="777" y="-1183"/>
         </scene>
         <!--LoanCalc-->
         <scene sceneID="JT1-Wr-ZgL">
@@ -78,7 +67,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpO-Dx-Fcp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="786" y="-1408"/>
+            <point key="canvasLocation" x="786" y="-1368"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

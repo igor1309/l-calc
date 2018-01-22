@@ -26,7 +26,7 @@
 		2ACBB244200763720068C3FC /* Saved.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACBB243200763720068C3FC /* Saved.storyboard */; };
 		2ACBB246200763AA0068C3FC /* Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACBB245200763AA0068C3FC /* Payments.storyboard */; };
 		2ACBB248200763E70068C3FC /* Loan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACBB247200763E70068C3FC /* Loan.storyboard */; };
-		2ACE483B200B3B57002E22C8 /* LoanCalc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACE4839200B3B57002E22C8 /* LoanCalc.storyboard */; };
+		2ACE483B200B3B57002E22C8 /* LoanCalcTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACE4839200B3B57002E22C8 /* LoanCalcTable.storyboard */; };
 		2AF4FBE92003868300C94300 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4FBE82003868300C94300 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +74,7 @@
 		2ACBB243200763720068C3FC /* Saved.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Saved.storyboard; sourceTree = "<group>"; };
 		2ACBB245200763AA0068C3FC /* Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Payments.storyboard; sourceTree = "<group>"; };
 		2ACBB247200763E70068C3FC /* Loan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loan.storyboard; sourceTree = "<group>"; };
-		2ACE483A200B3B57002E22C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "L Calc/Storyboards/Base.lproj/LoanCalc.storyboard"; sourceTree = "<group>"; };
+		2ACE483A200B3B57002E22C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "L Calc/Storyboards/Base.lproj/LoanCalcTable.storyboard"; sourceTree = "<group>"; };
 		2AF4FBE82003868300C94300 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,8 +161,8 @@
 			children = (
 				2A1B3FD11FF2D95100E912B8 /* LaunchScreen.storyboard */,
 				2A1B3FCC1FF2D95100E912B8 /* Main.storyboard */,
-				2ACE4839200B3B57002E22C8 /* LoanCalc.storyboard */,
 				2ACBB247200763E70068C3FC /* Loan.storyboard */,
+				2ACE4839200B3B57002E22C8 /* LoanCalcTable.storyboard */,
 				2ACBB245200763AA0068C3FC /* Payments.storyboard */,
 				2ACBB243200763720068C3FC /* Saved.storyboard */,
 				2A58C9BF2007619600516471 /* Settings.storyboard */,
@@ -320,7 +320,7 @@
 				2ACBB246200763AA0068C3FC /* Payments.storyboard in Resources */,
 				2A58C9C02007619600516471 /* Settings.storyboard in Resources */,
 				2ACBB244200763720068C3FC /* Saved.storyboard in Resources */,
-				2ACE483B200B3B57002E22C8 /* LoanCalc.storyboard in Resources */,
+				2ACE483B200B3B57002E22C8 /* LoanCalcTable.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,12 +407,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		2ACE4839200B3B57002E22C8 /* LoanCalc.storyboard */ = {
+		2ACE4839200B3B57002E22C8 /* LoanCalcTable.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2ACE483A200B3B57002E22C8 /* Base */,
 			);
-			name = LoanCalc.storyboard;
+			name = LoanCalcTable.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

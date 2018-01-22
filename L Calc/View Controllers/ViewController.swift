@@ -51,10 +51,12 @@ class ViewController: UIViewController {
                     .decliningBalance)
 
     
-    // Feedback Generators
+    // MARK: Feedback Generators
     let change = UISelectionFeedbackGenerator()
     let impact = UIImpactFeedbackGenerator()
-
+    
+    
+    // MARK: @IBActions
     @IBAction func annuitySegmentChanged(
         _ sender: UISegmentedControl) {
         UserDefaults.standard.set(annuitySegment.selectedSegmentIndex,
@@ -252,6 +254,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        navigationController?.navigationBar.prefersLargeTitles = true
+        
         let defaults = UserDefaults.standard
 
         // MARK: TODO Scale Font
@@ -262,7 +266,8 @@ class ViewController: UIViewController {
 //        if let font = UIFont(name: "Trebuchet MS", size: 62) {
 //            monthlyPayment.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: font)
 //        }
-        
+
+        // FIXME: а здесь ли делать эту инициализацию??? или в data model??
         annuitySegment.selectedSegmentIndex = defaults.integer(
             forKey: "AnnuitySegment")
         
@@ -302,6 +307,7 @@ class ViewController: UIViewController {
     }
     
 
+    //MARK: functions changing value of labels
     func stepUp(_ number: Double) -> Double {
         
         // вставить код проверки? is number = nil?
@@ -375,7 +381,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // TODO: make String extension instead of function inside this class??
+    // FIXME: make String extension instead of function inside this class??
     func numberAsNiceString(_ number: Double) -> String {
         let formatter = NumberFormatter()
         formatter.usesGroupingSeparator = true
@@ -387,13 +393,15 @@ class ViewController: UIViewController {
     }
     
     
-    // TODO: make String extension instead of function inside this class
+    // FIXME: make String extension instead of function inside this class
     func percentageAsNiceString(_ number: Double) -> String {
         return String(format: "%.2f",
                       locale: loc,
                       number) + "%"
     }
     
+    
+    // MARK: Calculate Loan
     func calculateLoan() {
         // MARK: TODO вычисления по кредиту
         let r = rate / 100 / 12    // monthly interest rate
