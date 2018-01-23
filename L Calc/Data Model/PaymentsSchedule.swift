@@ -58,11 +58,12 @@ class Payments {
                 let interest =
                     monthlyPayment - principal
 
-                let payment = Payment(beginningBalance: beginningBalance,
-                                      interest: interest,
-                                      principal: principal,
-                                      monthlyPayment: monthlyPayment,
-                                      endingBalance: endingBalance)
+                let payment = Payment(
+                    beginningBalance: beginningBalance,
+                    interest: interest,
+                    principal: principal,
+                    monthlyPayment: monthlyPayment,
+                    endingBalance: endingBalance)
                 paymentsSchedule.append(payment)
             }
         case .fixedFlat:

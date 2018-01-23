@@ -29,6 +29,7 @@
 		2ACBB248200763E70068C3FC /* Loan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACBB247200763E70068C3FC /* Loan.storyboard */; };
 		2ACE483B200B3B57002E22C8 /* LoanCalc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACE4839200B3B57002E22C8 /* LoanCalc.storyboard */; };
 		2AE63E59201782C7000AE45E /* OtherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE63E58201782C7000AE45E /* OtherExtensions.swift */; };
+		2AE63E5E2017A3E3000AE45E /* Loans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE63E5D2017A3E3000AE45E /* Loans.swift */; };
 		2AF4FBE92003868300C94300 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4FBE82003868300C94300 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		2ACBB247200763E70068C3FC /* Loan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loan.storyboard; sourceTree = "<group>"; };
 		2ACE483A200B3B57002E22C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "L Calc/Storyboards/Base.lproj/LoanCalc.storyboard"; sourceTree = "<group>"; };
 		2AE63E58201782C7000AE45E /* OtherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherExtensions.swift; sourceTree = "<group>"; };
+		2AE63E5D2017A3E3000AE45E /* Loans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loans.swift; sourceTree = "<group>"; };
 		2AF4FBE82003868300C94300 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +205,7 @@
 			children = (
 				2A908F752006604700F08AFA /* Loan.swift */,
 				2A18630B200F554C00D96887 /* PaymentsSchedule.swift */,
+				2AE63E5D2017A3E3000AE45E /* Loans.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				2AE63E59201782C7000AE45E /* OtherExtensions.swift in Sources */,
 				2AC473B92016384F00777C7E /* Extras.swift in Sources */,
 				2A0CD7962013252600FE8404 /* SettingsTableViewController.swift in Sources */,
+				2AE63E5E2017A3E3000AE45E /* Loans.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

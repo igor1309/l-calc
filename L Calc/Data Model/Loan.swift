@@ -147,11 +147,11 @@ extension Loan {
     }
     
     init(
-        _ principal: Double,
+        _ amount: Double,
         _ rate: Double,
         _ term: Double,
         _ type: InterestType) {
-        self.amount = principal
+        self.amount = amount
         self.rate = rate
         self.term = term
         self.type = type
