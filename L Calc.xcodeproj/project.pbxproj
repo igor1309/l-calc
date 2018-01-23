@@ -28,6 +28,7 @@
 		2ACBB246200763AA0068C3FC /* Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACBB245200763AA0068C3FC /* Payments.storyboard */; };
 		2ACBB248200763E70068C3FC /* Loan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACBB247200763E70068C3FC /* Loan.storyboard */; };
 		2ACE483B200B3B57002E22C8 /* LoanCalc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACE4839200B3B57002E22C8 /* LoanCalc.storyboard */; };
+		2AE63E59201782C7000AE45E /* OtherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE63E58201782C7000AE45E /* OtherExtensions.swift */; };
 		2AF4FBE92003868300C94300 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4FBE82003868300C94300 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		2ACBB245200763AA0068C3FC /* Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Payments.storyboard; sourceTree = "<group>"; };
 		2ACBB247200763E70068C3FC /* Loan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loan.storyboard; sourceTree = "<group>"; };
 		2ACE483A200B3B57002E22C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "L Calc/Storyboards/Base.lproj/LoanCalc.storyboard"; sourceTree = "<group>"; };
+		2AE63E58201782C7000AE45E /* OtherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherExtensions.swift; sourceTree = "<group>"; };
 		2AF4FBE82003868300C94300 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +193,7 @@
 				2AF4FBE82003868300C94300 /* Colors.swift */,
 				2A68A1102014F240000B947F /* Fonts.swift */,
 				2A68A10E2014F075000B947F /* Notifications.swift */,
+				2AE63E58201782C7000AE45E /* OtherExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				2A908F762006604700F08AFA /* Loan.swift in Sources */,
 				2A68A1112014F240000B947F /* Fonts.swift in Sources */,
 				2A18630C200F554C00D96887 /* PaymentsSchedule.swift in Sources */,
+				2AE63E59201782C7000AE45E /* OtherExtensions.swift in Sources */,
 				2AC473B92016384F00777C7E /* Extras.swift in Sources */,
 				2A0CD7962013252600FE8404 /* SettingsTableViewController.swift in Sources */,
 			);
