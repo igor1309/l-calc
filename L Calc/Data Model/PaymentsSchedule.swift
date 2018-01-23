@@ -90,7 +90,7 @@ class Payments {
         term: Double = UserDefaults.standard.double(
         forKey: "Term"),
         // FIXME: forKey: "AnnuitySegment"
-        type: Loan.InterestType = .decliningBalance) {
+        type: InterestType = .decliningBalance) {
         
         self.init(for: Loan(amount, rate, term, type))
     }

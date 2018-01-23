@@ -8,12 +8,12 @@
 
 import UIKit
 
+enum InterestType: String {
+    case fixedFlat          = "Fixed"       //  в конце срока
+    case decliningBalance   = "Annuity"     //  аннуитет
+}
+
 struct Loan {
-    
-    enum InterestType: String {
-        case fixedFlat          = "Fixed"       //  в конце срока
-        case decliningBalance   = "Annuity"     //  аннуитет
-    }
     
     private let maxPrincipal = pow(10.0, 10.0)
     private let minPrincipal = 10000.0

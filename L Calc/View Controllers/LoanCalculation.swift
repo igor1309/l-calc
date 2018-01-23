@@ -20,7 +20,7 @@ class LoanCalculationController: UIViewController {
     var type: String = "fixedFlat"
     
     // MARK: КАК ПРАВИЛЬНО ИНИЦИАЛИЗИРОВАТЬ С УЧЕТОМ СОХРАННЕННЫХ ЗНАЧЕНИЙ???
-    let loan = Loan(4.6 * pow(10, 6), 9.4, 60.0, Loan.InterestType.fixedFlat)
+    let loan = Loan(4.6 * pow(10, 6), 9.4, 60.0, InterestType.fixedFlat)
 
     @IBAction func didChangePrincipal(
         _ gestureRecognizer: UIPanGestureRecognizer) {
@@ -75,9 +75,10 @@ class LoanCalculationController: UIViewController {
         term = defaults.double(
             forKey: "Term")
 
+        //FIXME: is it a better way to call user defaults for string using enum?
         let t = defaults.string(
             forKey: "InterestType") ?? "Annuity"
-        type = (Loan.InterestType(rawValue: t)?.rawValue)!
+        type = (InterestType(rawValue: t)?.rawValue)!
     }
 
 }

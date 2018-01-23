@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "L Calc/View Controllers/ViewController.swift"
-            timestampString = "538403057.131937"
+            timestampString = "538425217.747407"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
@@ -88,7 +88,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "L Calc/View Controllers/PaymentsTableViewController.swift"
-            timestampString = "538390800.1988699"
+            timestampString = "538427095.281029"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
@@ -103,13 +103,13 @@
                   symbolName = "L_Calc.PaymentsTableViewController.loc.getter : Foundation.Locale"
                   moduleName = "L Calc"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igormalyarov/Desktop/App%20Dev%20with%20Swift/L%20Calc%20Apps/L%20Calc/L%20Calc/View%20Controllers/PaymentsTableViewController.swift"
-                  timestampString = "538402324.353382"
+                  urlString = "file:///Users/igormalyarov/Projects/L%20Calc%20Project/L%20Calc/L%20Calc/View%20Controllers/PaymentsTableViewController.swift"
+                  timestampString = "538427095.3911231"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "80">
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "84">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -118,13 +118,13 @@
                   symbolName = "L_Calc.PaymentsTableViewController.loc.setter : Foundation.Locale"
                   moduleName = "L Calc"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igormalyarov/Desktop/App%20Dev%20with%20Swift/L%20Calc%20Apps/L%20Calc/L%20Calc/View%20Controllers/PaymentsTableViewController.swift"
-                  timestampString = "538402324.355937"
+                  urlString = "file:///Users/igormalyarov/Projects/L%20Calc%20Project/L%20Calc/L%20Calc/View%20Controllers/PaymentsTableViewController.swift"
+                  timestampString = "538427095.394812"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "144">
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "137">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -133,13 +133,13 @@
                   symbolName = "L_Calc.PaymentsTableViewController.init(style: __C.UITableViewStyle) -&gt; L_Calc.PaymentsTableViewController"
                   moduleName = "L Calc"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igormalyarov/Desktop/App%20Dev%20with%20Swift/L%20Calc%20Apps/L%20Calc/L%20Calc/View%20Controllers/PaymentsTableViewController.swift"
-                  timestampString = "538402324.3585041"
+                  urlString = "file:///Users/igormalyarov/Projects/L%20Calc%20Project/L%20Calc/L%20Calc/View%20Controllers/PaymentsTableViewController.swift"
+                  timestampString = "538427095.398798"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "240">
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "342">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -148,13 +148,13 @@
                   symbolName = "L_Calc.PaymentsTableViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; L_Calc.PaymentsTableViewController"
                   moduleName = "L Calc"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igormalyarov/Desktop/App%20Dev%20with%20Swift/L%20Calc%20Apps/L%20Calc/L%20Calc/View%20Controllers/PaymentsTableViewController.swift"
-                  timestampString = "538402324.361069"
+                  urlString = "file:///Users/igormalyarov/Projects/L%20Calc%20Project/L%20Calc/L%20Calc/View%20Controllers/PaymentsTableViewController.swift"
+                  timestampString = "538427095.403616"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "288">
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "393">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -163,13 +163,13 @@
                   symbolName = "L_Calc.PaymentsTableViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;L_Calc.PaymentsTableViewController&gt;"
                   moduleName = "L Calc"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igormalyarov/Desktop/App%20Dev%20with%20Swift/L%20Calc%20Apps/L%20Calc/L%20Calc/View%20Controllers/PaymentsTableViewController.swift"
-                  timestampString = "538402324.363537"
+                  urlString = "file:///Users/igormalyarov/Projects/L%20Calc%20Project/L%20Calc/L%20Calc/View%20Controllers/PaymentsTableViewController.swift"
+                  timestampString = "538427095.407582"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "244">
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "319">
                </Location>
             </Locations>
          </BreakpointContent>

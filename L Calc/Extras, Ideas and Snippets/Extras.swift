@@ -9,7 +9,7 @@
 // COMMENTED IN CODE AND MOVED HERE
 
 
-// MARK: TODO Scale Font
+// MARK: - TODO Scale Font
 //        if let font = UIFont(name: "Trebuchet MS", size: 17) {
 //            monthlyPaymentCommentLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
 //        }
@@ -20,6 +20,14 @@
 
 
 
+
+//MARK: - is it a better way to call user defaults for string using enum?
+//let t = defaults.string(forKey: "InterestType") ?? "Annuity"
+//type = (InterestType(rawValue: t)?.rawValue)!
+
+
+
+// MARK: - notifications and observers
 //NotificationCenter.default.addObserver(
 //    forName: .decimalsUsageChanged,
 //    object: .none,
