@@ -89,7 +89,9 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue,
                           sender: Any?) {
         if let destinationViewController = segue.destination as? PaymentsTableViewController {
-            destinationViewController.loan = loan
+//            destinationViewController.loan = loan
+            destinationViewController.payments =
+                Payments(for: loan)
         }
     }
     

@@ -10,10 +10,15 @@ import UIKit
 
 class PaymentsTableViewController: UITableViewController {
     
+    var payments: Payments?
+    var numFormat = ""
+    // FIXME:   var loc = Locale.current
+    var loc = Locale(identifier: "en_US")
     
+
     // TODO: настроить передачу Loan из основного view controller
     
-    var loan: Loan?
+//    var loan: Loan
 
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
@@ -26,35 +31,13 @@ class PaymentsTableViewController: UITableViewController {
         print("TODO: print and other schedule sharing")
     }
     
-    var numFormat = ""
-    
-    // FIXME:   var loc = Locale.current
-    var loc = Locale(identifier: "en_US")
 
-//    var amount = UserDefaults.standard.double(forKey: "Principal")
-//    var rate = UserDefaults.standard.double(forKey: "Rate")
-//    var term = UserDefaults.standard.double(forKey: "Term")
-    // FIXME: forKey: "AnnuitySegment"
-
-
-    var payments = Payments()
-    
     override func viewDidAppear(_ animated: Bool) {
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         changeNumFormat()
-        payments = Payments(for: loan!)
-//        payments = Payments(for: Loan(amount,
-//                                      rate,
-//                                      term,
-//                                      .decliningBalance))
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     
@@ -66,8 +49,13 @@ class PaymentsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return Int(loan!.term) + 1
+
+        if let numOfRows =
+            payments?.paymentsSchedule.count {
+            return numOfRows + 1
+        } else {
+            return 1
+        }
     }
     
     override func tableView(_ tableView: UITableView,
@@ -83,16 +71,14 @@ class PaymentsTableViewController: UITableViewController {
         let totalPayment = cell.viewWithTag(1004) as! UILabel
         let endingBalance = cell.viewWithTag(1005) as! UILabel
 
-        let r = (loan?.rate)! / 100 / 12    // monthly interest rate
+//        let r = (loan.rate) / 100 / 12    // monthly interest rate
         //            if annuitySegment.selectedSegmentIndex == 1 {
         //  выбран аннуитет
         //  http://financeformulas.net/Annuity_Payment_Formula.html
         // http://www.thecalculatorsite.com/finance/calculators/loancalculator.php
-        let p = pow(1 + r, 0 - (loan?.term)!)
-        let monthlyPayment = (loan?.amount)! / ((1 - p) / r)
-        totalPayment.text = String(format: numFormat,
-                                   locale: loc,
-                                   monthlyPayment)
+//        let p = pow(1 + r, 0 - (loan.term))
+//        let monthlyPayment = (loan.amount) / ((1 - p) / r)
+        
         
         //         } else {     // выплата в конце срока
         // FIXME: допилить расчет
@@ -113,7 +99,7 @@ class PaymentsTableViewController: UITableViewController {
 //            endingBalance.font = endingBalance.font.bold()
 
         } else {
-            let payment = payments.paymentsSchedule[indexPath.row - 1]
+            if let payment = payments?.paymentsSchedule[indexPath.row - 1] {
             month.text =
                 String(format: "%d",
                        locale: loc,
@@ -130,10 +116,15 @@ class PaymentsTableViewController: UITableViewController {
                 String(format: numFormat,
                        locale: loc,
                        payment.principal)
+            totalPayment.text =
+                String(format: numFormat,
+                       locale: loc,
+                       payment.monthlyPayment)
             endingBalance.text =
                 String(format: numFormat,
                        locale: loc,
                        payment.endingBalance)
+            }
         }
         
         return cell

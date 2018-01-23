@@ -17,45 +17,57 @@ import Foundation
 class Payments {
     
     struct Payment {
-        var beginningBalance = Double(0)
-        var interest = Double(0)
-        var principal = Double(0)
-        var monthlyPayment = Double(0)
-        var endingBalance = Double(0)
+        var beginningBalance: Double
+        var interest: Double
+        var principal: Double
+        var monthlyPayment: Double
+        var endingBalance: Double
     }
-    
+
+//    struct Payment {
+//        var beginningBalance = Double(0)
+//        var interest = Double(0)
+//        var principal = Double(0)
+//        var monthlyPayment = Double(0)
+//        var endingBalance = Double(0)
+//    }
+
     var paymentsSchedule = [Payment]()
 
     init (for loan: Loan) {
         // using: loan.amount loan.rate loan.term loan.type: InterestType
 
         let r = loan.rate / 100 / 12    // monthly interest rate
-        var payment = Payment()
 
         switch loan.type {
         case .decliningBalance:     // аннуитет w/fixed monthly payment
-            let mp = loan.amount /
+            let monthlyPayment = loan.amount /
                 ((1 - pow(1 + r, Double(0 - loan.term))) / r)
-            payment.monthlyPayment = mp
             
             for i in 1...Int(loan.term) {
-                payment.beginningBalance =
+                let beginningBalance =
                     loan.amount * pow(1 + r, Double (i - 1)) -
-                    mp / r * (pow(1 + r, Double (i - 1)) - 1)
-                payment.endingBalance =
+                    monthlyPayment / r * (pow(1 + r, Double (i - 1)) - 1)
+                let endingBalance =
                     loan.amount * pow(1 + r, Double (i)) -
-                    mp / r * (pow(1 + r, Double (i)) - 1)
-                payment.principal =
-                    payment.beginningBalance - payment.endingBalance
-                payment.interest =
-                    mp - payment.principal
+                    monthlyPayment / r * (pow(1 + r, Double (i)) - 1)
+                let principal =
+                    beginningBalance - endingBalance
+                let interest =
+                    monthlyPayment - principal
 
+                let payment = Payment(beginningBalance: beginningBalance,
+                                      interest: interest,
+                                      principal: principal,
+                                      monthlyPayment: monthlyPayment,
+                                      endingBalance: endingBalance)
                 paymentsSchedule.append(payment)
             }
         case .fixedFlat:
+            print("допилить таблицу для выплаты в конце срока")
             //FIXME: допилить таблицу для выплаты в конце срока??
-            payment.monthlyPayment =
-                loan.amount * r
+//            payment.monthlyPayment =
+//                loan.amount * r
         }
     }
     
