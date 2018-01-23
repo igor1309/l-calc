@@ -6,7 +6,7 @@
 //  Copyright © 2018 Igor Malyarov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Loan {
     
@@ -22,45 +22,56 @@ struct Loan {
         
         didSet {
             // контроль границ диапазона суммы кредита
+            let notification = UINotificationFeedbackGenerator()
             if amount > maxPrincipal {
                 amount = maxPrincipal
-                print("перебор")
+                notification.notificationOccurred(.warning)
             } else if amount < minPrincipal {
                 amount = minPrincipal
-                print("маловато")
+                notification.notificationOccurred(.warning)
             }
         }
         
         willSet {
+        // FIXME: вернуть запись данных только если значение изменилось
             UserDefaults.standard.set(newValue,
                                       forKey: "Principal")
         }
     }
     var rate: Double {    //  годовая процентная ставка
+        // FIXME: по аналогии с amount сделать с didSet контроль границ, особенно нижней, 0.01%
+        // FIXME: add UINotificationFeedbackGenerator
         willSet {
+        // FIXME: вернуть запись данных только если значение изменилось
             UserDefaults.standard.set(newValue,
                                       forKey: "Rate")
         }
     }
 
     var term: Double {    //  срок кредита в месяцах
+        // FIXME: по аналогии с amount сделать с didSet контроль границ, особенно нижней, 0.01%
+        // FIXME: add UINotificationFeedbackGenerator
+
         willSet {
-//            if term != newValue {  // save if value changes
+        // FIXME: вернуть запись данных только если значение изменилось
+        // if term != newValue {  // save if value changes
             UserDefaults.standard.set(newValue,
                                       forKey: "Term")
-//            }
         }
     }
 
     
-//    var type: InterestType
     var type: InterestType {   //  аннуитет
         willSet {
+        // FIXME: вернуть запись данных только если значение изменилось
             UserDefaults.standard.set(newValue.rawValue,
                                       forKey: "InterestType")
         }
     }
-    
+}
+
+extension Loan {
+
     var monthlyPayment: Double {    // размер ежемесячного платежа
         let r = rate / 100 / 12    // monthly interest rate
         
@@ -99,8 +110,35 @@ struct Loan {
             return amount * (1 + r * term)
         }
     }
-    
     // MARK: inits
+
+    init() {    // MARK: + First Time handling
+        let userDefaults = UserDefaults.standard
+        
+        amount = userDefaults.double(forKey: "Principal")
+        rate = userDefaults.double(forKey: "Rate")
+        term = userDefaults.double(forKey: "Term")
+
+        // MARK: handle First Time! or Crash
+        if amount == 0 {
+            amount = 5000000.0
+        }
+        if rate == 0 {
+            rate = 9.4
+        }
+        if term == 0 {
+            term = 60.0
+        }
+        
+        type = .decliningBalance
+        if let savedType = userDefaults.string(
+            forKey: "InterestType") {
+            if savedType == "Fixed" {
+                type = .fixedFlat
+            }
+        }
+    }
+    
     init(
         _ principal: Double,
         _ rate: Double,
@@ -113,26 +151,4 @@ struct Loan {
     }
     
 
-    init() {    // MARK: + First Time handling
-        let userDefaults = UserDefaults.standard
-        
-        amount = userDefaults.double(forKey: "Principal")
-        rate = userDefaults.double(forKey: "Rate")
-        term = userDefaults.double(forKey: "Term")
-        type = .decliningBalance
-
-        if amount == 0 {    // First Time! or crash
-            amount = 5000000.0
-            self.rate = 9.4
-            term = 60.0
-        }
-        
-        if let savedType = userDefaults.string(
-            forKey: "InterestType") {
-            if savedType == "Fixed" {
-                type = .fixedFlat
-            }
-        }
-    }
-    
 }
