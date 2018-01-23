@@ -21,14 +21,19 @@ struct Loan {
     var amount: Double {     //  сумма кредита
         
         didSet {
-            // контроль границ диапазона суммы кредита
-            let notification = UINotificationFeedbackGenerator()
+            // контроль границ диапазона суммы кредита + notify
+            let notification =
+                NotificationCenter.default
+
             if amount > maxPrincipal {
                 amount = maxPrincipal
-                notification.notificationOccurred(.warning)
+                notification.post(
+                    Notification(name: .outOfRange))
+                
             } else if amount < minPrincipal {
                 amount = minPrincipal
-                notification.notificationOccurred(.warning)
+                notification.post(
+                    Notification(name: .outOfRange))
             }
         }
         

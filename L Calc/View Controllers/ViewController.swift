@@ -51,8 +51,18 @@ class ViewController: UIViewController {
     // MARK:
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(
+            forName: .outOfRange,
+            object: .none,
+            queue: OperationQueue.main) { [weak self] _ in
+                self?.outOfRangeFeedback()
+        }
         showLoanData()
+    }
+    
+    func outOfRangeFeedback() {
+        let notification = UINotificationFeedbackGenerator()
+        notification.notificationOccurred(.warning)
     }
     
     func showLoanData() {
@@ -79,10 +89,6 @@ class ViewController: UIViewController {
         
         //  provide haptic feedback
         change.selectionChanged()
-        
-        // notify that loan has beed changed
-        NotificationCenter.default.post(
-            Notification(name: .loanChanged))
     }
     
 

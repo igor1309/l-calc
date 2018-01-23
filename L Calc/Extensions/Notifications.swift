@@ -9,6 +9,13 @@
 import Foundation
 
 extension Notification.Name {
+    
     static let decimalsUsageChanged = Notification.Name("decimalsUsageChanged")
-    static let loanChanged = Notification.Name("loanChanged")
+    
+    static let loanChanged =
+        Notification.Name("loanChanged")
+    
+    static let outOfRange =
+        Notification.Name("outOfRange")
+
 }
