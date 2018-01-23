@@ -34,6 +34,8 @@ class Payments {
 
     var paymentsSchedule = [Payment]()
 
+    // MARK: - init
+    
     init (for loan: Loan) {
         // using: loan.amount loan.rate loan.term loan.type: InterestType
 

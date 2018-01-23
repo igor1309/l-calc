@@ -10,13 +10,13 @@ import UIKit
 
 class PaymentsTableViewController: UITableViewController {
     
-    // MARK: vars
+    // MARK: - vars
     var payments: Payments?
     var numFormat = ""
     // FIXME:   var loc = Locale.current
     var loc = Locale(identifier: "en_US")
     
-    // MARK: @IBActions
+    // MARK: - @IBActions
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         // MARK: Tell view controller to dissapper
@@ -112,6 +112,7 @@ class PaymentsTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - extra
     // TODO: create extension??
     func changeNumFormat() {
         if UserDefaults.standard.bool(forKey: "UseDecimals") {

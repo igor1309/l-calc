@@ -115,16 +115,18 @@ extension Loan {
             return amount * (1 + r * term)
         }
     }
-    // MARK: inits
+    
+    
+    // MARK: - inits
 
-    init() {    // MARK: + First Time handling
+    init() {    // init + First Time handling
         let userDefaults = UserDefaults.standard
         
         amount = userDefaults.double(forKey: "Principal")
         rate = userDefaults.double(forKey: "Rate")
         term = userDefaults.double(forKey: "Term")
 
-        // MARK: handle First Time! or Crash
+        // handle First Time! or Crash
         if amount == 0 {
             amount = 5000000.0
         }

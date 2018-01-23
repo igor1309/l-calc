@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // MARK: @IBOutlets
+    // MARK: - @IBOutlets
     // Trebuchet MS 56.0
     
     @IBOutlet weak var monthlyPayment: UILabel!
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var termSubLabel: UILabel!
     @IBOutlet weak var termStack: UIStackView!
     
-    // MARK: vars
+    // MARK: - vars
     //    var loc = Locale.current
     var loc = Locale(identifier: "en_US")
     
@@ -43,12 +43,12 @@ class ViewController: UIViewController {
     var termPreviousX: CGPoint!
     
     
-    // MARK: prepare Feedback Generators
+    // MARK: - prepare Feedback Generators
     let change = UISelectionFeedbackGenerator()
     let impact = UIImpactFeedbackGenerator()
 
     
-    // MARK:
+    // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(
@@ -101,7 +101,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // MARK: @IBActions
+    // MARK: - @IBActions
     @IBAction func annuitySegmentChanged(
         _ sender: UISegmentedControl) {
 
@@ -120,7 +120,7 @@ class ViewController: UIViewController {
 //        impact.impactOccurred()
 //    }
 
-    // MARK: changing label values by panning gestures
+    // MARK: - changing label values by panning gestures
     @IBAction func panDetected1(
         _ gestureRecognizer: UIPanGestureRecognizer) {
         //  Pan Gesture Recognizer with 1 finger
@@ -349,7 +349,7 @@ class ViewController: UIViewController {
     }
     
     
-    // MARK: nice string formatting
+    // MARK: - nice string formatting
     func termSubLabelText(for term: Double) -> String {
         var yearsString = String(format: "%.1f", term/12)  + " YEARS)"
         
