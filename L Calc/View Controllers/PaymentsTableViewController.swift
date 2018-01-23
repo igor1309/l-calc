@@ -10,19 +10,16 @@ import UIKit
 
 class PaymentsTableViewController: UITableViewController {
     
+    // MARK: vars
     var payments: Payments?
     var numFormat = ""
     // FIXME:   var loc = Locale.current
     var loc = Locale(identifier: "en_US")
     
-
-    // TODO: настроить передачу Loan из основного view controller
-    
-//    var loan: Loan
-
+    // MARK: @IBActions
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        // FIXME: Tell view controller to dissapper
+        // MARK: Tell view controller to dissapper
         navigationController?.popViewController(animated: true)
     }
     
@@ -32,9 +29,6 @@ class PaymentsTableViewController: UITableViewController {
     }
     
 
-    override func viewDidAppear(_ animated: Bool) {
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         changeNumFormat()
@@ -60,6 +54,7 @@ class PaymentsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "MonthlyPayment",
             for: indexPath)
@@ -70,20 +65,6 @@ class PaymentsTableViewController: UITableViewController {
         let principal = cell.viewWithTag(1003) as! UILabel
         let totalPayment = cell.viewWithTag(1004) as! UILabel
         let endingBalance = cell.viewWithTag(1005) as! UILabel
-
-//        let r = (loan.rate) / 100 / 12    // monthly interest rate
-        //            if annuitySegment.selectedSegmentIndex == 1 {
-        //  выбран аннуитет
-        //  http://financeformulas.net/Annuity_Payment_Formula.html
-        // http://www.thecalculatorsite.com/finance/calculators/loancalculator.php
-//        let p = pow(1 + r, 0 - (loan.term))
-//        let monthlyPayment = (loan.amount) / ((1 - p) / r)
-        
-        
-        //         } else {     // выплата в конце срока
-        // FIXME: допилить расчет
-        
-//        totalPayment.font = totalPayment.font.bold()
 
         if indexPath.row == 0 {
             month.text = "#"
@@ -99,37 +80,39 @@ class PaymentsTableViewController: UITableViewController {
 //            endingBalance.font = endingBalance.font.bold()
 
         } else {
-            if let payment = payments?.paymentsSchedule[indexPath.row - 1] {
-            month.text =
-                String(format: "%d",
-                       locale: loc,
-                       indexPath.row)
-            beginningBalance.text =
-                String(format: numFormat,
-                       locale: loc,
-                       payment.beginningBalance)
-            interest.text =
-                String(format: numFormat,
-                       locale: loc,
-                       payment.interest)
-            principal.text =
-                String(format: numFormat,
-                       locale: loc,
-                       payment.principal)
-            totalPayment.text =
-                String(format: numFormat,
-                       locale: loc,
-                       payment.monthlyPayment)
-            endingBalance.text =
-                String(format: numFormat,
-                       locale: loc,
-                       payment.endingBalance)
+            if let payment =
+                payments?.paymentsSchedule[indexPath.row - 1] {
+                month.text =
+                    String(format: "%d",
+                           locale: loc,
+                           indexPath.row)
+                beginningBalance.text =
+                    String(format: numFormat,
+                           locale: loc,
+                           payment.beginningBalance)
+                interest.text =
+                    String(format: numFormat,
+                           locale: loc,
+                           payment.interest)
+                principal.text =
+                    String(format: numFormat,
+                           locale: loc,
+                           payment.principal)
+                totalPayment.text =
+                    String(format: numFormat,
+                           locale: loc,
+                           payment.monthlyPayment)
+                endingBalance.text =
+                    String(format: numFormat,
+                           locale: loc,
+                           payment.endingBalance)
             }
         }
         
         return cell
     }
     
+    // TODO: create extension??
     func changeNumFormat() {
         if UserDefaults.standard.bool(forKey: "UseDecimals") {
             numFormat = "%.2f"
