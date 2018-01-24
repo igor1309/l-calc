@@ -24,7 +24,7 @@ class SavedLoans {
             loansStorage.append(
                 LoanParams(
                     amount: 1000000.0,
-                    rate: 9.0 + Double(i / 10),
+                    rate: 9.0 + Double(i) / 10.0,
                     term: 10.0 + Double(i),
                     type: .decliningBalance)
             )
