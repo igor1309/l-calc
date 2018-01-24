@@ -109,6 +109,12 @@ class PaymentsTableViewController: UITableViewController {
             }
         }
         
+        if indexPath.row % 2 == 1 {
+            cell.backgroundColor = UIColor(red: 252,
+                                           green: 252,
+                                           blue: 252)
+        }
+        
         return cell
     }
     

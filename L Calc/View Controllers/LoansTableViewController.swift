@@ -46,10 +46,9 @@ class LoansTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =
-            tableView.dequeueReusableCell(
-                withIdentifier: "SavedLoan",
-                for: indexPath)
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "SavedLoan",
+            for: indexPath)
 
         let amountLabel = cell.viewWithTag(1001) as! UILabel
         let termLabel = cell.viewWithTag(1002) as! UILabel
@@ -58,20 +57,22 @@ class LoansTableViewController: UITableViewController {
 
         let savedLoan = loansStorage[indexPath.row]
 
-        amountLabel.text =
-            String(format: "%.0f",
-                   locale: loc,
-                   savedLoan.amount)
-        termLabel.text =
-            String(format: "%.0f",
-                   locale: loc,
-                   savedLoan.term)
-        rateLabel.text =
-            String(format: "%.2f",
-                   locale: loc,
-                   savedLoan.rate) + "%"
-        typeLabel.text =
-            String(savedLoan.type.rawValue)
+        amountLabel.text = String(format: "%.0f",
+                                  locale: loc,
+                                  savedLoan.amount)
+        termLabel.text = String(format: "%.0f",
+                                locale: loc,
+                                savedLoan.term)
+        rateLabel.text = String(format: "%.2f",
+                                locale: loc,
+                                savedLoan.rate) + "%"
+        typeLabel.text = String(savedLoan.type.rawValue)
+        
+        if indexPath.row % 2 == 1 {
+            cell.backgroundColor = UIColor(red: 252,
+                                           green: 252,
+                                           blue: 252)
+        }
 
         return cell
     }
