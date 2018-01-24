@@ -30,4 +30,7 @@ class SavedLoans {
             )
         }
     }
+    
+    // FIXME: - save data to disk
+    
 }
