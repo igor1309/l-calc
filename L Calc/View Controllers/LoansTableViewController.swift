@@ -23,6 +23,8 @@ class LoansTableViewController: UITableViewController {
         super.viewDidLoad()
 
         loansStorage = loans.loansStorage
+        
+        
 
 //        print(loansStorage)
         
@@ -44,10 +46,11 @@ class LoansTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: "SavedLoan",
-            for: indexPath)
-        
+        let cell =
+            tableView.dequeueReusableCell(
+                withIdentifier: "SavedLoan",
+                for: indexPath)
+
         let amountLabel = cell.viewWithTag(1001) as! UILabel
         let termLabel = cell.viewWithTag(1002) as! UILabel
         let rateLabel = cell.viewWithTag(1003) as! UILabel
@@ -66,22 +69,26 @@ class LoansTableViewController: UITableViewController {
         rateLabel.text =
             String(format: "%.2f",
                    locale: loc,
-                   savedLoan.rate)
+                   savedLoan.rate) + "%"
         typeLabel.text =
             String(savedLoan.type.rawValue)
 
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView,
+                            didSelectRowAt indexPath: IndexPath) {
+        
+//        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let feedback = UISelectionFeedbackGenerator()
+        feedback.selectionChanged()
+        
+        // FIXME: - send selected loansStorage[indexPath.row] to Loan view controller to show selected loan
+        print(loansStorage[indexPath.row])
     }
-    */
-
-    /*
+    
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -91,24 +98,27 @@ class LoansTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+ 
 
-    /*
+    
     // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+    override func tableView(_ tableView: UITableView,
+                            moveRowAt fromIndexPath: IndexPath,
+                            to: IndexPath) {
+        // FIXME: make rows movable
 
     }
-    */
+    
 
-/*
+
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-*/
 
-    /*
+
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -116,15 +126,15 @@ class LoansTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
-        // MARK: - extra
-        // TODO: create extension??
-        func changeNumFormat() {
-            if UserDefaults.standard.bool(forKey: "UseDecimals") {
-                numFormat = "%.2f"
-            } else {
-                numFormat = "%.0f"
-            }
+    // MARK: - extra
+    // TODO: create extension??
+    func changeNumFormat() {
+        if UserDefaults.standard.bool(forKey: "UseDecimals") {
+            numFormat = "%.2f"
+        } else {
+            numFormat = "%.0f"
         }
+    }
 }

@@ -20,10 +20,11 @@ class SavedLoans {
     var loansStorage = [LoanParams]()
     
     init() {
+        // FIXME: replace dummy array with real data
         for i in 1...6 {
             loansStorage.append(
                 LoanParams(
-                    amount: 1000000.0,
+                    amount: Double(i) * 1000000.0,
                     rate: 9.0 + Double(i) / 10.0,
                     term: 10.0 + Double(i),
                     type: .decliningBalance)

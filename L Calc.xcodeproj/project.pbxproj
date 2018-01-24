@@ -17,6 +17,7 @@
 		2A1B3FDE1FF2D95100E912B8 /* L_CalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3FDD1FF2D95100E912B8 /* L_CalcTests.swift */; };
 		2A1B3FE91FF2D95100E912B8 /* L_CalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3FE81FF2D95100E912B8 /* L_CalcUITests.swift */; };
 		2A1D5C0F200E56C8009199C5 /* PaymentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D5C0E200E56C8009199C5 /* PaymentsTableViewController.swift */; };
+		2A36D0CF20189AB800E8728C /* SavedLoans.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A36D0CE20189AB800E8728C /* SavedLoans.storyboard */; };
 		2A58C9C02007619600516471 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A58C9BF2007619600516471 /* Settings.storyboard */; };
 		2A68A10F2014F075000B947F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68A10E2014F075000B947F /* Notifications.swift */; };
 		2A68A1112014F240000B947F /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68A1102014F240000B947F /* Fonts.swift */; };
@@ -24,7 +25,6 @@
 		2A908F782006A7A700F08AFA /* LoanCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A908F772006A7A700F08AFA /* LoanCalculation.swift */; };
 		2ABAD49D200B3C8D004E7EB5 /* LoanCalcTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABAD49C200B3C8D004E7EB5 /* LoanCalcTableViewController.swift */; };
 		2AC473B92016384F00777C7E /* Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC473B82016384F00777C7E /* Extras.swift */; };
-		2ACBB244200763720068C3FC /* Saved.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACBB243200763720068C3FC /* Saved.storyboard */; };
 		2ACBB246200763AA0068C3FC /* Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACBB245200763AA0068C3FC /* Payments.storyboard */; };
 		2ACBB248200763E70068C3FC /* Loan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACBB247200763E70068C3FC /* Loan.storyboard */; };
 		2ACE483B200B3B57002E22C8 /* LoanCalc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACE4839200B3B57002E22C8 /* LoanCalc.storyboard */; };
@@ -68,6 +68,7 @@
 		2A1B3FE81FF2D95100E912B8 /* L_CalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L_CalcUITests.swift; sourceTree = "<group>"; };
 		2A1B3FEA1FF2D95100E912B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A1D5C0E200E56C8009199C5 /* PaymentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsTableViewController.swift; sourceTree = "<group>"; };
+		2A36D0CE20189AB800E8728C /* SavedLoans.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SavedLoans.storyboard; sourceTree = "<group>"; };
 		2A58C9BF2007619600516471 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2A68A10D2014CF57000B947F /* L Calc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "L Calc.entitlements"; sourceTree = "<group>"; };
 		2A68A10E2014F075000B947F /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		2A908F772006A7A700F08AFA /* LoanCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCalculation.swift; sourceTree = "<group>"; };
 		2ABAD49C200B3C8D004E7EB5 /* LoanCalcTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCalcTableViewController.swift; sourceTree = "<group>"; };
 		2AC473B82016384F00777C7E /* Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extras.swift; sourceTree = "<group>"; };
-		2ACBB243200763720068C3FC /* Saved.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Saved.storyboard; sourceTree = "<group>"; };
 		2ACBB245200763AA0068C3FC /* Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Payments.storyboard; sourceTree = "<group>"; };
 		2ACBB247200763E70068C3FC /* Loan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loan.storyboard; sourceTree = "<group>"; };
 		2ACE483A200B3B57002E22C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "L Calc/Storyboards/Base.lproj/LoanCalc.storyboard"; sourceTree = "<group>"; };
@@ -169,8 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				2A1B3FCC1FF2D95100E912B8 /* Main.storyboard */,
+				2A36D0CE20189AB800E8728C /* SavedLoans.storyboard */,
 				2ACBB247200763E70068C3FC /* Loan.storyboard */,
-				2ACBB243200763720068C3FC /* Saved.storyboard */,
 				2A58C9BF2007619600516471 /* Settings.storyboard */,
 				2A1B3FD11FF2D95100E912B8 /* LaunchScreen.storyboard */,
 				2ACBB245200763AA0068C3FC /* Payments.storyboard */,
@@ -337,9 +337,9 @@
 				2A1B3FD01FF2D95100E912B8 /* Assets.xcassets in Resources */,
 				2A1B3FCE1FF2D95100E912B8 /* Main.storyboard in Resources */,
 				2ACBB248200763E70068C3FC /* Loan.storyboard in Resources */,
+				2A36D0CF20189AB800E8728C /* SavedLoans.storyboard in Resources */,
 				2ACBB246200763AA0068C3FC /* Payments.storyboard in Resources */,
 				2A58C9C02007619600516471 /* Settings.storyboard in Resources */,
-				2ACBB244200763720068C3FC /* Saved.storyboard in Resources */,
 				2ACE483B200B3B57002E22C8 /* LoanCalc.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
