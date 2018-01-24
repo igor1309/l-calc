@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    // FIXME: - use this setting!
     func checkIfFirstLaunch() {
         if UserDefaults.standard.bool(forKey: "hasLaunchedBefore") {
             print("App has Launched Before")

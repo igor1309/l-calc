@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
+    // FIXME: - there is hasLaunchedBefore setting in AppDelegate
+    
     var useDecimals = false
     @IBOutlet weak var useDecimalsSwitch: UISwitch!
     
