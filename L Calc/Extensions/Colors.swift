@@ -30,6 +30,11 @@ extension UIColor {
         green: 107 / 255.0,
         blue: 108 / 255.0,
         alpha: 1.0)
+    static let veryLightGrey = UIColor(
+        red: 250 / 255.0,
+        green: 250 / 255.0,
+        blue: 250 / 255.0,
+        alpha: 1.0)
 }
 
 

@@ -67,14 +67,22 @@ class LoansTableViewController: UITableViewController {
                                 locale: loc,
                                 savedLoan.rate) + "%"
         typeLabel.text = String(savedLoan.type.rawValue)
-        
+/*
+        // FIXME: - после скролинга зебра нарушается
         if indexPath.row % 2 == 1 {
-            cell.backgroundColor = UIColor(red: 252,
-                                           green: 252,
-                                           blue: 252)
+            cell.backgroundColor = .veryLightGrey
         }
-
+*/
         return cell
+    }
+    
+    // FIXME: - func not called!
+    func tableView(tableView: UITableView,
+                   willDisplayCell cell: UITableViewCell,
+                   forRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row % 2 == 1 {
+            cell.backgroundColor = .veryLightGrey
+        }
     }
 
     override func tableView(_ tableView: UITableView,

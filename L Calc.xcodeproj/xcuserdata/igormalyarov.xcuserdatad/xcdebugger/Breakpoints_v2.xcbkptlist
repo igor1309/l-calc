@@ -82,99 +82,6 @@
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "L Calc/View Controllers/PaymentsTableViewController.swift"
-            timestampString = "538499147.604399"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "PaymentsTableViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "L_Calc.PaymentsTableViewController.loc.getter : Foundation.Locale"
-                  moduleName = "L Calc"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igormalyarov/Projects/L%20Calc%20Project/L%20Calc/L%20Calc/View%20Controllers/PaymentsTableViewController.swift"
-                  timestampString = "538491992.86923"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "84">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "L_Calc.PaymentsTableViewController.loc.setter : Foundation.Locale"
-                  moduleName = "L Calc"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igormalyarov/Projects/L%20Calc%20Project/L%20Calc/L%20Calc/View%20Controllers/PaymentsTableViewController.swift"
-                  timestampString = "538491992.872959"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "137">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "L_Calc.PaymentsTableViewController.init(style: __C.UITableViewStyle) -&gt; L_Calc.PaymentsTableViewController"
-                  moduleName = "L Calc"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igormalyarov/Projects/L%20Calc%20Project/L%20Calc/L%20Calc/View%20Controllers/PaymentsTableViewController.swift"
-                  timestampString = "538491992.876502"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "342">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "L_Calc.PaymentsTableViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; L_Calc.PaymentsTableViewController"
-                  moduleName = "L Calc"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igormalyarov/Projects/L%20Calc%20Project/L%20Calc/L%20Calc/View%20Controllers/PaymentsTableViewController.swift"
-                  timestampString = "538491992.880046"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "393">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "L_Calc.PaymentsTableViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;L_Calc.PaymentsTableViewController&gt;"
-                  moduleName = "L Calc"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igormalyarov/Projects/L%20Calc%20Project/L%20Calc/L%20Calc/View%20Controllers/PaymentsTableViewController.swift"
-                  timestampString = "538491992.883523"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "319">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.AddressBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
@@ -190,6 +97,22 @@
                   offsetFromSymbolStart = "0">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "L Calc/View Controllers/LoansTableViewController.swift"
+            timestampString = "538502299.3021131"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "tableView(tableView:willDisplayCell:forRowAtIndexPath:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

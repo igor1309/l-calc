@@ -21,7 +21,7 @@ class SavedLoans {
     
     init() {
         // FIXME: replace dummy array with real data
-        for i in 1...6 {
+        for i in 1...16 {
             loansStorage.append(
                 LoanParams(
                     amount: Double(i) * 1000000.0,

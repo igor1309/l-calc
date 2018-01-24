@@ -109,10 +109,9 @@ class PaymentsTableViewController: UITableViewController {
             }
         }
         
+        // FIXME: - после скролинга зебра нарушается
         if indexPath.row % 2 == 1 {
-            cell.backgroundColor = UIColor(red: 252,
-                                           green: 252,
-                                           blue: 252)
+            cell.backgroundColor = .veryLightGrey
         }
         
         return cell

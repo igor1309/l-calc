@@ -12,6 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    func checkIfFirstLaunch() {
+        if UserDefaults.standard.bool(forKey: "hasLaunchedBefore") {
+            print("App has Launched Before")
+        } else {
+            print("This is the first launch ever!")
+            UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+        }
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
