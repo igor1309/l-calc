@@ -19,10 +19,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="nqv-mj-hZc" kind="relationship" relationship="viewControllers" id="cqq-C9-9S7"/>
                         <segue destination="Vp6-9I-aRb" kind="relationship" relationship="viewControllers" id="8Y2-Ln-NLS"/>
                         <segue destination="rqc-KJ-FYU" kind="relationship" relationship="viewControllers" id="icS-dR-1kn"/>
-                        <segue destination="5xQ-Nr-TgM" kind="relationship" relationship="viewControllers" id="aGc-3D-oqk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbQ-ta-ZKV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -37,7 +35,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6XD-TE-cRc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="590" y="-943"/>
+            <point key="canvasLocation" x="471" y="-930"/>
         </scene>
         <!--Loan-->
         <scene sceneID="BFe-2U-hpy">
@@ -47,27 +45,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j7r-c5-sOl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="-1368"/>
-        </scene>
-        <!--LoanCalc-->
-        <scene sceneID="JT1-Wr-ZgL">
-            <objects>
-                <viewControllerPlaceholder storyboardName="LoanCalc" id="5xQ-Nr-TgM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="4eW-Nh-Llx"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qpO-Dx-Fcp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="490" y="-787"/>
-        </scene>
-        <!--SavedLoans-->
-        <scene sceneID="nAM-zi-x8A">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SavedLoans" id="nqv-mj-hZc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="eD1-si-R6f"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uGC-md-8bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="590" y="-1113"/>
+            <point key="canvasLocation" x="454" y="-1227"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

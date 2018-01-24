@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "L Calc/View Controllers/ViewController.swift"
-            timestampString = "538509340.44561"
+            timestampString = "538510077.324247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
             endingLineNumber = "38"
-            landmarkName = "ViewController"
+            landmarkName = "LoanViewController"
             landmarkType = "3">
             <Locations>
                <Location
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "L Calc/View Controllers/LoansTableViewController.swift"
-            timestampString = "538509340.446146"
+            timestampString = "538511656.285247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"

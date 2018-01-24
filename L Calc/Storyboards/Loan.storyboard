@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sdf-Dc-7Gj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9bT-ak-ZtS">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +23,7 @@
         <!--Кредит-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="L_Calc" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoanViewController" customModule="L_Calc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,7 +112,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdv-Q5-jED" userLabel="Parameters View">
-                                <rect key="frame" x="0.0" y="306" width="375" height="472"/>
+                                <rect key="frame" x="0.0" y="306" width="375" height="423"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="k0E-KA-jsZ" userLabel="Parameters Stack View">
                                         <rect key="frame" x="8" y="24" width="359" height="370"/>
@@ -242,7 +243,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Кредит" largeTitleDisplayMode="always" id="ehZ-mC-RoX">
-                        <barButtonItem key="leftBarButtonItem" image="Fav Icon Empty" id="BgD-C0-oWl"/>
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="organize" id="Pqu-C9-gMb">
+                                <connections>
+                                    <segue destination="16l-9R-Y0c" kind="show" id="mDM-7Q-Rne"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="Fav Icon Empty" id="BgD-C0-oWl"/>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" image="Payments" id="acw-BK-SdE">
                             <connections>
                                 <segue destination="5Jj-Xy-nyX" kind="show" id="hBc-Ke-DyB"/>
@@ -407,7 +415,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVW-UK-58c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-372" y="-89.408866995073893"/>
+            <point key="canvasLocation" x="-6" y="-89"/>
         </scene>
         <!--Расчет-->
         <scene sceneID="0sH-WX-VqE">
@@ -428,11 +436,131 @@
             </objects>
             <point key="canvasLocation" x="-2022" y="-89"/>
         </scene>
+        <!--Кредиты-->
+        <scene sceneID="sye-Of-nNb">
+            <objects>
+                <tableViewController title="Кредиты" id="16l-9R-Y0c" customClass="LoansTableViewController" customModule="L_Calc" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="PoP-d0-dp9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SavedLoan" rowHeight="94" id="uZT-T0-PJ6">
+                                <rect key="frame" x="0.0" y="28" width="375" height="94"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uZT-T0-PJ6" id="fWv-0s-uHD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="93.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4ql-s8-5ZZ">
+                                            <rect key="frame" x="20" y="19.999999999999996" width="335" height="53.666666666666657"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="RA4-cK-1Ri">
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="23"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кредит:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSe-Jw-1ts">
+                                                            <rect key="frame" x="0.0" y="0.0" width="59" height="23"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                                            <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999,999,999,999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVK-E4-f2m">
+                                                            <rect key="frame" x="72.333333333333343" y="0.0" width="118.33333333333334" height="23"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                                            <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="аннуитет/в конце" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dC-AK-qSV">
+                                                            <rect key="frame" x="203.66666666666663" y="0.0" width="131.33333333333337" height="23"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                                            <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TA3-af-BJh">
+                                                    <rect key="frame" x="0.0" y="31" width="335" height="22.666666666666671"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Срок (мес):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stu-Bd-peO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="85.333333333333329" height="22.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                                            <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuM-8F-VHK">
+                                                            <rect key="frame" x="134.66666666666666" y="0.0" width="25.333333333333343" height="22.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                                            <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ставка" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tL2-nh-5fP">
+                                                            <rect key="frame" x="209.33333333333334" y="0.0" width="49.666666666666657" height="22.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                                            <color key="textColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nna-bt-AXn">
+                                                            <rect key="frame" x="308.33333333333331" y="0.0" width="26.666666666666686" height="22.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                                            <color key="textColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="4ql-s8-5ZZ" secondAttribute="bottom" constant="20" symbolic="YES" id="5kX-Ee-mHC"/>
+                                        <constraint firstItem="4ql-s8-5ZZ" firstAttribute="top" secondItem="fWv-0s-uHD" secondAttribute="top" constant="20" symbolic="YES" id="bBG-Zc-KlL"/>
+                                        <constraint firstAttribute="trailing" secondItem="4ql-s8-5ZZ" secondAttribute="trailing" constant="20" symbolic="YES" id="gdF-5u-oaW"/>
+                                        <constraint firstItem="4ql-s8-5ZZ" firstAttribute="leading" secondItem="fWv-0s-uHD" secondAttribute="leading" constant="20" symbolic="YES" id="zMP-bW-L44"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Sdf-Dc-7Gj" kind="show" identifier="UseLoan" id="qGt-uN-g0c"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="16l-9R-Y0c" id="SzG-y7-UVD"/>
+                            <outlet property="delegate" destination="16l-9R-Y0c" id="ebE-Pe-c5S"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Кредиты" id="kR5-uB-wbk"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OA9-Vf-Wro" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-415" y="-834"/>
+        </scene>
+        <!--Кредиты-->
+        <scene sceneID="85F-CC-UIW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9bT-ak-ZtS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Кредиты" image="Payments" selectedImage="Payments" id="USC-Sy-TMo"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HVE-1o-925">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="16l-9R-Y0c" kind="relationship" relationship="rootViewController" id="m4d-fE-KWN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7KF-XV-SaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1479" y="-834"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Fav Icon Empty" width="28" height="28"/>
         <image name="Payments" width="28" height="28"/>
         <image name="Today Icon" width="18" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="m4d-fE-KWN"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
