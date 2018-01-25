@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Loan" representedClassName="Loan" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" attributeType="Double" minValueString="10000" maxValueString="99999999999999" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rate" attributeType="Double" minValueString="0.1" maxValueString="100" defaultValueString="8" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="term" attributeType="Integer 16" minValueString="1" maxValueString="360" defaultValueString="12" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Loan" positionX="-63" positionY="-18" width="128" height="105"/>
+    </elements>
+</model>

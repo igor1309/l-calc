@@ -22,6 +22,7 @@
 		2A68A10F2014F075000B947F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68A10E2014F075000B947F /* Notifications.swift */; };
 		2A68A1112014F240000B947F /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68A1102014F240000B947F /* Fonts.swift */; };
 		2A908F762006604700F08AFA /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A908F752006604700F08AFA /* Loan.swift */; };
+		2ABC5779201A6B3200875B27 /* LoanModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2ABC5777201A6B3200875B27 /* LoanModel.xcdatamodeld */; };
 		2AC473B92016384F00777C7E /* Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC473B82016384F00777C7E /* Extras.swift */; };
 		2ACBB246200763AA0068C3FC /* Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACBB245200763AA0068C3FC /* Payments.storyboard */; };
 		2ACBB248200763E70068C3FC /* Loan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACBB247200763E70068C3FC /* Loan.storyboard */; };
@@ -72,6 +73,7 @@
 		2A68A10E2014F075000B947F /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		2A68A1102014F240000B947F /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		2A908F752006604700F08AFA /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
+		2ABC5778201A6B3200875B27 /* LoanModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LoanModel.xcdatamodel; sourceTree = "<group>"; };
 		2AC473B82016384F00777C7E /* Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extras.swift; sourceTree = "<group>"; };
 		2ACBB245200763AA0068C3FC /* Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Payments.storyboard; sourceTree = "<group>"; };
 		2ACBB247200763E70068C3FC /* Loan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loan.storyboard; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				2A908F752006604700F08AFA /* Loan.swift */,
 				2A18630B200F554C00D96887 /* PaymentsSchedule.swift */,
 				2AE63E5D2017A3E3000AE45E /* SavedLoans.swift */,
+				2ABC5777201A6B3200875B27 /* LoanModel.xcdatamodeld */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				2A68A1112014F240000B947F /* Fonts.swift in Sources */,
 				2A18630C200F554C00D96887 /* PaymentsSchedule.swift in Sources */,
 				2AE63E59201782C7000AE45E /* OtherExtensions.swift in Sources */,
+				2ABC5779201A6B3200875B27 /* LoanModel.xcdatamodeld in Sources */,
 				2AC473B92016384F00777C7E /* Extras.swift in Sources */,
 				2A0CD7962013252600FE8404 /* SettingsTableViewController.swift in Sources */,
 				2AE63E5E2017A3E3000AE45E /* SavedLoans.swift in Sources */,
@@ -679,6 +683,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2ABC5777201A6B3200875B27 /* LoanModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2ABC5778201A6B3200875B27 /* LoanModel.xcdatamodel */,
+			);
+			currentVersion = 2ABC5778201A6B3200875B27 /* LoanModel.xcdatamodel */;
+			path = LoanModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2A1B3FBD1FF2D95100E912B8 /* Project object */;
 }
