@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CDLoan" representedClassName="CDLoan" syncable="YES" codeGenerationType="class">
+    <entity name="CDLoan" representedClassName="CDLoan" syncable="YES">
         <attribute name="amount" attributeType="Double" minValueString="10000" maxValueString="99999999999999" defaultValueString="1000000" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="rate" attributeType="Double" minValueString="0.1" maxValueString="100" defaultValueString="8" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="term" attributeType="Integer 16" minValueString="1" maxValueString="360" defaultValueString="12" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="type" attributeType="String" syncable="YES"/>
         <relationship name="listOfLoans" maxCount="1" deletionRule="Nullify" destinationEntity="ListOfLoans" inverseName="loan" inverseEntity="ListOfLoans" syncable="YES"/>
+        <fetchIndex name="byCreationDateIndex">
+            <fetchIndexElement property="creationDate" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
-    <entity name="ListOfLoans" representedClassName="ListOfLoans" syncable="YES" codeGenerationType="class">
+    <entity name="ListOfLoans" representedClassName="ListOfLoans" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="loan" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDLoan" inverseName="listOfLoans" inverseEntity="CDLoan" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CDLoan" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="ListOfLoans" positionX="-54" positionY="18" width="128" height="75"/>
+        <element name="CDLoan" positionX="-288" positionY="117" width="128" height="133"/>
+        <element name="ListOfLoans" positionX="-54" positionY="18" width="128" height="73"/>
     </elements>
 </model>
