@@ -15,15 +15,32 @@ class SettingsTableViewController: UITableViewController {
     var useDecimals = false
     @IBOutlet weak var useDecimalsSwitch: UISwitch!
     
-    @IBAction func useDecimalsSwitch(_ sender: UISwitch) {
+    @IBAction func useDecimalsSwitched(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn,
                                   forKey: "UseDecimals")
         useDecimals = sender.isOn
-        // FIXME: send notification that using decimals swich changed
+        // FIXME: - send notification that using decimals swich changed
         // Payments Schedule and Loan Calc should be listening for notification
         NotificationCenter.default.post(
             Notification(name: .decimalsUsageChanged))
     }
+    
+    var lessHapticFeedback = false
+    @IBOutlet weak var lessFeedbackSwitch: UISwitch!
+    
+    @IBAction func lessFeedbackSwitched(_ sender: UISwitch) {
+        // FIXME: - finish code using this Setting
+        UserDefaults.standard.set(sender.isOn,
+                                  forKey: "LessFeedback")
+        lessHapticFeedback = sender.isOn
+        // FIXME: - send notification that using less Feedback swich changed
+        // Loan should be listening for notification
+        NotificationCenter.default.post(
+            Notification(name: .lessFeedback))
+
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

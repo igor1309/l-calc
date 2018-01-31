@@ -72,6 +72,7 @@
                                                     <connections>
                                                         <action selector="useDecimalsSwitch:" destination="PN4-7m-iZF" eventType="valueChanged" id="Ghw-Gt-eyJ"/>
                                                         <action selector="useDecimalsSwitch:" destination="16l-kt-i4T" eventType="valueChanged" id="Sh1-33-alG"/>
+                                                        <action selector="useDecimalsSwitched:" destination="16l-kt-i4T" eventType="valueChanged" id="J0P-yv-aau"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -80,6 +81,38 @@
                                                 <constraint firstItem="qlY-3w-6ui" firstAttribute="centerY" secondItem="3Am-k8-Vlq" secondAttribute="centerY" id="FAA-Kh-6kI"/>
                                                 <constraint firstItem="qlY-3w-6ui" firstAttribute="leading" secondItem="3Am-k8-Vlq" secondAttribute="leadingMargin" id="rhz-et-ufU"/>
                                                 <constraint firstAttribute="trailing" secondItem="g1n-rv-6uA" secondAttribute="trailing" constant="20" symbolic="YES" id="xL4-oJ-9Rh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gn7-0b-7z6">
+                                        <rect key="frame" x="0.0" y="199.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gn7-0b-7z6" id="Qie-ha-K9B">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Less Haptic Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKe-Pg-auf">
+                                                    <rect key="frame" x="20" y="10.5" width="169" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5sF-KT-2rJ">
+                                                    <rect key="frame" x="306" y="5.5" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="thumbTintColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <connections>
+                                                        <action selector="lessFeedbackSwitched:" destination="16l-kt-i4T" eventType="valueChanged" id="hmM-pl-kA4"/>
+                                                        <action selector="useDecimalsSwitch:" destination="PN4-7m-iZF" eventType="valueChanged" id="3MP-mT-392"/>
+                                                        <action selector="useDecimalsSwitch:" destination="16l-kt-i4T" eventType="valueChanged" id="7Gu-w0-lTW"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zKe-Pg-auf" firstAttribute="leading" secondItem="Qie-ha-K9B" secondAttribute="leading" constant="20" symbolic="YES" id="JJ9-JD-nHe"/>
+                                                <constraint firstAttribute="trailing" secondItem="5sF-KT-2rJ" secondAttribute="trailing" constant="20" symbolic="YES" id="V4S-at-wm6"/>
+                                                <constraint firstItem="zKe-Pg-auf" firstAttribute="centerY" secondItem="Qie-ha-K9B" secondAttribute="centerY" id="xT9-w0-zm9"/>
+                                                <constraint firstItem="5sF-KT-2rJ" firstAttribute="centerY" secondItem="Qie-ha-K9B" secondAttribute="centerY" id="yk2-pG-ViJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -93,6 +126,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Settings" image="Settings Icon" id="3yN-ha-m3Q"/>
                     <connections>
+                        <outlet property="lessFeedbackSwitch" destination="5sF-KT-2rJ" id="HbW-JA-Ta1"/>
                         <outlet property="useDecimalsSwitch" destination="g1n-rv-6uA" id="18e-Fz-rEi"/>
                     </connections>
                 </tableViewController>

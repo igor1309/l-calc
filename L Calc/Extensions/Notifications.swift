@@ -10,7 +10,11 @@ import Foundation
 
 extension Notification.Name {
     
-    static let decimalsUsageChanged = Notification.Name("decimalsUsageChanged")
+    static let decimalsUsageChanged =
+        Notification.Name("decimalsUsageChanged")
+    
+    static let lessFeedback =
+        Notification.Name("lessFeedback")
     
     static let loanChanged =
         Notification.Name("loanChanged")
