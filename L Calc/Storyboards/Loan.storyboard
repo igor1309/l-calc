@@ -60,17 +60,17 @@
                                                         <rect key="frame" x="0.0" y="132" width="335" height="41.333333333333343"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LDH-P5-lZR" userLabel="Percent Total Stack View">
-                                                                <rect key="frame" x="0.0" y="0.33333333333334281" width="335" height="18.666666666666668"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="18.666666666666668"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПРОЦЕНТЫ, ВСЕГО" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CtD-zJ-ffz">
-                                                                        <rect key="frame" x="0.0" y="0.33333333333334281" width="193.33333333333334" height="18.666666666666668"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="193.33333333333334" height="18.666666666666668"/>
                                                                         <color key="tintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
                                                                         <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9,999,999,999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lmt-do-ifL">
-                                                                        <rect key="frame" x="201.33333333333337" y="0.33333333333334281" width="133.66666666666663" height="18.666666666666668"/>
+                                                                        <rect key="frame" x="201.33333333333337" y="0.0" width="133.66666666666663" height="18.666666666666668"/>
                                                                         <color key="tintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
                                                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,17 +79,17 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zUX-bB-EME" userLabel="Total Sum Stack View">
-                                                                <rect key="frame" x="0.0" y="23.000000000000028" width="335" height="18.666666666666671"/>
+                                                                <rect key="frame" x="0.0" y="22.666666666666686" width="335" height="18.666666666666671"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="КРЕДИТ И ПРОЦЕНТЫ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4G8-jY-n0a">
-                                                                        <rect key="frame" x="0.0" y="0.33333333333337123" width="199.33333333333334" height="18.666666666666668"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="199.33333333333334" height="18.666666666666668"/>
                                                                         <color key="tintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
                                                                         <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99,999,999,999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="r9a-zV-hUB">
-                                                                        <rect key="frame" x="207.33333333333334" y="0.33333333333337123" width="127.66666666666666" height="18.666666666666668"/>
+                                                                        <rect key="frame" x="207.33333333333334" y="0.0" width="127.66666666666666" height="18.666666666666668"/>
                                                                         <color key="tintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
                                                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -285,7 +285,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1893" y="-92"/>
+            <point key="canvasLocation" x="-1972" y="-92"/>
         </scene>
         <!--Payments Table View Controller-->
         <scene sceneID="96C-tB-T6f">
@@ -483,7 +483,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bnr-lB-RLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2787" y="908"/>
+            <point key="canvasLocation" x="-3686" y="651"/>
         </scene>
         <!--Settings-->
         <scene sceneID="zP3-iv-oVJ">
@@ -509,26 +509,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBw-bY-tUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2314" y="-1104"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="isa-Se-vIF">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZFJ-cq-v9V" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="cFk-XV-2Te"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lPy-4d-1CM">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="VEy-6i-GL0" kind="relationship" relationship="rootViewController" id="3di-Xj-bHu"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mKH-eN-m03" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3500" y="-92"/>
+            <point key="canvasLocation" x="-2905" y="-92"/>
         </scene>
     </scenes>
     <resources>
@@ -537,7 +518,6 @@
         <image name="Settings Icon" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cy5-Rm-uRh"/>
         <segue reference="Jgg-qB-7wJ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
