@@ -16,6 +16,8 @@
 		2A1B3FDE1FF2D95100E912B8 /* L_CalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3FDD1FF2D95100E912B8 /* L_CalcTests.swift */; };
 		2A1B3FE91FF2D95100E912B8 /* L_CalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3FE81FF2D95100E912B8 /* L_CalcUITests.swift */; };
 		2A1D5C0F200E56C8009199C5 /* PaymentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D5C0E200E56C8009199C5 /* PaymentsTableViewController.swift */; };
+		2A4F879A203F31AB0027D26B /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4F8799203F31AB0027D26B /* Data.swift */; };
+		2A4F879C203F33270027D26B /* SectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4F879B203F33270027D26B /* SectionCollectionViewCell.swift */; };
 		2A58C9C02007619600516471 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A58C9BF2007619600516471 /* Settings.storyboard */; };
 		2A68A10F2014F075000B947F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68A10E2014F075000B947F /* Notifications.swift */; };
 		2A68A1112014F240000B947F /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68A1102014F240000B947F /* Fonts.swift */; };
@@ -69,6 +71,8 @@
 		2A1B3FE81FF2D95100E912B8 /* L_CalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L_CalcUITests.swift; sourceTree = "<group>"; };
 		2A1B3FEA1FF2D95100E912B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A1D5C0E200E56C8009199C5 /* PaymentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsTableViewController.swift; sourceTree = "<group>"; };
+		2A4F8799203F31AB0027D26B /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		2A4F879B203F33270027D26B /* SectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		2A58C9BF2007619600516471 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2A68A10D2014CF57000B947F /* L Calc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "L Calc.entitlements"; sourceTree = "<group>"; };
 		2A68A10E2014F075000B947F /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 		2A58C9C2200761F600516471 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2AC43BD9203DE5F9003F558A /* CollectionViewController.swift */,
+				2A4F879B203F33270027D26B /* SectionCollectionViewCell.swift */,
 				2A1B3FCA1FF2D95100E912B8 /* LoanViewController.swift */,
 				2A1D5C0E200E56C8009199C5 /* PaymentsTableViewController.swift */,
 				2AE63E5F2017A94A000AE45E /* LoansTableViewController.swift */,
@@ -195,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				2AF4FBE82003868300C94300 /* Colors.swift */,
-				2AC43BD9203DE5F9003F558A /* CollectionViewController.swift */,
 				2A68A1102014F240000B947F /* Fonts.swift */,
 				2A68A10E2014F075000B947F /* Notifications.swift */,
 				2AE63E58201782C7000AE45E /* OtherExtensions.swift */,
@@ -215,6 +220,7 @@
 				2AE63E5D2017A3E3000AE45E /* SavedLoans.swift */,
 				2ABC5777201A6B3200875B27 /* LoanModel.xcdatamodeld */,
 				2AAE3519201BA24200D2B46D /* CoreDataStack.swift */,
+				2A4F8799203F31AB0027D26B /* Data.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -382,11 +388,13 @@
 				2ABC5779201A6B3200875B27 /* LoanModel.xcdatamodeld in Sources */,
 				2AAE3529201BA8A700D2B46D /* ListOfLoans+CoreDataClass.swift in Sources */,
 				2AC473B92016384F00777C7E /* Extras.swift in Sources */,
+				2A4F879A203F31AB0027D26B /* Data.swift in Sources */,
 				2A0CD7962013252600FE8404 /* SettingsTableViewController.swift in Sources */,
 				2AAE3528201BA8A700D2B46D /* CDLoan+CoreDataProperties.swift in Sources */,
 				2AE63E5E2017A3E3000AE45E /* SavedLoans.swift in Sources */,
 				2AC43BDA203DE5F9003F558A /* CollectionViewController.swift in Sources */,
 				2AAE352C201BBBA600D2B46D /* CoreDataTableViewController.swift in Sources */,
+				2A4F879C203F33270027D26B /* SectionCollectionViewCell.swift in Sources */,
 				2AE63E602017A94A000AE45E /* LoansTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
