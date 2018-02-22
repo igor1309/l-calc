@@ -29,14 +29,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="КРЕДИТЫ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dw9-hK-9Hz">
-                                <rect key="frame" x="54" y="153" width="81" height="21"/>
+                                <rect key="frame" x="16" y="99" width="81" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aba-gJ-6CH">
-                                <rect key="frame" x="16" y="182" width="343" height="280"/>
+                                <rect key="frame" x="16" y="128" width="343" height="280"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="0.0" id="lK2-mT-8Fa">
@@ -364,6 +364,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="annuitySegment" destination="oog-wc-tss" id="U38-FU-yR4"/>
+                        <outlet property="loanView" destination="TDf-0K-a7B" id="Oly-yQ-bw5"/>
                         <outlet property="monthlyPayment" destination="NCC-zF-mub" id="sr3-dF-t3o"/>
                         <outlet property="monthlyPaymentCommentLabel" destination="twc-1w-a4S" id="0x2-ho-MoA"/>
                         <outlet property="rateLabel" destination="VDK-9R-NUl" id="bdK-Zr-xdG"/>
@@ -752,7 +753,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cy5-Rm-uRh"/>
-        <segue reference="Jgg-qB-7wJ"/>
+        <segue reference="UbP-T8-aRA"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

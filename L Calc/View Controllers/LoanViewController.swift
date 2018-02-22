@@ -18,6 +18,7 @@ class LoanViewController: UIViewController {
     @IBOutlet weak var totalInterest: UILabel!
     @IBOutlet weak var totalPayment: UILabel!
     @IBOutlet weak var annuitySegment: UISegmentedControl!
+    @IBOutlet weak var loanView: UIView!
     
     @IBOutlet weak var sumLabel: UILabel!
     @IBOutlet weak var sumSubLabel: UILabel!
@@ -51,13 +52,16 @@ class LoanViewController: UIViewController {
     // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
+
         NotificationCenter.default.addObserver(
             forName: .outOfRange,
             object: .none,
             queue: OperationQueue.main) { [weak self] _ in
                 self?.outOfRangeFeedback()
         }
+        
         showLoanData()
+        
     }
     
     func outOfRangeFeedback() {
