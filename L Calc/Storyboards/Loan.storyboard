@@ -28,22 +28,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="КРЕДИТЫ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dw9-hK-9Hz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="КРЕДИТЫ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dw9-hK-9Hz">
                                 <rect key="frame" x="16" y="129" width="81" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aba-gJ-6CH">
-                                <rect key="frame" x="16" y="158" width="343" height="280"/>
+                                <rect key="frame" x="0.0" y="158" width="375" height="280"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="0.0" id="lK2-mT-8Fa">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="0.0" sectionInsetReference="safeArea" id="lK2-mT-8Fa">
                                     <size key="itemSize" width="235" height="235"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sectionCell" id="BnE-qK-xIT" customClass="SectionCollectionViewCell" customModule="L_Calc" customModuleProvider="target">
@@ -62,9 +61,8 @@
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Images/Logo" translatesAutoresizingMaskIntoConstraints="NO" id="WSv-Wt-WrN">
                                                                     <rect key="frame" x="0.0" y="0.0" width="235" height="235"/>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Параметры кредита" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3my-Y3-OKv">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Параметры кредита" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3my-Y3-OKv">
                                                                     <rect key="frame" x="21" y="18" width="162" height="21"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -74,6 +72,8 @@
                                                             <constraints>
                                                                 <constraint firstItem="WSv-Wt-WrN" firstAttribute="leading" secondItem="h2V-QD-f2i" secondAttribute="leading" id="4LQ-9B-FAh"/>
                                                                 <constraint firstItem="WSv-Wt-WrN" firstAttribute="top" secondItem="h2V-QD-f2i" secondAttribute="top" id="52h-0J-MQs"/>
+                                                                <constraint firstItem="3my-Y3-OKv" firstAttribute="leading" secondItem="h2V-QD-f2i" secondAttribute="leading" constant="21" id="hnj-Aq-SrD"/>
+                                                                <constraint firstItem="3my-Y3-OKv" firstAttribute="top" secondItem="h2V-QD-f2i" secondAttribute="top" constant="18" id="jDj-SB-bHx"/>
                                                                 <constraint firstAttribute="bottom" secondItem="WSv-Wt-WrN" secondAttribute="bottom" id="ow8-y3-mvh"/>
                                                                 <constraint firstAttribute="trailing" secondItem="WSv-Wt-WrN" secondAttribute="trailing" id="yCx-Jt-UUk"/>
                                                             </constraints>
@@ -124,6 +124,10 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8i3-T9-dHh" firstAttribute="top" secondItem="Dw9-hK-9Hz" secondAttribute="bottom" constant="-62" id="4du-k0-RBD"/>
+                            <constraint firstItem="8i3-T9-dHh" firstAttribute="leading" secondItem="Dw9-hK-9Hz" secondAttribute="trailing" constant="-97" id="61a-0u-FGo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="8i3-T9-dHh"/>
                     </view>
                     <connections>
