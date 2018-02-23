@@ -10,15 +10,16 @@ import UIKit
 
 class LoanViewController: UIViewController {
     
-    var gradientLayer: CAGradientLayer!
+//    var gradientLayer: CAGradientLayer!
     var colorSets = [[CGColor]]()
     var currentColorSet: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        createColorSets()
-        createGradientLayer()
+        self.view.applyGradient()
+//        createColorSets()
+//        createGradientLayer()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +54,7 @@ class LoanViewController: UIViewController {
     func createGradientLayer() {
         // https://www.appcoda.com/cagradientlayer/
         
-        gradientLayer = CAGradientLayer()
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.frame = self.view.bounds
         gradientLayer.colors = colorSets[currentColorSet]
         gradientLayer.locations = [0.0, 1.0]

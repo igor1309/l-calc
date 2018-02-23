@@ -16,6 +16,7 @@
 		2A1B3FDE1FF2D95100E912B8 /* L_CalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3FDD1FF2D95100E912B8 /* L_CalcTests.swift */; };
 		2A1B3FE91FF2D95100E912B8 /* L_CalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3FE81FF2D95100E912B8 /* L_CalcUITests.swift */; };
 		2A1D5C0F200E56C8009199C5 /* PaymentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D5C0E200E56C8009199C5 /* PaymentsTableViewController.swift */; };
+		2A20E9B1204069A60068F5DC /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A20E9B0204069A60068F5DC /* UIView+Gradient.swift */; };
 		2A4F879A203F31AB0027D26B /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4F8799203F31AB0027D26B /* Data.swift */; };
 		2A4F879C203F33270027D26B /* SectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4F879B203F33270027D26B /* SectionCollectionViewCell.swift */; };
 		2A58C9C02007619600516471 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A58C9BF2007619600516471 /* Settings.storyboard */; };
@@ -73,6 +74,7 @@
 		2A1B3FE81FF2D95100E912B8 /* L_CalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L_CalcUITests.swift; sourceTree = "<group>"; };
 		2A1B3FEA1FF2D95100E912B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A1D5C0E200E56C8009199C5 /* PaymentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsTableViewController.swift; sourceTree = "<group>"; };
+		2A20E9B0204069A60068F5DC /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		2A4F8799203F31AB0027D26B /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		2A4F879B203F33270027D26B /* SectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		2A58C9BF2007619600516471 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				2A68A1102014F240000B947F /* Fonts.swift */,
 				2A68A10E2014F075000B947F /* Notifications.swift */,
 				2A795F04204023F900157433 /* UIView+IBInspectable.swift */,
+				2A20E9B0204069A60068F5DC /* UIView+Gradient.swift */,
 				2AE63E58201782C7000AE45E /* OtherExtensions.swift */,
 			);
 			path = Extensions;
@@ -385,6 +388,7 @@
 				2AF4FBE92003868300C94300 /* Colors.swift in Sources */,
 				2A1B3FC91FF2D95100E912B8 /* AppDelegate.swift in Sources */,
 				2A1D5C0F200E56C8009199C5 /* PaymentsTableViewController.swift in Sources */,
+				2A20E9B1204069A60068F5DC /* UIView+Gradient.swift in Sources */,
 				2A795F05204023F900157433 /* UIView+IBInspectable.swift in Sources */,
 				2A908F762006604700F08AFA /* Loan.swift in Sources */,
 				2A68A1112014F240000B947F /* Fonts.swift in Sources */,
