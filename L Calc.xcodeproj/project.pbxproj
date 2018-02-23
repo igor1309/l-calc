@@ -10,7 +10,7 @@
 		2A0CD7962013252600FE8404 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CD7952013252600FE8404 /* SettingsTableViewController.swift */; };
 		2A18630C200F554C00D96887 /* PaymentsSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A18630B200F554C00D96887 /* PaymentsSchedule.swift */; };
 		2A1B3FC91FF2D95100E912B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3FC81FF2D95100E912B8 /* AppDelegate.swift */; };
-		2A1B3FCB1FF2D95100E912B8 /* LoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3FCA1FF2D95100E912B8 /* LoanViewController.swift */; };
+		2A1B3FCB1FF2D95100E912B8 /* LoanParamAndResViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3FCA1FF2D95100E912B8 /* LoanParamAndResViewController.swift */; };
 		2A1B3FD01FF2D95100E912B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A1B3FCF1FF2D95100E912B8 /* Assets.xcassets */; };
 		2A1B3FD31FF2D95100E912B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A1B3FD11FF2D95100E912B8 /* LaunchScreen.storyboard */; };
 		2A1B3FDE1FF2D95100E912B8 /* L_CalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3FDD1FF2D95100E912B8 /* L_CalcTests.swift */; };
@@ -21,6 +21,8 @@
 		2A58C9C02007619600516471 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A58C9BF2007619600516471 /* Settings.storyboard */; };
 		2A68A10F2014F075000B947F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68A10E2014F075000B947F /* Notifications.swift */; };
 		2A68A1112014F240000B947F /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68A1102014F240000B947F /* Fonts.swift */; };
+		2A77A8D12040317700E1F623 /* LoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77A8D02040317700E1F623 /* LoanViewController.swift */; };
+		2A795F05204023F900157433 /* UIView+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A795F04204023F900157433 /* UIView+IBInspectable.swift */; };
 		2A908F762006604700F08AFA /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A908F752006604700F08AFA /* Loan.swift */; };
 		2AAE351A201BA24200D2B46D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAE3519201BA24200D2B46D /* CoreDataStack.swift */; };
 		2AAE3527201BA8A700D2B46D /* CDLoan+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAE3523201BA8A700D2B46D /* CDLoan+CoreDataClass.swift */; };
@@ -60,7 +62,7 @@
 		2A18630B200F554C00D96887 /* PaymentsSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsSchedule.swift; sourceTree = "<group>"; };
 		2A1B3FC51FF2D95100E912B8 /* L Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "L Calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A1B3FC81FF2D95100E912B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2A1B3FCA1FF2D95100E912B8 /* LoanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanViewController.swift; sourceTree = "<group>"; };
+		2A1B3FCA1FF2D95100E912B8 /* LoanParamAndResViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanParamAndResViewController.swift; sourceTree = "<group>"; };
 		2A1B3FCF1FF2D95100E912B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A1B3FD21FF2D95100E912B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A1B3FD41FF2D95100E912B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,6 +79,8 @@
 		2A68A10D2014CF57000B947F /* L Calc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "L Calc.entitlements"; sourceTree = "<group>"; };
 		2A68A10E2014F075000B947F /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		2A68A1102014F240000B947F /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		2A77A8D02040317700E1F623 /* LoanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanViewController.swift; sourceTree = "<group>"; };
+		2A795F04204023F900157433 /* UIView+IBInspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectable.swift"; sourceTree = "<group>"; };
 		2A908F752006604700F08AFA /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		2AAE3519201BA24200D2B46D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		2AAE3523201BA8A700D2B46D /* CDLoan+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDLoan+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -186,9 +190,10 @@
 		2A58C9C2200761F600516471 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2A77A8D02040317700E1F623 /* LoanViewController.swift */,
 				2AC43BD9203DE5F9003F558A /* CollectionViewController.swift */,
 				2A4F879B203F33270027D26B /* SectionCollectionViewCell.swift */,
-				2A1B3FCA1FF2D95100E912B8 /* LoanViewController.swift */,
+				2A1B3FCA1FF2D95100E912B8 /* LoanParamAndResViewController.swift */,
 				2A1D5C0E200E56C8009199C5 /* PaymentsTableViewController.swift */,
 				2AE63E5F2017A94A000AE45E /* LoansTableViewController.swift */,
 				2A0CD7952013252600FE8404 /* SettingsTableViewController.swift */,
@@ -203,6 +208,7 @@
 				2AF4FBE82003868300C94300 /* Colors.swift */,
 				2A68A1102014F240000B947F /* Fonts.swift */,
 				2A68A10E2014F075000B947F /* Notifications.swift */,
+				2A795F04204023F900157433 /* UIView+IBInspectable.swift */,
 				2AE63E58201782C7000AE45E /* OtherExtensions.swift */,
 			);
 			path = Extensions;
@@ -375,10 +381,11 @@
 			files = (
 				2AAE351A201BA24200D2B46D /* CoreDataStack.swift in Sources */,
 				2A68A10F2014F075000B947F /* Notifications.swift in Sources */,
-				2A1B3FCB1FF2D95100E912B8 /* LoanViewController.swift in Sources */,
+				2A1B3FCB1FF2D95100E912B8 /* LoanParamAndResViewController.swift in Sources */,
 				2AF4FBE92003868300C94300 /* Colors.swift in Sources */,
 				2A1B3FC91FF2D95100E912B8 /* AppDelegate.swift in Sources */,
 				2A1D5C0F200E56C8009199C5 /* PaymentsTableViewController.swift in Sources */,
+				2A795F05204023F900157433 /* UIView+IBInspectable.swift in Sources */,
 				2A908F762006604700F08AFA /* Loan.swift in Sources */,
 				2A68A1112014F240000B947F /* Fonts.swift in Sources */,
 				2AAE352A201BA8A700D2B46D /* ListOfLoans+CoreDataProperties.swift in Sources */,
@@ -393,6 +400,7 @@
 				2AAE3528201BA8A700D2B46D /* CDLoan+CoreDataProperties.swift in Sources */,
 				2AE63E5E2017A3E3000AE45E /* SavedLoans.swift in Sources */,
 				2AC43BDA203DE5F9003F558A /* CollectionViewController.swift in Sources */,
+				2A77A8D12040317700E1F623 /* LoanViewController.swift in Sources */,
 				2AAE352C201BBBA600D2B46D /* CoreDataTableViewController.swift in Sources */,
 				2A4F879C203F33270027D26B /* SectionCollectionViewCell.swift in Sources */,
 				2AE63E602017A94A000AE45E /* LoansTableViewController.swift in Sources */,
