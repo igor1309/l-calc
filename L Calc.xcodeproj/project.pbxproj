@@ -143,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				2AC473B72016381100777C7E /* Extras, Ideas and Snippets */,
-				2A68A10D2014CF57000B947F /* L Calc.entitlements */,
 				2A68A1122014F27A000B947F /* Extensions */,
 				2ABAD49B200B3C4D004E7EB5 /* Data Model */,
 				2A58C9C2200761F600516471 /* View Controllers */,
@@ -151,6 +150,7 @@
 				2A1B3FCF1FF2D95100E912B8 /* Assets.xcassets */,
 				2A1B3FC81FF2D95100E912B8 /* AppDelegate.swift */,
 				2A1B3FD41FF2D95100E912B8 /* Info.plist */,
+				2A68A10D2014CF57000B947F /* L Calc.entitlements */,
 			);
 			path = "L Calc";
 			sourceTree = "<group>";
