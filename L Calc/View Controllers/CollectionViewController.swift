@@ -33,7 +33,7 @@ class CollectionViewController: UIViewController {
         
         // MARK: animation https://www.raywenderlich.com/173544/ios-animation-tutorial-getting-started-3
         UIView.animate(withDuration: 0.5,
-                       delay: 0.25,
+                       delay: 0.15,
                        options: [.curveEaseOut, .transitionCrossDissolve],
                        animations: {
                            self.chapterCollectionView.center.x += self.view.bounds.width

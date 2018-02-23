@@ -58,13 +58,13 @@
                                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2V-QD-f2i">
                                                             <rect key="frame" x="0.0" y="0.0" width="235" height="235"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Images/Logo" translatesAutoresizingMaskIntoConstraints="NO" id="WSv-Wt-WrN">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Images/Card Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="WSv-Wt-WrN">
                                                                     <rect key="frame" x="0.0" y="0.0" width="235" height="235"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Параметры кредита" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3my-Y3-OKv">
-                                                                    <rect key="frame" x="21" y="18" width="162" height="21"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <rect key="frame" x="21" y="18" width="171.33333333333334" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                    <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -761,7 +761,7 @@
         <image name="Icons/Fav Icon Empty" width="28" height="28"/>
         <image name="Icons/Settings Gear-6-3" width="27" height="27"/>
         <image name="Icons/ic_menu_black_24dp" width="24" height="24"/>
-        <image name="Images/Logo" width="545" height="598"/>
+        <image name="Images/Card Gradient" width="700" height="235"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="UbP-T8-aRA"/>
