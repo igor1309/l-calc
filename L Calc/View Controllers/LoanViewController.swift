@@ -18,14 +18,15 @@ class LoanViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
+        /*
         // TODO: нужно разобраться, как отменять эти изменения
         // чтобы navigationController в последующих VC не портить
-/*        if let navBar = self.navigationController?.navigationBar {
+        if let navBar = self.navigationController?.navigationBar {
             navBar.setBackgroundImage(UIImage(), for: .default)
             navBar.isTranslucent = true
         }
-*/
+        */
     }
     
 /*

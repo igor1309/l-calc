@@ -46,7 +46,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         useDecimalsSwitch.isOn = UserDefaults.standard.bool(forKey: "UseDecimals")
-        
+
     }
     
 }

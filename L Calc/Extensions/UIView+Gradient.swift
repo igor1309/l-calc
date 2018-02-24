@@ -13,17 +13,29 @@ import UIKit
 extension UIView {
     
     func applyGradient() -> Void {
-        self.applyGradient(
-            colors:[UIColor(rgb: 0x1D2C40),
-                    UIColor(rgb: 0x364961)],
-            locations: [0.0, 1.0])
+        
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = [UIColor(rgb: 0x1D2C40).cgColor,
+                           UIColor(rgb: 0x364961).cgColor]
+        gradient.locations = [0.0, 1.0]
+        
+        gradient.startPoint =
+            CGPoint(x: 188/375, y: 154/812)
+        gradient.endPoint =
+            CGPoint(x: 1.0, y: 1.0)
+
+        self.layer.addSublayer(gradient)
     }
     
     func applyGradient(colors: [UIColor]) -> Void {
-        self.applyGradient(colors: colors, locations: nil)
+        self.applyGradient(colors: colors,
+                           locations: nil)
     }
     
-    func applyGradient(colors: [UIColor], locations: [NSNumber]?) -> Void {
+    func applyGradient(colors: [UIColor],
+                       locations: [NSNumber]?) -> Void {
+
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.frame = self.bounds
         
@@ -33,11 +45,6 @@ extension UIView {
 
         gradient.locations = locations
 
-        gradient.startPoint =
-            CGPoint(x: 188/375, y: 154/812)
-        gradient.endPoint =
-            CGPoint(x: 1.0, y: 1.0)
-        
         self.layer.addSublayer(gradient)
     }
 }
