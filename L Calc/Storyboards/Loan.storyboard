@@ -31,11 +31,24 @@
                                 <segue destination="KWa-n5-XVu" kind="show" id="3vA-5h-HmT"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="q4B-d1-DIj">
+                            <connections>
+                                <segue destination="62F-fK-Z51" kind="show" id="zQ1-e2-qx1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7d-xZ-dkA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1972" y="-838"/>
+        </scene>
+        <!--Graph-->
+        <scene sceneID="2a7-4g-fFh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Graph" id="62F-fK-Z51" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fUL-QC-VVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1362" y="-1216"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="rqK-7Q-3fK">

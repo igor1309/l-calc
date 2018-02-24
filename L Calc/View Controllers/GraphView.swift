@@ -1,4 +1,4 @@
-//
+    //
 //  GraphView.swift
 //  L Calc
 //
@@ -18,7 +18,7 @@ import UIKit
         static let topBorder: CGFloat = 60
         static let bottomBorder: CGFloat = 50
         static let colorAlpha: CGFloat = 0.3
-        static let circleDiameter: CGFloat = 5.0
+        static let circleDiameter: CGFloat = 6.0
     }
     
     // the properties for the gradient
@@ -31,7 +31,7 @@ import UIKit
     
     override func draw(_ rect: CGRect) {
         
-        if coolHueIndex > -1 {
+        if coolHueIndex > -1 && coolHueIndex < 60 {
             startColor =
                 UIColor(hexString: coolHue.colorData[coolHueIndex][0])
             endColor =
@@ -91,36 +91,45 @@ import UIKit
         //set up the points line
         let graphPath = UIBezierPath()
         //go to start of line
-        graphPath.move(to: CGPoint(x:columnXPoint(0), y:columnYPoint(graphPoints[0])))
+        graphPath.move(to: CGPoint(x:columnXPoint(0),
+                                   y:columnYPoint(graphPoints[0])))
         
         //add points for each item in the graphPoints array
         //at the correct (x, y) for the point
         for i in 1..<graphPoints.count {
-            let nextPoint = CGPoint(x:columnXPoint(i), y:columnYPoint(graphPoints[i]))
+            let nextPoint = CGPoint(x:columnXPoint(i),
+                                    y:columnYPoint(graphPoints[i]))
             graphPath.addLine(to: nextPoint)
         }
         
         //Create the clipping path for the graph gradient
         
-        //1 - save the state of the context (commented out for now)
+        //1 - save the state of the context
         context.saveGState()
         
         //2 - make a copy of the path
         let clippingPath = graphPath.copy() as! UIBezierPath
         
         //3 - add lines to the copied path to complete the clip area
-        clippingPath.addLine(to: CGPoint(x: columnXPoint(graphPoints.count - 1), y:height))
-        clippingPath.addLine(to: CGPoint(x:columnXPoint(0), y:height))
+        clippingPath.addLine(to: CGPoint(x: columnXPoint(graphPoints.count - 1),
+                                         y:height))
+        clippingPath.addLine(to: CGPoint(x:columnXPoint(0),
+                                         y:height))
         clippingPath.close()
         
         //4 - add the clipping path to the context
         clippingPath.addClip()
         
         let highestYPoint = columnYPoint(maxValue)
-        startPoint = CGPoint(x:margin, y: highestYPoint)
-        endPoint = CGPoint(x:margin, y:self.bounds.height)
+        startPoint = CGPoint(x:margin,
+                             y: highestYPoint)
+        endPoint = CGPoint(x:margin,
+                           y:self.bounds.height)
         
-        context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: CGGradientDrawingOptions(rawValue: 0))
+        context.drawLinearGradient(gradient,
+                                   start: startPoint,
+                                   end: endPoint,
+                                   options: CGGradientDrawingOptions(rawValue: 0))
         context.restoreGState()
         
         //draw the line on top of the clipped gradient
@@ -129,11 +138,15 @@ import UIKit
         
         //Draw the circles on top of graph stroke
         for i in 0..<graphPoints.count {
-            var point = CGPoint(x:columnXPoint(i), y:columnYPoint(graphPoints[i]))
+            var point = CGPoint(x:columnXPoint(i),
+                                y:columnYPoint(graphPoints[i]))
             point.x -= Constants.circleDiameter / 2
             point.y -= Constants.circleDiameter / 2
             
-            let circle = UIBezierPath(ovalIn: CGRect(origin: point, size: CGSize(width: Constants.circleDiameter, height: Constants.circleDiameter)))
+            let circle = UIBezierPath(
+                ovalIn: CGRect(origin: point,
+                               size: CGSize(width: Constants.circleDiameter,
+                                            height: Constants.circleDiameter)))
             circle.fill()
         }
         
@@ -141,17 +154,24 @@ import UIKit
         let linePath = UIBezierPath()
         
         //top line
-        linePath.move(to: CGPoint(x:margin, y: topBorder))
-        linePath.addLine(to: CGPoint(x: width - margin, y:topBorder))
+        linePath.move(to: CGPoint(x:margin,
+                                  y: topBorder))
+        linePath.addLine(to: CGPoint(x: width - margin,
+                                     y:topBorder))
         
         //center line
-        linePath.move(to: CGPoint(x:margin, y: graphHeight/2 + topBorder))
-        linePath.addLine(to: CGPoint(x:width - margin, y:graphHeight/2 + topBorder))
+        linePath.move(to: CGPoint(x:margin,
+                                  y: graphHeight/2 + topBorder))
+        linePath.addLine(to: CGPoint(x:width - margin,
+                                     y:graphHeight/2 + topBorder))
         
         //bottom line
-        linePath.move(to: CGPoint(x:margin, y:height - bottomBorder))
-        linePath.addLine(to: CGPoint(x:width - margin, y:height - bottomBorder))
-        let color = UIColor(white: 1.0, alpha: Constants.colorAlpha)
+        linePath.move(to: CGPoint(x:margin,
+                                  y:height - bottomBorder))
+        linePath.addLine(to: CGPoint(x:width - margin,
+                                     y:height - bottomBorder))
+        let color = UIColor(white: 1.0,
+                            alpha: Constants.colorAlpha)
         color.setStroke()
         
         linePath.lineWidth = 1.0
