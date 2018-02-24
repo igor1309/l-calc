@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,17 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LrO-w5-XlL">
-                                <rect key="frame" x="0.0" y="60" width="375" height="409"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LrO-w5-XlL">
+                                <rect key="frame" x="0.0" y="67.999999999999972" width="375" height="416.33333333333326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loan Payments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdA-WM-4SV">
-                                        <rect key="frame" x="102.00000000000001" y="0.0" width="171.33333333333337" height="32"/>
+                                        <rect key="frame" x="102.00000000000001" y="0.0" width="171.33333333333337" height="31.333333333333332"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="enm-QD-J9Z" customClass="GraphView" customModule="L_Calc" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="40" width="343.33333333333331" height="369"/>
+                                        <rect key="frame" x="16" y="47.333333333333314" width="343.33333333333331" height="369"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="coolHueIndex">
@@ -46,7 +45,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LrO-w5-XlL" firstAttribute="leading" secondItem="pUa-OE-ccg" secondAttribute="leading" id="1Xv-fJ-bq9"/>
-                            <constraint firstItem="LrO-w5-XlL" firstAttribute="top" secondItem="j9q-el-djA" secondAttribute="top" constant="16" id="1ys-Mz-1fR"/>
+                            <constraint firstItem="LrO-w5-XlL" firstAttribute="top" secondItem="j9q-el-djA" secondAttribute="top" constant="24" id="1ys-Mz-1fR"/>
                             <constraint firstItem="j9q-el-djA" firstAttribute="trailing" secondItem="LrO-w5-XlL" secondAttribute="trailing" id="BXS-i0-C2O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j9q-el-djA"/>
