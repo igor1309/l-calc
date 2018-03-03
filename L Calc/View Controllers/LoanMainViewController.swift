@@ -10,19 +10,17 @@ import UIKit
 
 class LoanMainViewController: UIViewController {
     
-    @IBOutlet weak var sum: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.applyGradient()
-        
-        sum.text = "456,123"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+//        self.view.applyGradient()
+
         //FIXME: TODO: нужно разобраться, как отменять эти изменения
         // чтобы navigationController в последующих VC не портить
         if let navBar = self.navigationController?.navigationBar {
