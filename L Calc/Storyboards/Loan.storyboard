@@ -183,6 +183,8 @@
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="yEV-rQ-fgy" appends="YES" id="76t-ky-Oa4"/>
                                             <outletCollection property="gestureRecognizers" destination="AXA-aB-cPz" appends="YES" id="hYp-Jq-jIe"/>
+                                            <outletCollection property="gestureRecognizers" destination="f0y-2M-eqK" appends="YES" id="fll-cq-Gkh"/>
+                                            <outletCollection property="gestureRecognizers" destination="kRm-Er-Yba" appends="YES" id="it3-TM-tYt"/>
                                         </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6YH-SK-j0A" userLabel="Rate Stack View">
@@ -341,6 +343,16 @@
                         <segue destination="5Jj-Xy-nyX" kind="show" id="GFY-DC-ApS"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="f0y-2M-eqK" userLabel="Amount Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="loanTapDetected:" destination="b9k-oc-2PR" id="abs-4C-c4R"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="kRm-Er-Yba" userLabel="Amount Long Press Gesture Recognizer">
+                    <connections>
+                        <action selector="loanLongPressDetected:" destination="b9k-oc-2PR" id="Keu-1b-2mJ"/>
+                    </connections>
+                </pongPressGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="yEV-rQ-fgy" userLabel="Amount 1 Pan Gesture Recognizer">
                     <connections>
                         <action selector="loanPanDetected1:" destination="b9k-oc-2PR" id="SdR-iW-sT8"/>

@@ -10,6 +10,10 @@ import UIKit
 
 class LoanMainViewController: UIViewController {
     
+    private enum Direction {
+        case up, down
+    }
+    
     //MARK: - Constants
     let isVerticalPanning = true
     let panningTint = UIColor.orange
@@ -48,13 +52,14 @@ class LoanMainViewController: UIViewController {
     private var loc = Locale(identifier: "en_US")
     
     // FIXME: должно ли это быть здесь или переменные должны быть спрятаны в методы?
+    private var direction: Direction?
     private var prevPoint: CGPoint!
     private var ratePreviousX: CGPoint!
     private var termPreviousX: CGPoint!
     
     // MARK: - prepare Feedback Generators
-    private let change = UISelectionFeedbackGenerator()
-    private let impact = UIImpactFeedbackGenerator()
+    private let feedbackChange = UISelectionFeedbackGenerator()
+    private let feedbackImpact = UIImpactFeedbackGenerator()
     
     
     // MARK: -
@@ -115,7 +120,7 @@ class LoanMainViewController: UIViewController {
         }
         
         //  provide haptic feedback
-        change.selectionChanged()
+        feedbackChange.selectionChanged()
     }
     
     
@@ -162,6 +167,42 @@ class LoanMainViewController: UIViewController {
         changeValueByPan(gestureRecognizer, with: 2)
     }
     
+    @IBAction func loanTapDetected(_ sender: UITapGestureRecognizer) {
+        //FIXME: add another tap area for lowering the amount
+        loan.amount = step(loan.amount,
+                           direction: .up)
+        showLoanData()
+    }
+    
+    @IBAction func loanLongPressDetected(_ sender: UILongPressGestureRecognizer) {
+        //FIXME: add another long press area for lowering the amount
+     
+        //FIXME: handle long press operation
+        
+        switch sender.state {
+            
+        case .began:
+            amountLabel.textColor = panningTint
+            amountSubLabel.textColor = panningTint
+
+        case .changed:
+            loan.amount = step(loan.amount,
+                               direction: .up)
+            showLoanData()
+            
+        case .ended:
+            feedbackChange.selectionChanged()
+            amountLabel.textColor = loanParamsTint
+            amountSubLabel.textColor = loanParamsTint
+            
+        default:
+            print("smth else")
+
+
+        }
+        
+    }
+    
     func changeValueByPan(
         _ gestureRecognizer: UIPanGestureRecognizer,
         with touches: Int) {
@@ -182,49 +223,34 @@ class LoanMainViewController: UIViewController {
             
             let newPoint = gestureRecognizer.translation(in: self.view)
             let distanceX = newPoint.x - prevPoint.x
-            let distanceY = newPoint.y - prevPoint.y
+            // по оси Y нужно брать с обратным знаком!!!
+            let distanceY = prevPoint.y - newPoint.y
             // гипотенуза
             let distance = (distanceX * distanceX +
                 distanceY * distanceY).squareRoot()
             prevPoint = newPoint
-
-//
-//            var coordinate = CGFloat(0)
-//            var distance = CGFloat(0)
-//            if isVerticalPanning {
-//                coordinate = gestureRecognizer.translation(in: self.view).y
-//                distance = prevCoordinate.x - coordinate
-//                prevCoordinate.y = coordinate
-//            } else {
-//                coordinate = gestureRecognizer.translation(in: self.view).x
-//                distance = coordinate - prevCoordinate.x
-//                prevCoordinate.x = coordinate
-//            }
-
             
-            // для снижения скорости изменения берется значение > 0
             // если пан двумя пальцами, то скорость выше, если одним,
             // то чувствительность снижаем, повышая threshold
             if touches == 1 {
-                threshold = CGFloat(3.5)
+                threshold = CGFloat(4.0)
             } else if touches == 2 {
                 threshold = CGFloat(0)
             }
             
-            if abs(distance) > threshold {
-                
-                if distance > 0 {
-                    loan.amount = stepUp(loan.amount)
-                } else if distance < 0 {
-                    loan.amount = stepDown(loan.amount)
+            if distance > threshold {
+                if distanceX + distanceY > 0 {
+                    direction = .up
+                } else {
+                    direction = .down
                 }
-                
-
+                loan.amount = step(loan.amount,
+                                   direction: direction!)
                 showLoanData()
             }
             
         case .ended:
-            change.selectionChanged()
+            feedbackChange.selectionChanged()
             amountLabel.textColor = loanParamsTint
             amountSubLabel.textColor = loanParamsTint
             
@@ -263,7 +289,7 @@ class LoanMainViewController: UIViewController {
             }
             
         case .ended:
-            change.selectionChanged()
+            feedbackChange.selectionChanged()
             rateLabel.textColor = loanParamsTint
             rateSubLabel.textColor = loanParamsTint
             
@@ -304,7 +330,7 @@ class LoanMainViewController: UIViewController {
             }
             
         case .ended:
-            change.selectionChanged()
+            feedbackChange.selectionChanged()
             termLabel.textColor = loanParamsTint
             termSubLabel.textColor = loanParamsTint
             
@@ -313,6 +339,41 @@ class LoanMainViewController: UIViewController {
         }
     }
     
+    
+    private func step(_ number: Double, direction: Direction) -> Double {
+        
+        var plusMinus: Double
+        
+        switch direction {
+        case .up:
+            plusMinus = 1
+        default:
+            plusMinus = -1
+        }
+        
+        // FIXME:
+        // вставить код проверки? is number = nil?
+        // а нужен ли Double? Может достаточно Int?
+        
+        
+        let max = Double(truncating: pow(10, 11) as NSNumber)
+        if number > max {
+            // MARK: выдать предупреждение, что это предельное значение(?)
+            return number
+        } else if number < 101 {
+            // MARK: выдать предупреждение, что это предельное значение(?)
+            return number
+        } else {
+            // take 2 leftmost digits of number before decimal as a number and increase it
+            // https://en.wikipedia.org/wiki/Order_of_magnitude
+            let orderOfMagnitude = String(Int(number)).count - 1
+            let magnitude = Double(truncating: pow(10, orderOfMagnitude) as NSNumber)
+            var approx = (number / magnitude + plusMinus * 0.055) * 10
+            approx = approx.rounded()
+            approx = approx * magnitude / 10
+            return approx
+        }
+    }
     
     func stepUp(_ number: Double) -> Double {
         
