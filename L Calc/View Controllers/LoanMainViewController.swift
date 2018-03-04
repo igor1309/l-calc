@@ -168,13 +168,15 @@ class LoanMainViewController: UIViewController {
     }
     
     @IBAction func loanMinusTapDetected(_ sender: UITapGestureRecognizer) {
+        //FIXME: not working with hidden view
+
         loan.amount = step(loan.amount,
                            direction: .down)
         showLoanData()
-
     }
     
     @IBAction func loanPlusTapDetected(_ sender: UITapGestureRecognizer) {
+        //FIXME: not working with hidden view
         //FIXME: add another tap area for lowering the amount
         loan.amount = step(loan.amount,
                            direction: .up)
@@ -183,7 +185,8 @@ class LoanMainViewController: UIViewController {
     
     @IBAction func loanLongPressDetected(_ sender: UILongPressGestureRecognizer) {
         //FIXME: add another long press area for lowering the amount
-     
+        //FIXME: not working with hidden view
+
         //FIXME: handle long press operation
         
         switch sender.state {

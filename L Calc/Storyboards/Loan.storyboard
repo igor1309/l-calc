@@ -187,6 +187,7 @@
                                             <outletCollection property="gestureRecognizers" destination="yEV-rQ-fgy" appends="YES" id="76t-ky-Oa4"/>
                                             <outletCollection property="gestureRecognizers" destination="AXA-aB-cPz" appends="YES" id="hYp-Jq-jIe"/>
                                             <outletCollection property="gestureRecognizers" destination="kRm-Er-Yba" appends="YES" id="it3-TM-tYt"/>
+                                            <outletCollection property="gestureRecognizers" destination="f0y-2M-eqK" appends="YES" id="Yu8-5Q-SRC"/>
                                         </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6YH-SK-j0A" userLabel="Rate Stack View">
