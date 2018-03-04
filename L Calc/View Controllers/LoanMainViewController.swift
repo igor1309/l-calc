@@ -375,48 +375,7 @@ class LoanMainViewController: UIViewController {
         }
     }
     
-    func stepUp(_ number: Double) -> Double {
-        
-        // FIXME:
-        // вставить код проверки? is number = nil?
-        // а нужен ли Double? Может достаточно Int?
-        
-        // take 2 leftmost digits of number before decimal as a number and increase it
-        // https://en.wikipedia.org/wiki/Order_of_magnitude
-        
-        let max = Double(truncating: pow(10, 11) as NSNumber)
-        if number > max {
-            // MARK: выдать предупреждение, что это предельное значение(?)
-            return number
-        } else {
-            let orderOfMagnitude = String(Int(number)).count - 1
-            let magnitude = Double(truncating: pow(10, orderOfMagnitude) as NSNumber)
-            var approx = (number / magnitude + 0.055) * 10
-            approx = approx.rounded()
-            approx = approx * magnitude / 10
-            return approx
-        }
-    }
     
-    func stepDown(_ number: Double) -> Double {
-        
-        // вставить код проверки? is number = nil?
-        // а нужен ли Double? Может достаточно Int?
-        
-        // take 2 leftmost digits of number before decimal as a number and increase it
-        // https://en.wikipedia.org/wiki/Order_of_magnitude
-        if number < 101 {
-            // MARK: выдать предупреждение, что это предельное значение(?)
-            return number
-        } else {
-            let orderOfMagnitude = String(Int(number)).count - 1
-            let magnitude = Double(truncating: pow(10, orderOfMagnitude) as NSNumber)
-            var approx = (number / magnitude - 0.055) * 10
-            approx = approx.rounded()
-            approx = approx * magnitude / 10
-            return approx
-        }
-    }
     
     func rateUp(_ number: Double) -> Double {
         if number > maxRate {
