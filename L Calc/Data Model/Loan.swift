@@ -9,14 +9,21 @@
 import UIKit
 
 enum InterestType: String {
-    case fixedFlat          = "Fixed"       //  в конце срока
-    case decliningBalance   = "Annuity"     //  аннуитет
+    case interestOnly   = "InterestOnly"    //  в конце срока
+    case fixedPrincipal = "FixedPrincipal"  //  тело равными частями
+    case fixedPayment   = "Annuity"         //  аннуитет
 }
 
 struct Loan {
     
     private let maxPrincipal = pow(10.0, 10.0)
     private let minPrincipal = 10000.0
+    
+    let interestTypeComment: [InterestType: String] = [
+        .interestOnly: "Кредит погашатся в конце срока, проценты выплачиваются ежемесячно",
+        .fixedPrincipal: "Тело кредита погашается ежемесячно равными суммами",
+        .fixedPayment: "Ежемесячные выплаты равными суммами, включающими проценты и тело кредита"
+    ]
     
     var amount: Double {     //  сумма кредита
         
@@ -81,12 +88,16 @@ extension Loan {
         let r = rate / 100 / 12    // monthly interest rate
         
         switch type {
-        case .decliningBalance:
+        case .fixedPayment:
             //  аннуитет http://financeformulas.net/Annuity_Payment_Formula.html
             let p = pow(1 + r, 0 - term)
             return amount/((1 - p)/r)
-        case .fixedFlat:
+        case .interestOnly:
             return amount * r
+        case .fixedPrincipal:
+            //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
+            print("??")
+            return 0
         }
     }
     
@@ -94,12 +105,16 @@ extension Loan {
         let r = rate / 100 / 12    // monthly interest rate
         
         switch type {
-        case .decliningBalance:
+        case .fixedPayment:
             let p = pow(1 + r, 0 - term)
             let mp = amount/((1 - p)/r)
             return mp * term - amount
-        case .fixedFlat:
+        case .interestOnly:
             return amount * r * term
+        case .fixedPrincipal:
+            //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
+            print("??")
+            return 0
         }
     }
     
@@ -107,12 +122,16 @@ extension Loan {
         let r = rate / 100 / 12    // monthly interest rate
         
         switch type {
-        case .decliningBalance:
+        case .fixedPayment:
             let p = pow(1 + r, 0 - term)
             let mp = amount/((1 - p)/r)
             return mp * term
-        case .fixedFlat:
+        case .interestOnly:
             return amount * (1 + r * term)
+        case .fixedPrincipal:
+            //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
+            print("??")
+            return 0
         }
     }
     
@@ -137,11 +156,12 @@ extension Loan {
             term = 60.0
         }
         
-        type = .decliningBalance
+        //FIXME: переделать этот блок с учетом трех типов процентов
+        type = .fixedPayment
         if let savedType = userDefaults.string(
             forKey: "InterestType") {
             if savedType == "Fixed" {
-                type = .fixedFlat
+                type = .interestOnly
             }
         }
     }
@@ -156,6 +176,4 @@ extension Loan {
         self.term = term
         self.type = type
     }
-    
-
 }

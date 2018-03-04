@@ -85,7 +85,7 @@ class LoanParamAndResViewController: UIViewController {
                                    locale: loc,
                                    loan.totalPayments)
         
-        if loan.type == .decliningBalance {
+        if loan.type == .fixedPayment {
             annuitySegment.selectedSegmentIndex = 1
         } else {
             annuitySegment.selectedSegmentIndex = 0
@@ -110,9 +110,9 @@ class LoanParamAndResViewController: UIViewController {
         _ sender: UISegmentedControl) {
 
         if annuitySegment.selectedSegmentIndex == 0 {
-            loan.type = .fixedFlat
+            loan.type = .interestOnly
         } else {
-            loan.type = .decliningBalance
+            loan.type = .fixedPayment
         }
         
         showLoanData()

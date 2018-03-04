@@ -254,6 +254,9 @@
                                             <segment title="АННУИТЕТ"/>
                                         </segments>
                                         <color key="tintColor" red="0.77647058823529413" green="0.78823529411764703" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="loanTypeSegmentChanged:" destination="b9k-oc-2PR" eventType="valueChanged" id="cuh-Y9-fy8"/>
+                                        </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кредит погашатся в конце срока, проценты выплачиваются ежемесячно" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhJ-Nv-KG8">
                                         <rect key="frame" x="20" y="376.33333333333337" width="335" height="33.666666666666686"/>
@@ -286,7 +289,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="sba-as-alY" firstAttribute="leading" secondItem="Aya-e8-fWv" secondAttribute="leading" id="51M-aj-Udi"/>
                             <constraint firstItem="sLn-fV-Ts3" firstAttribute="top" secondItem="4yJ-kd-NP3" secondAttribute="bottom" constant="34" id="FTd-Pf-PiY"/>
@@ -1144,7 +1147,6 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pu2-gI-WAz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Xjq-Ww-pE3">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>

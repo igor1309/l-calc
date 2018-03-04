@@ -113,11 +113,29 @@ class LoanMainViewController: UIViewController {
                                    loan.totalPayments)
         
         //FIXME: три типа кредитов (в конце срока, аннуитет, равными частями тело — в этом случае не ежемесячный платеж, а первый(?))
-        if loan.type == .decliningBalance {
+        if loan.type == .fixedPayment {
             loanTypeSegment.selectedSegmentIndex = 1
         } else {
             loanTypeSegment.selectedSegmentIndex = 0
         }
+        
+        switch loan.type {
+        case .interestOnly:
+            // Кредит погашатся в конце срока, проценты выплачиваются ежемесячно
+            loanTypeSegment.selectedSegmentIndex = 0
+            monthlyPaymentCommentLabel.text = "ПЕРВЫЙ ПЛАТЕЖ"
+        case .fixedPrincipal:
+            //
+            loanTypeSegment.selectedSegmentIndex = 1
+            monthlyPaymentCommentLabel.text = "ПЕРВЫЙ ПЛАТЕЖ"
+        case .fixedPayment:
+            // аннуитет: Ежемесячные выплаты равными суммами, включающими проценты и тело кредита
+            loanTypeSegment.selectedSegmentIndex = 2
+            monthlyPaymentCommentLabel.text = "ЕЖЕМЕСЯЧНЫЙ ПЛАТЕЖ"
+        }
+        
+        loanTypeComment.text = loan.interestTypeComment[loan.type]
+
         
         //  provide haptic feedback
         feedbackChange.selectionChanged()
@@ -137,22 +155,18 @@ class LoanMainViewController: UIViewController {
     @IBAction func loanTypeSegmentChanged(
         _ sender: UISegmentedControl) {
         
-        //FIXME: три типа кредитов (в конце срока, аннуитет, равными частями тело — в этом случае не ежемесячный платеж, а первый(?))
-
-        if loanTypeSegment.selectedSegmentIndex == 0 {
-            loan.type = .fixedFlat
-        } else {
-            loan.type = .decliningBalance
+        switch loanTypeSegment.selectedSegmentIndex {
+        case 0:
+            loan.type = .interestOnly
+        case 1:
+            loan.type = .fixedPrincipal
+        case 2:
+            loan.type = .fixedPayment
+        default:
+            print("other")
         }
-        
         showLoanData()
     }
-    
-    //FIXME: use this for new Show Payment Schedule button!!
-    //    @IBAction func showGraphButtonTouched(_ sender: UIButton) {
-    ////        notification.notificationOccurred(.error)
-    //        impact.impactOccurred()
-    //    }
     
     // MARK: - changing label values by panning gestures
     @IBAction func loanPanDetected1(
@@ -169,7 +183,6 @@ class LoanMainViewController: UIViewController {
     
     @IBAction func loanMinusTapDetected(_ sender: UITapGestureRecognizer) {
         //FIXME: not working with hidden view
-
         loan.amount = step(loan.amount,
                            direction: .down)
         showLoanData()
@@ -177,7 +190,6 @@ class LoanMainViewController: UIViewController {
     
     @IBAction func loanPlusTapDetected(_ sender: UITapGestureRecognizer) {
         //FIXME: not working with hidden view
-        //FIXME: add another tap area for lowering the amount
         loan.amount = step(loan.amount,
                            direction: .up)
         showLoanData()
@@ -207,10 +219,7 @@ class LoanMainViewController: UIViewController {
             
         default:
             print("smth else")
-
-
         }
-        
     }
     
     func changeValueByPan(
@@ -349,7 +358,6 @@ class LoanMainViewController: UIViewController {
         }
     }
     
-    
     private func step(_ number: Double, direction: Direction) -> Double {
         
         var plusMinus: Double
@@ -361,17 +369,12 @@ class LoanMainViewController: UIViewController {
             plusMinus = -1
         }
         
-        // FIXME:
-        // вставить код проверки? is number = nil?
-        // а нужен ли Double? Может достаточно Int?
-        
-        
         let max = Double(truncating: pow(10, 11) as NSNumber)
         if number > max {
-            // MARK: выдать предупреждение, что это предельное значение(?)
+            //FIXME: выдать предупреждение, что это предельное значение(?)
             return number
         } else if number < 101 {
-            // MARK: выдать предупреждение, что это предельное значение(?)
+            //FIXME: выдать предупреждение, что это предельное значение(?)
             return number
         } else {
             // take 2 leftmost digits of number before decimal as a number and increase it
@@ -384,8 +387,6 @@ class LoanMainViewController: UIViewController {
             return approx
         }
     }
-    
-    
     
     func rateUp(_ number: Double) -> Double {
         if number > maxRate {

@@ -42,7 +42,7 @@ class Payments {
         let r = loan.rate / 100 / 12    // monthly interest rate
 
         switch loan.type {
-        case .decliningBalance:     // аннуитет w/fixed monthly payment
+        case .fixedPayment:     // аннуитет w/fixed monthly payment
             let monthlyPayment = loan.amount /
                 ((1 - pow(1 + r, Double(0 - loan.term))) / r)
             
@@ -66,11 +66,14 @@ class Payments {
                     endingBalance: endingBalance)
                 paymentsSchedule.append(payment)
             }
-        case .fixedFlat:
+        case .interestOnly:
             print("допилить таблицу для выплаты в конце срока")
             //FIXME: допилить таблицу для выплаты в конце срока??
 //            payment.monthlyPayment =
 //                loan.amount * r
+        case .fixedPrincipal:
+            //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
+            print("??")
         }
     }
     
@@ -90,7 +93,7 @@ class Payments {
         term: Double = UserDefaults.standard.double(
         forKey: "Term"),
         // FIXME: forKey: "AnnuitySegment"
-        type: InterestType = .decliningBalance) {
+        type: InterestType = .fixedPayment) {
         
         self.init(for: Loan(amount, rate, term, type))
     }
