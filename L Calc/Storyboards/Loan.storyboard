@@ -53,7 +53,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG27" translatesAutoresizingMaskIntoConstraints="NO" id="sba-as-alY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4yJ-kd-NP3" userLabel="Loan Params View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4yJ-kd-NP3" userLabel="Loan Results View">
                                 <rect key="frame" x="0.0" y="140" width="375" height="174"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="STE-1p-BUe" userLabel="Monthly Stack View">
@@ -109,6 +109,7 @@
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="UQv-S3-6TA" secondAttribute="trailing" constant="20" symbolic="YES" id="4VP-rf-ndk"/>
                                     <constraint firstItem="UQv-S3-6TA" firstAttribute="leading" secondItem="4yJ-kd-NP3" secondAttribute="leading" constant="20" symbolic="YES" id="BO1-VV-8C5"/>
@@ -121,9 +122,12 @@
                                     <constraint firstItem="STE-1p-BUe" firstAttribute="leading" secondItem="4yJ-kd-NP3" secondAttribute="leading" constant="20" symbolic="YES" id="i7n-do-VSy"/>
                                     <constraint firstAttribute="trailing" secondItem="Cvd-c2-5LP" secondAttribute="trailing" constant="20" symbolic="YES" id="z2s-Ba-zdb"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="UYc-jl-Nav" appends="YES" id="kh8-4g-EhS"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLn-fV-Ts3" userLabel="Loan Results View">
-                                <rect key="frame" x="0.0" y="348" width="375" height="376.33333333333326"/>
+                                <rect key="frame" x="0.0" y="348" width="375" height="426"/>
                                 <subviews>
                                     <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Rh4-xT-Khg" userLabel="Line Stack View">
                                         <rect key="frame" x="20" y="6.0000000000000009" width="335" height="13.333333333333336"/>
@@ -168,6 +172,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="F8T-SY-tGf" firstAttribute="top" secondItem="qMy-6Z-siJ" secondAttribute="top" id="3bG-a0-U2z"/>
                                             <constraint firstAttribute="trailing" secondItem="xPy-y5-b7W" secondAttribute="trailing" id="FlS-Gw-WYU"/>
@@ -175,9 +180,13 @@
                                             <constraint firstItem="xPy-y5-b7W" firstAttribute="leading" secondItem="qMy-6Z-siJ" secondAttribute="leading" id="ONj-nm-qob"/>
                                             <constraint firstItem="F8T-SY-tGf" firstAttribute="leading" secondItem="qMy-6Z-siJ" secondAttribute="leading" id="ta7-d4-58P"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="yEV-rQ-fgy" appends="YES" id="76t-ky-Oa4"/>
+                                            <outletCollection property="gestureRecognizers" destination="AXA-aB-cPz" appends="YES" id="hYp-Jq-jIe"/>
+                                        </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6YH-SK-j0A" userLabel="Rate Stack View">
-                                        <rect key="frame" x="0.0" y="135.66666666666669" width="375" height="74.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="133.66666666666669" width="375" height="74.333333333333314"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.40%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylp-Qc-Naq">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="57.333333333333336"/>
@@ -192,6 +201,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="Ylp-Qc-Naq" firstAttribute="leading" secondItem="6YH-SK-j0A" secondAttribute="leading" id="CeM-Ep-UvD"/>
                                             <constraint firstItem="Ylp-Qc-Naq" firstAttribute="top" secondItem="6YH-SK-j0A" secondAttribute="top" id="YQL-1L-Bce"/>
@@ -199,9 +209,12 @@
                                             <constraint firstAttribute="trailing" secondItem="Ylp-Qc-Naq" secondAttribute="trailing" id="nc4-hJ-b80"/>
                                             <constraint firstAttribute="trailing" secondItem="XPe-Gr-Fq6" secondAttribute="trailing" id="tW8-Nk-wCb"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="bXZ-5Z-IqK" appends="YES" id="PC0-Xk-VgY"/>
+                                        </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OJk-OL-6QD" userLabel="Term Stack View">
-                                        <rect key="frame" x="0.0" y="234.00000000000003" width="375" height="74.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="230.00000000000003" width="375" height="74.333333333333343"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="33" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDJ-QW-XT4">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="57.333333333333336"/>
@@ -216,6 +229,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="YDJ-QW-XT4" secondAttribute="trailing" id="BNv-8r-L6y"/>
                                             <constraint firstAttribute="trailing" secondItem="wFn-bt-GzR" secondAttribute="trailing" id="Q4m-su-V6F"/>
@@ -223,6 +237,9 @@
                                             <constraint firstItem="YDJ-QW-XT4" firstAttribute="top" secondItem="OJk-OL-6QD" secondAttribute="top" id="bl9-b7-hMG"/>
                                             <constraint firstItem="YDJ-QW-XT4" firstAttribute="leading" secondItem="OJk-OL-6QD" secondAttribute="leading" id="zaa-cD-gjQ"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="F3W-EQ-AeK" appends="YES" id="GRM-9i-9YN"/>
+                                        </connections>
                                     </stackView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pL7-qX-ew3">
                                         <rect key="frame" x="20" y="332.33333333333337" width="335" height="29"/>
@@ -233,21 +250,30 @@
                                         </segments>
                                         <color key="tintColor" red="0.77647058823529413" green="0.78823529411764703" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кредит погашатся в конце срока, проценты выплачиваются ежемесячно" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhJ-Nv-KG8">
+                                        <rect key="frame" x="20" y="372.33333333333337" width="335" height="33.666666666666686"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                        <color key="textColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="OJk-OL-6QD" firstAttribute="top" secondItem="6YH-SK-j0A" secondAttribute="bottom" constant="24" id="1uS-Ia-Em0"/>
-                                    <constraint firstItem="6YH-SK-j0A" firstAttribute="top" secondItem="qMy-6Z-siJ" secondAttribute="bottom" constant="24" id="2Y3-4m-lxe"/>
+                                    <constraint firstItem="OJk-OL-6QD" firstAttribute="top" secondItem="6YH-SK-j0A" secondAttribute="bottom" constant="22" id="1uS-Ia-Em0"/>
+                                    <constraint firstItem="6YH-SK-j0A" firstAttribute="top" secondItem="qMy-6Z-siJ" secondAttribute="bottom" constant="22" id="2Y3-4m-lxe"/>
                                     <constraint firstAttribute="trailing" secondItem="pL7-qX-ew3" secondAttribute="trailing" constant="20" symbolic="YES" id="2kP-C7-2y5"/>
-                                    <constraint firstItem="pL7-qX-ew3" firstAttribute="top" secondItem="OJk-OL-6QD" secondAttribute="bottom" constant="24" id="Hw3-kI-Ze3"/>
+                                    <constraint firstItem="IhJ-Nv-KG8" firstAttribute="top" secondItem="pL7-qX-ew3" secondAttribute="bottom" constant="12" id="7W1-e8-KNq"/>
+                                    <constraint firstItem="IhJ-Nv-KG8" firstAttribute="leading" secondItem="sLn-fV-Ts3" secondAttribute="leading" constant="20" symbolic="YES" id="K6p-zu-q6Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="IhJ-Nv-KG8" secondAttribute="bottom" constant="20" symbolic="YES" id="KEs-np-Mch"/>
                                     <constraint firstAttribute="trailing" secondItem="Rh4-xT-Khg" secondAttribute="trailing" constant="20" symbolic="YES" id="NNe-La-e0f"/>
                                     <constraint firstItem="pL7-qX-ew3" firstAttribute="leading" secondItem="sLn-fV-Ts3" secondAttribute="leading" constant="20" symbolic="YES" id="O8J-OF-hwg"/>
-                                    <constraint firstAttribute="bottom" secondItem="pL7-qX-ew3" secondAttribute="bottom" constant="16" id="OzX-Ct-deV"/>
                                     <constraint firstAttribute="trailing" secondItem="OJk-OL-6QD" secondAttribute="trailing" id="WEM-of-heN"/>
                                     <constraint firstItem="OJk-OL-6QD" firstAttribute="leading" secondItem="sLn-fV-Ts3" secondAttribute="leading" id="dhR-V2-MxT"/>
+                                    <constraint firstItem="pL7-qX-ew3" firstAttribute="top" secondItem="OJk-OL-6QD" secondAttribute="bottom" constant="28" id="fvU-Lw-sB3"/>
                                     <constraint firstItem="Rh4-xT-Khg" firstAttribute="top" secondItem="sLn-fV-Ts3" secondAttribute="top" constant="6" id="gUQ-Q4-tpk"/>
                                     <constraint firstItem="Rh4-xT-Khg" firstAttribute="leading" secondItem="sLn-fV-Ts3" secondAttribute="leading" constant="20" symbolic="YES" id="jn0-vi-3J9"/>
                                     <constraint firstItem="qMy-6Z-siJ" firstAttribute="leading" secondItem="sLn-fV-Ts3" secondAttribute="leading" id="jyx-Mf-WWg"/>
+                                    <constraint firstAttribute="trailing" secondItem="IhJ-Nv-KG8" secondAttribute="trailing" constant="20" symbolic="YES" id="kCe-Sh-0c8"/>
                                     <constraint firstAttribute="trailing" secondItem="qMy-6Z-siJ" secondAttribute="trailing" id="nKb-q5-LxN"/>
                                     <constraint firstAttribute="trailing" secondItem="6YH-SK-j0A" secondAttribute="trailing" id="py1-8X-X9p"/>
                                     <constraint firstItem="qMy-6Z-siJ" firstAttribute="top" secondItem="Rh4-xT-Khg" secondAttribute="bottom" constant="18" id="q6o-hg-OBd"/>
@@ -282,16 +308,59 @@
                                     <segue destination="5Jj-Xy-nyX" kind="show" id="003-uF-8hS"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="Icons/Today Icon" id="Kp3-AJ-AQM"/>
-                            <barButtonItem title="Item" image="Icons/Fav Icon Empty" id="tf3-na-53R">
+                            <barButtonItem image="Icons/Today Icon" id="Kp3-AJ-AQM"/>
+                            <barButtonItem image="Icons/Fav Icon Empty" id="tf3-na-53R">
                                 <connections>
                                     <segue destination="3eI-7r-7XD" kind="show" id="jeb-tt-N7Y"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="amountLabel" destination="F8T-SY-tGf" id="wo1-el-uNk"/>
+                        <outlet property="amountStack" destination="qMy-6Z-siJ" id="f1l-dv-j1P"/>
+                        <outlet property="amountSubLabel" destination="xPy-y5-b7W" id="ze5-uL-oyd"/>
+                        <outlet property="loanResultsView" destination="4yJ-kd-NP3" id="ErR-x7-mob"/>
+                        <outlet property="loanTypeComment" destination="IhJ-Nv-KG8" id="XSe-ax-VVL"/>
+                        <outlet property="loanTypeSegment" destination="pL7-qX-ew3" id="vPY-MU-PcM"/>
+                        <outlet property="monthlyPayment" destination="Xpd-XQ-Gq2" id="OVG-s4-Tlu"/>
+                        <outlet property="monthlyPaymentCommentLabel" destination="hyw-zk-tYx" id="ZC0-qw-YWW"/>
+                        <outlet property="rateLabel" destination="Ylp-Qc-Naq" id="5Rs-fn-IT0"/>
+                        <outlet property="rateStack" destination="6YH-SK-j0A" id="Jpt-iA-GKt"/>
+                        <outlet property="rateSubLabel" destination="XPe-Gr-Fq6" id="0YO-C4-f4U"/>
+                        <outlet property="termLabel" destination="YDJ-QW-XT4" id="n73-DH-nVk"/>
+                        <outlet property="termStack" destination="OJk-OL-6QD" id="ExT-mb-pNM"/>
+                        <outlet property="termSubLabel" destination="wFn-bt-GzR" id="BIg-7N-JDT"/>
+                        <outlet property="totalInterest" destination="TTD-dt-aaf" id="uml-hE-VRI"/>
+                        <outlet property="totalPayment" destination="ma7-x8-mlU" id="hJ9-uk-EDV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jw0-3I-tOj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="UYc-jl-Nav" userLabel="Loan Results Tap Gesture Recognizer">
+                    <connections>
+                        <segue destination="5Jj-Xy-nyX" kind="show" id="GFY-DC-ApS"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="yEV-rQ-fgy" userLabel="Amount 1 Pan Gesture Recognizer">
+                    <connections>
+                        <action selector="loanPanDetected1:" destination="b9k-oc-2PR" id="SdR-iW-sT8"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="2" id="AXA-aB-cPz" userLabel="Amount 2 Pan Gesture Recognizer">
+                    <connections>
+                        <action selector="loanPanDetected2:" destination="b9k-oc-2PR" id="4gV-Am-uXy"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="bXZ-5Z-IqK" userLabel="Rate Pan Gesture Recognizer">
+                    <connections>
+                        <action selector="ratePanDetected:" destination="b9k-oc-2PR" id="KrP-mn-sx6"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="F3W-EQ-AeK" userLabel="Term Pan Gesture Recognizer">
+                    <connections>
+                        <action selector="termPanDetected:" destination="b9k-oc-2PR" id="DCa-aD-GxP"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1221.7391304347827" y="-1612.5000000000002"/>
         </scene>
