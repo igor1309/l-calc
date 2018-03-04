@@ -48,7 +48,7 @@ class LoanMainViewController: UIViewController {
     private var loc = Locale(identifier: "en_US")
     
     // FIXME: должно ли это быть здесь или переменные должны быть спрятаны в методы?
-    private var prevCoordinate: CGPoint!
+    private var prevPoint: CGPoint!
     private var ratePreviousX: CGPoint!
     private var termPreviousX: CGPoint!
     
@@ -174,23 +174,34 @@ class LoanMainViewController: UIViewController {
         switch gestureRecognizer.state {
             
         case .began:
-            prevCoordinate = .zero
+            prevPoint = .zero
             amountLabel.textColor = panningTint
             amountSubLabel.textColor = panningTint
             
         case .changed:
-            var coordinate = CGFloat(0)
-            var distance = CGFloat(0)
-            if isVerticalPanning {
-                distance = prevCoordinate.x - coordinate
-                coordinate = gestureRecognizer.translation(in: self.view).y
-                prevCoordinate.y = coordinate
-            } else {
-                distance = coordinate - prevCoordinate.x
-                coordinate = gestureRecognizer.translation(in: self.view).x
-                prevCoordinate.x = coordinate
-            }
+            
+            let newPoint = gestureRecognizer.translation(in: self.view)
+            let distanceX = newPoint.x - prevPoint.x
+            let distanceY = newPoint.y - prevPoint.y
+            // гипотенуза
+            let distance = (distanceX * distanceX +
+                distanceY * distanceY).squareRoot()
+            prevPoint = newPoint
 
+//
+//            var coordinate = CGFloat(0)
+//            var distance = CGFloat(0)
+//            if isVerticalPanning {
+//                coordinate = gestureRecognizer.translation(in: self.view).y
+//                distance = prevCoordinate.x - coordinate
+//                prevCoordinate.y = coordinate
+//            } else {
+//                coordinate = gestureRecognizer.translation(in: self.view).x
+//                distance = coordinate - prevCoordinate.x
+//                prevCoordinate.x = coordinate
+//            }
+
+            
             // для снижения скорости изменения берется значение > 0
             // если пан двумя пальцами, то скорость выше, если одним,
             // то чувствительность снижаем, повышая threshold
