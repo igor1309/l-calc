@@ -167,7 +167,14 @@ class LoanMainViewController: UIViewController {
         changeValueByPan(gestureRecognizer, with: 2)
     }
     
-    @IBAction func loanTapDetected(_ sender: UITapGestureRecognizer) {
+    @IBAction func loanMinusTapDetected(_ sender: UITapGestureRecognizer) {
+        loan.amount = step(loan.amount,
+                           direction: .down)
+        showLoanData()
+
+    }
+    
+    @IBAction func loanPlusTapDetected(_ sender: UITapGestureRecognizer) {
         //FIXME: add another tap area for lowering the amount
         loan.amount = step(loan.amount,
                            direction: .up)
