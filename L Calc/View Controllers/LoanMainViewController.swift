@@ -16,7 +16,7 @@ class LoanMainViewController: UIViewController {
     
     //MARK: - Constants
     let isVerticalPanning = true
-    let panningTint = UIColor.orange
+    let panningTint = UIColor(hexString: "FFCD07")
     let loanParamsTint = UIColor(hexString: "D1D1D1")
     let maxRate = 199.0
     let minRate = 0.02

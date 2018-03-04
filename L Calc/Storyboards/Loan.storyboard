@@ -105,7 +105,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLn-fV-Ts3" userLabel="Loan Results View">
-                                <rect key="frame" x="0.0" y="348" width="375" height="426"/>
+                                <rect key="frame" x="0.0" y="348" width="375" height="430"/>
                                 <subviews>
                                     <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Rh4-xT-Khg" userLabel="Line Stack View">
                                         <rect key="frame" x="20" y="6.0000000000000009" width="335" height="13.333333333333336"/>
@@ -155,7 +155,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4,600,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8T-SY-tGf">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="57.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="48"/>
-                                                        <color key="textColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СУММА" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPy-y5-b7W">
@@ -191,7 +191,7 @@
                                         </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6YH-SK-j0A" userLabel="Rate Stack View">
-                                        <rect key="frame" x="0.0" y="133.66666666666669" width="375" height="74.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="131.66666666666669" width="375" height="74.333333333333314"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.40%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylp-Qc-Naq">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="57.333333333333336"/>
@@ -219,7 +219,7 @@
                                         </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OJk-OL-6QD" userLabel="Term Stack View">
-                                        <rect key="frame" x="0.0" y="230.00000000000003" width="375" height="74.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="226.00000000000003" width="375" height="74.333333333333343"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="33" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDJ-QW-XT4">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="57.333333333333336"/>
@@ -247,7 +247,7 @@
                                         </connections>
                                     </stackView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pL7-qX-ew3">
-                                        <rect key="frame" x="20" y="332.33333333333337" width="335" height="29"/>
+                                        <rect key="frame" x="20" y="330.33333333333337" width="335" height="29"/>
                                         <segments>
                                             <segment title="В КОНЦЕ"/>
                                             <segment title="РАВНЫМИ"/>
@@ -256,7 +256,7 @@
                                         <color key="tintColor" red="0.77647058823529413" green="0.78823529411764703" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кредит погашатся в конце срока, проценты выплачиваются ежемесячно" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhJ-Nv-KG8">
-                                        <rect key="frame" x="20" y="372.33333333333337" width="335" height="33.666666666666686"/>
+                                        <rect key="frame" x="20" y="376.33333333333337" width="335" height="33.666666666666686"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                         <color key="textColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -264,17 +264,17 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="OJk-OL-6QD" firstAttribute="top" secondItem="6YH-SK-j0A" secondAttribute="bottom" constant="22" id="1uS-Ia-Em0"/>
-                                    <constraint firstItem="6YH-SK-j0A" firstAttribute="top" secondItem="qMy-6Z-siJ" secondAttribute="bottom" constant="22" id="2Y3-4m-lxe"/>
+                                    <constraint firstItem="OJk-OL-6QD" firstAttribute="top" secondItem="6YH-SK-j0A" secondAttribute="bottom" constant="20" id="1uS-Ia-Em0"/>
+                                    <constraint firstItem="6YH-SK-j0A" firstAttribute="top" secondItem="qMy-6Z-siJ" secondAttribute="bottom" constant="20" id="2Y3-4m-lxe"/>
                                     <constraint firstAttribute="trailing" secondItem="pL7-qX-ew3" secondAttribute="trailing" constant="20" symbolic="YES" id="2kP-C7-2y5"/>
-                                    <constraint firstItem="IhJ-Nv-KG8" firstAttribute="top" secondItem="pL7-qX-ew3" secondAttribute="bottom" constant="12" id="7W1-e8-KNq"/>
+                                    <constraint firstItem="IhJ-Nv-KG8" firstAttribute="top" secondItem="pL7-qX-ew3" secondAttribute="bottom" constant="18" id="7W1-e8-KNq"/>
                                     <constraint firstItem="IhJ-Nv-KG8" firstAttribute="leading" secondItem="sLn-fV-Ts3" secondAttribute="leading" constant="20" symbolic="YES" id="K6p-zu-q6Q"/>
                                     <constraint firstAttribute="bottom" secondItem="IhJ-Nv-KG8" secondAttribute="bottom" constant="20" symbolic="YES" id="KEs-np-Mch"/>
                                     <constraint firstAttribute="trailing" secondItem="Rh4-xT-Khg" secondAttribute="trailing" constant="20" symbolic="YES" id="NNe-La-e0f"/>
                                     <constraint firstItem="pL7-qX-ew3" firstAttribute="leading" secondItem="sLn-fV-Ts3" secondAttribute="leading" constant="20" symbolic="YES" id="O8J-OF-hwg"/>
                                     <constraint firstAttribute="trailing" secondItem="OJk-OL-6QD" secondAttribute="trailing" id="WEM-of-heN"/>
                                     <constraint firstItem="OJk-OL-6QD" firstAttribute="leading" secondItem="sLn-fV-Ts3" secondAttribute="leading" id="dhR-V2-MxT"/>
-                                    <constraint firstItem="pL7-qX-ew3" firstAttribute="top" secondItem="OJk-OL-6QD" secondAttribute="bottom" constant="28" id="fvU-Lw-sB3"/>
+                                    <constraint firstItem="pL7-qX-ew3" firstAttribute="top" secondItem="OJk-OL-6QD" secondAttribute="bottom" constant="30" id="fvU-Lw-sB3"/>
                                     <constraint firstItem="Rh4-xT-Khg" firstAttribute="top" secondItem="sLn-fV-Ts3" secondAttribute="top" constant="6" id="gUQ-Q4-tpk"/>
                                     <constraint firstItem="Rh4-xT-Khg" firstAttribute="leading" secondItem="sLn-fV-Ts3" secondAttribute="leading" constant="20" symbolic="YES" id="jn0-vi-3J9"/>
                                     <constraint firstItem="qMy-6Z-siJ" firstAttribute="leading" secondItem="sLn-fV-Ts3" secondAttribute="leading" id="jyx-Mf-WWg"/>
