@@ -48,7 +48,7 @@ class LoanMainViewController: UIViewController {
     private var loc = Locale(identifier: "en_US")
     
     // FIXME: должно ли это быть здесь или переменные должны быть спрятаны в методы?
-    private var previousX: CGPoint!
+    private var prevCoordinate: CGPoint!
     private var ratePreviousX: CGPoint!
     private var termPreviousX: CGPoint!
     
@@ -174,17 +174,21 @@ class LoanMainViewController: UIViewController {
         switch gestureRecognizer.state {
             
         case .began:
-            previousX = .zero
+            prevCoordinate = .zero
             amountLabel.textColor = panningTint
             amountSubLabel.textColor = panningTint
             
         case .changed:
-            let x = gestureRecognizer.translation(in: self.view).y
-            var distanceX = CGFloat(0)
+            var coordinate = CGFloat(0)
+            var distance = CGFloat(0)
             if isVerticalPanning {
-                distanceX = previousX.x - x
+                distance = prevCoordinate.x - coordinate
+                coordinate = gestureRecognizer.translation(in: self.view).y
+                prevCoordinate.y = coordinate
             } else {
-                distanceX = x - previousX.x
+                distance = coordinate - prevCoordinate.x
+                coordinate = gestureRecognizer.translation(in: self.view).x
+                prevCoordinate.x = coordinate
             }
 
             // для снижения скорости изменения берется значение > 0
@@ -196,16 +200,15 @@ class LoanMainViewController: UIViewController {
                 threshold = CGFloat(0)
             }
             
-            if abs(distanceX) > threshold {
+            if abs(distance) > threshold {
                 
-                if distanceX > 0 {
+                if distance > 0 {
                     loan.amount = stepUp(loan.amount)
-                } else if distanceX < 0 {
+                } else if distance < 0 {
                     loan.amount = stepDown(loan.amount)
                 }
                 
-                previousX.x = x
-                
+
                 showLoanData()
             }
             
