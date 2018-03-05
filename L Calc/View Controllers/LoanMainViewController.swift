@@ -286,6 +286,7 @@ class LoanMainViewController: UIViewController {
             }
             */
             
+            // https://stackoverflow.com/questions/29345313/swift-setup-a-pan-gesture-left-to-right
             let v = gestureRecognizer.velocity(in: self.view)
             let speedLimit: CGFloat = 0
             if v.x > speedLimit {
