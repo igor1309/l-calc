@@ -11,7 +11,7 @@ import UIKit
 class LoanMainViewController: UIViewController {
     
     private enum Direction {
-        case up, down
+        case up, down, none
     }
     
     private enum Axis {
@@ -243,6 +243,7 @@ class LoanMainViewController: UIViewController {
             amountLabel.textColor = panningTint
             amountSubLabel.textColor = panningTint
             
+            /*
             prevPoint = .zero
             let newPoint = gestureRecognizer.translation(in: self.view)
             let distanceX = newPoint.x - prevPoint.x
@@ -279,6 +280,23 @@ class LoanMainViewController: UIViewController {
                 } else {
                     direction = .down
                 }
+                loan.amount = step(loan.amount,
+                                   direction: direction!)
+                showLoanData()
+            }
+            */
+            
+            let v = gestureRecognizer.velocity(in: self.view)
+            let speedLimit: CGFloat = 0
+            if v.x > speedLimit {
+                direction = .up
+            } else if v.x < -speedLimit {
+                direction = .down
+            } else {
+                direction = .none
+            }
+            
+            if direction != .none {
                 loan.amount = step(loan.amount,
                                    direction: direction!)
                 showLoanData()
