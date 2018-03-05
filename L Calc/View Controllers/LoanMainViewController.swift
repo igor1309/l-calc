@@ -14,6 +14,10 @@ class LoanMainViewController: UIViewController {
         case up, down
     }
     
+    private enum Axis {
+        case x, y
+    }
+    
     //MARK: - Constants
     let isVerticalPanning = true
     let panningTint = UIColor(hexString: "FFCD07")
@@ -53,6 +57,7 @@ class LoanMainViewController: UIViewController {
     
     // FIXME: должно ли это быть здесь или переменные должны быть спрятаны в методы?
     private var direction: Direction?
+    private var axis: Axis?
     private var prevPoint: CGPoint!
     private var ratePreviousX: CGPoint!
     private var termPreviousX: CGPoint!
@@ -121,11 +126,11 @@ class LoanMainViewController: UIViewController {
         
         switch loan.type {
         case .interestOnly:
-            // Кредит погашатся в конце срока, проценты выплачиваются ежемесячно
+            // Проценты выплачиваются ежемесячно, а тело кредита – в конце срока
             loanTypeSegment.selectedSegmentIndex = 0
             monthlyPaymentCommentLabel.text = "ПЕРВЫЙ ПЛАТЕЖ"
         case .fixedPrincipal:
-            //
+            // Тело кредита погашается ежемесячно равными суммами
             loanTypeSegment.selectedSegmentIndex = 1
             monthlyPaymentCommentLabel.text = "ПЕРВЫЙ ПЛАТЕЖ"
         case .fixedPayment:
@@ -225,40 +230,51 @@ class LoanMainViewController: UIViewController {
     func changeValueByPan(
         _ gestureRecognizer: UIPanGestureRecognizer,
         with touches: Int) {
+        // движение (pan, panning) может идти по обеим осям, но направление — ось — определяется в начале
         
         // https://stackoverflow.com/questions/25503537/swift-uigesturerecogniser-follow-finger
         // https://github.com/codepath/ios_guides/wiki/Using-Gesture-Recognizers
         
-        var threshold = CGFloat(3)
+        var threshold = CGFloat(0.75)
         
         switch gestureRecognizer.state {
-            
         case .began:
-            prevPoint = .zero
+            monthlyPayment.alpha = 0.7
             amountLabel.textColor = panningTint
             amountSubLabel.textColor = panningTint
             
+            prevPoint = .zero
+            let newPoint = gestureRecognizer.translation(in: self.view)
+            let distanceX = newPoint.x - prevPoint.x
+            let distanceY = prevPoint.y - newPoint.y
+            // определить, по какой оси пошло движение
+            if abs(distanceX) < abs(distanceY) {
+                axis = .y
+            } else {
+                axis = .x
+            }
         case .changed:
             
             let newPoint = gestureRecognizer.translation(in: self.view)
-            let distanceX = newPoint.x - prevPoint.x
-            // по оси Y нужно брать с обратным знаком!!!
-            let distanceY = prevPoint.y - newPoint.y
-            // гипотенуза
-            let distance = (distanceX * distanceX +
-                distanceY * distanceY).squareRoot()
+            var distance = CGFloat(0)
+            if let axis = self.axis {
+                if axis == .y {
+                    break
+//                    distance = prevPoint.y - newPoint.y
+                } else {
+                    distance = newPoint.x - prevPoint.x
+                }
+            }
+
             prevPoint = newPoint
             
-            // если пан двумя пальцами, то скорость выше, если одним,
-            // то чувствительность снижаем, повышая threshold
-            if touches == 1 {
-                threshold = CGFloat(4.0)
-            } else if touches == 2 {
+            // если пан двумя пальцами, то скорость выше
+            // если одним, то чувствительность снижаем, повышая threshold
+            if touches == 2 {
                 threshold = CGFloat(0)
             }
-            
-            if distance > threshold {
-                if distanceX + distanceY > 0 {
+            if abs(distance) > threshold {
+                if distance > 0 {
                     direction = .up
                 } else {
                     direction = .down
@@ -270,6 +286,7 @@ class LoanMainViewController: UIViewController {
             
         case .ended:
             feedbackChange.selectionChanged()
+            monthlyPayment.alpha = 1.0
             amountLabel.textColor = loanParamsTint
             amountSubLabel.textColor = loanParamsTint
             

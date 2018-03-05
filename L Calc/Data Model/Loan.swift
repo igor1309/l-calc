@@ -20,7 +20,7 @@ struct Loan {
     private let minPrincipal = 10000.0
     
     let interestTypeComment: [InterestType: String] = [
-        .interestOnly: "Кредит погашатся в конце срока, проценты выплачиваются ежемесячно",
+        .interestOnly: "Проценты выплачиваются ежемесячно, а тело кредита – в конце срока",
         .fixedPrincipal: "Тело кредита погашается ежемесячно равными суммами",
         .fixedPayment: "Ежемесячные выплаты равными суммами, включающими проценты и тело кредита"
     ]
