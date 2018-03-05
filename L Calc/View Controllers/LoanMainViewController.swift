@@ -218,7 +218,7 @@ class LoanMainViewController: UIViewController {
             showLoanData()
             
         case .ended:
-            feedbackChange.selectionChanged()
+//            feedbackChange.selectionChanged()
             amountLabel.textColor = loanParamsTint
             amountSubLabel.textColor = loanParamsTint
             
@@ -235,7 +235,6 @@ class LoanMainViewController: UIViewController {
         // https://stackoverflow.com/questions/25503537/swift-uigesturerecogniser-follow-finger
         // https://github.com/codepath/ios_guides/wiki/Using-Gesture-Recognizers
         
-        var threshold = CGFloat(0.75)
         
         switch gestureRecognizer.state {
         case .began:
@@ -259,6 +258,7 @@ class LoanMainViewController: UIViewController {
             var distance = CGFloat(0)
             if let axis = self.axis {
                 if axis == .y {
+                    //MARK: перемещение по вертикали не меняет значение
                     break
 //                    distance = prevPoint.y - newPoint.y
                 } else {
@@ -270,22 +270,25 @@ class LoanMainViewController: UIViewController {
             
             // если пан двумя пальцами, то скорость выше
             // если одним, то чувствительность снижаем, повышая threshold
+            var threshold = CGFloat(0.35)
             if touches == 2 {
                 threshold = CGFloat(0)
             }
+            if distance > 0 {
+                direction = .up
+            } else if distance < 0{
+                direction = .down
+            } else {
+                direction = .none
+            }
             if abs(distance) > threshold {
-                if distance > 0 {
-                    direction = .up
-                } else {
-                    direction = .down
-                }
                 loan.amount = step(loan.amount,
                                    direction: direction!)
                 showLoanData()
             }
             
         case .ended:
-            feedbackChange.selectionChanged()
+//            feedbackChange.selectionChanged()
             monthlyPayment.alpha = 1.0
             amountLabel.textColor = loanParamsTint
             amountSubLabel.textColor = loanParamsTint
@@ -325,7 +328,7 @@ class LoanMainViewController: UIViewController {
             }
             
         case .ended:
-            feedbackChange.selectionChanged()
+//            feedbackChange.selectionChanged()
             rateLabel.textColor = loanParamsTint
             rateSubLabel.textColor = loanParamsTint
             
@@ -366,7 +369,7 @@ class LoanMainViewController: UIViewController {
             }
             
         case .ended:
-            feedbackChange.selectionChanged()
+//            feedbackChange.selectionChanged()
             termLabel.textColor = loanParamsTint
             termSubLabel.textColor = loanParamsTint
             
@@ -389,10 +392,10 @@ class LoanMainViewController: UIViewController {
         let max = Double(truncating: pow(10, 11) as NSNumber)
         if number > max {
             //FIXME: выдать предупреждение, что это предельное значение(?)
-            return number
+            return max
         } else if number < 101 {
             //FIXME: выдать предупреждение, что это предельное значение(?)
-            return number
+            return 101
         } else {
             // take 2 leftmost digits of number before decimal as a number and increase it
             // https://en.wikipedia.org/wiki/Order_of_magnitude
