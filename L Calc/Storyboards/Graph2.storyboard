@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jTb-t9-87D">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Loan Payments-->
+        <scene sceneID="3yw-VX-NwS">
+            <objects>
+                <viewController id="wEL-qD-y0x" customClass="Graph2ViewController" customModule="L_Calc" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pUa-OE-ccg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="enm-QD-J9Z" customClass="GraphView2" customModule="L_Calc" customModuleProvider="target">
+                                <rect key="frame" x="16" y="164" width="343" height="566"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="coolHueIndex">
+                                        <integer key="value" value="55"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="enm-QD-J9Z" firstAttribute="top" secondItem="j9q-el-djA" secondAttribute="top" constant="71.333333333333343" id="EfF-1i-2IW">
+                                <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="enm-QD-J9Z" firstAttribute="top" secondItem="j9q-el-djA" secondAttribute="top" constant="24" id="VtR-Vq-ofI"/>
+                            <constraint firstItem="j9q-el-djA" firstAttribute="trailing" secondItem="enm-QD-J9Z" secondAttribute="trailing" constant="16" id="fbl-Vr-rub"/>
+                            <constraint firstItem="j9q-el-djA" firstAttribute="bottom" secondItem="enm-QD-J9Z" secondAttribute="bottom" constant="48" id="htb-pi-ifY">
+                                <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="enm-QD-J9Z" firstAttribute="leading" secondItem="j9q-el-djA" secondAttribute="leading" constant="16" id="tBN-09-nxN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="j9q-el-djA"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EfF-1i-2IW"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="EfF-1i-2IW"/>
+                                <exclude reference="VtR-Vq-ofI"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Loan Payments" id="cEZ-Ep-iAi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c69-05-utu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="496.80000000000001" y="17.733990147783253"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="T89-7P-dTs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jTb-t9-87D" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="H9x-z8-UJK">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wEL-qD-y0x" kind="relationship" relationship="rootViewController" id="2lZ-IG-PNp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kEP-Td-qcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-215" y="18"/>
+        </scene>
+    </scenes>
+</document>

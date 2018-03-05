@@ -9,7 +9,7 @@
 
 import UIKit
 
-@IBDesignable class GraphView: UIView {
+@IBDesignable class GraphView2: UIView {
 
     private struct Constants {
         static let cornerRadiusSize = CGSize(width: 14.0,
@@ -27,8 +27,14 @@ import UIKit
     @IBInspectable var endColor: UIColor = UIColor(rgb: 0x7367f0)
     
     // sample data
-    var graphPoints: [Int] = [4, 7, 6, 8, 5, 9, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 9, 8, 9, 5]
-    
+    var graphPoints1: [Int] = [4, 7, 6, 8, 5, 9, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 9, 8, 9,4, 7, 6, 8, 5, 9, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 9, 8, 9, 5]
+    var graphPoints2: [Int] = [9, 11, 10, 13, 16, 12, 10, 15, 14, 12, 11, 15, 13, 16, 15, 14, 16, 14, 13, 15, 12, 9, 11, 10, 13, 16, 12, 10, 15, 14, 12, 11, 15, 13, 16, 15, 14, 16, 14, 13, 15, 12, 13]
+/*
+    var graphPoints1: [Int] = [4, 7, 6, 8, 5]
+    var graphPoints2: [Int] = [9, 11, 16, 13, 12]
+
+     */
+
     override func draw(_ rect: CGRect) {
         
         if coolHueIndex > -1 && coolHueIndex < 60 {
@@ -67,7 +73,7 @@ import UIKit
         let margin = Constants.margin
         let columnXPoint = { (column:Int) -> CGFloat in
             //Calculate gap between points
-            let spacer = (width - margin * 2 - 4) / CGFloat((self.graphPoints.count - 1))
+            let spacer = (width - margin * 2 - 4) / CGFloat((self.graphPoints1.count - 1))
             var x: CGFloat = CGFloat(column) * spacer
             x += margin + 2
             return x
@@ -77,7 +83,7 @@ import UIKit
         let topBorder: CGFloat = Constants.topBorder
         let bottomBorder: CGFloat = Constants.bottomBorder
         let graphHeight = height - topBorder - bottomBorder
-        let maxValue = graphPoints.max()!
+        let maxValue = max(graphPoints1.max()!, graphPoints2.max()!)
         let columnYPoint = { (graphPoint:Int) -> CGFloat in
             var y:CGFloat = CGFloat(graphPoint) / CGFloat(maxValue) * graphHeight
             y = graphHeight + topBorder - y // Flip the graph
@@ -92,29 +98,48 @@ import UIKit
         let graphPath = UIBezierPath()
         //go to start of line
         graphPath.move(to: CGPoint(x:columnXPoint(0),
-                                   y:columnYPoint(graphPoints[0])))
+                                   y:columnYPoint(graphPoints1[0])))
         
-        //add points for each item in the graphPoints array
+        //add points for each item in the graphPoints1 array
         //at the correct (x, y) for the point
-        for i in 1..<graphPoints.count {
+        for i in 1..<graphPoints1.count {
             let nextPoint = CGPoint(x:columnXPoint(i),
-                                    y:columnYPoint(graphPoints[i]))
+                                    y:columnYPoint(graphPoints1[i]))
             graphPath.addLine(to: nextPoint)
         }
-        
+
         //Create the clipping path for the graph gradient
         
         //1 - save the state of the context
-        context.saveGState()
+//        context.saveGState()
         
         //2 - make a copy of the path
         let clippingPath = graphPath.copy() as! UIBezierPath
         
         //3 - add lines to the copied path to complete the clip area
-        clippingPath.addLine(to: CGPoint(x: columnXPoint(graphPoints.count - 1),
-                                         y:height))
+        clippingPath.addLine(to: CGPoint(x: columnXPoint(graphPoints1.count - 1),
+                                         y: columnYPoint(graphPoints2[graphPoints2.count - 1])))
+
+        //set up the points line
+        let graphPath2 = UIBezierPath()
+        //go to start of line
+        graphPath2.move(to: CGPoint(x:columnXPoint(graphPoints2.count - 1),
+                                   y:columnYPoint(graphPoints2[graphPoints2.count - 1])))
+        
+        //add points for each item in the graphPoints2 array
+        //at the correct (x, y) for the point
+        for i in (0..<graphPoints2.count - 1).reversed() {
+            let nextPoint = CGPoint(x:columnXPoint(i),
+                                    y:columnYPoint(graphPoints2[i]))
+            graphPath2.addLine(to: nextPoint)
+        }
+        graphPath.append(graphPath2)
+        context.saveGState()
+
+        
+        clippingPath.append(graphPath2)
         clippingPath.addLine(to: CGPoint(x:columnXPoint(0),
-                                         y:height))
+                                         y:columnYPoint(graphPoints1[0])))
         clippingPath.close()
         
         //4 - add the clipping path to the context
@@ -137,9 +162,23 @@ import UIKit
         graphPath.stroke()
         
         //Draw the circles on top of graph stroke
-        for i in 0..<graphPoints.count {
+        for i in 0..<graphPoints1.count {
             var point = CGPoint(x:columnXPoint(i),
-                                y:columnYPoint(graphPoints[i]))
+                                y:columnYPoint(graphPoints1[i]))
+            point.x -= Constants.circleDiameter / 2
+            point.y -= Constants.circleDiameter / 2
+            
+            let circle = UIBezierPath(
+                ovalIn: CGRect(origin: point,
+                               size: CGSize(width: Constants.circleDiameter,
+                                            height: Constants.circleDiameter)))
+            circle.fill()
+        }
+        
+        //Draw the circles on top of graph stroke
+        for i in 0..<graphPoints2.count {
+            var point = CGPoint(x:columnXPoint(i),
+                                y:columnYPoint(graphPoints2[i]))
             point.x -= Constants.circleDiameter / 2
             point.y -= Constants.circleDiameter / 2
             
