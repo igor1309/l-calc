@@ -135,6 +135,49 @@ import UIKit
         }
         graphPath.append(graphPath2)
         context.saveGState()
+        
+        //MARK: animation
+        // https://stackoverflow.com/questions/26578023/animate-drawing-of-a-circle
+        // Setup the CAShapeLayer with the path, colors, and line width
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = graphPath.cgPath
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = UIColor.darkGray.cgColor
+        shapeLayer.lineWidth = 2.0;
+        
+        // Don't draw the circle initially
+        shapeLayer.strokeEnd = 0.0
+        
+        // Add the shapeLayer to the view's layer's sublayers
+        layer.addSublayer(shapeLayer)
+        // We want to animate the strokeEnd property of the shapeLayer
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        
+        // Set the animation duration appropriately
+        animation.duration = 3
+        
+        // Animate from 0 (no) to 1 (full)
+        animation.fromValue = 0
+        animation.toValue = 1
+        
+        // Do animation
+        animation.timingFunction = CAMediaTimingFunction(
+            name: kCAMediaTimingFunctionEaseInEaseOut)
+        
+        // Set the circleLayer's strokeEnd property to 1.0 now so that it's the
+        // right value when the animation ends.
+        shapeLayer.strokeEnd = 1.0
+        
+        // Do the actual animation
+        shapeLayer.add(animation, forKey: "strokeEnd")
+        
+        // Clear animation trace
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            shapeLayer.strokeColor = UIColor.clear.cgColor
+        }
+
+        
+
 
         
         clippingPath.append(graphPath2)
