@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func checkIfFirstLaunch() {
         if UserDefaults.standard.bool(forKey: "hasLaunchedBefore") {
-            print("App has Launched Before")
+//            print("App has Launched Before")
         } else {
             print("This is the first launch ever!")
             UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")

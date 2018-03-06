@@ -78,6 +78,24 @@ import UIKit
         }
     }
     
+    fileprivate func drawGraphCircles(_ columnXPoint: (Int) -> CGFloat,
+                                      _ columnYPoint: (Int) -> CGFloat,
+                                      for array: [Int]) {
+        //Draw the circles on top of graph stroke
+        for i in 0..<array.count {
+            var point = CGPoint(x:columnXPoint(i),
+                                y:columnYPoint(array[i]))
+            point.x -= Constants.circleDiameter / 2
+            point.y -= Constants.circleDiameter / 2
+            
+            let circle = UIBezierPath(
+                ovalIn: CGRect(origin: point,
+                               size: CGSize(width: Constants.circleDiameter,
+                                            height: Constants.circleDiameter)))
+            circle.fill()
+        }
+    }
+    
     override func draw(_ rect: CGRect) {
         
         if coolHueIndex > -1 && coolHueIndex < 60 {
@@ -182,12 +200,11 @@ import UIKit
         
         
         animateOutline(graphPath,
-                       with: .darkGray,
+                       with: .cyan,
                        lineWidth: 2.0,
                        duration: 3)
 
         
-
 
         
         clippingPath.append(graphPath2)
@@ -213,34 +230,16 @@ import UIKit
         //draw the line on top of the clipped gradient
         graphPath.lineWidth = 2.0
         graphPath.stroke()
+
         
-        //Draw the circles on top of graph stroke
-        for i in 0..<graphPoints1.count {
-            var point = CGPoint(x:columnXPoint(i),
-                                y:columnYPoint(graphPoints1[i]))
-            point.x -= Constants.circleDiameter / 2
-            point.y -= Constants.circleDiameter / 2
-            
-            let circle = UIBezierPath(
-                ovalIn: CGRect(origin: point,
-                               size: CGSize(width: Constants.circleDiameter,
-                                            height: Constants.circleDiameter)))
-            circle.fill()
-        }
         
-        //Draw the circles on top of graph stroke
-        for i in 0..<graphPoints2.count {
-            var point = CGPoint(x:columnXPoint(i),
-                                y:columnYPoint(graphPoints2[i]))
-            point.x -= Constants.circleDiameter / 2
-            point.y -= Constants.circleDiameter / 2
-            
-            let circle = UIBezierPath(
-                ovalIn: CGRect(origin: point,
-                               size: CGSize(width: Constants.circleDiameter,
-                                            height: Constants.circleDiameter)))
-            circle.fill()
-        }
+        
+        drawGraphCircles(columnXPoint, columnYPoint, for: graphPoints1)
+        drawGraphCircles(columnXPoint, columnYPoint, for: graphPoints2)
+
+        
+        
+        
         
         //Draw horizontal graph lines on the top of everything
         let linePath = UIBezierPath()

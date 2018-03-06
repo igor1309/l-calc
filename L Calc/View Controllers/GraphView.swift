@@ -27,7 +27,7 @@ import UIKit
     @IBInspectable var endColor: UIColor = UIColor(rgb: 0x7367f0)
     
     // sample data
-    var graphPoints: [Int] = [4, 7, 6, 8, 5, 9, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 9, 8, 9, 5]
+    var graphPoints: [Int] = [4, 7, 6, 8, 5, 9, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 9, 8, 9,4, 7, 6, 8, 5, 9, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 9, 8, 9, 5]
     
     override func draw(_ rect: CGRect) {
         
