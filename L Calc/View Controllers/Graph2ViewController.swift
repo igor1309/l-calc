@@ -35,31 +35,21 @@ extension Loan {
 }
 
 class Graph2ViewController: UIViewController {
-    func setGraphPoints2() {
-        graph2?.graphPoints2 = monthlyTotals
+
+    @IBOutlet weak var graph2: GraphView2!
+
+    var loan: Loan?
+
+    @IBAction func closeButton(_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
     }
     
-    
-    //FIXME: передаваться должен loan
-    var loan: Loan?
-    var graph2: GraphView2?
-    
-//    var loan: (amount: Double, rate: Double, term: Double, type: InterestType)?
-    
-    var monthlyTotals = [Int]()
-//    var loanPaymentsMonthlyPrincipal = [Int]()
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let loan = loan {
-            monthlyTotals = loan.loanPaymentsMonthlyTotal()
-//            print(monthlyTotals)
-            
-            
+            graph2.gPoints1 = loan.loanPaymentsMonthlyTotal()
+            graph2.gPoints2 = loan.loanPaymentsMonthlyTotal()
         }
     }
-
-
 }

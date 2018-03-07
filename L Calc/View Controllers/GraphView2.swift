@@ -27,86 +27,25 @@ import UIKit
     @IBInspectable var endColor: UIColor = UIColor(rgb: 0x7367f0)
     
     // sample data
-    var graphPoints1: [Int] = [39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810]
-    var graphPoints2: [Int] = [104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765]
+    var gPoints1: [Int]?
+    var gPoints2: [Int]?
 //    var graphPoints2: [Int]?
     /*
+     [39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810]
     var graphPoints1: [Int] = [4, 7, 6, 8, 5]
     var graphPoints2: [Int] = [9, 11, 16, 13, 12]
 
      */
 
-    fileprivate func animateOutline(_ path: UIBezierPath,
-                                    with color: UIColor,
-                                    lineWidth: CGFloat,
-                                    duration: CFTimeInterval) {
-        //MARK: animation via https://stackoverflow.com/questions/26578023/animate-drawing-of-a-circle
-        
-        // Setup the CAShapeLayer with the path, colors, and line width
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = path.cgPath
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeColor = color.cgColor
-        shapeLayer.lineWidth = lineWidth;
-        // Don't draw the circle initially
-        shapeLayer.strokeEnd = 0.0
-        
-        // Add the shapeLayer to the view's layer's sublayers
-        layer.addSublayer(shapeLayer)
-        
-        // We want to animate the strokeEnd property of the shapeLayer
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        // Set the animation duration appropriately
-        animation.duration = duration
-        // Animate from 0 (no) to 1 (full)
-        animation.fromValue = 0
-        animation.toValue = 1
-        
-        // Do animation with selected pacing
-        animation.timingFunction = CAMediaTimingFunction(
-            name: kCAMediaTimingFunctionEaseInEaseOut)
-        
-        // Set the shapeLayer's strokeEnd property to 1.0 now so that it's the
-        // right value when the animation ends.
-        shapeLayer.strokeEnd = 1.0
-        
-        // Do the actual animation
-        shapeLayer.add(animation, forKey: "strokeEnd")
-        
-        // Clear animation trace
-        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
-            shapeLayer.strokeColor = UIColor.clear.cgColor
-        }
-    }
-    
-    fileprivate func drawGraphCircles(_ columnXPoint: (Int) -> CGFloat,
-                                      _ columnYPoint: (Int) -> CGFloat,
-                                      diameter: CGFloat,
-                                      for array: [Int]) {
-        var circleDiameter: CGFloat = 1
-        if array.count < 25 {
-            circleDiameter = diameter
-        }
-        //Draw the circles on top of graph stroke
-        for i in 0..<array.count {
-            var point = CGPoint(x:columnXPoint(i),
-                                y:columnYPoint(array[i]))
-            point.x -= circleDiameter / 2
-            point.y -= circleDiameter / 2
-            
-            let circle = UIBezierPath(
-                ovalIn: CGRect(origin: point,
-                               size: CGSize(width: circleDiameter,
-                                            height: circleDiameter)))
-            circle.fill()
-        }
-    }
-    
     override func draw(_ rect: CGRect) {
         
-//        guard let graphPoints2 = graphPoints2 else {
-//            return
-//        }
+        guard let graphPoints1 = gPoints1 else {
+            return
+        }
+        
+        guard let graphPoints2 = gPoints2 else {
+            return
+        }
         
         if coolHueIndex > -1 && coolHueIndex < 60 {
             startColor =
@@ -144,7 +83,7 @@ import UIKit
         let margin = Constants.margin
         let columnXPoint = { (column:Int) -> CGFloat in
             //Calculate gap between points
-            let spacer = (width - margin * 2 - 4) / CGFloat((self.graphPoints1.count - 1))
+            let spacer = (width - margin * 2 - 4) / CGFloat((graphPoints1.count - 1))
             var x: CGFloat = CGFloat(column) * spacer
             x += margin + 2
             return x
@@ -300,4 +239,68 @@ import UIKit
 
 
 
+    fileprivate func animateOutline(_ path: UIBezierPath,
+                                    with color: UIColor,
+                                    lineWidth: CGFloat,
+                                    duration: CFTimeInterval) {
+        //MARK: animation via https://stackoverflow.com/questions/26578023/animate-drawing-of-a-circle
+        
+        // Setup the CAShapeLayer with the path, colors, and line width
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = path.cgPath
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = color.cgColor
+        shapeLayer.lineWidth = lineWidth;
+        // Don't draw the circle initially
+        shapeLayer.strokeEnd = 0.0
+        
+        // Add the shapeLayer to the view's layer's sublayers
+        layer.addSublayer(shapeLayer)
+        
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.duration = duration
+        // Animate from 0 (no) to 1 (full)
+        animation.fromValue = 0
+        animation.toValue = 1
+        
+        // Do animation with selected pacing
+        animation.timingFunction = CAMediaTimingFunction(
+            name: kCAMediaTimingFunctionEaseInEaseOut)
+        
+        // Set the shapeLayer's strokeEnd property to 1.0 now so that it's the
+        // right value when the animation ends.
+        shapeLayer.strokeEnd = 1.0
+        
+        // Do the actual animation
+        shapeLayer.add(animation, forKey: "strokeEnd")
+        
+        // Clear animation trace
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+            shapeLayer.strokeColor = UIColor.clear.cgColor
+        }
+    }
+    
+    fileprivate func drawGraphCircles(_ columnXPoint: (Int) -> CGFloat,
+                                      _ columnYPoint: (Int) -> CGFloat,
+                                      diameter: CGFloat,
+                                      for array: [Int]) {
+        var circleDiameter: CGFloat = 1
+        if array.count < 25 {
+            circleDiameter = diameter
+        }
+        //Draw the circles on top of graph stroke
+        for i in 0..<array.count {
+            var point = CGPoint(x:columnXPoint(i),
+                                y:columnYPoint(array[i]))
+            point.x -= circleDiameter / 2
+            point.y -= circleDiameter / 2
+            
+            let circle = UIBezierPath(
+                ovalIn: CGRect(origin: point,
+                               size: CGSize(width: circleDiameter,
+                                            height: circleDiameter)))
+            circle.fill()
+        }
+    }
+    
 }
