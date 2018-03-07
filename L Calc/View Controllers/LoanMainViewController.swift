@@ -241,7 +241,7 @@ class LoanMainViewController: UIViewController {
         
         switch gestureRecognizer.state {
         case .began:
-            monthlyPayment.alpha = 0.7
+            loanResultsView.alpha = 0.7
             amountLabel.textColor = panningTint
             amountSubLabel.textColor = panningTint
             
@@ -292,7 +292,7 @@ class LoanMainViewController: UIViewController {
             
         case .ended:
 //            feedbackChange.selectionChanged()
-            monthlyPayment.alpha = 1.0
+            loanResultsView.alpha = 1.0
             amountLabel.textColor = loanParamsTint
             amountSubLabel.textColor = loanParamsTint
             
