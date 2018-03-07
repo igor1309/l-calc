@@ -9,9 +9,9 @@
 import UIKit
 
 enum InterestType: String {
-    case interestOnly   = "InterestOnly"    //  в конце срока
-    case fixedPrincipal = "FixedPrincipal"  //  тело равными частями
-    case fixedPayment   = "Annuity"         //  аннуитет
+    case interestOnly   = "interestOnly"    //  в конце срока
+    case fixedPrincipal = "fixedPrincipal"  //  тело равными частями
+    case fixedPayment   = "fixedPayment"    //  аннуитет
 }
 
 struct Loan {
@@ -90,16 +90,18 @@ extension Loan {
         let r = rate / 100 / 12    // monthly interest rate
         
         switch type {
-        case .fixedPayment:
+        case .interestOnly:     // все кроме последнего
+            return amount * r
+            
+        case .fixedPayment:     // equal payments
             //  аннуитет http://financeformulas.net/Annuity_Payment_Formula.html
             let p = pow(1 + r, 0 - term)
             return amount/((1 - p)/r)
-        case .interestOnly:
-            return amount * r
-        case .fixedPrincipal:
-            //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
-            print("??")
-            return 0
+            
+        case .fixedPrincipal:   // только первый платеж
+            let interest = amount * r
+            let principal = amount / term
+            return principal + interest
         }
     }
     
@@ -107,12 +109,14 @@ extension Loan {
         let r = rate / 100 / 12    // monthly interest rate
         
         switch type {
+        case .interestOnly:
+            return amount * r * term
+
         case .fixedPayment:
             let p = pow(1 + r, 0 - term)
             let mp = amount/((1 - p)/r)
             return mp * term - amount
-        case .interestOnly:
-            return amount * r * term
+        
         case .fixedPrincipal:
             //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
             print("??")
@@ -124,12 +128,14 @@ extension Loan {
         let r = rate / 100 / 12    // monthly interest rate
         
         switch type {
+        case .interestOnly:
+            return amount * (1 + r * term)
+
         case .fixedPayment:
             let p = pow(1 + r, 0 - term)
             let mp = amount/((1 - p)/r)
             return mp * term
-        case .interestOnly:
-            return amount * (1 + r * term)
+        
         case .fixedPrincipal:
             //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
             print("??")
@@ -162,8 +168,15 @@ extension Loan {
         type = .fixedPayment
         if let savedType = userDefaults.string(
             forKey: "InterestType") {
-            if savedType == "Fixed" {
+            switch savedType {
+            case "interestOnly":
                 type = .interestOnly
+            case "fixedPrincipal":
+                type = .fixedPrincipal
+            case "fixedPayment":
+                type = .fixedPayment
+            default:
+                type = .fixedPayment
             }
         }
     }

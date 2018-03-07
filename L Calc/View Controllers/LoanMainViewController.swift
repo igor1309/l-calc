@@ -117,16 +117,9 @@ class LoanMainViewController: UIViewController {
                                    locale: loc,
                                    loan.totalPayments)
         
-        //FIXME: три типа кредитов (в конце срока, аннуитет, равными частями тело — в этом случае не ежемесячный платеж, а первый(?))
-        if loan.type == .fixedPayment {
-            loanTypeSegment.selectedSegmentIndex = 1
-        } else {
-            loanTypeSegment.selectedSegmentIndex = 0
-        }
-        
         switch loan.type {
         case .interestOnly:
-            // Проценты выплачиваются ежемесячно, а тело кредита – в конце срока
+            // Проценты выплачиваются ежемесячно, а тело в конце срока
             loanTypeSegment.selectedSegmentIndex = 0
             monthlyPaymentCommentLabel.text = "ПЕРВЫЙ ПЛАТЕЖ"
         case .fixedPrincipal:
@@ -138,10 +131,8 @@ class LoanMainViewController: UIViewController {
             loanTypeSegment.selectedSegmentIndex = 2
             monthlyPaymentCommentLabel.text = "ЕЖЕМЕСЯЧНЫЙ ПЛАТЕЖ"
         }
-        
         loanTypeComment.text = loan.interestTypeComment[loan.type]
 
-        
         //  provide haptic feedback
         feedbackChange.selectionChanged()
     }

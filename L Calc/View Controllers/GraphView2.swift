@@ -22,7 +22,7 @@ import UIKit
     }
     
     // the properties for the gradient
-    @IBInspectable var coolHueIndex: Int = 32
+    @IBInspectable var coolHueIndex: Int = 55   //32
     @IBInspectable var startColor: UIColor = UIColor(rgb: 0xce9ffc)
     @IBInspectable var endColor: UIColor = UIColor(rgb: 0x7367f0)
     
@@ -260,11 +260,9 @@ import UIKit
         
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = duration
-        // Animate from 0 (no) to 1 (full)
         animation.fromValue = 0
         animation.toValue = 1
         shapeLayer.strokeEnd = 1.0
-        
         // Do animation with selected pacing
         animation.timingFunction = CAMediaTimingFunction(
             name: kCAMediaTimingFunctionEaseInEaseOut)
@@ -283,21 +281,22 @@ import UIKit
                                       _ columnYPoint: (Int) -> CGFloat,
                                       diameter: CGFloat,
                                       for array: [Int]) {
-        var circleDiameter: CGFloat = 1
-        if array.count < 25 {
-            circleDiameter = diameter
+        // не рисовать точки, если их много
+        if array.count > 25 {
+            return
         }
+        
         //Draw the circles on top of graph stroke
         for i in 0..<array.count {
             var point = CGPoint(x:columnXPoint(i),
                                 y:columnYPoint(array[i]))
-            point.x -= circleDiameter / 2
-            point.y -= circleDiameter / 2
+            point.x -= diameter / 2
+            point.y -= diameter / 2
             
             let circle = UIBezierPath(
                 ovalIn: CGRect(origin: point,
-                               size: CGSize(width: circleDiameter,
-                                            height: circleDiameter)))
+                               size: CGSize(width: diameter,
+                                            height: diameter)))
             circle.fill()
         }
     }
