@@ -20,14 +20,15 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRg-RB-xhf" customClass="GraphView2" customModule="L_Calc" customModuleProvider="target">
                                 <rect key="frame" x="16" y="68" width="343" height="686"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.11372549019607843" green="0.17254901960784313" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="OQq-Sd-8Af" appends="YES" id="nKt-la-HtP"/>
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.1137254902" green="0.17254901959999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="PIk-Q2-pcG" firstAttribute="bottom" secondItem="bRg-RB-xhf" secondAttribute="bottom" constant="24" id="c5L-1t-pIY">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
@@ -42,7 +43,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="График платежей" id="t4S-ea-aKe">
                         <barButtonItem key="rightBarButtonItem" systemItem="stop" id="quI-wT-72n">
-                            <color key="tintColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="closeButton:" destination="BZQ-rH-Xgd" id="yQO-ZQ-mTm"/>
                             </connections>
