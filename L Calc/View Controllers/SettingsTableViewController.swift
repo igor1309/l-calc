@@ -26,6 +26,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     var lessHapticFeedback = false
+    
     @IBOutlet weak var lessFeedbackSwitch: UISwitch!
     
     @IBAction func lessFeedbackSwitched(_ sender: UISwitch) {
@@ -39,14 +40,11 @@ class SettingsTableViewController: UITableViewController {
             Notification(name: .lessFeedback))
 
     }
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         useDecimalsSwitch.isOn = UserDefaults.standard.bool(forKey: "UseDecimals")
-
     }
-    
+        
 }

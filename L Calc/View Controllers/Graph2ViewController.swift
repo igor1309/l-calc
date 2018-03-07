@@ -30,4 +30,14 @@ class Graph2ViewController: UIViewController {
             graph2.gPoints2 = loan.loanPaymentsMonthlyPrincipal()
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let navBar = self.navigationController?.navigationBar {
+            navBar.isTranslucent = false
+            navBar.tintColor = .lightGray
+        }
+    }
+    
 }

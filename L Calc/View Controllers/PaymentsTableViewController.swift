@@ -33,6 +33,15 @@ class PaymentsTableViewController: UITableViewController {
         super.viewDidLoad()
         changeNumFormat()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let navBar = self.navigationController?.navigationBar {
+            navBar.isTranslucent = false
+            navBar.tintColor = .lightGray
+        }
+    }
 
     
     // MARK: - Table view data source
