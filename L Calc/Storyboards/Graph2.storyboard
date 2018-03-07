@@ -19,14 +19,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRg-RB-xhf" customClass="GraphView2" customModule="L_Calc" customModuleProvider="target">
-                                <rect key="frame" x="16" y="68" width="343" height="662"/>
+                                <rect key="frame" x="16" y="68" width="343" height="686"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="OQq-Sd-8Af" appends="YES" id="nKt-la-HtP"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="PIk-Q2-pcG" firstAttribute="bottom" secondItem="bRg-RB-xhf" secondAttribute="bottom" constant="48" id="c5L-1t-pIY"/>
-                            <constraint firstItem="bRg-RB-xhf" firstAttribute="top" secondItem="PIk-Q2-pcG" secondAttribute="top" constant="24" id="kJh-Kg-2O5"/>
+                            <constraint firstItem="PIk-Q2-pcG" firstAttribute="bottom" secondItem="bRg-RB-xhf" secondAttribute="bottom" constant="24" id="c5L-1t-pIY">
+                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="bRg-RB-xhf" firstAttribute="top" secondItem="PIk-Q2-pcG" secondAttribute="top" constant="24" id="kJh-Kg-2O5">
+                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="PIk-Q2-pcG" firstAttribute="trailing" secondItem="bRg-RB-xhf" secondAttribute="trailing" constant="16" id="sxv-JT-pBG"/>
                             <constraint firstItem="bRg-RB-xhf" firstAttribute="leading" secondItem="PIk-Q2-pcG" secondAttribute="leading" constant="16" id="wQ8-M9-Vak"/>
                         </constraints>
@@ -34,6 +42,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="График платежей" id="t4S-ea-aKe">
                         <barButtonItem key="rightBarButtonItem" systemItem="stop" id="quI-wT-72n">
+                            <color key="tintColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="closeButton:" destination="BZQ-rH-Xgd" id="yQO-ZQ-mTm"/>
                             </connections>
@@ -44,6 +53,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvv-de-dg0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="OQq-Sd-8Af">
+                    <connections>
+                        <action selector="graphTabDetected:" destination="BZQ-rH-Xgd" id="EYW-YH-dVv"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-130" y="113"/>
         </scene>

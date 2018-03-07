@@ -42,30 +42,6 @@ class Payments {
         let r = loan.rate / 100 / 12    // monthly interest rate
 
         switch loan.type {
-        case .fixedPayment:     // аннуитет w/fixed monthly payment
-            let monthlyPayment = loan.amount /
-                ((1 - pow(1 + r, Double(0 - loan.term))) / r)
-            
-            for i in 1...Int(loan.term) {
-                let beginningBalance =
-                    loan.amount * pow(1 + r, Double (i - 1)) -
-                    monthlyPayment / r * (pow(1 + r, Double (i - 1)) - 1)
-                let endingBalance =
-                    loan.amount * pow(1 + r, Double (i)) -
-                    monthlyPayment / r * (pow(1 + r, Double (i)) - 1)
-                let principal =
-                    beginningBalance - endingBalance
-                let interest =
-                    monthlyPayment - principal
-
-                let payment = Payment(
-                    beginningBalance: beginningBalance,
-                    interest: interest,
-                    principal: principal,
-                    monthlyPayment: monthlyPayment,
-                    endingBalance: endingBalance)
-                paymentsSchedule.append(payment)
-            }
         case .interestOnly:
             print("допилить таблицу для выплаты в конце срока")
             //FIXME: допилить таблицу для выплаты в конце срока??
@@ -74,6 +50,30 @@ class Payments {
         case .fixedPrincipal:
             //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
             print("??")
+        case .fixedPayment:     // аннуитет = fixed monthly payment
+            let monthlyPayment = loan.amount /
+                ((1 - pow(1 + r, Double(0 - loan.term))) / r)
+            
+            for i in 1...Int(loan.term) {
+                let beginningBalance =
+                    loan.amount * pow(1 + r, Double (i - 1)) -
+                        monthlyPayment / r * (pow(1 + r, Double (i - 1)) - 1)
+                let endingBalance =
+                    loan.amount * pow(1 + r, Double (i)) -
+                        monthlyPayment / r * (pow(1 + r, Double (i)) - 1)
+                let principal =
+                    beginningBalance - endingBalance
+                let interest =
+                    monthlyPayment - principal
+                
+                let payment = Payment(
+                    beginningBalance: beginningBalance,
+                    interest: interest,
+                    principal: principal,
+                    monthlyPayment: monthlyPayment,
+                    endingBalance: endingBalance)
+                paymentsSchedule.append(payment)
+            }
         }
     }
     

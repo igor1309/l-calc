@@ -179,3 +179,73 @@ extension Loan {
         self.type = type
     }
 }
+
+extension Loan {
+    
+    func loanPaymentsMonthlyTotal() -> [Int] {
+        
+        let r = rate / 100 / 12    // monthly interest rate
+        var a = [Int]()
+        
+        switch type {
+        case .interestOnly:
+            let interest = amount * r
+            for _ in 1..<Int(term) {
+                a.append(Int(interest))
+            }
+            a.append(Int(amount + interest))
+        case .fixedPrincipal:
+            let principal = amount / term
+            for _ in 1...Int(term) {
+                //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
+                let interest = 11111.0
+                a.append(Int(principal + interest))
+            }
+        case .fixedPayment:    // аннуитет = fixed monthly payment
+            let monthlyPayment = amount /
+                ((1 - pow(1 + r, Double(0 - term))) / r)
+            for _ in 1...Int(term) {
+                a.append(Int(monthlyPayment))
+            }
+        }
+        return a
+    }
+    
+    func loanPaymentsMonthlyPrincipal() -> [Int] {
+        
+        let r = rate / 100 / 12    // monthly interest rate
+        var a = [Int]()
+        
+        switch type {
+        case .interestOnly:
+            for _ in 1..<Int(term) {
+                a.append(0)
+            }
+            a.append(Int(amount))
+            
+        case .fixedPrincipal:
+            let principal = amount / term
+            for _ in 1...Int(term) {
+                a.append(Int(principal))
+            }
+            
+        case .fixedPayment:    // аннуитет w/fixed monthly payment
+            let monthlyPayment = amount /
+                ((1 - pow(1 + r, Double(0 - term))) / r)
+            for i in 1...Int(term) {
+                let beginningBalance =
+                    amount * pow(1 + r, Double (i - 1)) -
+                        monthlyPayment / r * (pow(1 + r, Double (i - 1)) - 1)
+                let endingBalance =
+                    amount * pow(1 + r, Double (i)) -
+                        monthlyPayment / r * (pow(1 + r, Double (i)) - 1)
+                let principal =
+                    beginningBalance - endingBalance
+                
+                a.append(Int(principal))
+            }
+        }
+        return a
+    }
+}
+

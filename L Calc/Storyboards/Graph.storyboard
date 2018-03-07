@@ -51,10 +51,40 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j9q-el-djA"/>
                     </view>
+                    <connections>
+                        <segue destination="HpM-r9-rJb" kind="show" identifier="seg" id="8Hb-DL-Ik8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c69-05-utu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="154.40000000000001" y="17.733990147783253"/>
+        </scene>
+        <!--Graph2 View Controller-->
+        <scene sceneID="MNK-6X-ejJ">
+            <objects>
+                <viewController id="HpM-r9-rJb" customClass="Graph2ViewController" customModule="L_Calc" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E3S-hN-oPB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qRp-Pc-0rq" customClass="GraphView2" customModule="L_Calc" customModuleProvider="target">
+                                <rect key="frame" x="16" y="68" width="343" height="662"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qRp-Pc-0rq" firstAttribute="leading" secondItem="aXL-km-S9t" secondAttribute="leading" constant="16" id="7gC-td-tfJ"/>
+                            <constraint firstItem="aXL-km-S9t" firstAttribute="trailing" secondItem="qRp-Pc-0rq" secondAttribute="trailing" constant="16" id="IzU-P3-GdI"/>
+                            <constraint firstItem="qRp-Pc-0rq" firstAttribute="top" secondItem="aXL-km-S9t" secondAttribute="top" constant="24" id="Tkx-jp-xEn"/>
+                            <constraint firstItem="aXL-km-S9t" firstAttribute="bottom" secondItem="qRp-Pc-0rq" secondAttribute="bottom" constant="48" id="guW-oN-D1Q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aXL-km-S9t"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zjl-NV-vZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="978" y="18"/>
         </scene>
     </scenes>
 </document>

@@ -26,9 +26,9 @@ import UIKit
     @IBInspectable var startColor: UIColor = UIColor(rgb: 0xce9ffc)
     @IBInspectable var endColor: UIColor = UIColor(rgb: 0x7367f0)
     
-    // sample data
     var gPoints1: [Int]?
     var gPoints2: [Int]?
+    // sample data
 //    var graphPoints2: [Int]?
     /*
      [39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810]
@@ -143,6 +143,7 @@ import UIKit
                                     y:columnYPoint(graphPoints2[i]))
             graphPath2.addLine(to: nextPoint)
         }
+        
         
         animateOutline(graphPath,
                        with: .cyan,
@@ -262,14 +263,11 @@ import UIKit
         // Animate from 0 (no) to 1 (full)
         animation.fromValue = 0
         animation.toValue = 1
+        shapeLayer.strokeEnd = 1.0
         
         // Do animation with selected pacing
         animation.timingFunction = CAMediaTimingFunction(
             name: kCAMediaTimingFunctionEaseInEaseOut)
-        
-        // Set the shapeLayer's strokeEnd property to 1.0 now so that it's the
-        // right value when the animation ends.
-        shapeLayer.strokeEnd = 1.0
         
         // Do the actual animation
         shapeLayer.add(animation, forKey: "strokeEnd")
@@ -279,6 +277,7 @@ import UIKit
             shapeLayer.strokeColor = UIColor.clear.cgColor
         }
     }
+    
     
     fileprivate func drawGraphCircles(_ columnXPoint: (Int) -> CGFloat,
                                       _ columnYPoint: (Int) -> CGFloat,
