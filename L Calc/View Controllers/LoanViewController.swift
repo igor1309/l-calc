@@ -30,21 +30,5 @@ class LoanViewController: UIViewController {
         }
         
     }
-    
-/*
-     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        //FIXME: too buggy code — animation sucks
-        if let navBar = self.navigationController?.navigationBar {
-            navBar.isTranslucent = false
-
-        self.navigationController?
-            .navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
-        self.navigationController?
-            .navigationBar.barTintColor = .black
-        }
-    }
-     */
 
 }

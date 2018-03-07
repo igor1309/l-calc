@@ -34,10 +34,6 @@ class Graph2ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let navBar = self.navigationController?.navigationBar {
-            navBar.isTranslucent = false
-            navBar.tintColor = .lightGray
-        }
     }
     
 }
