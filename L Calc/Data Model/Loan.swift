@@ -194,11 +194,13 @@ extension Loan {
                 a.append(Int(interest))
             }
             a.append(Int(amount + interest))
+            
         case .fixedPrincipal:
             let principal = amount / term
-            for _ in 1...Int(term) {
-                //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
-                let interest = 11111.0
+            for i in 1...Int(term) {
+                let beginningBalance =
+                    amount * (1 - Double (i - 1) / term)
+                let interest = beginningBalance * r
                 a.append(Int(principal + interest))
             }
         case .fixedPayment:    // аннуитет = fixed monthly payment

@@ -47,9 +47,47 @@ class Payments {
             //FIXME: допилить таблицу для выплаты в конце срока??
 //            payment.monthlyPayment =
 //                loan.amount * r
+            let beginningBalance = loan.amount
+            let endingBalance = loan.amount
+            let interest = loan.amount * r
+            let monthlyPayment = interest
+            for _ in 1..<Int(loan.term) {
+                let payment = Payment(
+                    beginningBalance: beginningBalance,
+                    interest: interest,
+                    principal: 0,
+                    monthlyPayment: monthlyPayment,
+                    endingBalance: endingBalance)
+                paymentsSchedule.append(payment)
+            }
+            let payment = Payment(
+                beginningBalance: loan.amount,
+                interest: interest,
+                principal: loan.amount,
+                monthlyPayment: interest + loan.amount,
+                endingBalance: 0)
+            paymentsSchedule.append(payment)
+                
+
         case .fixedPrincipal:
             //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
             print("??")
+            let principal = loan.amount / loan.term
+            for i in 1...Int(loan.term) {
+                let beginningBalance =
+                    loan.amount * (1 - Double (i - 1) / loan.term)
+                let endingBalance =
+                    loan.amount * (1 - Double (i) / loan.term)
+                let interest = beginningBalance * r
+                let monthlyPayment = principal + interest
+                let payment = Payment(
+                    beginningBalance: beginningBalance,
+                    interest: interest,
+                    principal: principal,
+                    monthlyPayment: monthlyPayment,
+                    endingBalance: endingBalance)
+                paymentsSchedule.append(payment)
+            }
         case .fixedPayment:     // аннуитет = fixed monthly payment
             let monthlyPayment = loan.amount /
                 ((1 - pow(1 + r, Double(0 - loan.term))) / r)
