@@ -5,6 +5,7 @@
 //  Created by Igor Malyarov on 10.01.2018.
 //  Copyright © 2018 Igor Malyarov. All rights reserved.
 //
+//  https://financial-calculators.com/fixed-principal-payment-calculator
 
 import UIKit
 
@@ -120,7 +121,20 @@ extension Loan {
         case .fixedPrincipal:
             //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
             print("??")
-            return 0
+            
+            
+            var totalInterest = 0.0
+            for i in 1...Int(term) {
+                let beginningBalance =
+                    amount * (1 - Double (i - 1) / term)
+                let interest = beginningBalance * r
+                totalInterest += interest
+            }
+            
+            
+            return totalInterest
+
+            
         }
     }
     
@@ -139,7 +153,18 @@ extension Loan {
         case .fixedPrincipal:
             //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
             print("??")
-            return 0
+            
+            
+            var totalInterest = 0.0
+            for i in 1...Int(term) {
+                let beginningBalance =
+                    amount * (1 - Double (i - 1) / term)
+                let interest = beginningBalance * r
+                totalInterest += interest
+            }
+            
+            
+            return amount + totalInterest
         }
     }
     
