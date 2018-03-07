@@ -80,6 +80,8 @@ struct Loan {
                                       forKey: "InterestType")
         }
     }
+    
+    
 }
 
 extension Loan {

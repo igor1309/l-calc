@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A0214DA204F1B8C001D7673 /* Graph2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A0214D9204F1B8C001D7673 /* Graph2.storyboard */; };
 		2A0CD7962013252600FE8404 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CD7952013252600FE8404 /* SettingsTableViewController.swift */; };
 		2A18630C200F554C00D96887 /* PaymentsSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A18630B200F554C00D96887 /* PaymentsSchedule.swift */; };
 		2A1B3FC91FF2D95100E912B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3FC81FF2D95100E912B8 /* AppDelegate.swift */; };
@@ -19,7 +20,6 @@
 		2A20E9B1204069A60068F5DC /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A20E9B0204069A60068F5DC /* UIView+Gradient.swift */; };
 		2A4F879A203F31AB0027D26B /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4F8799203F31AB0027D26B /* Data.swift */; };
 		2A4F879C203F33270027D26B /* SectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4F879B203F33270027D26B /* SectionCollectionViewCell.swift */; };
-		2A52FF2C204DC0A000CF1E19 /* Graph2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A52FF2B204DC0A000CF1E19 /* Graph2.storyboard */; };
 		2A52FF2E204DC0AD00CF1E19 /* GraphView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A52FF2D204DC0AD00CF1E19 /* GraphView2.swift */; };
 		2A52FF30204DC0E100CF1E19 /* Graph2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A52FF2F204DC0E100CF1E19 /* Graph2ViewController.swift */; };
 		2A58C9C02007619600516471 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A58C9BF2007619600516471 /* Settings.storyboard */; };
@@ -67,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A0214D9204F1B8C001D7673 /* Graph2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Graph2.storyboard; sourceTree = "<group>"; };
 		2A0CD7952013252600FE8404 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		2A18630B200F554C00D96887 /* PaymentsSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsSchedule.swift; sourceTree = "<group>"; };
 		2A1B3FC51FF2D95100E912B8 /* L Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "L Calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +86,6 @@
 		2A20E9B0204069A60068F5DC /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		2A4F8799203F31AB0027D26B /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		2A4F879B203F33270027D26B /* SectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCollectionViewCell.swift; sourceTree = "<group>"; };
-		2A52FF2B204DC0A000CF1E19 /* Graph2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Graph2.storyboard; sourceTree = "<group>"; };
 		2A52FF2D204DC0AD00CF1E19 /* GraphView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView2.swift; sourceTree = "<group>"; };
 		2A52FF2F204DC0E100CF1E19 /* Graph2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph2ViewController.swift; sourceTree = "<group>"; };
 		2A58C9BF2007619600516471 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				2ADC0A962041E4B00025B8A6 /* Graph.storyboard */,
-				2A52FF2B204DC0A000CF1E19 /* Graph2.storyboard */,
+				2A0214D9204F1B8C001D7673 /* Graph2.storyboard */,
 				2ACBB247200763E70068C3FC /* Loan.storyboard */,
 				2A58C9BF2007619600516471 /* Settings.storyboard */,
 				2A1B3FD11FF2D95100E912B8 /* LaunchScreen.storyboard */,
@@ -378,9 +378,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A52FF2C204DC0A000CF1E19 /* Graph2.storyboard in Resources */,
 				2A1B3FD31FF2D95100E912B8 /* LaunchScreen.storyboard in Resources */,
 				2A1B3FD01FF2D95100E912B8 /* Assets.xcassets in Resources */,
+				2A0214DA204F1B8C001D7673 /* Graph2.storyboard in Resources */,
 				2ADC0A972041E4B00025B8A6 /* Graph.storyboard in Resources */,
 				2ACBB248200763E70068C3FC /* Loan.storyboard in Resources */,
 				2A58C9C02007619600516471 /* Settings.storyboard in Resources */,

@@ -27,9 +27,10 @@ import UIKit
     @IBInspectable var endColor: UIColor = UIColor(rgb: 0x7367f0)
     
     // sample data
-    var graphPoints1: [Int] = [4, 7, 6, 8, 5, 9, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 9, 8, 9,4, 7, 6, 8, 5, 9, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 9, 8, 9, 5]
-    var graphPoints2: [Int] = [9, 11, 10, 13, 16, 12, 10, 15, 14, 12, 11, 15, 13, 16, 15, 14, 16, 14, 13, 15, 12, 9, 11, 10, 13, 16, 12, 10, 15, 14, 12, 11, 15, 13, 16, 15, 14, 16, 14, 13, 15, 12, 13]
-/*
+    var graphPoints1: [Int] = [39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810, 39810]
+    var graphPoints2: [Int] = [104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765]
+//    var graphPoints2: [Int]?
+    /*
     var graphPoints1: [Int] = [4, 7, 6, 8, 5]
     var graphPoints2: [Int] = [9, 11, 16, 13, 12]
 
@@ -80,23 +81,32 @@ import UIKit
     
     fileprivate func drawGraphCircles(_ columnXPoint: (Int) -> CGFloat,
                                       _ columnYPoint: (Int) -> CGFloat,
+                                      diameter: CGFloat,
                                       for array: [Int]) {
+        var circleDiameter: CGFloat = 1
+        if array.count < 25 {
+            circleDiameter = diameter
+        }
         //Draw the circles on top of graph stroke
         for i in 0..<array.count {
             var point = CGPoint(x:columnXPoint(i),
                                 y:columnYPoint(array[i]))
-            point.x -= Constants.circleDiameter / 2
-            point.y -= Constants.circleDiameter / 2
+            point.x -= circleDiameter / 2
+            point.y -= circleDiameter / 2
             
             let circle = UIBezierPath(
                 ovalIn: CGRect(origin: point,
-                               size: CGSize(width: Constants.circleDiameter,
-                                            height: Constants.circleDiameter)))
+                               size: CGSize(width: circleDiameter,
+                                            height: circleDiameter)))
             circle.fill()
         }
     }
     
     override func draw(_ rect: CGRect) {
+        
+//        guard let graphPoints2 = graphPoints2 else {
+//            return
+//        }
         
         if coolHueIndex > -1 && coolHueIndex < 60 {
             startColor =
@@ -194,15 +204,26 @@ import UIKit
                                     y:columnYPoint(graphPoints2[i]))
             graphPath2.addLine(to: nextPoint)
         }
-        graphPath.append(graphPath2)
-        context.saveGState()
-        
-        
         
         animateOutline(graphPath,
                        with: .cyan,
                        lineWidth: 2.0,
                        duration: 3)
+        animateOutline(graphPath2.reversing(),
+                       with: .cyan,
+                       lineWidth: 2.0,
+                       duration: 3)
+
+        
+        graphPath.append(graphPath2)
+        context.saveGState()
+        
+        
+        
+//        animateOutline(graphPath,
+//                       with: .cyan,
+//                       lineWidth: 2.0,
+//                       duration: 3)
 
         
 
@@ -234,8 +255,14 @@ import UIKit
         
         
         
-        drawGraphCircles(columnXPoint, columnYPoint, for: graphPoints1)
-        drawGraphCircles(columnXPoint, columnYPoint, for: graphPoints2)
+        drawGraphCircles(columnXPoint,
+                         columnYPoint,
+                         diameter: Constants.circleDiameter,
+                         for: graphPoints1)
+        drawGraphCircles(columnXPoint,
+                         columnYPoint,
+                         diameter: Constants.circleDiameter,
+                         for: graphPoints2)
 
         
         

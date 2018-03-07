@@ -154,6 +154,18 @@ class LoanMainViewController: UIViewController {
             destinationViewController.payments =
                 Payments(for: loan)
         }
+
+        if let destinationViewController = segue.destination as? Graph2ViewController {
+//            print(loan)
+            destinationViewController.loan = loan
+//            destinationViewController.loan = (loan.amount, loan.rate, loan.term, loan.type)
+        }
+        
+//        if let destinationViewController = segue.destination as? Graph2ViewController {
+//            print(loan)
+//            destinationViewController.loan = loan
+//        }
+//
     }
     
     // MARK: - @IBActions

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jTb-t9-87D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wEL-qD-y0x">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Loan Payments-->
+        <!--Title-->
         <scene sceneID="3yw-VX-NwS">
             <objects>
                 <viewController id="wEL-qD-y0x" customClass="Graph2ViewController" customModule="L_Calc" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,67 +18,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="enm-QD-J9Z" customClass="GraphView2" customModule="L_Calc" customModuleProvider="target">
-                                <rect key="frame" x="16" y="164" width="343" height="566"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="coolHueIndex">
-                                        <integer key="value" value="55"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="14"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bgl-HY-VNt">
+                                <rect key="frame" x="16" y="68" width="343" height="662"/>
+                                <connections>
+                                    <segue destination="zb7-cH-597" kind="embed" identifier="graph2" id="grE-fs-kuM"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="enm-QD-J9Z" firstAttribute="top" secondItem="j9q-el-djA" secondAttribute="top" constant="71.333333333333343" id="EfF-1i-2IW">
-                                <variation key="heightClass=compact-widthClass=compact" constant="8"/>
-                            </constraint>
-                            <constraint firstItem="enm-QD-J9Z" firstAttribute="top" secondItem="j9q-el-djA" secondAttribute="top" constant="24" id="VtR-Vq-ofI"/>
-                            <constraint firstItem="j9q-el-djA" firstAttribute="trailing" secondItem="enm-QD-J9Z" secondAttribute="trailing" constant="16" id="fbl-Vr-rub"/>
-                            <constraint firstItem="j9q-el-djA" firstAttribute="bottom" secondItem="enm-QD-J9Z" secondAttribute="bottom" constant="48" id="htb-pi-ifY">
-                                <variation key="heightClass=compact-widthClass=compact" constant="8"/>
-                            </constraint>
-                            <constraint firstItem="enm-QD-J9Z" firstAttribute="leading" secondItem="j9q-el-djA" secondAttribute="leading" constant="16" id="tBN-09-nxN"/>
+                            <constraint firstItem="j9q-el-djA" firstAttribute="trailing" secondItem="Bgl-HY-VNt" secondAttribute="trailing" constant="16" id="Bd3-hc-N7h"/>
+                            <constraint firstItem="Bgl-HY-VNt" firstAttribute="leading" secondItem="j9q-el-djA" secondAttribute="leading" constant="16" id="YEF-Me-8zD"/>
+                            <constraint firstItem="j9q-el-djA" firstAttribute="bottom" secondItem="Bgl-HY-VNt" secondAttribute="bottom" constant="48" id="sh3-2V-TYk"/>
+                            <constraint firstItem="Bgl-HY-VNt" firstAttribute="top" secondItem="j9q-el-djA" secondAttribute="top" constant="24" id="whQ-wm-qAC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j9q-el-djA"/>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="EfF-1i-2IW"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=compact-widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="EfF-1i-2IW"/>
-                                <exclude reference="VtR-Vq-ofI"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Loan Payments" id="cEZ-Ep-iAi"/>
+                    <navigationItem key="navigationItem" title="Title" id="B1P-az-HDC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="2u7-ZC-6LW"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c69-05-utu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="18"/>
+            <point key="canvasLocation" x="-849" y="-408"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="T89-7P-dTs">
+        <!--View Controller-->
+        <scene sceneID="lWL-Zd-rU3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jTb-t9-87D" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="H9x-z8-UJK">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="wEL-qD-y0x" kind="relationship" relationship="rootViewController" id="2lZ-IG-PNp"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kEP-Td-qcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="zb7-cH-597" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mqk-4x-YK1" customClass="GraphView2" customModule="L_Calc" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="662"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UeA-QQ-d8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-215" y="18"/>
+            <point key="canvasLocation" x="-100" y="-409"/>
         </scene>
     </scenes>
 </document>
