@@ -43,10 +43,6 @@ class Payments {
 
         switch loan.type {
         case .interestOnly:
-            print("допилить таблицу для выплаты в конце срока")
-            //FIXME: допилить таблицу для выплаты в конце срока??
-//            payment.monthlyPayment =
-//                loan.amount * r
             let beginningBalance = loan.amount
             let endingBalance = loan.amount
             let interest = loan.amount * r
@@ -94,8 +90,6 @@ class Payments {
             }
 
         case .fixedPrincipal:
-            //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
-            print("??")
             let principal = loan.amount / loan.term
             for i in 1...Int(loan.term) {
                 let beginningBalance =

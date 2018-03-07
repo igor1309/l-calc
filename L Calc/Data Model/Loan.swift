@@ -119,10 +119,6 @@ extension Loan {
             return mp * term - amount
         
         case .fixedPrincipal:
-            //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
-            print("??")
-            
-            
             var totalInterest = 0.0
             for i in 1...Int(term) {
                 let beginningBalance =
@@ -130,11 +126,7 @@ extension Loan {
                 let interest = beginningBalance * r
                 totalInterest += interest
             }
-            
-            
             return totalInterest
-
-            
         }
     }
     
@@ -151,10 +143,6 @@ extension Loan {
             return mp * term
         
         case .fixedPrincipal:
-            //FIXME: PROVIDE CALCULATIONS FOR THIS TYPE
-            print("??")
-            
-            
             var totalInterest = 0.0
             for i in 1...Int(term) {
                 let beginningBalance =
@@ -162,8 +150,6 @@ extension Loan {
                 let interest = beginningBalance * r
                 totalInterest += interest
             }
-            
-            
             return amount + totalInterest
         }
     }
@@ -189,7 +175,6 @@ extension Loan {
             term = 60.0
         }
         
-        //FIXME: переделать этот блок с учетом трех типов процентов
         type = .fixedPayment
         if let savedType = userDefaults.string(
             forKey: "InterestType") {
