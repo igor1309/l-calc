@@ -153,6 +153,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="NY6-WE-4yt" appends="YES" id="DjG-hY-ost"/>
+                                                </connections>
                                             </stackView>
                                         </subviews>
                                         <gestureRecognizers/>
@@ -335,6 +339,11 @@
                         <segue destination="5Jj-Xy-nyX" kind="show" id="GFY-DC-ApS"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="NY6-WE-4yt" userLabel="Amount Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="amountTapDetected:" destination="b9k-oc-2PR" id="Rrs-cz-L14"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="kRm-Er-Yba" userLabel="Amount Long Press Gesture Recognizer">
                     <connections>
                         <action selector="loanLongPressDetected:" destination="b9k-oc-2PR" id="Keu-1b-2mJ"/>
@@ -342,12 +351,12 @@
                 </pongPressGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="yEV-rQ-fgy" userLabel="Amount 1 Pan Gesture Recognizer">
                     <connections>
-                        <action selector="loanPanDetected1:" destination="b9k-oc-2PR" id="SdR-iW-sT8"/>
+                        <action selector="amountPanDetected1:" destination="b9k-oc-2PR" id="SdR-iW-sT8"/>
                     </connections>
                 </panGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="2" id="AXA-aB-cPz" userLabel="Amount 2 Pan Gesture Recognizer">
                     <connections>
-                        <action selector="loanPanDetected2:" destination="b9k-oc-2PR" id="4gV-Am-uXy"/>
+                        <action selector="amountPanDetected2:" destination="b9k-oc-2PR" id="4gV-Am-uXy"/>
                     </connections>
                 </panGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="bXZ-5Z-IqK" userLabel="Rate Pan Gesture Recognizer">

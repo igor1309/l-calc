@@ -147,16 +147,9 @@ class LoanMainViewController: UIViewController {
         }
 
         if let destinationViewController = segue.destination as? Graph2ViewController {
-//            print(loan)
             destinationViewController.loan = loan
-//            destinationViewController.loan = (loan.amount, loan.rate, loan.term, loan.type)
         }
         
-//        if let destinationViewController = segue.destination as? Graph2ViewController {
-//            print(loan)
-//            destinationViewController.loan = loan
-//        }
-//
     }
     
     // MARK: - @IBActions
@@ -176,14 +169,42 @@ class LoanMainViewController: UIViewController {
         showLoanData()
     }
     
-    // MARK: - changing label values by panning gestures
-    @IBAction func loanPanDetected1(
+    // MARK: - changing label values by tapping and panning gestures
+    
+    private func directionForTap(_ sender: UIGestureRecognizer,
+                                 in view: UIView) -> Direction? {
+        let x = sender.location(in: view).x
+        let center = view.frame.width / 2
+        if x == center {
+            return nil
+        }
+        
+        var direction: Direction
+        if x > center {
+            direction = .up
+        } else {
+            direction = .down
+        }
+        return direction
+    }
+    
+    @IBAction func amountTapDetected(_ sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            guard let direction = directionForTap(sender, in: amountStack) else { return }
+            
+            loan.amount =  step(loan.amount,
+                                direction: direction)
+            showLoanData()
+        }
+    }
+    
+    @IBAction func amountPanDetected1(
         _ gestureRecognizer: UIPanGestureRecognizer) {
         //  Pan Gesture Recognizer with 1 finger
         changeValueByPan(gestureRecognizer, with: 1)
     }
     
-    @IBAction func loanPanDetected2(
+    @IBAction func amountPanDetected2(
         _ gestureRecognizer: UIPanGestureRecognizer) {
         //  Pan Gesture Recognizer with 2 fingers
         changeValueByPan(gestureRecognizer, with: 2)
@@ -378,8 +399,8 @@ class LoanMainViewController: UIViewController {
     fileprivate func dimResultsAndColorChange(_ label: UILabel,
                                               _ subLabel: UILabel) {
         loanResultsView.alpha = 0.7
-        rateLabel.textColor = changingTint
-        rateSubLabel.textColor = changingTint
+        label.textColor = changingTint
+        subLabel.textColor = changingTint
     }
     
     fileprivate func restoreResultsAndColor(_ label: UILabel,
@@ -487,7 +508,9 @@ class LoanMainViewController: UIViewController {
             //FIXME: выдать предупреждение, что это предельное значение(?)
             return 101
         } else {
-            // take 2 leftmost digits of number before decimal as a number and increase it
+            // take 2 leftmost digits of number before decimal point as a number
+            // increase or decrease it, round
+            // then multuply and return
             // https://en.wikipedia.org/wiki/Order_of_magnitude
             let orderOfMagnitude = String(Int(number)).count - 1
             let magnitude = Double(truncating: pow(10, orderOfMagnitude) as NSNumber)
