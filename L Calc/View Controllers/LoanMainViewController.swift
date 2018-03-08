@@ -338,8 +338,10 @@ class LoanMainViewController: UIViewController {
     }
     
     @IBAction func rateTapDetected(_ sender: UITapGestureRecognizer) {
-        
         if sender.state == .ended {
+            //FIXME: нужно ли оптимизировать код в этой функции так чтобы его можно было еще где-то использовать?
+//            guard let direction = directionForTap(sender, in: rateStack) else { return }
+//
             let x = sender.location(in: rateStack).x
             let center = rateStack.frame.width / 2
             if x == center {
@@ -494,10 +496,8 @@ class LoanMainViewController: UIViewController {
         var plusMinus: Double
         
         switch direction {
-        case .up:
-            plusMinus = 1
-        default:
-            plusMinus = -1
+        case .up: plusMinus = 1
+        default: plusMinus = -1
         }
         
         let max = Double(truncating: pow(10, 11) as NSNumber)
@@ -522,6 +522,8 @@ class LoanMainViewController: UIViewController {
     }
     
     func rateUp(_ number: Double) -> Double {
+        //FIXME: переделать по аналогии с фанкцией step с использованием Direction
+        // и вместо двух функций rateUp и rateDown иметь одну
         if number > maxRate {
             // MARK: выдать предупреждение, что это предельное значение(?)
             return number
