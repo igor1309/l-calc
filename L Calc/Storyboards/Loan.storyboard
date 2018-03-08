@@ -374,7 +374,7 @@
                         <action selector="rateDoubleTapDetected:" destination="b9k-oc-2PR" id="pRp-CY-7oa"/>
                     </connections>
                 </tapGestureRecognizer>
-                <pongPressGestureRecognizer delaysTouchesBegan="YES" allowableMovement="10" minimumPressDuration="0.5" id="map-xG-xKR" userLabel="Rate Long Press Gesture Recognizer">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="map-xG-xKR" userLabel="Rate Long Press Gesture Recognizer">
                     <connections>
                         <action selector="rateLongPressDetected:" destination="b9k-oc-2PR" id="M1E-iC-j2Z"/>
                     </connections>

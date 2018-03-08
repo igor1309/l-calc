@@ -21,7 +21,7 @@ func changeNumber (_ number: Double, direction: Direction) -> Double {
     return approx
 }
 
-let number: Double = 55000088
+let number: Double = 1888999
 print(changeNumber(number, direction: .down))
 print(changeNumber(number, direction: .up))
 

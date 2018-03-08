@@ -153,8 +153,7 @@ class LoanMainViewController: UIViewController {
     }
     
     // MARK: - @IBActions
-    @IBAction func loanTypeSegmentChanged(
-        _ sender: UISegmentedControl) {
+    @IBAction func loanTypeSegmentChanged(_ sender: UISegmentedControl) {
         
         switch loanTypeSegment.selectedSegmentIndex {
         case 0:
@@ -170,6 +169,24 @@ class LoanMainViewController: UIViewController {
     }
     
     // MARK: - changing label values by tapping and panning gestures
+    
+    private func changeNumber(_ number: Double, direction: Direction) -> Double {
+        
+        var plusMinus: Double
+        
+        switch direction {
+        case .up: plusMinus = 1
+        default: plusMinus = -1
+        }
+        
+        let orderOfMagnitude = String(Int(number)).count - 1
+        let magnitude = Double(truncating: pow(10, orderOfMagnitude) as NSNumber)
+        var approx = (number / magnitude + plusMinus * 0.055) * 10
+        approx = approx.rounded()
+        approx = approx * magnitude / 10
+        return approx
+    }
+
     
     private func directionForTap(_ sender: UIGestureRecognizer,
                                  in view: UIView) -> Direction? {
@@ -192,7 +209,7 @@ class LoanMainViewController: UIViewController {
         if sender.state == .ended {
             guard let direction = directionForTap(sender, in: amountStack) else { return }
             
-            loan.amount =  step(loan.amount,
+            loan.amount =  changeNumber(loan.amount,
                                 direction: direction)
             showLoanData()
         }
@@ -201,42 +218,39 @@ class LoanMainViewController: UIViewController {
     @IBAction func amountPanDetected1(
         _ gestureRecognizer: UIPanGestureRecognizer) {
         //  Pan Gesture Recognizer with 1 finger
-        changeValueByPan(gestureRecognizer, with: 1)
+        changeAmountByPan(gestureRecognizer, with: 1)
     }
     
     @IBAction func amountPanDetected2(
         _ gestureRecognizer: UIPanGestureRecognizer) {
         //  Pan Gesture Recognizer with 2 fingers
-        changeValueByPan(gestureRecognizer, with: 2)
+        changeAmountByPan(gestureRecognizer, with: 2)
     }
     
     @IBAction func loanLongPressDetected(_ sender: UILongPressGestureRecognizer) {
-        //FIXME: add another long press area for lowering the amount
-        //FIXME: not working with hidden view
 
-        //FIXME: handle long press operation
-        
         switch sender.state {
-            
         case .began:
             dimResultsAndColorChange(amountLabel, amountSubLabel)
 
         case .changed:
-            loan.amount = step(loan.amount,
-                               direction: .up)
+            loan.amount = changeNumber(loan.amount,
+                                       direction: .up)
             showLoanData()
             
         case .ended:
-//            feedbackChange.selectionChanged()
             restoreResultsAndColor(amountLabel, amountSubLabel)
+            
         default:
             print("smth else")
         }
     }
     
-    func changeValueByPan(
+    func changeAmountByPan(
         _ gestureRecognizer: UIPanGestureRecognizer,
         with touches: Int) {
+        //FIXME: как можно упростить/оптимизировать эту функцию??
+        
         // движение (pan, panning) может идти по обеим осям, но направление — ось — определяется в начале
         
         // https://stackoverflow.com/questions/25503537/swift-uigesturerecogniser-follow-finger
@@ -287,8 +301,8 @@ class LoanMainViewController: UIViewController {
                 direction = .none
             }
             if abs(distance) > threshold {
-                loan.amount = step(loan.amount,
-                                   direction: direction!)
+                loan.amount = changeNumber(loan.amount,
+                                           direction: direction!)
                 showLoanData()
             }
             
@@ -304,7 +318,9 @@ class LoanMainViewController: UIViewController {
     
     @IBAction func ratePanDetected(
         _ gestureRecognizer: UIPanGestureRecognizer) {
-        
+        //FIXME: оптимизировать функцию с учетом уже имеющихся
+        // нужно изменить имеющиеся служебные???
+
         switch gestureRecognizer.state {
             
         case .began:
@@ -314,18 +330,19 @@ class LoanMainViewController: UIViewController {
         case .changed:
             let x = gestureRecognizer.translation(in: self.view).x
             let distanceX = x - ratePreviousX.x
+            var direction: Direction
+            if distanceX > 0 {
+                direction = .up
+            } else {
+                direction = .down
+            }
             // для снижения скорости изменения берется значение > 0
             let threshold = CGFloat(4)
             if abs(distanceX) > threshold {
-                
-                if distanceX > 0 {
-                    loan.rate = rateUp(loan.rate)
-                } else if distanceX < 0 {
-                    loan.rate = rateDown(loan.rate)
-                }
-                
                 ratePreviousX.x = x
                 
+                loan.rate = changeNumber(loan.rate,
+                                         direction: direction)
                 showLoanData()
             }
             
@@ -339,22 +356,12 @@ class LoanMainViewController: UIViewController {
     
     @IBAction func rateTapDetected(_ sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            //FIXME: нужно ли оптимизировать код в этой функции так чтобы его можно было еще где-то использовать?
-//            guard let direction = directionForTap(sender, in: rateStack) else { return }
-//
-            let x = sender.location(in: rateStack).x
-            let center = rateStack.frame.width / 2
-            if x == center {
-                return
-            }
+            guard let direction = directionForTap(sender, in: rateStack) else { return }
             
-            var k: Double
-            if x > center { k = 1 } else { k = -1 }
+            loan.rate =  changeNumber(loan.rate,
+                                      direction: direction)
             
-            var number = loan.rate
-            number = (number * 10).rounded(.towardZero)
-            number += k
-            loan.rate = number / 10
+            //FIXME: проверку диапазона убрать в определение переменной класса
             if loan.rate <= minRate {
                 loan.rate = minRate
             }
@@ -366,8 +373,11 @@ class LoanMainViewController: UIViewController {
     }
     
     @IBAction func rateDoubleTapDetected(_ sender: UITapGestureRecognizer) {
-
         if sender.state == .ended {
+            //FIXME: оптимизировать функцию с учетом уже имеющихся
+            // нужно изменить имеющиеся служебные???
+            guard let direction = directionForTap(sender, in: rateStack) else { return }
+            
             let x = sender.location(in: rateStack).x
             let center = rateStack.frame.width / 2
             if x == center {
@@ -414,29 +424,15 @@ class LoanMainViewController: UIViewController {
     
     @IBAction func rateLongPressDetected(_ sender: UILongPressGestureRecognizer) {
         switch sender.state {
-            
         case .began:
             dimResultsAndColorChange(rateLabel, rateSubLabel)
             
         case .changed:
-            let x = sender.location(in: rateStack).x
-            let center = rateStack.frame.width / 2
-            if x == center {
-                return
-            }
+            guard let direction = directionForTap(sender, in: rateStack) else { return }
             
-            var k: Double
-            var number = loan.rate
-            if x > center {
-                k = 1
-                number = (number * 10).rounded(.towardZero)
-            } else {
-                k = -1
-                number = (number * 10).rounded(.toNearestOrAwayFromZero)
-            }
-            
-            number += k
-            loan.rate = number / 10
+            loan.rate = changeNumber(loan.rate, direction: direction)
+
+            //FIXME: проверку диапазона убрать в определение переменной класса
             if loan.rate <= minRate {
                 loan.rate = minRate
             }
@@ -461,6 +457,8 @@ class LoanMainViewController: UIViewController {
             termPreviousX = .zero
             
         case .changed:
+            //FIXME: оптимизировать функцию с учетом уже имеющихся
+            // нужно изменить имеющиеся служебные???
             let x = gestureRecognizer.translation(in: self.view).x
             let distanceX = x - termPreviousX.x
             // для снижения скорости изменения берется значение > 0
@@ -500,6 +498,7 @@ class LoanMainViewController: UIViewController {
         default: plusMinus = -1
         }
         
+        //FIXME: проверку диапазона убрать в определение переменной класса
         let max = Double(truncating: pow(10, 11) as NSNumber)
         if number > max {
             //FIXME: выдать предупреждение, что это предельное значение(?)
@@ -520,37 +519,6 @@ class LoanMainViewController: UIViewController {
             return approx
         }
     }
-    
-    func rateUp(_ number: Double) -> Double {
-        //FIXME: переделать по аналогии с фанкцией step с использованием Direction
-        // и вместо двух функций rateUp и rateDown иметь одну
-        if number > maxRate {
-            // MARK: выдать предупреждение, что это предельное значение(?)
-            return number
-        } else {
-            let orderOfMagnitude = String(Int(number)).count - 1
-            let magnitude = Double(truncating: pow(10, orderOfMagnitude) as NSNumber)
-            var approx = (number / magnitude + 0.0055) * 100
-            approx = approx.rounded()
-            approx = approx * magnitude / 100
-            return approx
-        }
-    }
-    
-    func rateDown(_ number: Double) -> Double {
-        if number < minRate {
-            // MARK: выдать предупреждение, что это предельное значение(?)
-            return number
-        } else {
-            let orderOfMagnitude = String(Int(number)).count - 1
-            let magnitude = Double(truncating: pow(10, orderOfMagnitude) as NSNumber)
-            var approx = (number / magnitude - 0.0055) * 100
-            approx = approx.rounded()
-            approx = approx * magnitude / 100
-            return approx
-        }
-    }
-    
     
     // MARK: - nice string formatting
     func termSubLabelText(for term: Double) -> String {
