@@ -189,6 +189,8 @@
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="bXZ-5Z-IqK" appends="YES" id="PC0-Xk-VgY"/>
                                             <outletCollection property="gestureRecognizers" destination="mNE-cg-w68" appends="YES" id="wgZ-1e-VSX"/>
+                                            <outletCollection property="gestureRecognizers" destination="Hl8-gc-diz" appends="YES" id="hUk-Py-SBm"/>
+                                            <outletCollection property="gestureRecognizers" destination="map-xG-xKR" appends="YES" id="LKa-EI-qcR"/>
                                         </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OJk-OL-6QD" userLabel="Term Stack View">
@@ -358,6 +360,16 @@
                         <action selector="rateTapDetected:" destination="b9k-oc-2PR" id="n4n-at-JV6"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer delaysTouchesBegan="YES" numberOfTapsRequired="2" id="Hl8-gc-diz" userLabel="Rate Double Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="rateDoubleTapDetected:" destination="b9k-oc-2PR" id="pRp-CY-7oa"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <pongPressGestureRecognizer delaysTouchesBegan="YES" allowableMovement="10" minimumPressDuration="0.5" id="map-xG-xKR" userLabel="Rate Long Press Gesture Recognizer">
+                    <connections>
+                        <action selector="rateLongPressDetected:" destination="b9k-oc-2PR" id="M1E-iC-j2Z"/>
+                    </connections>
+                </pongPressGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="F3W-EQ-AeK" userLabel="Term Pan Gesture Recognizer">
                     <connections>
                         <action selector="termPanDetected:" destination="b9k-oc-2PR" id="DCa-aD-GxP"/>

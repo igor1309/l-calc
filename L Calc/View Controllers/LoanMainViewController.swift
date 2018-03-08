@@ -327,28 +327,104 @@ class LoanMainViewController: UIViewController {
     }
     
     @IBAction func rateTapDetected(_ sender: UITapGestureRecognizer) {
+        
+        if sender.state == .ended {
+            let x = sender.location(in: rateStack).x
+            let center = rateStack.frame.width / 2
+            if x == center {
+                return
+            }
+            
+            var k: Double
+            if x > center { k = 1 } else { k = -1 }
+            
+            var number = loan.rate
+            number = (number * 10).rounded(.towardZero)
+            number += k
+            loan.rate = number / 10
+            if loan.rate <= minRate {
+                loan.rate = minRate
+            }
+            if loan.rate >= maxRate {
+                loan.rate = maxRate
+            }
+            showLoanData()
+        }
+    }
+    
+    @IBAction func rateDoubleTapDetected(_ sender: UITapGestureRecognizer) {
 
-        let x = sender.location(in: rateStack).x
-        let center = rateStack.frame.width / 2
-        if x == center {
-            return
+        if sender.state == .ended {
+            let x = sender.location(in: rateStack).x
+            let center = rateStack.frame.width / 2
+            if x == center {
+                return
+            }
+            
+            var k: Double
+            var number = loan.rate
+            if x > center {
+                k = 1
+                number = (number * 1).rounded(.towardZero)
+            } else {
+                k = -1
+                number = (number * 1).rounded(.toNearestOrAwayFromZero)
+            }
+            
+            number += k
+            loan.rate = number / 1
+            if loan.rate <= minRate {
+                loan.rate = minRate
+            }
+            if loan.rate >= maxRate {
+                loan.rate = maxRate
+            }
+            showLoanData()
         }
-        
-        var k: Double
-        if x > center{
-            k = 1
-        } else {
-            k = -1
+    }
+    
+    @IBAction func rateLongPressDetected(_ sender: UILongPressGestureRecognizer) {
+        switch sender.state {
+            
+        case .began:
+            loanResultsView.alpha = 0.7
+            rateLabel.textColor = panningTint
+            rateSubLabel.textColor = panningTint
+            
+        case .changed:
+            let x = sender.location(in: rateStack).x
+            let center = rateStack.frame.width / 2
+            if x == center {
+                return
+            }
+            
+            var k: Double
+            var number = loan.rate
+            if x > center {
+                k = 1
+                number = (number * 10).rounded(.towardZero)
+            } else {
+                k = -1
+                number = (number * 10).rounded(.toNearestOrAwayFromZero)
+            }
+            
+            number += k
+            loan.rate = number / 10
+            if loan.rate <= minRate {
+                loan.rate = minRate
+            }
+            if loan.rate >= maxRate {
+                loan.rate = maxRate
+            }
+            showLoanData()
+        case .ended:
+            loanResultsView.alpha = 1.0
+            rateLabel.textColor = loanParamsTint
+            rateSubLabel.textColor = loanParamsTint
+            
+        default:
+            print("smth else")
         }
-        
-        var number = loan.rate
-        number = (number * 10).rounded(.towardZero)
-        number += k
-        loan.rate = number / 10
-        if loan.rate <= minRate {
-            loan.rate = minRate
-        }
-        showLoanData()
     }
     
     @IBAction func termPanDetected(
