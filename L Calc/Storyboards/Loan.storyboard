@@ -137,18 +137,6 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qMy-6Z-siJ" userLabel="Amount Stack View">
                                         <rect key="frame" x="0.0" y="37.333333333333307" width="375" height="74.333333333333314"/>
                                         <subviews>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i4V-iY-k8W" userLabel="Amount Minus View">
-                                                <rect key="frame" x="0.0" y="2.3333333333333712" width="150" height="70"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <gestureRecognizers/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="JRD-Qk-4kX"/>
-                                                    <constraint firstAttribute="height" constant="70" id="UvS-N1-ihe"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="UCW-7V-BYk" appends="YES" id="7CK-fE-ENd"/>
-                                                </connections>
-                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="abD-Y5-uAm">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="74.333333333333329"/>
                                                 <subviews>
@@ -166,28 +154,12 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6dk-ye-NcZ" userLabel="Amount Plus View">
-                                                <rect key="frame" x="225.33333333333337" y="2.3333333333333712" width="149.66666666666663" height="70"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="70" id="mSS-EZ-efz"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="f0y-2M-eqK" appends="YES" id="n4O-99-a8M"/>
-                                                </connections>
-                                            </view>
                                         </subviews>
                                         <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstItem="i4V-iY-k8W" firstAttribute="width" secondItem="6dk-ye-NcZ" secondAttribute="width" id="Ad1-tk-pVW"/>
-                                            <constraint firstItem="i4V-iY-k8W" firstAttribute="leading" secondItem="qMy-6Z-siJ" secondAttribute="leading" id="PwQ-iS-qzY"/>
-                                            <constraint firstAttribute="trailing" secondItem="6dk-ye-NcZ" secondAttribute="trailing" id="iVq-52-znB"/>
-                                        </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="yEV-rQ-fgy" appends="YES" id="76t-ky-Oa4"/>
                                             <outletCollection property="gestureRecognizers" destination="AXA-aB-cPz" appends="YES" id="hYp-Jq-jIe"/>
                                             <outletCollection property="gestureRecognizers" destination="kRm-Er-Yba" appends="YES" id="it3-TM-tYt"/>
-                                            <outletCollection property="gestureRecognizers" destination="f0y-2M-eqK" appends="YES" id="Yu8-5Q-SRC"/>
                                         </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6YH-SK-j0A" userLabel="Rate Stack View">
@@ -216,6 +188,7 @@
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="bXZ-5Z-IqK" appends="YES" id="PC0-Xk-VgY"/>
+                                            <outletCollection property="gestureRecognizers" destination="mNE-cg-w68" appends="YES" id="wgZ-1e-VSX"/>
                                         </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OJk-OL-6QD" userLabel="Term Stack View">
@@ -360,16 +333,6 @@
                         <segue destination="5Jj-Xy-nyX" kind="show" id="GFY-DC-ApS"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="UCW-7V-BYk" userLabel="Amount Minus Tap Gesture Recognizer">
-                    <connections>
-                        <action selector="loanMinusTapDetected:" destination="b9k-oc-2PR" id="B76-3T-Yfo"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="f0y-2M-eqK" userLabel="Amount Plus Tap Gesture Recognizer">
-                    <connections>
-                        <action selector="loanPlusTapDetected:" destination="b9k-oc-2PR" id="abs-4C-c4R"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="kRm-Er-Yba" userLabel="Amount Long Press Gesture Recognizer">
                     <connections>
                         <action selector="loanLongPressDetected:" destination="b9k-oc-2PR" id="Keu-1b-2mJ"/>
@@ -390,6 +353,11 @@
                         <action selector="ratePanDetected:" destination="b9k-oc-2PR" id="KrP-mn-sx6"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="mNE-cg-w68" userLabel="Rate Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="rateTapDetected:" destination="b9k-oc-2PR" id="n4n-at-JV6"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="F3W-EQ-AeK" userLabel="Term Pan Gesture Recognizer">
                     <connections>
                         <action selector="termPanDetected:" destination="b9k-oc-2PR" id="DCa-aD-GxP"/>

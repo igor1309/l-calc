@@ -189,20 +189,6 @@ class LoanMainViewController: UIViewController {
         changeValueByPan(gestureRecognizer, with: 2)
     }
     
-    @IBAction func loanMinusTapDetected(_ sender: UITapGestureRecognizer) {
-        //FIXME: not working with hidden view
-        loan.amount = step(loan.amount,
-                           direction: .down)
-        showLoanData()
-    }
-    
-    @IBAction func loanPlusTapDetected(_ sender: UITapGestureRecognizer) {
-        //FIXME: not working with hidden view
-        loan.amount = step(loan.amount,
-                           direction: .up)
-        showLoanData()
-    }
-    
     @IBAction func loanLongPressDetected(_ sender: UILongPressGestureRecognizer) {
         //FIXME: add another long press area for lowering the amount
         //FIXME: not working with hidden view
@@ -338,6 +324,31 @@ class LoanMainViewController: UIViewController {
         default:
             print("smth else")
         }
+    }
+    
+    @IBAction func rateTapDetected(_ sender: UITapGestureRecognizer) {
+
+        let x = sender.location(in: rateStack).x
+        let center = rateStack.frame.width / 2
+        if x == center {
+            return
+        }
+        
+        var k: Double
+        if x > center{
+            k = 1
+        } else {
+            k = -1
+        }
+        
+        var number = loan.rate
+        number = (number * 10).rounded(.towardZero)
+        number += k
+        loan.rate = number / 10
+        if loan.rate <= minRate {
+            loan.rate = minRate
+        }
+        showLoanData()
     }
     
     @IBAction func termPanDetected(
