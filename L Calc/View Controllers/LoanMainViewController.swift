@@ -20,7 +20,7 @@ class LoanMainViewController: UIViewController {
     
     //MARK: - Constants
     let isVerticalPanning = true
-    let panningTint = UIColor(hexString: "FFCD07")
+    let changingTint = UIColor(hexString: "FFCD07")
     let loanParamsTint = UIColor(hexString: "D1D1D1")
     let maxRate = 199.0
     let minRate = 0.02
@@ -198,8 +198,7 @@ class LoanMainViewController: UIViewController {
         switch sender.state {
             
         case .began:
-            amountLabel.textColor = panningTint
-            amountSubLabel.textColor = panningTint
+            dimResultsAndColorChange(amountLabel, amountSubLabel)
 
         case .changed:
             loan.amount = step(loan.amount,
@@ -208,9 +207,7 @@ class LoanMainViewController: UIViewController {
             
         case .ended:
 //            feedbackChange.selectionChanged()
-            amountLabel.textColor = loanParamsTint
-            amountSubLabel.textColor = loanParamsTint
-            
+            restoreResultsAndColor(amountLabel, amountSubLabel)
         default:
             print("smth else")
         }
@@ -227,9 +224,7 @@ class LoanMainViewController: UIViewController {
         
         switch gestureRecognizer.state {
         case .began:
-            loanResultsView.alpha = 0.7
-            amountLabel.textColor = panningTint
-            amountSubLabel.textColor = panningTint
+            dimResultsAndColorChange(amountLabel, amountSubLabel)
             
             prevPoint = .zero
             let newPoint = gestureRecognizer.translation(in: self.view)
@@ -278,9 +273,7 @@ class LoanMainViewController: UIViewController {
             
         case .ended:
 //            feedbackChange.selectionChanged()
-            loanResultsView.alpha = 1.0
-            amountLabel.textColor = loanParamsTint
-            amountSubLabel.textColor = loanParamsTint
+            restoreResultsAndColor(amountLabel, amountSubLabel)
             
         default:
             print("smth else")
@@ -295,8 +288,7 @@ class LoanMainViewController: UIViewController {
             
         case .began:
             ratePreviousX = .zero
-            rateLabel.textColor = panningTint
-            rateSubLabel.textColor = panningTint
+            dimResultsAndColorChange(rateLabel, rateSubLabel)
             
         case .changed:
             let x = gestureRecognizer.translation(in: self.view).x
@@ -317,9 +309,7 @@ class LoanMainViewController: UIViewController {
             }
             
         case .ended:
-//            feedbackChange.selectionChanged()
-            rateLabel.textColor = loanParamsTint
-            rateSubLabel.textColor = loanParamsTint
+            restoreResultsAndColor(rateLabel, rateSubLabel)
             
         default:
             print("smth else")
@@ -383,13 +373,27 @@ class LoanMainViewController: UIViewController {
         }
     }
     
+    
+    
+    fileprivate func dimResultsAndColorChange(_ label: UILabel,
+                                              _ subLabel: UILabel) {
+        loanResultsView.alpha = 0.7
+        rateLabel.textColor = changingTint
+        rateSubLabel.textColor = changingTint
+    }
+    
+    fileprivate func restoreResultsAndColor(_ label: UILabel,
+                                              _ subLabel: UILabel) {
+        loanResultsView.alpha = 1.0
+        label.textColor = loanParamsTint
+        subLabel.textColor = loanParamsTint
+    }
+    
     @IBAction func rateLongPressDetected(_ sender: UILongPressGestureRecognizer) {
         switch sender.state {
             
         case .began:
-            loanResultsView.alpha = 0.7
-            rateLabel.textColor = panningTint
-            rateSubLabel.textColor = panningTint
+            dimResultsAndColorChange(rateLabel, rateSubLabel)
             
         case .changed:
             let x = sender.location(in: rateStack).x
@@ -417,11 +421,9 @@ class LoanMainViewController: UIViewController {
                 loan.rate = maxRate
             }
             showLoanData()
-        case .ended:
-            loanResultsView.alpha = 1.0
-            rateLabel.textColor = loanParamsTint
-            rateSubLabel.textColor = loanParamsTint
             
+        case .ended:
+            restoreResultsAndColor(rateLabel, rateSubLabel)
         default:
             print("smth else")
         }
@@ -432,9 +434,8 @@ class LoanMainViewController: UIViewController {
         
         switch gestureRecognizer.state {
         case .began:
+            dimResultsAndColorChange(termLabel, termSubLabel)
             termPreviousX = .zero
-            termLabel.textColor = panningTint
-            termSubLabel.textColor = panningTint
             
         case .changed:
             let x = gestureRecognizer.translation(in: self.view).x
@@ -460,8 +461,7 @@ class LoanMainViewController: UIViewController {
             
         case .ended:
 //            feedbackChange.selectionChanged()
-            termLabel.textColor = loanParamsTint
-            termSubLabel.textColor = loanParamsTint
+            restoreResultsAndColor(termLabel, termSubLabel)
             
         default:
             print("smth else")
