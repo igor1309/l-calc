@@ -223,6 +223,7 @@
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="F3W-EQ-AeK" appends="YES" id="GRM-9i-9YN"/>
+                                            <outletCollection property="gestureRecognizers" destination="W7C-7L-S9g" appends="YES" id="n3s-9W-bro"/>
                                         </connections>
                                     </stackView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pL7-qX-ew3">
@@ -346,7 +347,7 @@
                 </tapGestureRecognizer>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="kRm-Er-Yba" userLabel="Amount Long Press Gesture Recognizer">
                     <connections>
-                        <action selector="loanLongPressDetected:" destination="b9k-oc-2PR" id="Keu-1b-2mJ"/>
+                        <action selector="amountLongPressDetected:" destination="b9k-oc-2PR" id="Keu-1b-2mJ"/>
                     </connections>
                 </pongPressGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="yEV-rQ-fgy" userLabel="Amount 1 Pan Gesture Recognizer">
@@ -384,6 +385,11 @@
                         <action selector="termPanDetected:" destination="b9k-oc-2PR" id="DCa-aD-GxP"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="W7C-7L-S9g" userLabel="Rate Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="termTapDetected:" destination="b9k-oc-2PR" id="UyC-Sd-GGz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1567" y="-1739"/>
         </scene>

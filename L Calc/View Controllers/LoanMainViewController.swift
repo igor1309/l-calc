@@ -11,7 +11,7 @@ import UIKit
 class LoanMainViewController: UIViewController {
     
     private enum Direction {
-        case up, down
+        case up, down, none
     }
     
     private enum Axis {
@@ -19,9 +19,10 @@ class LoanMainViewController: UIViewController {
     }
     
     //MARK: - Constants
-    let isVerticalPanning = true
     let changingTint = UIColor(hexString: "FFCD07")
     let loanParamsTint = UIColor(hexString: "D1D1D1")
+    
+    //FIXME: проверку диапазона убрать в определение переменной класса
     let maxRate = 199.0
     let minRate = 0.02
 
@@ -56,7 +57,6 @@ class LoanMainViewController: UIViewController {
     private var loc = Locale(identifier: "en_US")
     
     // FIXME: должно ли это быть здесь или переменные должны быть спрятаны в методы?
-    private var direction: Direction?
     private var axis: Axis?
     private var prevPoint: CGPoint!
     
@@ -64,7 +64,11 @@ class LoanMainViewController: UIViewController {
     private let feedbackChange = UISelectionFeedbackGenerator()
     private let feedbackImpact = UIImpactFeedbackGenerator()
     
-    
+    func outOfRangeFeedback() {
+        let notification = UINotificationFeedbackGenerator()
+        notification.notificationOccurred(.warning)
+    }
+
     // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,11 +96,6 @@ class LoanMainViewController: UIViewController {
             navBar.isTranslucent = true
             navBar.tintColor = loanParamsTint
         }
-    }
-    
-    func outOfRangeFeedback() {
-        let notification = UINotificationFeedbackGenerator()
-        notification.notificationOccurred(.warning)
     }
     
     func showLoanData() {
@@ -166,62 +165,7 @@ class LoanMainViewController: UIViewController {
         showLoanData()
     }
     
-    // MARK: - changing label values by tapping and panning gestures
-    
-    private func changeNumber(_ number: Double, direction: Direction) -> Double {
-        
-        var plusMinus: Double
-        
-        switch direction {
-        case .up: plusMinus = 1
-        default: plusMinus = -1
-        }
-        
-        let orderOfMagnitude = String(Int(number)).count - 1
-        let magnitude = Double(truncating: pow(10, orderOfMagnitude) as NSNumber)
-        var approx = (number / magnitude + plusMinus * 0.055) * 10
-        approx = approx.rounded()
-        approx = approx * magnitude / 10
-        return approx
-    }
-    
-
-    private func changeNumber (_ number: Double, direction: Direction, useDecimal: Bool) -> Double {
-        
-        var plusMinus: Double
-        
-        switch direction {
-        case .up: plusMinus = 1
-        default: plusMinus = -1
-        }
-        
-        if useDecimal {
-            var approx = (number * 10 + plusMinus)
-            approx = approx.rounded()
-            approx = approx / 10
-            return approx
-        } else {
-            return changeNumber(number, direction: direction)
-        }
-    }
-    
-    
-    private func directionForTap(_ gestureRecognizer: UIGestureRecognizer, in view: UIView) -> Direction? {
-        let x = gestureRecognizer.location(in: view).x
-        let center = view.frame.width / 2
-        if x == center {
-            return nil
-        }
-        
-        var direction: Direction
-        if x > center {
-            direction = .up
-        } else {
-            direction = .down
-        }
-        return direction
-    }
-    
+    // MARK: - @IBActions: amount tapping and panning
     @IBAction func amountTapDetected(_ gestureRecognizer: UITapGestureRecognizer) {
         if gestureRecognizer.state == .ended {
             guard let direction = directionForTap(gestureRecognizer, in: amountStack) else { return }
@@ -231,7 +175,7 @@ class LoanMainViewController: UIViewController {
             showLoanData()
         }
     }
-    
+
     @IBAction func amountPanDetected1(
         _ gestureRecognizer: UIPanGestureRecognizer) {
         //  Pan Gesture Recognizer with 1 finger
@@ -244,7 +188,7 @@ class LoanMainViewController: UIViewController {
         changeAmountByPan(gestureRecognizer, with: 2)
     }
     
-    @IBAction func loanLongPressDetected(_ gestureRecognizer: UILongPressGestureRecognizer) {
+    @IBAction func amountLongPressDetected(_ gestureRecognizer: UILongPressGestureRecognizer) {
 
         switch gestureRecognizer.state {
         case .began:
@@ -262,137 +206,9 @@ class LoanMainViewController: UIViewController {
             print("smth else")
         }
     }
-    
-    func changeAmountByPan(
-        _ gestureRecognizer: UIPanGestureRecognizer,
-        with touches: Int) {
-        //FIXME: как можно упростить/оптимизировать эту функцию??
-        
-        // движение (pan, panning) может идти по обеим осям, но направление — ось — определяется в начале
-        
-        // https://stackoverflow.com/questions/25503537/swift-uigesturerecogniser-follow-finger
-        // https://github.com/codepath/ios_guides/wiki/Using-Gesture-Recognizers
-        
-        
-        switch gestureRecognizer.state {
-        case .began:
-            dimResultsAndColorChange(amountLabel, amountSubLabel)
-            prevPoint = .zero
-            
-            let newPoint = gestureRecognizer.translation(in: self.view)
-            let distanceX = newPoint.x - prevPoint.x
-            let distanceY = prevPoint.y - newPoint.y
-            // определить, по какой оси пошло движение
-            if abs(distanceX) < abs(distanceY) {
-                axis = .y
-            } else {
-                axis = .x
-            }
-        case .changed:
-            
-            let newPoint = gestureRecognizer.translation(in: self.view)
-            var distance = CGFloat(0)
-            if let axis = self.axis {
-                if axis == .y {
-                    //MARK: перемещение по вертикали не меняет значение
-                    break
-//                    distance = prevPoint.y - newPoint.y
-                } else {
-                    distance = newPoint.x - prevPoint.x
-                }
-            }
 
-            prevPoint = newPoint
-            
-            // если пан двумя пальцами, то скорость выше
-            // если одним, то чувствительность снижаем, повышая threshold
-            var threshold = CGFloat(0.35)
-            if touches == 2 {
-                threshold = CGFloat(0)
-            }
-            if abs(distance) < threshold {
-                return
-            }
+    // MARK: - @IBActions: rate tapping and panning
 
-            if distance > 0 {
-                direction = .up
-            } else if distance < 0{
-                direction = .down
-            } else {
-                direction = .none
-            }
-            loan.amount = changeNumber(loan.amount,
-                                       direction: direction!)
-            showLoanData()
-            
-        case .ended:
-//            feedbackChange.selectionChanged()
-            restoreResultsAndColor(amountLabel, amountSubLabel)
-            
-        default:
-            print("smth else")
-        }
-    }
-    
-    func changeByPan(_ gesture: UIPanGestureRecognizer,
-                     number: Double,
-                     label: UILabel,
-                     subLabel: UILabel,
-                     threshold: CGFloat
-        ) -> Double? {
-        
-        return changeByPan(gesture,
-                           number: number,
-                           label: label,
-                           subLabel: subLabel,
-                           threshold: threshold,
-                           useDecimal: false)
-    }
-
-    func changeByPan(_ gesture: UIPanGestureRecognizer,
-                     number: Double,
-                     label: UILabel,
-                     subLabel: UILabel,
-                     threshold: CGFloat,
-                     useDecimal: Bool
-        ) -> Double? {
-        switch gesture.state {
-            
-        case .began:
-            prevPoint = .zero
-            dimResultsAndColorChange(label, subLabel)
-            return nil
-            
-        case .changed:
-            let x = gesture.translation(in: self.view).x
-            let distanceX = x - prevPoint.x
-            if abs(distanceX) < threshold {
-                return nil
-            }
-            
-            var direction: Direction
-            if distanceX > 0 {
-                direction = .up
-            } else {
-                direction = .down
-            }
-
-            prevPoint.x = x
-            
-            return changeNumber(number,
-                                direction: direction,
-                                useDecimal: useDecimal)
-
-        case .ended:
-            restoreResultsAndColor(label, subLabel)
-            return nil
-
-        default:
-            print("smth else")
-            return nil
-        }
-    }
-    
     @IBAction func ratePanDetected(
         _ gesture: UIPanGestureRecognizer) {
         
@@ -430,7 +246,11 @@ class LoanMainViewController: UIViewController {
         if gestureRecognizer.state == .ended {
             //FIXME: оптимизировать функцию с учетом уже имеющихся
             // нужно изменить имеющиеся служебные???
-            guard let direction = directionForTap(gestureRecognizer, in: rateStack) else { return }
+            
+            guard let direction = directionForTap(gestureRecognizer, in: rateStack) else {
+                return
+            }
+            print(direction)
             
             let x = gestureRecognizer.location(in: rateStack).x
             let center = rateStack.frame.width / 2
@@ -450,6 +270,7 @@ class LoanMainViewController: UIViewController {
             
             number += k
             loan.rate = number / 1
+            //FIXME: проверку диапазона убрать в определение переменной класса
             if loan.rate <= minRate {
                 loan.rate = minRate
             }
@@ -460,21 +281,6 @@ class LoanMainViewController: UIViewController {
         }
     }
     
-    
-    
-    fileprivate func dimResultsAndColorChange(_ label: UILabel,
-                                              _ subLabel: UILabel) {
-        loanResultsView.alpha = 0.7
-        label.textColor = changingTint
-        subLabel.textColor = changingTint
-    }
-    
-    fileprivate func restoreResultsAndColor(_ label: UILabel,
-                                              _ subLabel: UILabel) {
-        loanResultsView.alpha = 1.0
-        label.textColor = loanParamsTint
-        subLabel.textColor = loanParamsTint
-    }
     
     @IBAction func rateLongPressDetected(_ gestureRecognizer: UILongPressGestureRecognizer) {
         switch gestureRecognizer.state {
@@ -502,6 +308,8 @@ class LoanMainViewController: UIViewController {
         }
     }
     
+    // MARK: - @IBActions: term tapping and panning
+
     @IBAction func termPanDetected(
         _ gestureRecognizer: UIPanGestureRecognizer) {
         
@@ -546,6 +354,19 @@ class LoanMainViewController: UIViewController {
         }
     }
     
+    @IBAction func termTapDetected(_ gesture: UITapGestureRecognizer) {
+        guard let direction = directionForTap(gesture, in: termStack) else { return }
+        
+        loan.term =  changeNumber(loan.term,
+                                  direction: direction)
+        
+        //FIXME: проверку диапазона убрать в определение переменной класса
+
+        showLoanData()
+
+    }
+    
+    //FIXME: - MARK: - step change STILL NEED IT???
     private func step(_ number: Double, direction: Direction) -> Double {
         
         var plusMinus: Double
@@ -577,7 +398,214 @@ class LoanMainViewController: UIViewController {
         }
     }
     
-    // MARK: - nice string formatting
+    //MARK: - Visual settigs for change
+    fileprivate func dimResultsAndColorChange(_ label: UILabel,
+                                              _ subLabel: UILabel) {
+        loanResultsView.alpha = 0.7
+        label.textColor = changingTint
+        subLabel.textColor = changingTint
+    }
+    
+    fileprivate func restoreResultsAndColor(_ label: UILabel,
+                                            _ subLabel: UILabel) {
+        loanResultsView.alpha = 1.0
+        label.textColor = loanParamsTint
+        subLabel.textColor = loanParamsTint
+    }
+    
+    //MARK: - Change number functions
+
+    private func changeNumber(_ number: Double, direction: Direction) -> Double {
+        
+        var plusMinus: Double
+        
+        switch direction {
+        case .up: plusMinus = 1
+        default: plusMinus = -1
+        }
+        
+        let orderOfMagnitude = String(Int(number)).count - 1
+        let magnitude = Double(truncating: pow(10, orderOfMagnitude) as NSNumber)
+        var approx = (number / magnitude + plusMinus * 0.055) * 10
+        approx = approx.rounded()
+        approx = approx * magnitude / 10
+        return approx
+    }
+    
+    
+    private func changeNumber (_ number: Double, direction: Direction, useDecimal: Bool) -> Double {
+        
+        var plusMinus: Double
+        
+        switch direction {
+        case .up: plusMinus = 1
+        default: plusMinus = -1
+        }
+        
+        if useDecimal {
+            var approx = (number * 10 + plusMinus)
+            approx = approx.rounded()
+            approx = approx / 10
+            return approx
+        } else {
+            return changeNumber(number, direction: direction)
+        }
+    }
+    
+    // MARK: - Tap functions
+    
+    private func directionForTap(_ gestureRecognizer: UIGestureRecognizer, in view: UIView) -> Direction? {
+        let x = gestureRecognizer.location(in: view).x
+        let center = view.frame.width / 2
+        if x == center {
+            return nil
+        }
+        
+        var direction: Direction
+        if x > center {
+            direction = .up
+        } else {
+            direction = .down
+        }
+        return direction
+    }
+    
+    //MARK: - Change by Pan functions
+
+    func changeByPan(_ gesture: UIPanGestureRecognizer,
+                     number: Double,
+                     label: UILabel,
+                     subLabel: UILabel,
+                     threshold: CGFloat,
+                     useDecimal: Bool
+        ) -> Double? {
+        switch gesture.state {
+            
+        case .began:
+            prevPoint = .zero
+            dimResultsAndColorChange(label, subLabel)
+            return nil
+            
+        case .changed:
+            // см func changeAmountByPan где описана возможность изменения значений не только горизонтальным панингом, но и ветикальным
+            let x = gesture.translation(in: self.view).x
+            let distanceX = x - prevPoint.x
+            if abs(distanceX) < threshold {
+                return nil
+            }
+            
+            var direction: Direction
+            if distanceX > 0 {
+                direction = .up
+            } else {
+                direction = .down
+            }
+            
+            prevPoint.x = x
+            
+            return changeNumber(number,
+                                direction: direction,
+                                useDecimal: useDecimal)
+            
+        case .ended:
+            restoreResultsAndColor(label, subLabel)
+            return nil
+            
+        default:
+            print("smth else")
+            return nil
+        }
+    }
+    
+    func changeByPan(_ gesture: UIPanGestureRecognizer,
+                     number: Double,
+                     label: UILabel,
+                     subLabel: UILabel,
+                     threshold: CGFloat
+        ) -> Double? {
+        // вариант этого функционала без параметра useDecimal
+        
+        return changeByPan(gesture,
+                           number: number,
+                           label: label,
+                           subLabel: subLabel,
+                           threshold: threshold,
+                           useDecimal: false)
+    }
+    
+    func changeAmountByPan(
+        _ gestureRecognizer: UIPanGestureRecognizer,
+        with touches: Int) {
+        //FIXME: как можно упростить/оптимизировать эту функцию??
+        
+        // движение (pan, panning) может идти по обеим осям, но направление — ось — определяется в начале
+        
+        // https://stackoverflow.com/questions/25503537/swift-uigesturerecogniser-follow-finger
+        // https://github.com/codepath/ios_guides/wiki/Using-Gesture-Recognizers
+        
+        
+        switch gestureRecognizer.state {
+        case .began:
+            dimResultsAndColorChange(amountLabel, amountSubLabel)
+            prevPoint = .zero
+            
+            let newPoint = gestureRecognizer.translation(in: self.view)
+            let distanceX = newPoint.x - prevPoint.x
+            let distanceY = prevPoint.y - newPoint.y
+            // определить, по какой оси пошло движение
+            if abs(distanceX) < abs(distanceY) {
+                axis = .y
+            } else {
+                axis = .x
+            }
+        case .changed:
+            
+            let newPoint = gestureRecognizer.translation(in: self.view)
+            var distance = CGFloat(0)
+            if let axis = self.axis {
+                if axis == .y {
+                    //MARK: перемещение по вертикали не меняет значение
+                    break
+                    //                    distance = prevPoint.y - newPoint.y
+                } else {
+                    distance = newPoint.x - prevPoint.x
+                }
+            }
+            
+            prevPoint = newPoint
+            
+            // если пан двумя пальцами, то скорость выше
+            // если одним, то чувствительность снижаем, повышая threshold
+            var threshold = CGFloat(0.35)
+            if touches == 2 {
+                threshold = CGFloat(0)
+            }
+            if abs(distance) < threshold {
+                return
+            }
+            
+            var direction: Direction
+            if distance > 0 {
+                direction = .up
+            } else if distance < 0{
+                direction = .down
+            } else {
+                direction = .none
+            }
+            loan.amount = changeNumber(loan.amount,
+                                       direction: direction)
+            showLoanData()
+            
+        case .ended:
+            //            feedbackChange.selectionChanged()
+            restoreResultsAndColor(amountLabel, amountSubLabel)
+            
+        default:
+            print("smth else")
+        }
+    }
+    
+    // MARK: - Nice string formatting
     func termSubLabelText(for term: Double) -> String {
         var yearsString = String(format: "%.1f", term/12)  + " YEARS)"
         
@@ -600,7 +628,7 @@ class LoanMainViewController: UIViewController {
         return "СРОК КРЕДИТА, МЕСЯЦЕВ (" + yearsString
     }
     
-    // FIXME: make String extension instead of function inside this class??
+    // FIXME: Make String extension instead of function inside this class??
     func numberAsNiceString(_ number: Double) -> String {
         let formatter = NumberFormatter()
         // FIXME: use decimals setting!!
@@ -613,7 +641,7 @@ class LoanMainViewController: UIViewController {
     }
     
     
-    // FIXME: make String extension instead of function inside this class
+    // FIXME: Make String extension instead of function inside this class
     func percentageAsNiceString(_ number: Double) -> String {
         return String(format: "%.2f",
                       locale: loc,
@@ -621,4 +649,3 @@ class LoanMainViewController: UIViewController {
     }
     
 }
-
