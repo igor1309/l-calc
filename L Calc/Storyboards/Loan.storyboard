@@ -369,7 +369,7 @@
                         <action selector="rateTapDetected:" destination="b9k-oc-2PR" id="n4n-at-JV6"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer delaysTouchesBegan="YES" numberOfTapsRequired="2" id="Hl8-gc-diz" userLabel="Rate Double Tap Gesture Recognizer">
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Hl8-gc-diz" userLabel="Rate Double Tap Gesture Recognizer">
                     <connections>
                         <action selector="rateDoubleTapDetected:" destination="b9k-oc-2PR" id="pRp-CY-7oa"/>
                     </connections>
@@ -1176,7 +1176,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="waJ-s1-UM0"/>
         <segue reference="GiL-rH-sHs"/>
-        <segue reference="GFY-DC-ApS"/>
+        <segue reference="003-uF-8hS"/>
         <segue reference="jeb-tt-N7Y"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
