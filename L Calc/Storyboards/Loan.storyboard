@@ -54,16 +54,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="JcB-OL-j45" userLabel="First Percent Stack View">
                                         <rect key="frame" x="20" y="126" width="335" height="17"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПРОЦЕНТЫ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysy-Mh-zz8" userLabel="ПРОЦЕНТЫ">
-                                                <rect key="frame" x="0.0" y="0.0" width="78.666666666666671" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПЕРВЫЙ МЕСЯЦ ПРОЦЕНТЫ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysy-Mh-zz8" userLabel="ПРОЦЕНТЫ">
+                                                <rect key="frame" x="0.0" y="0.0" width="193" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                                <color key="textColor" red="0.74901960779999999" green="0.72941176470000002" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.88235294117647056" green="0.85882352941176465" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38,030" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZ8-lU-UK5">
                                                 <rect key="frame" x="289.33333333333331" y="0.0" width="45.666666666666686" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                                <color key="textColor" red="0.89019607840000003" green="0.87058823529999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.88235294117647056" green="0.85882352941176465" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -71,28 +71,27 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="YE8-HU-csq" userLabel="First Principal Stack View">
                                         <rect key="frame" x="20" y="149" width="335" height="17"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ТЕЛО" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPQ-Fu-3QU" userLabel="ТЕЛО">
-                                                <rect key="frame" x="0.0" y="0.0" width="37" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПЕРВЫЙ МЕСЯЦ ТЕЛО" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPQ-Fu-3QU" userLabel="ТЕЛО">
+                                                <rect key="frame" x="0.0" y="0.0" width="151.33333333333334" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                                <color key="textColor" red="0.74901960779999999" green="0.72941176470000002" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.88235294117647056" green="0.85882352941176465" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88,030" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bea-CH-gLe">
                                                 <rect key="frame" x="289" y="0.0" width="46" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                                <color key="textColor" red="0.89019607840000003" green="0.87058823529999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.88235294117647056" green="0.85882352941176465" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vek-Qx-07V" userLabel="Line View">
                                         <rect key="frame" x="273" y="174" width="82" height="1"/>
-                                        <color key="backgroundColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.8901960784313725" green="0.87058823529411766" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="82" id="K5O-sw-45e"/>
                                             <constraint firstAttribute="height" constant="1" id="hsU-do-Mo4"/>
                                         </constraints>
-                                        <viewLayoutGuide key="safeArea" id="oHI-bn-hpF"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="UQv-S3-6TA" userLabel="Total Percent Stack View">
                                         <rect key="frame" x="20" y="183" width="335" height="17"/>
