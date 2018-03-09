@@ -59,8 +59,6 @@ class LoanMainViewController: UIViewController {
     private var direction: Direction?
     private var axis: Axis?
     private var prevPoint: CGPoint!
-    private var ratePreviousX: CGPoint!
-    private var termPreviousX: CGPoint!
     
     // MARK: - prepare Feedback Generators
     private let feedbackChange = UISelectionFeedbackGenerator()
@@ -188,9 +186,8 @@ class LoanMainViewController: UIViewController {
     }
 
     
-    private func directionForTap(_ sender: UIGestureRecognizer,
-                                 in view: UIView) -> Direction? {
-        let x = sender.location(in: view).x
+    private func directionForTap(_ gestureRecognizer: UIGestureRecognizer, in view: UIView) -> Direction? {
+        let x = gestureRecognizer.location(in: view).x
         let center = view.frame.width / 2
         if x == center {
             return nil
@@ -205,9 +202,9 @@ class LoanMainViewController: UIViewController {
         return direction
     }
     
-    @IBAction func amountTapDetected(_ sender: UITapGestureRecognizer) {
-        if sender.state == .ended {
-            guard let direction = directionForTap(sender, in: amountStack) else { return }
+    @IBAction func amountTapDetected(_ gestureRecognizer: UITapGestureRecognizer) {
+        if gestureRecognizer.state == .ended {
+            guard let direction = directionForTap(gestureRecognizer, in: amountStack) else { return }
             
             loan.amount =  changeNumber(loan.amount,
                                 direction: direction)
@@ -227,9 +224,9 @@ class LoanMainViewController: UIViewController {
         changeAmountByPan(gestureRecognizer, with: 2)
     }
     
-    @IBAction func loanLongPressDetected(_ sender: UILongPressGestureRecognizer) {
+    @IBAction func loanLongPressDetected(_ gestureRecognizer: UILongPressGestureRecognizer) {
 
-        switch sender.state {
+        switch gestureRecognizer.state {
         case .began:
             dimResultsAndColorChange(amountLabel, amountSubLabel)
 
@@ -260,8 +257,8 @@ class LoanMainViewController: UIViewController {
         switch gestureRecognizer.state {
         case .began:
             dimResultsAndColorChange(amountLabel, amountSubLabel)
-            
             prevPoint = .zero
+            
             let newPoint = gestureRecognizer.translation(in: self.view)
             let distanceX = newPoint.x - prevPoint.x
             let distanceY = prevPoint.y - newPoint.y
@@ -293,6 +290,10 @@ class LoanMainViewController: UIViewController {
             if touches == 2 {
                 threshold = CGFloat(0)
             }
+            if abs(distance) < threshold {
+                return
+            }
+
             if distance > 0 {
                 direction = .up
             } else if distance < 0{
@@ -300,11 +301,9 @@ class LoanMainViewController: UIViewController {
             } else {
                 direction = .none
             }
-            if abs(distance) > threshold {
-                loan.amount = changeNumber(loan.amount,
-                                           direction: direction!)
-                showLoanData()
-            }
+            loan.amount = changeNumber(loan.amount,
+                                       direction: direction!)
+            showLoanData()
             
         case .ended:
 //            feedbackChange.selectionChanged()
@@ -315,21 +314,74 @@ class LoanMainViewController: UIViewController {
         }
     }
     
+    func changeByPan(_ gestureRecognizer: UIPanGestureRecognizer,
+                     number: Double,
+                     label: UILabel,
+                     subLabel: UILabel,
+                     threshold: CGFloat
+        ) -> Double? {
+        switch gestureRecognizer.state {
+            
+        case .began:
+            prevPoint = .zero
+            dimResultsAndColorChange(label, subLabel)
+            return nil
+            
+        case .changed:
+            let x = gestureRecognizer.translation(in: self.view).x
+            let distanceX = x - prevPoint.x
+            if abs(distanceX) < threshold {
+                return nil
+            }
+            
+            var direction: Direction
+            if distanceX > 0 {
+                direction = .up
+            } else {
+                direction = .down
+            }
+
+            prevPoint.x = x
+            
+            return changeNumber(number,
+                                direction: direction)
+
+        case .ended:
+            restoreResultsAndColor(label, subLabel)
+            return nil
+
+        default:
+            print("smth else")
+            return nil
+        }
+    }
     
     @IBAction func ratePanDetected(
         _ gestureRecognizer: UIPanGestureRecognizer) {
+        
+        guard let newValue = changeByPan(gestureRecognizer,
+                                         number: loan.rate,
+                                         label: rateLabel,
+                                         subLabel: rateSubLabel,
+                                         threshold: 4)  else { return }
+        
+        loan.rate = newValue
+        showLoanData()
+        
+        return // ниже старая версия этой функции
+        
         //FIXME: оптимизировать функцию с учетом уже имеющихся
         // нужно изменить имеющиеся служебные???
 
         switch gestureRecognizer.state {
             
         case .began:
-            ratePreviousX = .zero
+            prevPoint = .zero
             dimResultsAndColorChange(rateLabel, rateSubLabel)
             
         case .changed:
             let x = gestureRecognizer.translation(in: self.view).x
-            let distanceX = x - ratePreviousX.x
+            let distanceX = x - prevPoint.x
             var direction: Direction
             if distanceX > 0 {
                 direction = .up
@@ -339,7 +391,7 @@ class LoanMainViewController: UIViewController {
             // для снижения скорости изменения берется значение > 0
             let threshold = CGFloat(4)
             if abs(distanceX) > threshold {
-                ratePreviousX.x = x
+                prevPoint.x = x
                 
                 loan.rate = changeNumber(loan.rate,
                                          direction: direction)
@@ -354,9 +406,9 @@ class LoanMainViewController: UIViewController {
         }
     }
     
-    @IBAction func rateTapDetected(_ sender: UITapGestureRecognizer) {
-        if sender.state == .ended {
-            guard let direction = directionForTap(sender, in: rateStack) else { return }
+    @IBAction func rateTapDetected(_ gestureRecognizer: UITapGestureRecognizer) {
+        if gestureRecognizer.state == .ended {
+            guard let direction = directionForTap(gestureRecognizer, in: rateStack) else { return }
             
             loan.rate =  changeNumber(loan.rate,
                                       direction: direction)
@@ -372,13 +424,13 @@ class LoanMainViewController: UIViewController {
         }
     }
     
-    @IBAction func rateDoubleTapDetected(_ sender: UITapGestureRecognizer) {
-        if sender.state == .ended {
+    @IBAction func rateDoubleTapDetected(_ gestureRecognizer: UITapGestureRecognizer) {
+        if gestureRecognizer.state == .ended {
             //FIXME: оптимизировать функцию с учетом уже имеющихся
             // нужно изменить имеющиеся служебные???
-            guard let direction = directionForTap(sender, in: rateStack) else { return }
+            guard let direction = directionForTap(gestureRecognizer, in: rateStack) else { return }
             
-            let x = sender.location(in: rateStack).x
+            let x = gestureRecognizer.location(in: rateStack).x
             let center = rateStack.frame.width / 2
             if x == center {
                 return
@@ -422,13 +474,13 @@ class LoanMainViewController: UIViewController {
         subLabel.textColor = loanParamsTint
     }
     
-    @IBAction func rateLongPressDetected(_ sender: UILongPressGestureRecognizer) {
-        switch sender.state {
+    @IBAction func rateLongPressDetected(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        switch gestureRecognizer.state {
         case .began:
             dimResultsAndColorChange(rateLabel, rateSubLabel)
             
         case .changed:
-            guard let direction = directionForTap(sender, in: rateStack) else { return }
+            guard let direction = directionForTap(gestureRecognizer, in: rateStack) else { return }
             
             loan.rate = changeNumber(loan.rate, direction: direction)
 
@@ -454,15 +506,18 @@ class LoanMainViewController: UIViewController {
         switch gestureRecognizer.state {
         case .began:
             dimResultsAndColorChange(termLabel, termSubLabel)
-            termPreviousX = .zero
+            prevPoint = .zero
             
         case .changed:
             //FIXME: оптимизировать функцию с учетом уже имеющихся
             // нужно изменить имеющиеся служебные???
             let x = gestureRecognizer.translation(in: self.view).x
-            let distanceX = x - termPreviousX.x
+            let distanceX = x - prevPoint.x
             // для снижения скорости изменения берется значение > 0
             let threshold = CGFloat(7)
+            if abs(distanceX) < threshold {
+                return
+            }
             if abs(distanceX) > threshold {
                 
                 if distanceX > 0 {
@@ -475,7 +530,7 @@ class LoanMainViewController: UIViewController {
                 termLabel.text = String(format: "%.0f", loan.term)
                 UserDefaults.standard.set(loan.term, forKey: "Term")
                 
-                termPreviousX.x = x
+                prevPoint.x = x
                 
                 showLoanData()
             }
