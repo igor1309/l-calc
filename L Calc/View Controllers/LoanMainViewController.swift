@@ -226,7 +226,6 @@ class LoanMainViewController: UIViewController {
                                          subLabel: rateSubLabel,
                                          threshold: 4,
                                          useDecimal: true)  else { return }
-        
         loan.rate = newValue
         showLoanData()
     }
@@ -297,49 +296,17 @@ class LoanMainViewController: UIViewController {
     }
     
     //MARK: - @IBActions: term tapping and panning
-
     @IBAction func termPanDetected(
         _ sender: UIPanGestureRecognizer) {
         
-        switch sender.state {
-        case .began:
-            dimResultsAndColorChange(termLabel, termSubLabel)
-            prevPoint = .zero
-            
-        case .changed:
-            //FIXME: оптимизировать функцию с учетом уже имеющихся
-            // нужно изменить имеющиеся служебные???
-            let x = sender.translation(in: self.view).x
-            let distanceX = x - prevPoint.x
-            // для снижения скорости изменения берется значение > 0
-            let threshold = CGFloat(7)
-            if abs(distanceX) < threshold {
-                return
-            }
-            if abs(distanceX) > threshold {
-                
-                if distanceX > 0 {
-                    loan.term += 1
-                } else if distanceX < 0 {
-                    if loan.term > 1 {
-                        loan.term -= 1
-                    }
-                }
-
-                //FIXME: сохранение убрать в определение переменной класса
-                termLabel.text = String(format: "%.0f", loan.term)
-                UserDefaults.standard.set(loan.term, forKey: "Term")
-                
-                prevPoint.x = x
-                
-                showLoanData()
-            }
-        case .ended:
-//            feedbackChange.selectionChanged()
-            restoreResultsAndColor(termLabel, termSubLabel)
-        default:
-            print("smth else")
-        }
+        guard let newValue = changeByPan(sender,
+                                         number: loan.term,
+                                         label: termLabel,
+                                         subLabel: termSubLabel,
+                                         threshold: 7)  else { return }
+        loan.term = newValue
+        print(loan.term)
+        showLoanData()
     }
     
     @IBAction func termTapDetected(_ sender: UITapGestureRecognizer) {
@@ -516,7 +483,6 @@ class LoanMainViewController: UIViewController {
         
         return String(describing: formatter.string(for: number)!)
     }
-    
     
     // FIXME: Make String extension instead of function inside this class
     func percentageAsNiceString(_ number: Double) -> String {
