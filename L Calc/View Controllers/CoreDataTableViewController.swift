@@ -9,11 +9,11 @@
 import UIKit
 import CoreData
 
-// MARK: - CoreDataTableViewController: UITableViewController
+//MARK: - CoreDataTableViewController: UITableViewController
 
 class CoreDataTableViewController: UITableViewController {
     
-    // MARK: Properties
+    //MARK: Properties
     
     var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>? {
         didSet {
@@ -25,7 +25,7 @@ class CoreDataTableViewController: UITableViewController {
         }
     }
     
-    // MARK: Initializers
+    //MARK: Initializers
     
     init(fetchedResultsController fc : NSFetchedResultsController<NSFetchRequestResult>, style : UITableViewStyle = .plain) {
         fetchedResultsController = fc
@@ -40,7 +40,7 @@ class CoreDataTableViewController: UITableViewController {
     }
 }
 
-// MARK: - CoreDataTableViewController (Subclass Must Implement)
+//MARK: - CoreDataTableViewController (Subclass Must Implement)
 
 extension CoreDataTableViewController {
     
@@ -49,7 +49,7 @@ extension CoreDataTableViewController {
     }
 }
 
-// MARK: - CoreDataTableViewController (Table Data Source)
+//MARK: - CoreDataTableViewController (Table Data Source)
 
 extension CoreDataTableViewController {
     
@@ -94,7 +94,7 @@ extension CoreDataTableViewController {
     }
 }
 
-// MARK: - CoreDataTableViewController (Fetches)
+//MARK: - CoreDataTableViewController (Fetches)
 
 extension CoreDataTableViewController {
     
@@ -110,7 +110,7 @@ extension CoreDataTableViewController {
     }
 }
 
-// MARK: - CoreDataTableViewController: NSFetchedResultsControllerDelegate
+//MARK: - CoreDataTableViewController: NSFetchedResultsControllerDelegate
 
 extension CoreDataTableViewController: NSFetchedResultsControllerDelegate {
     

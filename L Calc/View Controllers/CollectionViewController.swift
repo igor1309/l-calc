@@ -23,7 +23,7 @@ class CollectionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        // MARK: animation https://www.raywenderlich.com/173544/ios-animation-tutorial-getting-started-3
+        //MARK: animation https://www.raywenderlich.com/173544/ios-animation-tutorial-getting-started-3
         chapterCollectionView.center.x -= view.bounds.width
         chapterCollectionView.alpha = 0.1
     }
@@ -31,7 +31,7 @@ class CollectionViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        // MARK: animation https://www.raywenderlich.com/173544/ios-animation-tutorial-getting-started-3
+        //MARK: animation https://www.raywenderlich.com/173544/ios-animation-tutorial-getting-started-3
         UIView.animate(withDuration: 0.5,
                        delay: 0.15,
                        options: [.curveEaseOut, .transitionCrossDissolve],

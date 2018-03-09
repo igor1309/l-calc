@@ -8,11 +8,11 @@
 
 import CoreData
 
-// MARK: - CoreDataStack
+//MARK: - CoreDataStack
 
 struct CoreDataStack {
     
-    // MARK: Properties
+    //MARK: Properties
     
     private let model: NSManagedObjectModel
     internal let coordinator: NSPersistentStoreCoordinator
@@ -20,7 +20,7 @@ struct CoreDataStack {
     internal let dbURL: URL
     let context: NSManagedObjectContext
     
-    // MARK: Initializers
+    //MARK: Initializers
     
     init?(modelName: String) {
         
@@ -65,14 +65,14 @@ struct CoreDataStack {
         }
     }
     
-    // MARK: Utils
+    //MARK: Utils
     
     func addStoreCoordinator(_ storeType: String, configuration: String?, storeURL: URL, options : [NSObject:AnyObject]?) throws {
         try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: nil)
     }
 }
 
-// MARK: - CoreDataStack (Removing Data)
+//MARK: - CoreDataStack (Removing Data)
 
 internal extension CoreDataStack  {
     
@@ -84,7 +84,7 @@ internal extension CoreDataStack  {
     }
 }
 
-// MARK: - CoreDataStack (Save Data)
+//MARK: - CoreDataStack (Save Data)
 
 extension CoreDataStack {
     

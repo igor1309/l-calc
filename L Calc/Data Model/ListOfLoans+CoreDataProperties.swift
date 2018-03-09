@@ -22,7 +22,7 @@ extension ListOfLoans {
 
 }
 
-// MARK: Generated accessors for loan
+//MARK: Generated accessors for loan
 extension ListOfLoans {
 
     @objc(addLoanObject:)

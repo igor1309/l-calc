@@ -13,7 +13,7 @@ import CoreData
 @objc(ListOfLoans)
 public class ListOfLoans: NSManagedObject {
 
-    // MARK: Initializer
+    //MARK: Initializer
     
     convenience init(context: NSManagedObjectContext) {
         if let ent = NSEntityDescription.entity(forEntityName: "ListOfLoans", in: context) {

@@ -49,7 +49,7 @@ class LoanMainViewController: UIViewController {
     
     @IBOutlet weak var loanTypeSegment: UISegmentedControl!
 
-    // MARK: - vars
+    //MARK: - vars
     private var loan = Loan()
     
     // FIXME: all things Locale
@@ -60,7 +60,7 @@ class LoanMainViewController: UIViewController {
     private var axis: Axis?
     private var prevPoint: CGPoint!
     
-    // MARK: - prepare Feedback Generators
+    //MARK: - prepare Feedback Generators
     private let feedbackChange = UISelectionFeedbackGenerator()
     private let feedbackImpact = UIImpactFeedbackGenerator()
     
@@ -69,7 +69,7 @@ class LoanMainViewController: UIViewController {
         notification.notificationOccurred(.warning)
     }
 
-    // MARK: -
+    //MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -149,7 +149,7 @@ class LoanMainViewController: UIViewController {
         
     }
     
-    // MARK: - @IBActions
+    //MARK: - @IBActions
     @IBAction func loanTypeSegmentChanged(_ sender: UISegmentedControl) {
         
         switch loanTypeSegment.selectedSegmentIndex {
@@ -165,7 +165,7 @@ class LoanMainViewController: UIViewController {
         showLoanData()
     }
     
-    // MARK: - @IBActions: amount tapping and panning
+    //MARK: - @IBActions: amount tapping and panning
     @IBAction func amountTapDetected(_ gestureRecognizer: UITapGestureRecognizer) {
         if gestureRecognizer.state == .ended {
             guard let direction = directionForTap(gestureRecognizer, in: amountStack) else { return }
@@ -177,17 +177,36 @@ class LoanMainViewController: UIViewController {
     }
 
     @IBAction func amountPanDetected1(
-        _ gestureRecognizer: UIPanGestureRecognizer) {
+        _ gesture: UIPanGestureRecognizer) {
         //  Pan Gesture Recognizer with 1 finger
-        changeAmountByPan(gestureRecognizer, with: 1)
+//        changeAmountByPan(gesture, with: 1)
+        
+        guard let newValue = changeByPan(gesture,
+                                         number: loan.amount,
+                                         label: amountLabel,
+                                         subLabel: amountSubLabel,
+                                         threshold: 0.35)  else { return }
+        
+        loan.amount = newValue
+        showLoanData()
     }
     
     @IBAction func amountPanDetected2(
-        _ gestureRecognizer: UIPanGestureRecognizer) {
+        _ gesture: UIPanGestureRecognizer) {
         //  Pan Gesture Recognizer with 2 fingers
-        changeAmountByPan(gestureRecognizer, with: 2)
+//        changeAmountByPan(gesture, with: 2)
+        
+        guard let newValue = changeByPan(gesture,
+                                         number: loan.amount,
+                                         label: amountLabel,
+                                         subLabel: amountSubLabel,
+                                         threshold: 0)  else { return }
+        
+        loan.amount = newValue
+        showLoanData()
     }
     
+    //MARK: - Gesture Recognizer отключен в IB
     @IBAction func amountLongPressDetected(_ gestureRecognizer: UILongPressGestureRecognizer) {
 
         switch gestureRecognizer.state {
@@ -207,7 +226,7 @@ class LoanMainViewController: UIViewController {
         }
     }
 
-    // MARK: - @IBActions: rate tapping and panning
+    //MARK: - @IBActions: rate tapping and panning
 
     @IBAction func ratePanDetected(
         _ gesture: UIPanGestureRecognizer) {
@@ -242,17 +261,30 @@ class LoanMainViewController: UIViewController {
         }
     }
     
-    @IBAction func rateDoubleTapDetected(_ gestureRecognizer: UITapGestureRecognizer) {
-        if gestureRecognizer.state == .ended {
+    //MARK: - Gesture Recognizer отключен в IB
+    @IBAction func rateDoubleTapDetected(_ gesture: UITapGestureRecognizer) {
+        
+        guard let direction = directionForTap(gesture, in: rateStack) else { return }
+        
+        loan.rate =  changeNumber(loan.rate * 10,
+                                  direction: direction) / 10
+        
+        //FIXME: проверку диапазона убрать в определение переменной класса
+        if loan.rate <= minRate {
+            loan.rate = minRate
+        }
+        if loan.rate >= maxRate {
+            loan.rate = maxRate
+        }
+        showLoanData()
+        
+    return //FIXME: далее старый код
+        
+        if gesture.state == .ended {
             //FIXME: оптимизировать функцию с учетом уже имеющихся
             // нужно изменить имеющиеся служебные???
             
-            guard let direction = directionForTap(gestureRecognizer, in: rateStack) else {
-                return
-            }
-            print(direction)
-            
-            let x = gestureRecognizer.location(in: rateStack).x
+            let x = gesture.location(in: rateStack).x
             let center = rateStack.frame.width / 2
             if x == center {
                 return
@@ -282,7 +314,9 @@ class LoanMainViewController: UIViewController {
     }
     
     
+    //MARK: - Gesture Recognizer отключен в IB
     @IBAction func rateLongPressDetected(_ gestureRecognizer: UILongPressGestureRecognizer) {
+
         switch gestureRecognizer.state {
         case .began:
             dimResultsAndColorChange(rateLabel, rateSubLabel)
@@ -308,7 +342,7 @@ class LoanMainViewController: UIViewController {
         }
     }
     
-    // MARK: - @IBActions: term tapping and panning
+    //MARK: - @IBActions: term tapping and panning
 
     @IBAction func termPanDetected(
         _ gestureRecognizer: UIPanGestureRecognizer) {
@@ -452,7 +486,7 @@ class LoanMainViewController: UIViewController {
         }
     }
     
-    // MARK: - Tap functions
+    //MARK: - Tap functions
     
     private func directionForTap(_ gestureRecognizer: UIGestureRecognizer, in view: UIView) -> Direction? {
         let x = gestureRecognizer.location(in: view).x
@@ -486,8 +520,25 @@ class LoanMainViewController: UIViewController {
             dimResultsAndColorChange(label, subLabel)
             return nil
             
+            // движение (pan, panning) может идти по обеим осям, но направление — ось — определяется в начале
+            
+            // https://stackoverflow.com/questions/25503537/swift-uigesturerecogniser-follow-finger
+            // https://github.com/codepath/ios_guides/wiki/Using-Gesture-Recognizers
+
+            // в func changeAmountByPan была возможность изменения значений не только горизонтальным панингом, но и вертикальным
+            /*
+             let newPoint = gestureRecognizer.translation(in: self.view)
+             let distanceX = newPoint.x - prevPoint.x
+             let distanceY = prevPoint.y - newPoint.y
+             // определить, по какой оси пошло движение
+             if abs(distanceX) < abs(distanceY) {
+             axis = .y
+             } else {
+             axis = .x
+             }
+             */
+            
         case .changed:
-            // см func changeAmountByPan где описана возможность изменения значений не только горизонтальным панингом, но и ветикальным
             let x = gesture.translation(in: self.view).x
             let distanceX = x - prevPoint.x
             if abs(distanceX) < threshold {
@@ -605,7 +656,7 @@ class LoanMainViewController: UIViewController {
         }
     }
     
-    // MARK: - Nice string formatting
+    //MARK: - Nice string formatting
     func termSubLabelText(for term: Double) -> String {
         var yearsString = String(format: "%.1f", term/12)  + " YEARS)"
         

@@ -10,7 +10,7 @@ import UIKit
 
 class LoanParamAndResViewController: UIViewController {
     
-    // MARK: - @IBOutlets
+    //MARK: - @IBOutlets
     // Trebuchet MS 56.0
     
     @IBOutlet weak var monthlyPayment: UILabel!
@@ -32,7 +32,7 @@ class LoanParamAndResViewController: UIViewController {
     @IBOutlet weak var termSubLabel: UILabel!
     @IBOutlet weak var termStack: UIStackView!
     
-    // MARK: - vars
+    //MARK: - vars
     //    var loc = Locale.current
     var loc = Locale(identifier: "en_US")
     
@@ -44,12 +44,12 @@ class LoanParamAndResViewController: UIViewController {
     var termPreviousX: CGPoint!
     
     
-    // MARK: - prepare Feedback Generators
+    //MARK: - prepare Feedback Generators
     let change = UISelectionFeedbackGenerator()
     let impact = UIImpactFeedbackGenerator()
 
     
-    // MARK: -
+    //MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -105,7 +105,7 @@ class LoanParamAndResViewController: UIViewController {
         }
     }
     
-    // MARK: - @IBActions
+    //MARK: - @IBActions
     @IBAction func annuitySegmentChanged(
         _ sender: UISegmentedControl) {
 
@@ -124,7 +124,7 @@ class LoanParamAndResViewController: UIViewController {
 //        impact.impactOccurred()
 //    }
 
-    // MARK: - changing label values by panning gestures
+    //MARK: - changing label values by panning gestures
     @IBAction func panDetected1(
         _ gestureRecognizer: UIPanGestureRecognizer) {
         //  Pan Gesture Recognizer with 1 finger
@@ -289,7 +289,7 @@ class LoanParamAndResViewController: UIViewController {
         
         let max = Double(truncating: pow(10, 11) as NSNumber)
         if number > max {
-            // MARK: выдать предупреждение, что это предельное значение(?)
+            //MARK: выдать предупреждение, что это предельное значение(?)
             return number
         } else {
             let orderOfMagnitude = String(Int(number)).count - 1
@@ -309,7 +309,7 @@ class LoanParamAndResViewController: UIViewController {
         // take 2 leftmost digits of number before decimal as a number and increase it
         // https://en.wikipedia.org/wiki/Order_of_magnitude
         if number < 101 {
-            // MARK: выдать предупреждение, что это предельное значение(?)
+            //MARK: выдать предупреждение, что это предельное значение(?)
             return number
         } else {
             let orderOfMagnitude = String(Int(number)).count - 1
@@ -325,7 +325,7 @@ class LoanParamAndResViewController: UIViewController {
         
         let max = 199.0
         if number > max {
-            // MARK: выдать предупреждение, что это предельное значение(?)
+            //MARK: выдать предупреждение, что это предельное значение(?)
             return number
         } else {
             let orderOfMagnitude = String(Int(number)).count - 1
@@ -340,7 +340,7 @@ class LoanParamAndResViewController: UIViewController {
     func rateDown(_ number: Double) -> Double {
         
         if number < 0.0200 {
-            // MARK: выдать предупреждение, что это предельное значение(?)
+            //MARK: выдать предупреждение, что это предельное значение(?)
             return number
         } else {
             let orderOfMagnitude = String(Int(number)).count - 1
@@ -353,7 +353,7 @@ class LoanParamAndResViewController: UIViewController {
     }
     
     
-    // MARK: - nice string formatting
+    //MARK: - nice string formatting
     func termSubLabelText(for term: Double) -> String {
         var yearsString = String(format: "%.1f", term/12)  + " YEARS)"
         

@@ -13,7 +13,7 @@ import CoreData
 @objc(CDLoan)
 public class CDLoan: NSManagedObject {
     
-    // MARK: Initializer
+    //MARK: Initializer
 
     convenience init(context: NSManagedObjectContext) {
         if let ent = NSEntityDescription.entity(forEntityName: "CDLoan", in: context) {
@@ -25,7 +25,7 @@ public class CDLoan: NSManagedObject {
         }
     }
     
-    // MARK: Computed Property
+    //MARK: Computed Property
     
     var humanReadableAge: String {
         get {

@@ -155,7 +155,7 @@ extension Loan {
     }
     
     
-    // MARK: - inits
+    //MARK: - inits
 
     init() {    // init + First Time handling
         let userDefaults = UserDefaults.standard

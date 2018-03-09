@@ -31,7 +31,7 @@ class LoansTableViewController: UITableViewController {
     }
 
 
-    // MARK: - Table view data source
+    //MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -129,7 +129,7 @@ class LoansTableViewController: UITableViewController {
 
 
     
-    // MARK: - Navigation
+    //MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -138,7 +138,7 @@ class LoansTableViewController: UITableViewController {
     }
     
 
-    // MARK: - extra
+    //MARK: - extra
     // TODO: create extension??
     func changeNumFormat() {
         if UserDefaults.standard.bool(forKey: "UseDecimals") {

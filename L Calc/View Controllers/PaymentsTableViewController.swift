@@ -10,16 +10,16 @@ import UIKit
 
 class PaymentsTableViewController: UITableViewController {
     
-    // MARK: - vars
+    //MARK: - vars
     var payments: Payments?
     var numFormat = ""
     // FIXME:   var loc = Locale.current
     var loc = Locale(identifier: "en_US")
     
-    // MARK: - @IBActions
+    //MARK: - @IBActions
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        // MARK: Tell view controller to dissapper
+        //MARK: Tell view controller to dissapper
         navigationController?.popViewController(animated: true)
     }
     
@@ -40,7 +40,7 @@ class PaymentsTableViewController: UITableViewController {
     }
 
     
-    // MARK: - Table view data source
+    //MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -122,7 +122,7 @@ class PaymentsTableViewController: UITableViewController {
         return cell
     }
     
-    // MARK: - extra
+    //MARK: - extra
     // TODO: create extension??
     func changeNumFormat() {
         if UserDefaults.standard.bool(forKey: "UseDecimals") {
