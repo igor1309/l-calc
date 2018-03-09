@@ -69,7 +69,7 @@ class LoanMainViewController: UIViewController {
         notification.notificationOccurred(.warning)
     }
 
-    //MARK: -
+    //MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -98,6 +98,21 @@ class LoanMainViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue,
+                          sender: Any?) {
+        if let destinationViewController = segue.destination as? PaymentsTableViewController {
+            //            destinationViewController.loan = loan
+            destinationViewController.payments =
+                Payments(for: loan)
+        }
+        
+        if let destinationViewController = segue.destination as? Graph2ViewController {
+            destinationViewController.loan = loan
+        }
+        
+    }
+    
+    //MARK: - Show Loan
     func showLoanData() {
         amountLabel.text = numberAsNiceString(loan.amount)
         rateLabel.text = percentageAsNiceString(loan.rate)
@@ -132,21 +147,6 @@ class LoanMainViewController: UIViewController {
 
         //  provide haptic feedback
         feedbackChange.selectionChanged()
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue,
-                          sender: Any?) {
-        if let destinationViewController = segue.destination as? PaymentsTableViewController {
-            //            destinationViewController.loan = loan
-            destinationViewController.payments =
-                Payments(for: loan)
-        }
-
-        if let destinationViewController = segue.destination as? Graph2ViewController {
-            destinationViewController.loan = loan
-        }
-        
     }
     
     //MARK: - @IBActions
@@ -227,7 +227,6 @@ class LoanMainViewController: UIViewController {
     }
 
     //MARK: - @IBActions: rate tapping and panning
-
     @IBAction func ratePanDetected(
         _ gesture: UIPanGestureRecognizer) {
         
@@ -448,7 +447,6 @@ class LoanMainViewController: UIViewController {
     }
     
     //MARK: - Change number functions
-
     private func changeNumber(_ number: Double, direction: Direction) -> Double {
         
         var plusMinus: Double
@@ -487,7 +485,6 @@ class LoanMainViewController: UIViewController {
     }
     
     //MARK: - Tap functions
-    
     private func directionForTap(_ gestureRecognizer: UIGestureRecognizer, in view: UIView) -> Direction? {
         let x = gestureRecognizer.location(in: view).x
         let center = view.frame.width / 2
@@ -505,7 +502,6 @@ class LoanMainViewController: UIViewController {
     }
     
     //MARK: - Change by Pan functions
-
     func changeByPan(_ gesture: UIPanGestureRecognizer,
                      number: Double,
                      label: UILabel,
