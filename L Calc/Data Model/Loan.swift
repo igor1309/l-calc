@@ -113,7 +113,11 @@ extension Loan {
         
         switch type {
         case .interestOnly:
-            return 10
+            // https://www.wikihow.com/Calculate-Effective-Interest-Rate
+//            r = (1 + i/n)^n - 1.
+//            In this formula, r represents the effective interest rate, i represents the stated interest rate, and n represents the number of compounding periods per year.
+            let p = pow(1 + rate / 100 / 12, 12)
+            return (p - 1) * 100
             
         case .fixedPayment:
             return 11
