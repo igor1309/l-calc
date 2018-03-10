@@ -29,6 +29,8 @@ class LoanMainViewController: UIViewController {
     //MARK: - @IBOutlets
     @IBOutlet weak var monthlyPayment: UILabel!
     @IBOutlet weak var monthlyPaymentCommentLabel: UILabel!
+    @IBOutlet weak var firstInterestLabel: UILabel!
+    @IBOutlet weak var firstPrincipalLabel: UILabel!
     @IBOutlet weak var totalInterest: UILabel!
     @IBOutlet weak var totalPayment: UILabel!
     @IBOutlet weak var loanResultsView: UIView!
@@ -122,6 +124,12 @@ class LoanMainViewController: UIViewController {
         monthlyPayment.text = String(format: "%.0f",
                                      locale: loc,
                                      loan.monthlyPayment)
+        firstInterestLabel.text = String(format: "%.0f",
+                                     locale: loc,
+                                     loan.firstInterest)
+        firstPrincipalLabel.text = String(format: "%.0f",
+                                     locale: loc,
+                                     loan.firstPrincipal)
         totalInterest.text = String(format: "%.0f",
                                     locale: loc,
                                     loan.totalInterest)

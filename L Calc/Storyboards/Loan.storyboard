@@ -51,7 +51,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="JcB-OL-j45" userLabel="First Percent Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="JcB-OL-j45" userLabel="First Interest Stack View">
                                         <rect key="frame" x="20" y="126" width="335" height="17"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПЕРВЫЙ МЕСЯЦ ПРОЦЕНТЫ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysy-Mh-zz8" userLabel="ПРОЦЕНТЫ">
@@ -93,7 +93,7 @@
                                             <constraint firstAttribute="height" constant="1" id="hsU-do-Mo4"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="UQv-S3-6TA" userLabel="Total Percent Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="UQv-S3-6TA" userLabel="Total Interest Stack View">
                                         <rect key="frame" x="20" y="183" width="335" height="17"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПРОЦЕНТЫ ВСЕГО" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBw-Tr-Vdy">
@@ -369,6 +369,8 @@
                         <outlet property="amountLabel" destination="F8T-SY-tGf" id="wo1-el-uNk"/>
                         <outlet property="amountStack" destination="qMy-6Z-siJ" id="f1l-dv-j1P"/>
                         <outlet property="amountSubLabel" destination="xPy-y5-b7W" id="ze5-uL-oyd"/>
+                        <outlet property="firstInterestLabel" destination="MZ8-lU-UK5" id="J84-rr-naw"/>
+                        <outlet property="firstPrincipalLabel" destination="bea-CH-gLe" id="Gn7-O6-mR9"/>
                         <outlet property="loanResultsView" destination="4yJ-kd-NP3" id="ErR-x7-mob"/>
                         <outlet property="loanTypeComment" destination="IhJ-Nv-KG8" id="XSe-ax-VVL"/>
                         <outlet property="loanTypeSegment" destination="pL7-qX-ew3" id="vPY-MU-PcM"/>

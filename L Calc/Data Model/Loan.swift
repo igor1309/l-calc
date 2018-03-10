@@ -86,7 +86,28 @@ struct Loan {
 }
 
 extension Loan {
-
+    
+    var firstInterest: Double { // проценты в первом платеже
+        let r = rate / 100 / 12    // monthly interest rate
+        return amount * r
+    }
+    
+    var firstPrincipal: Double { // тело в первом платеже
+        let r = rate / 100 / 12    // monthly interest rate
+        
+        switch type {
+        case .interestOnly:
+            return 0
+            
+        case .fixedPayment:
+            let p = pow(1 + r, 0 - term)
+            return amount/((1 - p)/r) - amount * r
+            
+        case .fixedPrincipal:
+            return amount / term
+        }
+    }
+    
     var monthlyPayment: Double {    // размер ежемесячного платежа
         let r = rate / 100 / 12    // monthly interest rate
         
