@@ -33,6 +33,7 @@ class LoanMainViewController: UIViewController {
     @IBOutlet weak var firstPrincipalLabel: UILabel!
     @IBOutlet weak var totalInterest: UILabel!
     @IBOutlet weak var totalPayment: UILabel!
+    @IBOutlet weak var effectiveRateLabel: UILabel!
     @IBOutlet weak var loanResultsView: UIView!
     
     @IBOutlet weak var amountLabel: UILabel!
@@ -136,7 +137,8 @@ class LoanMainViewController: UIViewController {
         totalPayment.text = String(format: "%.0f",
                                    locale: loc,
                                    loan.totalPayments)
-        
+        effectiveRateLabel.text = percentageAsNiceString(loan.effectiveRate)
+
         switch loan.type {
         case .interestOnly:
             loanTypeSegment.selectedSegmentIndex = 0

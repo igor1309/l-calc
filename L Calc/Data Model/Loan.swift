@@ -108,6 +108,21 @@ extension Loan {
         }
     }
     
+    var effectiveRate: Double { // тело в первом платеже
+//        let r = rate / 100 / 12    // monthly interest rate
+        
+        switch type {
+        case .interestOnly:
+            return 10
+            
+        case .fixedPayment:
+            return 11
+            
+        case .fixedPrincipal:
+            return 12
+        }
+    }
+
     var monthlyPayment: Double {    // размер ежемесячного платежа
         let r = rate / 100 / 12    // monthly interest rate
         
