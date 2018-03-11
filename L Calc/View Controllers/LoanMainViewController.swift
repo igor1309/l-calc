@@ -351,28 +351,10 @@ class LoanMainViewController: UIViewController {
         subLabel.textColor = loanParamsTint
     }
     
-    //MARK: - Change number functions
-    private func changeNumber(_ number: Double,
-                              direction: Direction) -> Double {
-        
-        var plusMinus: Double
-        
-        switch direction {
-        case .up: plusMinus = 1
-        default: plusMinus = -1
-        }
-        
-        let orderOfMagnitude = String(Int(number)).count - 1
-        let magnitude = Double(truncating: pow(10, orderOfMagnitude) as NSNumber)
-        var approx = (number / magnitude + plusMinus * 0.055) * 10
-        approx = approx.rounded()
-        approx = approx * magnitude / 10
-        return approx
-    }
-    
+    //MARK: - Change number    
     private func changeNumber (_ number: Double,
                                direction: Direction,
-                               useDecimal: Bool) -> Double {
+                               useDecimal: Bool = false) -> Double {
         var plusMinus: Double
         
         switch direction {
@@ -386,7 +368,12 @@ class LoanMainViewController: UIViewController {
             approx = approx / 10
             return approx
         } else {
-            return changeNumber(number, direction: direction)
+            let orderOfMagnitude = String(Int(number)).count - 1
+            let magnitude = Double(truncating: pow(10, orderOfMagnitude) as NSNumber)
+            var approx = (number / magnitude + plusMinus * 0.055) * 10
+            approx = approx.rounded()
+            approx = approx * magnitude / 10
+            return approx
         }
     }
     

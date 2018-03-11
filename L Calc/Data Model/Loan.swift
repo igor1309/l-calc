@@ -125,6 +125,9 @@ extension Loan {
         case .fixedPrincipal:
             return 12
         }
+        
+        let a = loanPaymentsMonthlyTotal()
+        
     }
 
     var monthlyPayment: Double {    // размер ежемесячного платежа
