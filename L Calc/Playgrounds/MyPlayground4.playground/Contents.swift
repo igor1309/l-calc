@@ -81,8 +81,8 @@ func IRR(_ loanAmount: Double, nominalRate: Double = 10, cashFlows: [Int]) -> Do
     
     func f(x: Double) -> Double {
         var f: Double = 0
-        for i in 1...a.count {
-            let cf = Double(a[i - 1])
+        for i in 1...cashFlows.count {
+            let cf = Double(cashFlows[i - 1])
             let discount = pow(x, Double(i))
             f += cf * discount
         }
@@ -91,9 +91,9 @@ func IRR(_ loanAmount: Double, nominalRate: Double = 10, cashFlows: [Int]) -> Do
     
     func fd(x: Double) -> Double {
         var fd: Double = 0
-        for i in 1...a.count {
+        for i in 1...cashFlows.count {
             let k = Double(i)
-            let cf = Double(a[i - 1])
+            let cf = Double(cashFlows[i - 1])
             let discount = pow(x, Double(i))
             fd += k * cf * discount
         }

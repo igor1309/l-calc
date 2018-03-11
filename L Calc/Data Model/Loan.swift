@@ -108,26 +108,11 @@ extension Loan {
         }
     }
     
-    var effectiveRate: Double { // тело в первом платеже
-//        let r = rate / 100 / 12    // monthly interest rate
+    var effectiveRate: Double {
         
-        switch type {
-        case .interestOnly:
-            // https://www.wikihow.com/Calculate-Effective-Interest-Rate
-//            r = (1 + i/n)^n - 1.
-//            In this formula, r represents the effective interest rate, i represents the stated interest rate, and n represents the number of compounding periods per year.
-            let p = pow(1 + rate / 100 / 12, 12)
-            return (p - 1) * 100
-            
-        case .fixedPayment:
-            return 11
-            
-        case .fixedPrincipal:
-            return 12
-        }
-        
-        let a = loanPaymentsMonthlyTotal()
-        
+        return irr(amount,
+                   nominalRate: rate,
+                   cashFlows: loanPaymentsMonthlyTotal())
     }
 
     var monthlyPayment: Double {    // размер ежемесячного платежа
@@ -247,6 +232,51 @@ extension Loan {
 }
 
 extension Loan {
+    
+    func irr(_ loanAmount: Double,
+             nominalRate: Double = 10,
+             cashFlows: [Int]) -> Double {
+        
+        let precision = 0.00001 // 1e-10
+
+        
+        func f(x: Double) -> Double {
+            var f: Double = 0
+            for i in 1...cashFlows.count {
+                let cf = Double(cashFlows[i - 1])
+                let discount = pow(x, Double(i))
+                f += cf * discount
+            }
+            return amount - f
+        }
+        
+        func fd(x: Double) -> Double {
+            var fd: Double = 0
+            for i in 1...cashFlows.count {
+                let k = Double(i)
+                let cf = Double(cashFlows[i - 1])
+                let discount = pow(x, Double(i))
+                fd += k * cf * discount
+            }
+            return fd
+        }
+        
+        var NPV: Double = amount
+        let r = nominalRate / 100 / 12 // monthly interest rate
+        
+        var xOld: Double = 1 / (1 + r)
+        var xNew: Double = 1 / (1 + r)
+        
+        while fabs(NPV) >= precision {
+            xOld = xNew
+            xNew = xOld + f(x: xOld) / fd(x: xOld)
+            NPV = f(x: xNew)
+        }
+        
+        let j = 1 / xNew - 1
+        
+        return (pow(1 + j, 12) - 1) * 100
+    }
     
     func loanPaymentsMonthlyTotal() -> [Int] {
         

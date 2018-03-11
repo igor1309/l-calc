@@ -315,7 +315,7 @@ class LoanMainViewController: UIViewController {
                                          subLabel: termSubLabel,
                                          threshold: 7)  else { return }
         loan.term = newValue
-        print(loan.term)
+//        print(loan.term)
         showLoanData()
     }
     
@@ -351,7 +351,7 @@ class LoanMainViewController: UIViewController {
         subLabel.textColor = loanParamsTint
     }
     
-    //MARK: - Change number    
+    //MARK: - Change number
     private func changeNumber (_ number: Double,
                                direction: Direction,
                                useDecimal: Bool = false) -> Double {
