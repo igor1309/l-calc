@@ -92,21 +92,24 @@ import UIKit
         UIColor.white.setFill()
         UIColor.white.setStroke()
         
+        let rect = UIBezierPath()
+        
         //Draw the rectangulars on top of graph stroke
-        // [4, 7, 8, 9, 5]
         for i in 0..<graphPoints.count {
             var point = CGPoint(x: columnXPoint(i),
                                 y: columnYPoint(graphPoints[i]))
             point.x -= Constants.circleDiameter / 2
             
-            let rect = UIBezierPath(
+            rect.move(to: point)
+            let bar = UIBezierPath(
                 roundedRect: CGRect(origin: point,
                                     size: CGSize(width: Constants.circleDiameter,
                                                  height: columnYHeight(graphPoints[i]) )),
                 cornerRadius: Constants.circleDiameter / 3)
-            
-            rect.fill()
+            rect.append(bar)
         }
+        
+        rect.fill()
         
         //Draw horizontal graph lines on the top of everything
         let linePath = UIBezierPath()
