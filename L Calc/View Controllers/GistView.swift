@@ -28,7 +28,7 @@ import UIKit
     // sample data
 //    var graphPoints: [Int] = [4, 7, 8, 9, 5]
     var graphPoints: [Int] = [4, 7, 6, 8, 5, 9, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 9, 8, 9, 5]
-
+    var graphPoints2: [Int] = [4, 1, 2, 3, 5, 2, 1, 3, 1, 3, 1, 1, 2, 2, 2, 1, 3, 2, 1, 3, 1, 3, 1, 1, 2, 2, 2, 1, 3, 2, 2, 3, 2, 5]
     override func draw(_ rect: CGRect) {
         
         if coolHueIndex > -1 && coolHueIndex < 60 {
@@ -75,7 +75,7 @@ import UIKit
         let topBorder: CGFloat = Constants.topBorder
         let bottomBorder: CGFloat = Constants.bottomBorder
         let graphHeight = height - topBorder - bottomBorder
-        let maxValue = graphPoints.max()!
+        var maxValue = graphPoints.max()!
         let columnYPoint = { (graphPoint:Int) -> CGFloat in
             var y:CGFloat = CGFloat(graphPoint) / CGFloat(maxValue) * graphHeight
             y = graphHeight + topBorder - y // Flip the graph
@@ -92,9 +92,10 @@ import UIKit
         UIColor.white.setFill()
         UIColor.white.setStroke()
         
+        /*
         let rect = UIBezierPath()
         
-        //Draw the rectangulars on top of graph stroke
+        //Draw the rectangulars
         for i in 0..<graphPoints.count {
             var point = CGPoint(x: columnXPoint(i),
                                 y: columnYPoint(graphPoints[i]))
@@ -108,8 +109,44 @@ import UIKit
                 cornerRadius: Constants.circleDiameter / 3)
             rect.append(bar)
         }
-        
         rect.fill()
+         */
+        maxValue = graphPoints.max()! + graphPoints2.max()!
+
+        let bars1 = UIBezierPath()
+        let bars2 = UIBezierPath()
+        // Draw stacked bar diagram
+        for i in 0..<graphPoints.count {
+            var point1 = CGPoint(x: columnXPoint(i),
+                                y: columnYPoint(graphPoints[i]))
+            point1.x -= Constants.circleDiameter / 2
+            
+            bars1.move(to: point1)
+            let bar1 = UIBezierPath(
+                roundedRect: CGRect(origin: point1,
+                                    size: CGSize(width: Constants.circleDiameter / 2,
+                                                 height: columnYHeight(graphPoints[i]) )),
+                cornerRadius: Constants.circleDiameter / 3)
+            bars1.append(bar1)
+
+            let point2 = CGPoint(x: columnXPoint(i),
+                                 y: graphHeight - columnYHeight(graphPoints[i]) - Constants.circleDiameter / 2
+            )
+
+//            point2.y -= columnYHeight(graphPoints2[i])
+            bars2.move(to: point2)
+            let bar2 = UIBezierPath(
+                roundedRect: CGRect(origin: point2,
+                                    size: CGSize(width: Constants.circleDiameter / 2,
+                                                 height: columnYHeight(graphPoints2[i]) )),
+                cornerRadius: Constants.circleDiameter / 3)
+            
+            bars2.append(bar2)
+        }
+        UIColor.cyan.setFill()
+        bars1.fill()
+        UIColor.white.setFill()
+        bars2.fill()
         
         //Draw horizontal graph lines on the top of everything
         let linePath = UIBezierPath()
