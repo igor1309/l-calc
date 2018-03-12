@@ -131,10 +131,9 @@ import UIKit
             bars1.append(bar1)
 
             var point2 = CGPoint(x: columnXPoint(i),
-                                 y: columnYPoint(graphPoints[i]) - columnYHeight(graphPoints2[i]) + Constants.circleDiameter * 2
-            )
+                                 y: columnYPoint(graphPoints[i]))
             point2.x -= Constants.circleDiameter / 2
-//            point2.y -= columnYHeight(graphPoints2[i])
+            point2.y -=  columnYHeight(graphPoints2[i]) - Constants.circleDiameter * 2
             bars2.move(to: point2)
             let bar2 = UIBezierPath(
                 roundedRect: CGRect(origin: point2,
