@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2A0214DA204F1B8C001D7673 /* Graph2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A0214D9204F1B8C001D7673 /* Graph2.storyboard */; };
+		2A02AABB2057033500D5149F /* Gist2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02AABA2057033500D5149F /* Gist2View.swift */; };
+		2A02AABD2057045400D5149F /* 2barsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A02AABC2057045400D5149F /* 2barsView.xib */; };
 		2A0970F12055A9A000CF7570 /* Gist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A0970F02055A9A000CF7570 /* Gist.storyboard */; };
 		2A0970F32055AB0F00CF7570 /* GistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0970F22055AB0F00CF7570 /* GistViewController.swift */; };
 		2A0CD7962013252600FE8404 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CD7952013252600FE8404 /* SettingsTableViewController.swift */; };
@@ -71,6 +73,8 @@
 
 /* Begin PBXFileReference section */
 		2A0214D9204F1B8C001D7673 /* Graph2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Graph2.storyboard; sourceTree = "<group>"; };
+		2A02AABA2057033500D5149F /* Gist2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gist2View.swift; sourceTree = "<group>"; };
+		2A02AABC2057045400D5149F /* 2barsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = 2barsView.xib; sourceTree = "<group>"; };
 		2A0970F02055A9A000CF7570 /* Gist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Gist.storyboard; sourceTree = "<group>"; };
 		2A0970F22055AB0F00CF7570 /* GistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistViewController.swift; sourceTree = "<group>"; };
 		2A0CD7952013252600FE8404 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +236,8 @@
 				2A52FF2D204DC0AD00CF1E19 /* GraphView2.swift */,
 				2A0970F22055AB0F00CF7570 /* GistViewController.swift */,
 				2A40E1512055A770006CBD64 /* GistView.swift */,
+				2A02AABA2057033500D5149F /* Gist2View.swift */,
+				2A02AABC2057045400D5149F /* 2barsView.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -390,6 +396,7 @@
 				2A1B3FD31FF2D95100E912B8 /* LaunchScreen.storyboard in Resources */,
 				2A0970F12055A9A000CF7570 /* Gist.storyboard in Resources */,
 				2A1B3FD01FF2D95100E912B8 /* Assets.xcassets in Resources */,
+				2A02AABD2057045400D5149F /* 2barsView.xib in Resources */,
 				2A0214DA204F1B8C001D7673 /* Graph2.storyboard in Resources */,
 				2ADC0A972041E4B00025B8A6 /* Graph.storyboard in Resources */,
 				2ACBB248200763E70068C3FC /* Loan.storyboard in Resources */,
@@ -418,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A02AABB2057033500D5149F /* Gist2View.swift in Sources */,
 				2ADC0A992041E50B0025B8A6 /* GraphViewController.swift in Sources */,
 				2AAE351A201BA24200D2B46D /* CoreDataStack.swift in Sources */,
 				2A68A10F2014F075000B947F /* Notifications.swift in Sources */,

@@ -8,8 +8,8 @@
 
 import UIKit
 
-@IBDesignable class GistView: UIView {
-
+@IBDesignable class Gist2View: UIView {
+    
     private struct Constants {
         static let cornerRadiusSize = CGSize(width: 14.0,
                                              height: 14.0)
@@ -25,10 +25,14 @@ import UIKit
     @IBInspectable var startColor: UIColor = UIColor(rgb: 0xce9ffc)
     @IBInspectable var endColor: UIColor = UIColor(rgb: 0x7367f0)
     
+//    var graphPoints1: [Int]?
+//    var graphPoints2: [Int]?
+
     // sample data
-//    var graphPoints: [Int] = [4, 7, 8, 9, 5]
-    var graphPoints: [Int] = [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 4]
+    //    var graphPoints: [Int] = [4, 7, 8, 9, 5]
+    var graphPoints1: [Int] = [2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 1, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 9, 8, 9]
     var graphPoints2: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1, 3, 1, 3, 1, 1, 2, 2, 2, 1, 3, 2, 2, 3, 2, 5]
+    
     override func draw(_ rect: CGRect) {
         
         if coolHueIndex > -1 && coolHueIndex < 60 {
@@ -65,7 +69,7 @@ import UIKit
         let margin = Constants.margin
         let columnXPoint = { (column:Int) -> CGFloat in
             //Calculate gap between points
-            let spacer = (width - margin * 2 - 4) / CGFloat((self.graphPoints.count - 1))
+            let spacer = (width - margin * 2 - 4) / CGFloat((self.graphPoints1.count - 1))
             var x: CGFloat = CGFloat(column) * spacer
             x += margin + 2
             return x
@@ -75,7 +79,17 @@ import UIKit
         let topBorder: CGFloat = Constants.topBorder
         let bottomBorder: CGFloat = Constants.bottomBorder
         let graphHeight = height - topBorder - bottomBorder
-        let maxValue = graphPoints.max()!
+
+        func maxOf2Sum(a: [Int], b: [Int]) -> Int {
+            var maxSum = 0
+            for i in 0...a.count - 1 {
+                if maxSum < a[i] + b[i] {
+                    maxSum = a[i] + b[i]
+                }
+            }
+            return maxSum
+        }
+        let maxValue = maxOf2Sum(a: graphPoints1, b: graphPoints2)
         
         let columnYPoint = { (graphPoint:Int) -> CGFloat in
             var y:CGFloat = CGFloat(graphPoint) / CGFloat(maxValue) * graphHeight
@@ -88,30 +102,47 @@ import UIKit
             let y:CGFloat = CGFloat(graphPoint) / CGFloat(maxValue) * graphHeight
             return y
         }
-
+        
         // draw the line graph
         UIColor.white.setFill()
         UIColor.white.setStroke()
         
         
-        let rect = UIBezierPath()
-        
-        //Draw the rectangulars
-        for i in 0..<graphPoints.count {
-            var point = CGPoint(x: columnXPoint(i),
-                                y: columnYPoint(graphPoints[i]))
-            point.x -= Constants.circleDiameter / 2
-         
-            rect.move(to: point)
-            let bar = UIBezierPath(
-                roundedRect: CGRect(origin: point,
+        let bars1 = UIBezierPath()
+        let bars2 = UIBezierPath()
+        // Draw stacked bar diagram
+        for i in 0..<graphPoints1.count {
+            var point1 = CGPoint(x: columnXPoint(i),
+                                 y: columnYPoint(graphPoints1[i]))
+            point1.x -= Constants.circleDiameter / 2
+            point1.y += Constants.circleDiameter
+            
+            bars1.move(to: point1)
+            let bar1 = UIBezierPath(
+                roundedRect: CGRect(origin: point1,
                                     size: CGSize(width: Constants.circleDiameter,
-                                                 height: columnYHeight(graphPoints[i]) )),
+                                                 height: columnYHeight(graphPoints1[i]) - Constants.circleDiameter)),
                 cornerRadius: Constants.circleDiameter / 3)
-            rect.append(bar)
+            bars1.append(bar1)
+            
+            var point2 = CGPoint(x: columnXPoint(i),
+                                 y: columnYPoint(graphPoints1[i]))
+            point2.x -= Constants.circleDiameter / 2
+            point2.y -=  columnYHeight(graphPoints2[i]) - Constants.circleDiameter * 2
+            bars2.move(to: point2)
+            let bar2 = UIBezierPath(
+                roundedRect: CGRect(origin: point2,
+                                    size: CGSize(width: Constants.circleDiameter,
+                                                 height: columnYHeight(graphPoints2[i]) - Constants.circleDiameter )),
+                cornerRadius: Constants.circleDiameter / 3)
+            
+            bars2.append(bar2)
         }
-        rect.fill()
-      
+        UIColor.cyan.setFill()
+        bars1.fill()
+        UIColor.white.setFill()
+        bars2.fill()
+        
         //Draw horizontal graph lines on the top of everything
         let linePath = UIBezierPath()
         
@@ -140,4 +171,5 @@ import UIKit
         linePath.stroke()
     }
 }
+
 
