@@ -309,6 +309,48 @@ extension Loan {
         return a
     }
     
+    func loanPaymentsMonthlyInterest() -> [Int] {
+        let r = rate / 100 / 12    // monthly interest rate
+        var a = [Int]()
+        
+        switch type {
+        case .interestOnly:
+            let interest = amount * r
+            for _ in 1...Int(term) {
+                a.append(Int(interest))
+            }
+
+        case .fixedPrincipal:
+            for i in 1...Int(term) {
+                let beginningBalance =
+                    amount * (1 - Double (i - 1) / term)
+                let interest = beginningBalance * r
+
+                a.append(Int(interest))
+            }
+            
+        case .fixedPayment:    // аннуитет w/fixed monthly payment
+            let monthlyPayment = amount /
+                ((1 - pow(1 + r, Double(0 - term))) / r)
+            for i in 1...Int(term) {
+                let beginningBalance =
+                    amount * pow(1 + r, Double (i - 1)) -
+                        monthlyPayment / r * (pow(1 + r, Double (i - 1)) - 1)
+                let endingBalance =
+                    amount * pow(1 + r, Double (i)) -
+                        monthlyPayment / r * (pow(1 + r, Double (i)) - 1)
+                let principal =
+                    beginningBalance - endingBalance
+                let interest =
+                    monthlyPayment - principal
+
+                a.append(Int(interest))
+            }
+        }
+        return a
+
+    }
+    
     func loanPaymentsMonthlyPrincipal() -> [Int] {
         
         let r = rate / 100 / 12    // monthly interest rate

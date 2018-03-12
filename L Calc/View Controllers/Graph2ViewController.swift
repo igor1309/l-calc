@@ -11,7 +11,8 @@ import UIKit
 class Graph2ViewController: UIViewController {
 
     @IBOutlet weak var graph2: GraphView2!
-
+    @IBOutlet weak var interestTypeLabel: UILabel!
+    
     var loan: Loan?
 
     @IBAction func closeButton(_ sender: UIBarButtonItem) {
@@ -26,10 +27,11 @@ class Graph2ViewController: UIViewController {
         super.viewDidLoad()
 
         if let loan = loan {
-            graph2.gPoints1 = loan.loanPaymentsMonthlyTotal()
-            print(graph2.gPoints1)
-            graph2.gPoints2 = loan.loanPaymentsMonthlyPrincipal()
-            print(graph2.gPoints2)
+            graph2.gPoints1 = loan.loanPaymentsMonthlyPrincipal()
+//            print(graph2.gPoints1)
+//            print(graph2.gPoints2)
+            graph2.gPoints2 = loan.loanPaymentsMonthlyInterest()
+            interestTypeLabel.text = loan.interestTypeComment[loan.type]
         }
     }
     
