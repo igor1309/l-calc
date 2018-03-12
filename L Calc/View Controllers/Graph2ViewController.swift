@@ -27,7 +27,9 @@ class Graph2ViewController: UIViewController {
 
         if let loan = loan {
             graph2.gPoints1 = loan.loanPaymentsMonthlyTotal()
+            print(graph2.gPoints1)
             graph2.gPoints2 = loan.loanPaymentsMonthlyPrincipal()
+            print(graph2.gPoints2)
         }
     }
     
