@@ -27,8 +27,8 @@ import UIKit
     
     // sample data
 //    var graphPoints: [Int] = [4, 7, 8, 9, 5]
-    var graphPoints: [Int] = [4, 7, 6, 8, 5, 9, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 9, 8, 9, 5]
-    var graphPoints2: [Int] = [4, 1, 2, 3, 5, 2, 1, 3, 1, 3, 1, 1, 2, 2, 2, 1, 3, 2, 1, 3, 1, 3, 1, 1, 2, 2, 2, 1, 3, 2, 2, 3, 2, 5]
+    var graphPoints: [Int] = [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 1, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 9, 8, 9]
+    var graphPoints2: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 1, 1, 1, 1, 1, 1, 1, 1, 3, 2, 1, 3, 1, 3, 1, 1, 2, 2, 2, 1, 3, 2, 2, 3, 2, 5]
     override func draw(_ rect: CGRect) {
         
         if coolHueIndex > -1 && coolHueIndex < 60 {
@@ -120,25 +120,26 @@ import UIKit
             var point1 = CGPoint(x: columnXPoint(i),
                                 y: columnYPoint(graphPoints[i]))
             point1.x -= Constants.circleDiameter / 2
-            
+            point1.y += Constants.circleDiameter
+
             bars1.move(to: point1)
             let bar1 = UIBezierPath(
                 roundedRect: CGRect(origin: point1,
-                                    size: CGSize(width: Constants.circleDiameter / 2,
-                                                 height: columnYHeight(graphPoints[i]) )),
+                                    size: CGSize(width: Constants.circleDiameter,
+                                                 height: columnYHeight(graphPoints[i]) - Constants.circleDiameter)),
                 cornerRadius: Constants.circleDiameter / 3)
             bars1.append(bar1)
 
-            let point2 = CGPoint(x: columnXPoint(i),
-                                 y: graphHeight - columnYHeight(graphPoints[i]) - Constants.circleDiameter / 2
+            var point2 = CGPoint(x: columnXPoint(i),
+                                 y: columnYPoint(graphPoints[i]) - columnYHeight(graphPoints2[i]) + Constants.circleDiameter * 2
             )
-
+            point2.x -= Constants.circleDiameter / 2
 //            point2.y -= columnYHeight(graphPoints2[i])
             bars2.move(to: point2)
             let bar2 = UIBezierPath(
                 roundedRect: CGRect(origin: point2,
-                                    size: CGSize(width: Constants.circleDiameter / 2,
-                                                 height: columnYHeight(graphPoints2[i]) )),
+                                    size: CGSize(width: Constants.circleDiameter,
+                                                 height: columnYHeight(graphPoints2[i]) - Constants.circleDiameter )),
                 cornerRadius: Constants.circleDiameter / 3)
             
             bars2.append(bar2)
