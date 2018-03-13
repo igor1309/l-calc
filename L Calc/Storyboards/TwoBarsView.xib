@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,9 +16,62 @@
         <view contentMode="scaleToFill" id="mms-CR-lKa" customClass="TwoBarsView" customModule="L_Calc" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="opU-6n-3lh" userLabel="Legend Stack View">
+                    <rect key="frame" x="245" y="19" width="94" height="40"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ieh-WU-Km2" userLabel="Interest Stack View">
+                            <rect key="frame" x="0.0" y="0.0" width="94" height="16"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gnz-eh-ttL">
+                                    <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="16" id="T84-6Q-iQZ"/>
+                                        <constraint firstAttribute="width" constant="16" id="zhw-Su-7h3"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПРОЦЕНТЫ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBm-QB-7eg">
+                                    <rect key="frame" x="24" y="0.0" width="70" height="16"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Mng-Px-NgN" userLabel="Principal Stack View">
+                            <rect key="frame" x="0.0" y="24" width="57" height="16"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Od8-3S-GOy">
+                                    <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                    <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="16" id="NoU-BL-qGZ"/>
+                                        <constraint firstAttribute="width" constant="16" id="Yqf-Wb-G30"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ТЕЛО" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LW1-65-wLG">
+                                    <rect key="frame" x="24" y="0.0" width="33" height="16"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fAu-ky-pYt" firstAttribute="top" secondItem="opU-6n-3lh" secondAttribute="top" constant="1" id="hpK-tO-pqI"/>
+                <constraint firstItem="fAu-ky-pYt" firstAttribute="trailing" secondItem="opU-6n-3lh" secondAttribute="trailing" constant="36" id="nup-hM-JiU"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fAu-ky-pYt"/>
-            <point key="canvasLocation" x="122" y="220"/>
+            <connections>
+                <outlet property="interestColorView" destination="gnz-eh-ttL" id="GPa-CF-jKn"/>
+                <outlet property="principalColorView" destination="Od8-3S-GOy" id="mF5-2Z-0hE"/>
+            </connections>
+            <point key="canvasLocation" x="121.5" y="219.5"/>
         </view>
     </objects>
 </document>

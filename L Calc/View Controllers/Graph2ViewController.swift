@@ -10,8 +10,13 @@ import UIKit
 
 class Graph2ViewController: UIViewController {
 
-    @IBOutlet weak var graph2: GraphView2!
     @IBOutlet weak var interestTypeLabel: UILabel!
+    @IBOutlet weak var interestTypeCommentLabel: UILabel!
+    @IBOutlet weak var graph2: GraphView2!
+    @IBOutlet weak var interestColorLegendView: UIView!
+    @IBOutlet weak var principalColorLegendView: UIView!
+    
+
     
     var loan: Loan?
 
@@ -31,7 +36,8 @@ class Graph2ViewController: UIViewController {
 //            print(graph2.gPoints1)
 //            print(graph2.gPoints2)
             graph2.gPoints2 = loan.loanPaymentsMonthlyInterest()
-            interestTypeLabel.text = loan.interestTypeComment[loan.type]
+            interestTypeLabel.text = String(loan.type.rawValue)
+            interestTypeCommentLabel.text = loan.interestTypeComment[loan.type]
         }
     }
     

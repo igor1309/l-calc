@@ -24,8 +24,8 @@ import UIKit
     @IBInspectable var coolHueIndex: Int = 32
     @IBInspectable var startColor: UIColor = UIColor(rgb: 0xce9ffc)
     @IBInspectable var endColor: UIColor = UIColor(rgb: 0x7367f0)
-    
-//    var graphPoints1: [Int]?
+        
+    //    var graphPoints1: [Int]?
 //    var graphPoints2: [Int]?
 
     // sample data
