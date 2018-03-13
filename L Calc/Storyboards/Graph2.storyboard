@@ -26,13 +26,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chj-25-IPz">
-                                <rect key="frame" x="16" y="99.333333333333329" width="343" height="19.333333333333329"/>
+                                <rect key="frame" x="16" y="107.33333333333333" width="343" height="19.333333333333329"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                 <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRg-RB-xhf" customClass="TwoBarsView" customModule="L_Calc" customModuleProvider="target">
-                                <rect key="frame" x="16" y="134.66666666666669" width="343" height="619.33333333333326"/>
+                                <rect key="frame" x="16" y="142.66666666666669" width="343" height="595.33333333333326"/>
                                 <color key="backgroundColor" red="0.11372549019607843" green="0.17254901960784313" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <userDefinedRuntimeAttributes>
@@ -45,7 +45,7 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LWY-mh-4mj" userLabel="Legend Stack View">
-                                <rect key="frame" x="109.66666666666667" y="730" width="156.33333333333331" height="8"/>
+                                <rect key="frame" x="109.66666666666667" y="754" width="156.33333333333331" height="8"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4Li-C1-qSg" userLabel="Interest Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="8"/>
@@ -94,16 +94,16 @@
                             <constraint firstItem="bRg-RB-xhf" firstAttribute="top" secondItem="chj-25-IPz" secondAttribute="bottom" constant="16" id="21S-Ml-CHp"/>
                             <constraint firstItem="zEO-c6-IzU" firstAttribute="top" secondItem="PIk-Q2-pcG" secondAttribute="top" constant="16" id="F80-b5-SbT"/>
                             <constraint firstItem="PIk-Q2-pcG" firstAttribute="trailing" secondItem="chj-25-IPz" secondAttribute="trailing" constant="16" id="Rtt-3B-kLy"/>
-                            <constraint firstItem="PIk-Q2-pcG" firstAttribute="bottom" secondItem="bRg-RB-xhf" secondAttribute="bottom" constant="24" id="c5L-1t-pIY">
+                            <constraint firstItem="PIk-Q2-pcG" firstAttribute="bottom" secondItem="LWY-mh-4mj" secondAttribute="bottom" constant="16" id="c5L-1t-pIY">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                             </constraint>
-                            <constraint firstItem="bRg-RB-xhf" firstAttribute="bottom" secondItem="LWY-mh-4mj" secondAttribute="bottom" constant="16" id="eUS-oc-gcV"/>
+                            <constraint firstItem="LWY-mh-4mj" firstAttribute="top" secondItem="bRg-RB-xhf" secondAttribute="bottom" constant="16" id="eUS-oc-gcV"/>
                             <constraint firstItem="chj-25-IPz" firstAttribute="leading" secondItem="PIk-Q2-pcG" secondAttribute="leading" constant="16" id="gKH-4f-oAV"/>
                             <constraint firstItem="zEO-c6-IzU" firstAttribute="centerX" secondItem="VgE-a9-Yun" secondAttribute="centerX" id="sp5-8U-VKh"/>
                             <constraint firstItem="PIk-Q2-pcG" firstAttribute="trailing" secondItem="bRg-RB-xhf" secondAttribute="trailing" constant="16" id="sxv-JT-pBG"/>
-                            <constraint firstItem="chj-25-IPz" firstAttribute="top" secondItem="zEO-c6-IzU" secondAttribute="bottom" constant="8" symbolic="YES" id="vHP-aj-P5F"/>
+                            <constraint firstItem="chj-25-IPz" firstAttribute="top" secondItem="zEO-c6-IzU" secondAttribute="bottom" constant="16" id="vHP-aj-P5F"/>
                             <constraint firstItem="bRg-RB-xhf" firstAttribute="leading" secondItem="PIk-Q2-pcG" secondAttribute="leading" constant="16" id="wQ8-M9-Vak"/>
-                            <constraint firstItem="LWY-mh-4mj" firstAttribute="centerX" secondItem="bRg-RB-xhf" secondAttribute="centerX" id="yfz-SG-BJr"/>
+                            <constraint firstItem="LWY-mh-4mj" firstAttribute="centerX" secondItem="VgE-a9-Yun" secondAttribute="centerX" id="yfz-SG-BJr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PIk-Q2-pcG"/>
                     </view>
