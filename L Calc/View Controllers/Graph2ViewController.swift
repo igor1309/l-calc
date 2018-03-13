@@ -9,6 +9,11 @@
 import UIKit
 
 class Graph2ViewController: UIViewController {
+    
+    let interestColor = UIColor.white
+    let principalColor = UIColor.cyan
+
+    var loan: Loan?
 
     @IBOutlet weak var interestTypeLabel: UILabel!
     @IBOutlet weak var interestTypeCommentLabel: UILabel!
@@ -16,12 +21,6 @@ class Graph2ViewController: UIViewController {
     @IBOutlet weak var interestColorLegendView: UIView!
     @IBOutlet weak var principalColorLegendView: UIView!
     
-
-    let interestColor = UIColor.white
-    let principalColor = UIColor.cyan
-    
-    var loan: Loan?
-
     @IBAction func closeButton(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
@@ -40,16 +39,11 @@ class Graph2ViewController: UIViewController {
             //            print(graph2.gPoints2)
             graph2.principalColor = principalColor
             graph2.interestColor = interestColor
-            interestTypeLabel.text = String(loan.type.rawValue)
+            interestTypeLabel.text = loan.interestTypeName[loan.type]
             interestTypeCommentLabel.text = loan.interestTypeComment[loan.type]
             principalColorLegendView.backgroundColor = principalColor
             interestColorLegendView.backgroundColor = interestColor
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
     }
     
 }

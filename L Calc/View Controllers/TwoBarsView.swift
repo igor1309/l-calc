@@ -50,6 +50,7 @@ import UIKit
         
         let width = rect.width
         let height = rect.height
+        self.alpha = 0.1
         
         let path = UIBezierPath(
             roundedRect: rect,
@@ -154,6 +155,13 @@ import UIKit
         interestColor.setFill()
         bars2.fill()
         
+        
+        //FIXME: need a better animation
+        UIView.animate(withDuration: 0.75) {
+            self.alpha = 1.0
+        }
+        
+        
         //Draw horizontal graph lines on the top of everything
         let linePath = UIBezierPath()
         
@@ -181,6 +189,7 @@ import UIKit
         linePath.lineWidth = 1.0
         linePath.stroke()
     }
+    
 }
 
 

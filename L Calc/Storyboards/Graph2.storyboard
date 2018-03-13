@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRg-RB-xhf" customClass="TwoBarsView" customModule="L_Calc" customModuleProvider="target">
-                                <rect key="frame" x="16" y="142.66666666666669" width="343" height="611.33333333333326"/>
+                                <rect key="frame" x="16" y="142.66666666666669" width="343" height="619.33333333333326"/>
                                 <color key="backgroundColor" red="0.11372549019607843" green="0.17254901960784313" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <userDefinedRuntimeAttributes>
@@ -123,7 +123,7 @@
                             <constraint firstItem="bRg-RB-xhf" firstAttribute="top" secondItem="chj-25-IPz" secondAttribute="bottom" constant="16" id="21S-Ml-CHp"/>
                             <constraint firstItem="zEO-c6-IzU" firstAttribute="top" secondItem="PIk-Q2-pcG" secondAttribute="top" constant="16" id="F80-b5-SbT"/>
                             <constraint firstItem="PIk-Q2-pcG" firstAttribute="trailing" secondItem="chj-25-IPz" secondAttribute="trailing" constant="16" id="Rtt-3B-kLy"/>
-                            <constraint firstItem="PIk-Q2-pcG" firstAttribute="bottom" secondItem="bRg-RB-xhf" secondAttribute="bottom" constant="24" id="c5L-1t-pIY">
+                            <constraint firstItem="PIk-Q2-pcG" firstAttribute="bottom" secondItem="bRg-RB-xhf" secondAttribute="bottom" constant="16" id="c5L-1t-pIY">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="LWY-mh-4mj" firstAttribute="top" secondItem="bRg-RB-xhf" secondAttribute="top" constant="18" id="eUS-oc-gcV"/>

@@ -20,6 +20,12 @@ struct Loan {
     private let maxPrincipal = pow(10.0, 10.0)
     private let minPrincipal = 10000.0
     
+    let interestTypeName: [InterestType: String] = [
+        .interestOnly: "В конце",
+        .fixedPrincipal: "Равными",
+        .fixedPayment: "Аннуитет"
+    ]
+    
     let interestTypeComment: [InterestType: String] = [
         .interestOnly: "Проценты выплачиваются ежемесячно, а тело кредита – в конце срока",
         .fixedPrincipal: "Тело кредита погашается ежемесячно равными суммами",
