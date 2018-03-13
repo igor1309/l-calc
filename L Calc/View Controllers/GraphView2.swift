@@ -21,6 +21,7 @@ import UIKit
         static let circleDiameter: CGFloat = 6.0
     }
     
+    
     // the properties for the gradient
     @IBInspectable var coolHueIndex: Int = 55   //32
     @IBInspectable var startColor: UIColor = UIColor(rgb: 0xce9ffc)

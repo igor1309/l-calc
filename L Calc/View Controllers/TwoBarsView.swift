@@ -10,6 +10,9 @@ import UIKit
 
 @IBDesignable class TwoBarsView: UIView {
     
+    var interestColor = UIColor.white
+    var principalColor = UIColor.cyan
+    
     private struct Constants {
         static let cornerRadiusSize = CGSize(width: 14.0,
                                              height: 14.0)
@@ -24,7 +27,7 @@ import UIKit
     @IBInspectable var coolHueIndex: Int = 32
     @IBInspectable var startColor: UIColor = UIColor(rgb: 0xce9ffc)
     @IBInspectable var endColor: UIColor = UIColor(rgb: 0x7367f0)
-        
+    
     //    var graphPoints1: [Int]?
 //    var graphPoints2: [Int]?
 
@@ -146,9 +149,9 @@ import UIKit
             
             bars2.append(bar2)
         }
-        UIColor.cyan.setFill()
+        principalColor.setFill()
         bars1.fill()
-        UIColor.white.setFill()
+        interestColor.setFill()
         bars2.fill()
         
         //Draw horizontal graph lines on the top of everything

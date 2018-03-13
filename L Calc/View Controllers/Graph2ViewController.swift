@@ -12,11 +12,13 @@ class Graph2ViewController: UIViewController {
 
     @IBOutlet weak var interestTypeLabel: UILabel!
     @IBOutlet weak var interestTypeCommentLabel: UILabel!
-    @IBOutlet weak var graph2: GraphView2!
+    @IBOutlet weak var graph2: TwoBarsView!
     @IBOutlet weak var interestColorLegendView: UIView!
     @IBOutlet weak var principalColorLegendView: UIView!
     
 
+    let interestColor = UIColor.white
+    let principalColor = UIColor.cyan
     
     var loan: Loan?
 
@@ -32,12 +34,16 @@ class Graph2ViewController: UIViewController {
         super.viewDidLoad()
 
         if let loan = loan {
-            graph2.gPoints1 = loan.loanPaymentsMonthlyPrincipal()
-//            print(graph2.gPoints1)
-//            print(graph2.gPoints2)
-            graph2.gPoints2 = loan.loanPaymentsMonthlyInterest()
+            graph2.graphPoints1 = loan.loanPaymentsMonthlyPrincipal()
+            graph2.graphPoints2 = loan.loanPaymentsMonthlyInterest()
+            //            print(graph2.gPoints1)
+            //            print(graph2.gPoints2)
+            graph2.principalColor = principalColor
+            graph2.interestColor = interestColor
             interestTypeLabel.text = String(loan.type.rawValue)
             interestTypeCommentLabel.text = loan.interestTypeComment[loan.type]
+            principalColorLegendView.backgroundColor = principalColor
+            interestColorLegendView.backgroundColor = interestColor
         }
     }
     
