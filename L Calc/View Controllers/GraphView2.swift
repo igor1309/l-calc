@@ -1,5 +1,5 @@
 //
-//  GraphView.swift
+//  GraphView2.swift
 //  L Calc
 //
 //  Created by Igor Malyarov on 24.02.2018.

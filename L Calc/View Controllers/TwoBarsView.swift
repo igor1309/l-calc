@@ -1,5 +1,5 @@
 //
-//  GistView.swift
+//  TwoBarsView.swift
 //  L Calc
 //
 //  Created by Igor Malyarov on 11.03.2018.

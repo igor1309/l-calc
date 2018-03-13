@@ -208,6 +208,7 @@
 		2A58C9C1200761DD00516471 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				2A02AABC2057045400D5149F /* TwoBarsView.xib */,
 				2ADC0A962041E4B00025B8A6 /* Graph.storyboard */,
 				2A0214D9204F1B8C001D7673 /* Graph2.storyboard */,
 				2ACBB247200763E70068C3FC /* Loan.storyboard */,
@@ -237,7 +238,6 @@
 				2A0970F22055AB0F00CF7570 /* GistViewController.swift */,
 				2A40E1512055A770006CBD64 /* GistView.swift */,
 				2A02AABA2057033500D5149F /* TwoBarsView.swift */,
-				2A02AABC2057045400D5149F /* TwoBarsView.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
