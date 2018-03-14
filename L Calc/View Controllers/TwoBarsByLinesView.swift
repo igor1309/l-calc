@@ -75,9 +75,9 @@ import UIKit
         
         //calculate the x point
         let margin = Constants.margin
+        let spacer = (width - margin * 2 - 4) / CGFloat((self.graphPoints1.count - 1))
         let columnXPoint = { (column:Int) -> CGFloat in
             //Calculate gap between points
-            let spacer = (width - margin * 2 - 4) / CGFloat((self.graphPoints1.count - 1))
             var x: CGFloat = CGFloat(column) * spacer
             x += margin + 2
             return x
@@ -115,39 +115,20 @@ import UIKit
         UIColor.white.setFill()
         UIColor.white.setStroke()
         
-        func barsForDiagram(from points: [Int]) -> UIBezierPath {
-            
-            let path = UIBezierPath()
-            for i in 0..<points.count {
-                
-                //FIXME: сделать вычисление/выбор ширины столбика в зависимости от количества точек
-                
-                var point = CGPoint(x: columnXPoint(i),
-                                     y: columnYPoint(points[i]))
-                point.x -= Constants.barWidth / 2
-                point.y += Constants.barWidth
-                
-                let nextPoint = CGPoint(x: point.x,
-                                         y: point.y + columnYHeight(points[i]) - Constants.barWidth)
-                path.move(to: nextPoint)
-                path.addLine(to: point)
-            }
-            return path
-        }
-        
+        // draw diagram with animation
         let principalPath = UIBezierPath()
-        principalPath.lineWidth = Constants.barWidth
+        //FIXME: сделать вычисление/выбор ширины столбика в зависимости от количества точек
+        let barWidth = spacer / 2
+        principalPath.lineWidth = barWidth
         let interestPath = UIBezierPath()
-        interestPath.lineWidth = Constants.barWidth
+        interestPath.lineWidth = barWidth
         // Draw stacked bar diagram
         for i in 0..<graphPoints1.count {
             
-            //FIXME: сделать вычисление/выбор ширины столбика в зависимости от количества точек
             
             var point1 = CGPoint(x: columnXPoint(i),
                                  y: columnYPoint(graphPoints1[i]))
-            point1.x -= Constants.barWidth / 2
-//            point1.y += Constants.circleDiameter
+            point1.x -= barWidth / 2
             
             let nextPoint1 = CGPoint(x: point1.x,
                                      y: point1.y + columnYHeight(graphPoints1[i]))
@@ -157,7 +138,7 @@ import UIKit
 
             var point2 = CGPoint(x: columnXPoint(i),
                                  y: columnYPoint(graphPoints1[i]))
-            point2.x -= Constants.barWidth / 2
+            point2.x -= barWidth / 2
             point2.y -= columnYHeight(graphPoints2[i])
            
             let nextPoint2 = CGPoint(x: point2.x,
@@ -170,14 +151,14 @@ import UIKit
         
         animateOutline(principalPath,
                        with: principalColor,
-                       lineWidth: Constants.barWidth,
+                       lineWidth: barWidth,
                        duration: duration)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7 * duration) {
             // 0.7 * duration — начать анимацию чуть раньше, чем закончится предудущая
             self.animateOutline(interestPath,
                                 with: self.interestColor,
-                                lineWidth: Constants.barWidth,
+                                lineWidth: barWidth,
                                 duration: duration)
         }
         
