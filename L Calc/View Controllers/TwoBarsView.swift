@@ -41,6 +41,14 @@ import UIKit
     // [104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765]
     // [65598, 66112, 66630, 67152, 67678, 68208, 68742, 69281, 69823, 70370, 70921, 71477, 72037, 72601, 73170, 73743, 74321, 74903, 75490, 76081, 76677, 77278, 77883, 78493, 79108, 79728, 80352, 80982, 81616, 82255, 82900, 83549, 84203, 84863, 85528, 86198, 86873, 87554, 88239, 88931, 89627, 90329, 91037, 91750, 92469, 93193, 93923, 94659, 95400, 96148, 96901, 97660, 98425, 99196, 99973, 100756, 101545, 102341, 103142, 103950]
     
+    fileprivate func simpleAnimation() {
+        //FIXME: need a better animation
+        self.alpha = 0.1
+        UIView.animate(withDuration: 0.75) {
+            self.alpha = 1.0
+        }
+    }
+    
     override func draw(_ rect: CGRect) {
         
         if coolHueIndex > -1 && coolHueIndex < 60 {
@@ -50,7 +58,6 @@ import UIKit
         
         let width = rect.width
         let height = rect.height
-        self.alpha = 0.1
         
         let path = UIBezierPath(
             roundedRect: rect,
@@ -155,11 +162,7 @@ import UIKit
         interestColor.setFill()
         bars2.fill()
         
-        
-        //FIXME: need a better animation
-        UIView.animate(withDuration: 0.75) {
-            self.alpha = 1.0
-        }
+        simpleAnimation()
         
         
         //Draw horizontal graph lines on the top of everything
