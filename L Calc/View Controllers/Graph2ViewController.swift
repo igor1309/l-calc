@@ -10,7 +10,7 @@ import UIKit
 
 class Graph2ViewController: UIViewController {
     
-    // background color 1D2C40
+    // background color 1D2C40 и 323645
     
     let interestColor = UIColor.white
     let principalColor = UIColor(hexString: "D1D1D1")

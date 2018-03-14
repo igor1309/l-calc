@@ -20,7 +20,7 @@ import UIKit
         static let topBorder: CGFloat = 60
         static let bottomBorder: CGFloat = 50
         static let colorAlpha: CGFloat = 0.3
-        static let circleDiameter: CGFloat = 3.0
+        static let barWidth: CGFloat = 8.0
     }
     
     // the properties for the gradient
@@ -35,19 +35,11 @@ import UIKit
 //        var graphPoints1: [Int] = [4, 7, 8, 9, 5]
 //    var graphPoints1: [Int] = [104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765]
 //    var graphPoints2: [Int] = [65598, 66112, 66630, 67152, 67678, 68208, 68742, 69281, 69823, 70370, 70921, 71477, 72037, 72601, 73170, 73743, 74321, 74903, 75490, 76081, 76677, 77278, 77883, 78493, 79108, 79728, 80352, 80982, 81616, 82255, 82900, 83549, 84203, 84863, 85528, 86198, 86873, 87554, 88239, 88931, 89627, 90329, 91037, 91750, 92469, 93193, 93923, 94659, 95400, 96148, 96901, 97660, 98425, 99196, 99973, 100756, 101545, 102341, 103142, 103950]
-    var graphPoints1: [Int] = [2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 1, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 9, 8, 9]
-    var graphPoints2: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1, 3, 1, 3, 1, 1, 2, 2, 2, 1, 3, 2, 2, 3, 2, 5]
+    var graphPoints1: [Int] = [1, 0, 6, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1]
+    var graphPoints2: [Int] = [5, 6, 5, 0, 0, 5, 5, 5, 6, 4, 0, 0, 0, 0]
 
     // [104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765]
     // [65598, 66112, 66630, 67152, 67678, 68208, 68742, 69281, 69823, 70370, 70921, 71477, 72037, 72601, 73170, 73743, 74321, 74903, 75490, 76081, 76677, 77278, 77883, 78493, 79108, 79728, 80352, 80982, 81616, 82255, 82900, 83549, 84203, 84863, 85528, 86198, 86873, 87554, 88239, 88931, 89627, 90329, 91037, 91750, 92469, 93193, 93923, 94659, 95400, 96148, 96901, 97660, 98425, 99196, 99973, 100756, 101545, 102341, 103142, 103950]
-    
-    fileprivate func simpleAnimation() {
-        //FIXME: need a better animation
-        self.alpha = 0.1
-        UIView.animate(withDuration: 0.75) {
-            self.alpha = 1.0
-        }
-    }
     
     override func draw(_ rect: CGRect) {
         
@@ -123,11 +115,30 @@ import UIKit
         UIColor.white.setFill()
         UIColor.white.setStroke()
         
+        func barsForDiagram(from points: [Int]) -> UIBezierPath {
+            
+            let path = UIBezierPath()
+            for i in 0..<points.count {
+                
+                //FIXME: сделать вычисление/выбор ширины столбика в зависимости от количества точек
+                
+                var point = CGPoint(x: columnXPoint(i),
+                                     y: columnYPoint(points[i]))
+                point.x -= Constants.barWidth / 2
+                point.y += Constants.barWidth
+                
+                let nextPoint = CGPoint(x: point.x,
+                                         y: point.y + columnYHeight(points[i]) - Constants.barWidth)
+                path.move(to: nextPoint)
+                path.addLine(to: point)
+            }
+            return path
+        }
         
         let principalPath = UIBezierPath()
-        principalPath.lineWidth = Constants.circleDiameter
+        principalPath.lineWidth = Constants.barWidth
         let interestPath = UIBezierPath()
-        interestPath.lineWidth = Constants.circleDiameter
+        interestPath.lineWidth = Constants.barWidth
         // Draw stacked bar diagram
         for i in 0..<graphPoints1.count {
             
@@ -135,46 +146,46 @@ import UIKit
             
             var point1 = CGPoint(x: columnXPoint(i),
                                  y: columnYPoint(graphPoints1[i]))
-            point1.x -= Constants.circleDiameter / 2
-            point1.y += Constants.circleDiameter
+            point1.x -= Constants.barWidth / 2
+//            point1.y += Constants.circleDiameter
             
             let nextPoint1 = CGPoint(x: point1.x,
-                                     y: point1.y + columnYHeight(graphPoints1[i]) - Constants.circleDiameter)
+                                     y: point1.y + columnYHeight(graphPoints1[i]))
             principalPath.move(to: nextPoint1)
             principalPath.addLine(to: point1)
 
 
             var point2 = CGPoint(x: columnXPoint(i),
                                  y: columnYPoint(graphPoints1[i]))
-            point2.x -= Constants.circleDiameter / 2
-            point2.y -=  columnYHeight(graphPoints2[i]) - Constants.circleDiameter * 2
+            point2.x -= Constants.barWidth / 2
+            point2.y -= columnYHeight(graphPoints2[i])
            
             let nextPoint2 = CGPoint(x: point2.x,
-                                     y: point2.y + columnYHeight(graphPoints2[i]) - Constants.circleDiameter)
+                                     y: point2.y + columnYHeight(graphPoints2[i]))
             interestPath.move(to: nextPoint2)
             interestPath.addLine(to: point2)
         }
 
-        let duration: CFTimeInterval = 1
+        let duration: CFTimeInterval = 2
         
         animateOutline(principalPath,
                        with: principalColor,
-                       lineWidth: Constants.circleDiameter,
+                       lineWidth: Constants.barWidth,
                        duration: duration)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7 * duration) {
             // 0.7 * duration — начать анимацию чуть раньше, чем закончится предудущая
             self.animateOutline(interestPath,
                                 with: self.interestColor,
-                                lineWidth: Constants.circleDiameter,
+                                lineWidth: Constants.barWidth,
                                 duration: duration)
         }
         
 
-//        interestColor.setStroke()
-//        principalColor.setStroke()
-//        bars1.stroke()
-//        bars2.stroke()
+        interestColor.setStroke()
+        interestPath.stroke()
+        principalColor.setStroke()
+        principalPath.stroke()
 //        simpleAnimation()
         
         
@@ -185,22 +196,23 @@ import UIKit
         let linePath = UIBezierPath()
         
         //top line
-        linePath.move(to: CGPoint(x:margin,
+        linePath.move(to: CGPoint(x: margin,
                                   y: topBorder))
         linePath.addLine(to: CGPoint(x: width - margin,
                                      y:topBorder))
         
         //center line
-        linePath.move(to: CGPoint(x:margin,
+        linePath.move(to: CGPoint(x: margin,
                                   y: graphHeight/2 + topBorder))
         linePath.addLine(to: CGPoint(x:width - margin,
                                      y:graphHeight/2 + topBorder))
         
         //bottom line
-        linePath.move(to: CGPoint(x:margin,
-                                  y:height - bottomBorder))
-        linePath.addLine(to: CGPoint(x:width - margin,
-                                     y:height - bottomBorder))
+        linePath.move(to: CGPoint(x: margin,
+                                  y: height - bottomBorder))
+        linePath.addLine(to: CGPoint(x: width - margin,
+                                     y: height - bottomBorder))
+        
         let color = UIColor(white: 1.0,
                             alpha: Constants.colorAlpha)
         color.setStroke()
@@ -244,6 +256,12 @@ import UIKit
 //            shapeLayer.strokeColor = UIColor.clear.cgColor
 //        }
     }
+    
+    fileprivate func simpleAnimation() {
+        //FIXME: need a better animation
+        self.alpha = 0.1
+        UIView.animate(withDuration: 0.75) {
+            self.alpha = 1.0
+        }
+    }
 }
-
-
