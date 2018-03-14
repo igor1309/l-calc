@@ -21,7 +21,7 @@ struct Loan {
     private let minPrincipal = 10000.0
     private let maxRate = 100.0
     private let minRate = 0.1
-    private let maxTerm = 120.0
+    private let maxTerm = 180.0
     private let minTerm = 2.0
     
     let interestTypeName: [InterestType: String] = [
@@ -37,7 +37,6 @@ struct Loan {
     ]
     
     var amount: Double {     //  сумма кредита
-        
         didSet {
             // контроль границ диапазона суммы кредита + notify
             let notification =
@@ -108,7 +107,6 @@ struct Loan {
                                       forKey: "Term")
         }
     }
-
     
     var type: InterestType {   //  аннуитет
         willSet {
@@ -117,8 +115,6 @@ struct Loan {
                                       forKey: "InterestType")
         }
     }
-    
-    
 }
 
 extension Loan {

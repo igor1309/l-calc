@@ -22,10 +22,6 @@ class LoanMainViewController: UIViewController {
     let changingTint = UIColor(hexString: "FFCD07")
     let loanParamsTint = UIColor(hexString: "D1D1D1")
     
-    //FIXME: проверку диапазона убрать в определение переменной класса
-    let maxRate = 199.0
-    let minRate = 0.02
-
     //MARK: - @IBOutlets
     @IBOutlet weak var monthlyPayment: UILabel!
     @IBOutlet weak var monthlyPaymentCommentLabel: UILabel!
@@ -259,13 +255,6 @@ class LoanMainViewController: UIViewController {
         loan.rate =  changeNumber(loan.rate * 10,
                                   direction: direction) / 10
         
-        //FIXME: проверку диапазона убрать в определение переменной класса
-        if loan.rate <= minRate {
-            loan.rate = minRate
-        }
-        if loan.rate >= maxRate {
-            loan.rate = maxRate
-        }
         showLoanData()
     }
     
@@ -281,13 +270,6 @@ class LoanMainViewController: UIViewController {
             
             loan.rate = changeNumber(loan.rate, direction: direction)
 
-            //FIXME: проверку диапазона убрать в определение переменной класса
-            if loan.rate <= minRate {
-                loan.rate = minRate
-            }
-            if loan.rate >= maxRate {
-                loan.rate = maxRate
-            }
             showLoanData()
             
         case .ended:
