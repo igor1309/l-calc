@@ -32,8 +32,8 @@ import UIKit
 //        var graphPoints1: [Int] = [4, 7, 8, 9, 5]
 //    var graphPoints1: [Int] = [104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765]
 //    var graphPoints2: [Int] = [65598, 66112, 66630, 67152, 67678, 68208, 68742, 69281, 69823, 70370, 70921, 71477, 72037, 72601, 73170, 73743, 74321, 74903, 75490, 76081, 76677, 77278, 77883, 78493, 79108, 79728, 80352, 80982, 81616, 82255, 82900, 83549, 84203, 84863, 85528, 86198, 86873, 87554, 88239, 88931, 89627, 90329, 91037, 91750, 92469, 93193, 93923, 94659, 95400, 96148, 96901, 97660, 98425, 99196, 99973, 100756, 101545, 102341, 103142, 103950]
-    var graphPoints1: [Int] = [1, 0, 6, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1]
-    var graphPoints2: [Int] = [5, 6, 5, 0, 0, 5, 5, 5, 6, 4, 0, 0, 0, 0]
+    var principalPoints: [Int] = [1, 0, 6, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1]
+    var interestPoints: [Int] = [5, 6, 5, 0, 0, 5, 5, 5, 6, 4, 0, 0, 0, 0]
 
     
     override func draw(_ rect: CGRect) {
@@ -70,7 +70,7 @@ import UIKit
         
         //calculate the x point
         let margin = Constants.margin
-        let spacer = (width - margin * 2 - 4) / CGFloat((self.graphPoints1.count - 1))
+        let spacer = (width - margin * 2 - 4) / CGFloat(principalPoints.count - 1)
         let columnXPoint = { (column:Int) -> CGFloat in
             //Calculate gap between points
             var x: CGFloat = CGFloat(column) * spacer
@@ -92,7 +92,7 @@ import UIKit
             }
             return maxSum
         }
-        let maxValue = maxOf2Sum(a: graphPoints1, b: graphPoints2)
+        let maxValue = maxOf2Sum(a: principalPoints, b: interestPoints)
         
         let columnYPoint = { (graphPoint:Int) -> CGFloat in
             var y:CGFloat = CGFloat(graphPoint) / CGFloat(maxValue) * graphHeight
@@ -115,29 +115,30 @@ import UIKit
         // draw diagram with animation
         let principalPath = UIBezierPath()
         // вычисление ширины столбика в зависимости от количества точек
-        let barWidth = spacer / 2
+        var barWidth = spacer / 2
+        if principalPoints.count - 1 < 8 { barWidth = 15 }
         principalPath.lineWidth = barWidth
         let interestPath = UIBezierPath()
         interestPath.lineWidth = barWidth
         // Draw stacked bar diagram
-        for i in 0..<graphPoints1.count {
+        for i in 0..<principalPoints.count {
             
             
             let point1 = CGPoint(x: columnXPoint(i),
-                                 y: columnYPoint(graphPoints1[i]))
+                                 y: columnYPoint(principalPoints[i]))
             
             let nextPoint1 = CGPoint(x: point1.x,
-                                     y: point1.y + columnYHeight(graphPoints1[i]))
+                                     y: point1.y + columnYHeight(principalPoints[i]))
             principalPath.move(to: nextPoint1)
             principalPath.addLine(to: point1)
 
 
             var point2 = CGPoint(x: columnXPoint(i),
-                                 y: columnYPoint(graphPoints1[i]))
-            point2.y -= columnYHeight(graphPoints2[i])
+                                 y: columnYPoint(principalPoints[i]))
+            point2.y -= columnYHeight(interestPoints[i])
            
             let nextPoint2 = CGPoint(x: point2.x,
-                                     y: point2.y + columnYHeight(graphPoints2[i]))
+                                     y: point2.y + columnYHeight(interestPoints[i]))
             interestPath.move(to: nextPoint2)
             interestPath.addLine(to: point2)
         }
@@ -157,10 +158,10 @@ import UIKit
                                 duration: duration)
         }
 
-        interestColor.setStroke()
-        interestPath.stroke()
-        principalColor.setStroke()
-        principalPath.stroke()
+//        interestColor.setStroke()
+//        interestPath.stroke()
+//        principalColor.setStroke()
+//        principalPath.stroke()
 //        simpleAnimation()
         
         

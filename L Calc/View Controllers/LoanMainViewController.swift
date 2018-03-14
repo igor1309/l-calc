@@ -247,14 +247,6 @@ class LoanMainViewController: UIViewController {
             loan.rate =  changeNumber(loan.rate,
                                       direction: direction,
                                       useDecimal: true)
-            
-            //FIXME: проверку диапазона убрать в определение переменной класса
-            if loan.rate <= minRate {
-                loan.rate = minRate
-            }
-            if loan.rate >= maxRate {
-                loan.rate = maxRate
-            }
             showLoanData()
         }
     }
@@ -313,9 +305,9 @@ class LoanMainViewController: UIViewController {
                                          number: loan.term,
                                          label: termLabel,
                                          subLabel: termSubLabel,
-                                         threshold: 7)  else { return }
+                                         threshold: 7,
+                                         byOne: true)  else { return }
         loan.term = newValue
-//        print(loan.term)
         showLoanData()
     }
     
@@ -324,12 +316,9 @@ class LoanMainViewController: UIViewController {
         guard let direction = directionForTap(sender, in: termStack) else { return }
         
         loan.term =  changeNumber(loan.term,
-                                  direction: direction)
-        
-        //FIXME: проверку диапазона убрать в определение переменной класса
-
+                                  direction: direction,
+                                  byOne: true)
         showLoanData()
-
     }
     
     //MARK: - Visual settigs for change
@@ -354,13 +343,15 @@ class LoanMainViewController: UIViewController {
     //MARK: - Change number
     private func changeNumber (_ number: Double,
                                direction: Direction,
-                               useDecimal: Bool = false) -> Double {
+                               useDecimal: Bool = false,
+                               byOne: Bool = false) -> Double {
         var plusMinus: Double
         
         switch direction {
         case .up: plusMinus = 1
         default: plusMinus = -1
         }
+        if byOne { return number + plusMinus }
         
         if useDecimal {
             var approx = (number * 10 + plusMinus)
@@ -398,7 +389,8 @@ class LoanMainViewController: UIViewController {
                      label: UILabel,
                      subLabel: UILabel,
                      threshold: CGFloat,
-                     useDecimal: Bool) -> Double? {
+                     useDecimal: Bool = false,
+                     byOne: Bool = false) -> Double? {
         switch sender.state {
             
         case .began:
@@ -421,7 +413,8 @@ class LoanMainViewController: UIViewController {
             
             return changeNumber(number,
                                 direction: direction,
-                                useDecimal: useDecimal)
+                                useDecimal: useDecimal,
+                                byOne: byOne)
         case .ended:
             restoreResultsAndColor(label, subLabel)
             return nil
@@ -431,6 +424,7 @@ class LoanMainViewController: UIViewController {
         }
     }
     
+    /*
     func changeByPan(_ sender: UIPanGestureRecognizer,
                      number: Double,
                      label: UILabel,
@@ -445,7 +439,7 @@ class LoanMainViewController: UIViewController {
                            threshold: threshold,
                            useDecimal: false)
     }
-    
+ */
     //MARK: - Nice string formatting
     func termSubLabelText(for term: Double) -> String {
         var yearsString = String(format: "%.1f", term/12)  + " YEARS)"
