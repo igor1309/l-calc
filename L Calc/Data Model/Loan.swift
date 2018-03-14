@@ -19,11 +19,15 @@ struct Loan {
     
     private let maxPrincipal = pow(10.0, 10.0)
     private let minPrincipal = 10000.0
+    private let maxRate = 100.0
+    private let minRate = 0.1
+    private let maxTerm = 120.0
+    private let minTerm = 2.0
     
     let interestTypeName: [InterestType: String] = [
-        .interestOnly: "В конце",
-        .fixedPrincipal: "Равными",
-        .fixedPayment: "Аннуитет"
+        .interestOnly: "В КОНЦЕ",
+        .fixedPrincipal: "РАВНЫМИ",
+        .fixedPayment: "АННУИТЕТ"
     ]
     
     let interestTypeComment: [InterestType: String] = [
@@ -50,7 +54,6 @@ struct Loan {
                     Notification(name: .outOfRange))
             }
         }
-        
         willSet {
         // FIXME: вернуть запись данных только если значение изменилось
             UserDefaults.standard.set(newValue,
@@ -58,8 +61,22 @@ struct Loan {
         }
     }
     var rate: Double {    //  годовая процентная ставка
-        // FIXME: по аналогии с amount сделать с didSet контроль границ, особенно нижней, 0.01%
-        // FIXME: add UINotificationFeedbackGenerator
+        didSet {
+            // контроль границ диапазона суммы кредита + notify
+            let notification =
+                NotificationCenter.default
+            
+            if rate > maxRate {
+                rate = maxRate
+                notification.post(
+                    Notification(name: .outOfRange))
+                
+            } else if rate < minRate {
+                rate = minRate
+                notification.post(
+                    Notification(name: .outOfRange))
+            }
+        }
         willSet {
         // FIXME: вернуть запись данных только если значение изменилось
             UserDefaults.standard.set(newValue,
@@ -68,9 +85,22 @@ struct Loan {
     }
 
     var term: Double {    //  срок кредита в месяцах
-        // FIXME: по аналогии с amount сделать с didSet контроль границ, особенно нижней, 0.01%
-        // FIXME: add UINotificationFeedbackGenerator
-
+        didSet {
+            // контроль границ диапазона суммы кредита + notify
+            let notification =
+                NotificationCenter.default
+            
+            if term > maxTerm {
+                term = maxTerm
+                notification.post(
+                    Notification(name: .outOfRange))
+                
+            } else if term < minTerm {
+                term = minTerm
+                notification.post(
+                    Notification(name: .outOfRange))
+            }
+        }
         willSet {
         // FIXME: вернуть запись данных только если значение изменилось
         // if term != newValue {  // save if value changes

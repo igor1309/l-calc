@@ -123,9 +123,8 @@ import UIKit
         for i in 0..<graphPoints1.count {
             
             
-            var point1 = CGPoint(x: columnXPoint(i),
+            let point1 = CGPoint(x: columnXPoint(i),
                                  y: columnYPoint(graphPoints1[i]))
-            point1.x -= barWidth / 2
             
             let nextPoint1 = CGPoint(x: point1.x,
                                      y: point1.y + columnYHeight(graphPoints1[i]))
@@ -135,7 +134,6 @@ import UIKit
 
             var point2 = CGPoint(x: columnXPoint(i),
                                  y: columnYPoint(graphPoints1[i]))
-            point2.x -= barWidth / 2
             point2.y -= columnYHeight(graphPoints2[i])
            
             let nextPoint2 = CGPoint(x: point2.x,
@@ -159,10 +157,10 @@ import UIKit
                                 duration: duration)
         }
 
-//        interestColor.setStroke()
-//        interestPath.stroke()
-//        principalColor.setStroke()
-//        principalPath.stroke()
+        interestColor.setStroke()
+        interestPath.stroke()
+        principalColor.setStroke()
+        principalPath.stroke()
 //        simpleAnimation()
         
         
