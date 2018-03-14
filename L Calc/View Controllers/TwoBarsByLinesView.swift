@@ -28,9 +28,6 @@ import UIKit
     @IBInspectable var startColor: UIColor = UIColor(rgb: 0xce9ffc) // UIColor(rgb: 0xce9ffc)
     @IBInspectable var endColor: UIColor = UIColor(rgb: 0x7367f0)   // UIColor(rgb: 0x7367f0)
     
-    //    var graphPoints1: [Int]?
-//    var graphPoints2: [Int]?
-
     // sample data
 //        var graphPoints1: [Int] = [4, 7, 8, 9, 5]
 //    var graphPoints1: [Int] = [104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765]
@@ -38,8 +35,6 @@ import UIKit
     var graphPoints1: [Int] = [1, 0, 6, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1]
     var graphPoints2: [Int] = [5, 6, 5, 0, 0, 5, 5, 5, 6, 4, 0, 0, 0, 0]
 
-    // [104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765]
-    // [65598, 66112, 66630, 67152, 67678, 68208, 68742, 69281, 69823, 70370, 70921, 71477, 72037, 72601, 73170, 73743, 74321, 74903, 75490, 76081, 76677, 77278, 77883, 78493, 79108, 79728, 80352, 80982, 81616, 82255, 82900, 83549, 84203, 84863, 85528, 86198, 86873, 87554, 88239, 88931, 89627, 90329, 91037, 91750, 92469, 93193, 93923, 94659, 95400, 96148, 96901, 97660, 98425, 99196, 99973, 100756, 101545, 102341, 103142, 103950]
     
     override func draw(_ rect: CGRect) {
         
@@ -115,9 +110,11 @@ import UIKit
         UIColor.white.setFill()
         UIColor.white.setStroke()
         
+        
+        
         // draw diagram with animation
         let principalPath = UIBezierPath()
-        //FIXME: сделать вычисление/выбор ширины столбика в зависимости от количества точек
+        // вычисление ширины столбика в зависимости от количества точек
         let barWidth = spacer / 2
         principalPath.lineWidth = barWidth
         let interestPath = UIBezierPath()
@@ -147,8 +144,8 @@ import UIKit
             interestPath.addLine(to: point2)
         }
 
+
         let duration: CFTimeInterval = 2
-        
         animateOutline(principalPath,
                        with: principalColor,
                        lineWidth: barWidth,
@@ -161,14 +158,12 @@ import UIKit
                                 lineWidth: barWidth,
                                 duration: duration)
         }
-        
 
-        interestColor.setStroke()
-        interestPath.stroke()
-        principalColor.setStroke()
-        principalPath.stroke()
+//        interestColor.setStroke()
+//        interestPath.stroke()
+//        principalColor.setStroke()
+//        principalPath.stroke()
 //        simpleAnimation()
-        
         
         
         
@@ -201,6 +196,7 @@ import UIKit
         linePath.lineWidth = 1.0
         linePath.stroke()
     }
+    
     
     fileprivate func animateOutline(_ path: UIBezierPath,
                                     with color: UIColor,

@@ -33,8 +33,8 @@ import UIKit
 
     // sample data
     //    var graphPoints: [Int] = [4, 7, 8, 9, 5]
-    var graphPoints1: [Int] = [104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765]
-    var graphPoints2: [Int] = [65598, 66112, 66630, 67152, 67678, 68208, 68742, 69281, 69823, 70370, 70921, 71477, 72037, 72601, 73170, 73743, 74321, 74903, 75490, 76081, 76677, 77278, 77883, 78493, 79108, 79728, 80352, 80982, 81616, 82255, 82900, 83549, 84203, 84863, 85528, 86198, 86873, 87554, 88239, 88931, 89627, 90329, 91037, 91750, 92469, 93193, 93923, 94659, 95400, 96148, 96901, 97660, 98425, 99196, 99973, 100756, 101545, 102341, 103142, 103950]
+    var principalPoints: [Int] = [104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765]
+    var interestPoints: [Int] = [65598, 66112, 66630, 67152, 67678, 68208, 68742, 69281, 69823, 70370, 70921, 71477, 72037, 72601, 73170, 73743, 74321, 74903, 75490, 76081, 76677, 77278, 77883, 78493, 79108, 79728, 80352, 80982, 81616, 82255, 82900, 83549, 84203, 84863, 85528, 86198, 86873, 87554, 88239, 88931, 89627, 90329, 91037, 91750, 92469, 93193, 93923, 94659, 95400, 96148, 96901, 97660, 98425, 99196, 99973, 100756, 101545, 102341, 103142, 103950]
 //    var graphPoints1: [Int] = [2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 1, 7, 8, 10, 8, 7, 10, 9, 6, 9, 7, 8, 6, 9, 8, 9]
 //    var graphPoints2: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1, 3, 1, 3, 1, 1, 2, 2, 2, 1, 3, 2, 2, 3, 2, 5]
 
@@ -85,7 +85,7 @@ import UIKit
         let margin = Constants.margin
         let columnXPoint = { (column:Int) -> CGFloat in
             //Calculate gap between points
-            let spacer = (width - margin * 2 - 4) / CGFloat((self.graphPoints1.count - 1))
+            let spacer = (width - margin * 2 - 4) / CGFloat((self.principalPoints.count - 1))
             var x: CGFloat = CGFloat(column) * spacer
             x += margin + 2
             return x
@@ -105,7 +105,7 @@ import UIKit
             }
             return maxSum
         }
-        let maxValue = maxOf2Sum(a: graphPoints1, b: graphPoints2)
+        let maxValue = maxOf2Sum(a: principalPoints, b: interestPoints)
         
         let columnYPoint = { (graphPoint:Int) -> CGFloat in
             var y:CGFloat = CGFloat(graphPoint) / CGFloat(maxValue) * graphHeight
@@ -127,12 +127,12 @@ import UIKit
         let bars1 = UIBezierPath()
         let bars2 = UIBezierPath()
         // Draw stacked bar diagram
-        for i in 0..<graphPoints1.count {
+        for i in 0..<principalPoints.count {
             
             //FIXME: сделать вычисление/выбор ширины столбика в зависимости от количества точек
             
             var point1 = CGPoint(x: columnXPoint(i),
-                                 y: columnYPoint(graphPoints1[i]))
+                                 y: columnYPoint(principalPoints[i]))
             point1.x -= Constants.circleDiameter / 2
             point1.y += Constants.circleDiameter
             
@@ -140,19 +140,19 @@ import UIKit
             let bar1 = UIBezierPath(
                 roundedRect: CGRect(origin: point1,
                                     size: CGSize(width: Constants.circleDiameter,
-                                                 height: columnYHeight(graphPoints1[i]) - Constants.circleDiameter)),
+                                                 height: columnYHeight(principalPoints[i]) - Constants.circleDiameter)),
                 cornerRadius: Constants.circleDiameter / 3)
             bars1.append(bar1)
             
             var point2 = CGPoint(x: columnXPoint(i),
-                                 y: columnYPoint(graphPoints1[i]))
+                                 y: columnYPoint(principalPoints[i]))
             point2.x -= Constants.circleDiameter / 2
-            point2.y -=  columnYHeight(graphPoints2[i]) - Constants.circleDiameter * 2
+            point2.y -=  columnYHeight(interestPoints[i]) - Constants.circleDiameter * 2
             bars2.move(to: point2)
             let bar2 = UIBezierPath(
                 roundedRect: CGRect(origin: point2,
                                     size: CGSize(width: Constants.circleDiameter,
-                                                 height: columnYHeight(graphPoints2[i]) - Constants.circleDiameter )),
+                                                 height: columnYHeight(interestPoints[i]) - Constants.circleDiameter )),
                 cornerRadius: Constants.circleDiameter / 3)
             
             bars2.append(bar2)

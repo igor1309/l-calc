@@ -19,7 +19,7 @@ class Graph2ViewController: UIViewController {
 
     @IBOutlet weak var interestTypeLabel: UILabel!
     @IBOutlet weak var interestTypeCommentLabel: UILabel!
-    @IBOutlet weak var graph2: TwoBarsView!
+    @IBOutlet weak var graph: TwoBarsView!
     @IBOutlet weak var interestColorLegendView: UIView!
     @IBOutlet weak var principalColorLegendView: UIView!
     
@@ -28,19 +28,19 @@ class Graph2ViewController: UIViewController {
     }
     
     @IBAction func graphTabDetected(_ sender: UITapGestureRecognizer) {
-        graph2.setNeedsDisplay()
+        graph.setNeedsDisplay()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let loan = loan {
-            graph2.graphPoints1 = loan.loanPaymentsMonthlyPrincipal()
-            graph2.graphPoints2 = loan.loanPaymentsMonthlyInterest()
+            graph.principalPoints = loan.loanPaymentsMonthlyPrincipal()
+            graph.interestPoints = loan.loanPaymentsMonthlyInterest()
             //            print(graph2.gPoints1)
             //            print(graph2.gPoints2)
-            graph2.principalColor = principalColor
-            graph2.interestColor = interestColor
+            graph.principalColor = principalColor
+            graph.interestColor = interestColor
             interestTypeLabel.text = loan.interestTypeName[loan.type]
             interestTypeCommentLabel.text = loan.interestTypeComment[loan.type]
             principalColorLegendView.backgroundColor = principalColor

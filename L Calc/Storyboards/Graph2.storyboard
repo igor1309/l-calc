@@ -151,7 +151,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="graph2" destination="bRg-RB-xhf" id="lyP-A2-ucX"/>
+                        <outlet property="graph" destination="bRg-RB-xhf" id="lyP-A2-ucX"/>
                         <outlet property="interestColorLegendView" destination="xbA-CW-iHz" id="BCY-lu-hW1"/>
                         <outlet property="interestTypeCommentLabel" destination="chj-25-IPz" id="L4I-uZ-gxR"/>
                         <outlet property="interestTypeLabel" destination="zEO-c6-IzU" id="iNG-ol-wNx"/>
