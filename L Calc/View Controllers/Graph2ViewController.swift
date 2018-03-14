@@ -10,8 +10,10 @@ import UIKit
 
 class Graph2ViewController: UIViewController {
     
+    // background color 1D2C40
+    
     let interestColor = UIColor.white
-    let principalColor = UIColor.cyan
+    let principalColor = UIColor(hexString: "D1D1D1")
 
     var loan: Loan?
 

@@ -47,6 +47,7 @@
 		2ADC0A992041E50B0025B8A6 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADC0A982041E50B0025B8A6 /* GraphViewController.swift */; };
 		2ADC0A9B2041E6080025B8A6 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADC0A9A2041E6080025B8A6 /* GraphView.swift */; };
 		2ADC0A9D2041ECD50025B8A6 /* CoolHues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADC0A9C2041ECD50025B8A6 /* CoolHues.swift */; };
+		2AE025FD20594F560010B9EB /* TwoBarsByLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE025FC20594F560010B9EB /* TwoBarsByLinesView.swift */; };
 		2AE63E59201782C7000AE45E /* OtherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE63E58201782C7000AE45E /* OtherExtensions.swift */; };
 		2AE63E5E2017A3E3000AE45E /* SavedLoans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE63E5D2017A3E3000AE45E /* SavedLoans.swift */; };
 		2AE63E602017A94A000AE45E /* LoansTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE63E5F2017A94A000AE45E /* LoansTableViewController.swift */; };
@@ -119,6 +120,7 @@
 		2ADC0A982041E50B0025B8A6 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		2ADC0A9A2041E6080025B8A6 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		2ADC0A9C2041ECD50025B8A6 /* CoolHues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolHues.swift; sourceTree = "<group>"; };
+		2AE025FC20594F560010B9EB /* TwoBarsByLinesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoBarsByLinesView.swift; sourceTree = "<group>"; };
 		2AE63E58201782C7000AE45E /* OtherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherExtensions.swift; sourceTree = "<group>"; };
 		2AE63E5D2017A3E3000AE45E /* SavedLoans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLoans.swift; sourceTree = "<group>"; };
 		2AE63E5F2017A94A000AE45E /* LoansTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansTableViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				2A0970F22055AB0F00CF7570 /* GistViewController.swift */,
 				2A40E1512055A770006CBD64 /* GistView.swift */,
 				2A02AABA2057033500D5149F /* TwoBarsView.swift */,
+				2AE025FC20594F560010B9EB /* TwoBarsByLinesView.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				2A908F762006604700F08AFA /* Loan.swift in Sources */,
 				2AF8DD56204B507F00144A12 /* LoanMainViewController.swift in Sources */,
 				2A68A1112014F240000B947F /* Fonts.swift in Sources */,
+				2AE025FD20594F560010B9EB /* TwoBarsByLinesView.swift in Sources */,
 				2AAE352A201BA8A700D2B46D /* ListOfLoans+CoreDataProperties.swift in Sources */,
 				2A18630C200F554C00D96887 /* PaymentsSchedule.swift in Sources */,
 				2AE63E59201782C7000AE45E /* OtherExtensions.swift in Sources */,
