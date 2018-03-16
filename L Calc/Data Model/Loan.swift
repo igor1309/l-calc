@@ -25,9 +25,9 @@ struct Loan {
     private let minTerm = 2.0
     
     let interestTypeName: [InterestType: String] = [
-        .interestOnly: "В КОНЦЕ",
-        .fixedPrincipal: "РАВНЫМИ",
-        .fixedPayment: "АННУИТЕТ"
+        .interestOnly: "В конце срока",
+        .fixedPrincipal: "Тело равными частями",
+        .fixedPayment: "Аннуитет"
     ]
     
     let interestTypeComment: [InterestType: String] = [
