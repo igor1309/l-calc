@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable class TwoBarsByLinesView: UIView {
     
     var interestColor = UIColor.white
-    var principalColor = UIColor.cyan
+    var principalColor = UIColor(hexString: "D1D1D1")
     
     private struct Constants {
         static let cornerRadiusSize = CGSize(width: 14.0,
@@ -32,10 +32,10 @@ import UIKit
 //        var graphPoints1: [Int] = [4, 7, 8, 9, 5]
 //    var graphPoints1: [Int] = [104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765]
 //    var graphPoints2: [Int] = [65598, 66112, 66630, 67152, 67678, 68208, 68742, 69281, 69823, 70370, 70921, 71477, 72037, 72601, 73170, 73743, 74321, 74903, 75490, 76081, 76677, 77278, 77883, 78493, 79108, 79728, 80352, 80982, 81616, 82255, 82900, 83549, 84203, 84863, 85528, 86198, 86873, 87554, 88239, 88931, 89627, 90329, 91037, 91750, 92469, 93193, 93923, 94659, 95400, 96148, 96901, 97660, 98425, 99196, 99973, 100756, 101545, 102341, 103142, 103950]
-    var principalPoints: [Int] = [1, 0, 6]
-    var interestPoints: [Int] = [5, 6, 5]
-//    var principalPoints: [Int] = [1, 0, 6, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1]
-//    var interestPoints: [Int] = [5, 6, 5, 0, 0, 5, 5, 5, 6, 4, 0, 0, 0, 0]
+//    var principalPoints: [Int] = [1, 0, 6]
+//    var interestPoints: [Int] = [5, 6, 5]
+    var principalPoints: [Int] = [1, 0, 6, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1]
+    var interestPoints: [Int] = [5, 6, 5, 0, 0, 5, 5, 5, 6, 4, 0, 0, 0, 0]
 
     
     override func draw(_ rect: CGRect) {
@@ -113,18 +113,17 @@ import UIKit
         UIColor.white.setStroke()
         
         
+        // вычисление ширины столбика в зависимости от количества точек
+        var barWidth = spacer * 2 / 3
+        if spacer < 9 { barWidth = spacer / 2}
         
         // draw diagram with animation
         let principalPath = UIBezierPath()
-        // вычисление ширины столбика в зависимости от количества точек
-        let barWidth = spacer / 2
-//        if principalPoints.count - 1 < 8 { barWidth = 15 }
         principalPath.lineWidth = barWidth
         let interestPath = UIBezierPath()
         interestPath.lineWidth = barWidth
         // Draw stacked bar diagram
         for i in 0..<principalPoints.count {
-            
             
             let point1 = CGPoint(x: columnXPoint(i),
                                  y: columnYPoint(principalPoints[i]))
@@ -133,7 +132,6 @@ import UIKit
                                      y: point1.y + columnYHeight(principalPoints[i]))
             principalPath.move(to: nextPoint1)
             principalPath.addLine(to: point1)
-
 
             var point2 = CGPoint(x: columnXPoint(i),
                                  y: columnYPoint(principalPoints[i]))
