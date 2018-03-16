@@ -43,6 +43,9 @@
 		2AC43BDA203DE5F9003F558A /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC43BD9203DE5F9003F558A /* CollectionViewController.swift */; };
 		2AC473B92016384F00777C7E /* Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC473B82016384F00777C7E /* Extras.swift */; };
 		2ACBB248200763E70068C3FC /* Loan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACBB247200763E70068C3FC /* Loan.storyboard */; };
+		2ACD710C205C6FF5000ADE81 /* BarsByLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACD710B205C6FF5000ADE81 /* BarsByLinesView.swift */; };
+		2ACD710E205C73E0000ADE81 /* SavedLoansCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACD710D205C73E0000ADE81 /* SavedLoansCollectionViewController.swift */; };
+		2ACD7110205C7CF2000ADE81 /* SavedLoanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACD710F205C7CF2000ADE81 /* SavedLoanCollectionViewCell.swift */; };
 		2ADC0A972041E4B00025B8A6 /* Graph.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADC0A962041E4B00025B8A6 /* Graph.storyboard */; };
 		2ADC0A992041E50B0025B8A6 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADC0A982041E50B0025B8A6 /* GraphViewController.swift */; };
 		2ADC0A9B2041E6080025B8A6 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADC0A9A2041E6080025B8A6 /* GraphView.swift */; };
@@ -116,6 +119,9 @@
 		2AC43BD9203DE5F9003F558A /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = "L Calc/View Controllers/CollectionViewController.swift"; sourceTree = SOURCE_ROOT; };
 		2AC473B82016384F00777C7E /* Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extras.swift; sourceTree = "<group>"; };
 		2ACBB247200763E70068C3FC /* Loan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loan.storyboard; sourceTree = "<group>"; };
+		2ACD710B205C6FF5000ADE81 /* BarsByLinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarsByLinesView.swift; sourceTree = "<group>"; };
+		2ACD710D205C73E0000ADE81 /* SavedLoansCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLoansCollectionViewController.swift; sourceTree = "<group>"; };
+		2ACD710F205C7CF2000ADE81 /* SavedLoanCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLoanCollectionViewCell.swift; sourceTree = "<group>"; };
 		2ADC0A962041E4B00025B8A6 /* Graph.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Graph.storyboard; sourceTree = "<group>"; };
 		2ADC0A982041E50B0025B8A6 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		2ADC0A9A2041E6080025B8A6 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
@@ -241,6 +247,9 @@
 				2A40E1512055A770006CBD64 /* GistView.swift */,
 				2A02AABA2057033500D5149F /* TwoBarsView.swift */,
 				2AE025FC20594F560010B9EB /* TwoBarsByLinesView.swift */,
+				2ACD710B205C6FF5000ADE81 /* BarsByLinesView.swift */,
+				2ACD710D205C73E0000ADE81 /* SavedLoansCollectionViewController.swift */,
+				2ACD710F205C7CF2000ADE81 /* SavedLoanCollectionViewCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -442,6 +451,7 @@
 				2A908F762006604700F08AFA /* Loan.swift in Sources */,
 				2AF8DD56204B507F00144A12 /* LoanMainViewController.swift in Sources */,
 				2A68A1112014F240000B947F /* Fonts.swift in Sources */,
+				2ACD710C205C6FF5000ADE81 /* BarsByLinesView.swift in Sources */,
 				2AE025FD20594F560010B9EB /* TwoBarsByLinesView.swift in Sources */,
 				2AAE352A201BA8A700D2B46D /* ListOfLoans+CoreDataProperties.swift in Sources */,
 				2A18630C200F554C00D96887 /* PaymentsSchedule.swift in Sources */,
@@ -454,9 +464,11 @@
 				2A52FF2E204DC0AD00CF1E19 /* GraphView2.swift in Sources */,
 				2A0CD7962013252600FE8404 /* SettingsTableViewController.swift in Sources */,
 				2AAE3528201BA8A700D2B46D /* CDLoan+CoreDataProperties.swift in Sources */,
+				2ACD7110205C7CF2000ADE81 /* SavedLoanCollectionViewCell.swift in Sources */,
 				2A52FF30204DC0E100CF1E19 /* Graph2ViewController.swift in Sources */,
 				2A0970F32055AB0F00CF7570 /* GistViewController.swift in Sources */,
 				2A40E1522055A770006CBD64 /* GistView.swift in Sources */,
+				2ACD710E205C73E0000ADE81 /* SavedLoansCollectionViewController.swift in Sources */,
 				2AE63E5E2017A3E3000AE45E /* SavedLoans.swift in Sources */,
 				2AC43BDA203DE5F9003F558A /* CollectionViewController.swift in Sources */,
 				2ADC0A9B2041E6080025B8A6 /* GraphView.swift in Sources */,
