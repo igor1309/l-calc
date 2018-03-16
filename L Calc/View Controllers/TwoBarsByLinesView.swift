@@ -16,7 +16,7 @@ import UIKit
     private struct Constants {
         static let cornerRadiusSize = CGSize(width: 14.0,
                                              height: 14.0)
-        static let margin: CGFloat = 20.0
+        static let margin: CGFloat = 12.0
         static let topBorder: CGFloat = 60
         static let bottomBorder: CGFloat = 50
         static let colorAlpha: CGFloat = 0.3
@@ -32,8 +32,10 @@ import UIKit
 //        var graphPoints1: [Int] = [4, 7, 8, 9, 5]
 //    var graphPoints1: [Int] = [104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765, 104765]
 //    var graphPoints2: [Int] = [65598, 66112, 66630, 67152, 67678, 68208, 68742, 69281, 69823, 70370, 70921, 71477, 72037, 72601, 73170, 73743, 74321, 74903, 75490, 76081, 76677, 77278, 77883, 78493, 79108, 79728, 80352, 80982, 81616, 82255, 82900, 83549, 84203, 84863, 85528, 86198, 86873, 87554, 88239, 88931, 89627, 90329, 91037, 91750, 92469, 93193, 93923, 94659, 95400, 96148, 96901, 97660, 98425, 99196, 99973, 100756, 101545, 102341, 103142, 103950]
-    var principalPoints: [Int] = [1, 0, 6, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1]
-    var interestPoints: [Int] = [5, 6, 5, 0, 0, 5, 5, 5, 6, 4, 0, 0, 0, 0]
+    var principalPoints: [Int] = [1, 0, 6]
+    var interestPoints: [Int] = [5, 6, 5]
+//    var principalPoints: [Int] = [1, 0, 6, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1]
+//    var interestPoints: [Int] = [5, 6, 5, 0, 0, 5, 5, 5, 6, 4, 0, 0, 0, 0]
 
     
     override func draw(_ rect: CGRect) {
@@ -70,11 +72,11 @@ import UIKit
         
         //calculate the x point
         let margin = Constants.margin
-        let spacer = (width - margin * 2 - 4) / CGFloat(principalPoints.count + 1)
+        let spacer = (width - margin * 2) / CGFloat(principalPoints.count + 1)
         let columnXPoint = { (column:Int) -> CGFloat in
             //Calculate gap between points
-            var x: CGFloat = CGFloat(column) * spacer
-            x += margin + 2
+            var x: CGFloat = CGFloat(column + 1) * spacer
+            x += margin
             return x
         }
         
@@ -115,7 +117,7 @@ import UIKit
         // draw diagram with animation
         let principalPath = UIBezierPath()
         // вычисление ширины столбика в зависимости от количества точек
-        var barWidth = spacer / 2
+        let barWidth = spacer / 2
 //        if principalPoints.count - 1 < 8 { barWidth = 15 }
         principalPath.lineWidth = barWidth
         let interestPath = UIBezierPath()
@@ -158,6 +160,7 @@ import UIKit
                                 duration: duration)
         }
 
+        
 //        interestColor.setStroke()
 //        interestPath.stroke()
 //        principalColor.setStroke()
@@ -171,21 +174,21 @@ import UIKit
         let linePath = UIBezierPath()
         
         //top line
-        linePath.move(to: CGPoint(x: margin,
+        linePath.move(to: CGPoint(x: margin + spacer / 2,
                                   y: topBorder))
-        linePath.addLine(to: CGPoint(x: width - margin,
+        linePath.addLine(to: CGPoint(x: width - margin - spacer / 2,
                                      y:topBorder))
         
         //center line
-        linePath.move(to: CGPoint(x: margin,
+        linePath.move(to: CGPoint(x: margin + spacer / 2,
                                   y: graphHeight/2 + topBorder))
-        linePath.addLine(to: CGPoint(x:width - margin,
+        linePath.addLine(to: CGPoint(x: width - margin - spacer / 2,
                                      y:graphHeight/2 + topBorder))
         
         //bottom line
-        linePath.move(to: CGPoint(x: margin,
+        linePath.move(to: CGPoint(x: margin + spacer / 2,
                                   y: height - bottomBorder))
-        linePath.addLine(to: CGPoint(x: width - margin,
+        linePath.addLine(to: CGPoint(x: width - margin - spacer / 2,
                                      y: height - bottomBorder))
         
         let color = UIColor(white: 1.0,
