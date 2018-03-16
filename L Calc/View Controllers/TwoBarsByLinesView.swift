@@ -70,7 +70,7 @@ import UIKit
         
         //calculate the x point
         let margin = Constants.margin
-        let spacer = (width - margin * 2 - 4) / CGFloat(principalPoints.count - 1)
+        let spacer = (width - margin * 2 - 4) / CGFloat(principalPoints.count + 1)
         let columnXPoint = { (column:Int) -> CGFloat in
             //Calculate gap between points
             var x: CGFloat = CGFloat(column) * spacer
@@ -116,7 +116,7 @@ import UIKit
         let principalPath = UIBezierPath()
         // вычисление ширины столбика в зависимости от количества точек
         var barWidth = spacer / 2
-        if principalPoints.count - 1 < 8 { barWidth = 15 }
+//        if principalPoints.count - 1 < 8 { barWidth = 15 }
         principalPath.lineWidth = barWidth
         let interestPath = UIBezierPath()
         interestPath.lineWidth = barWidth

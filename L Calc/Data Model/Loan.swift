@@ -39,46 +39,34 @@ struct Loan {
     var amount: Double {     //  сумма кредита
         didSet {
             // контроль границ диапазона суммы кредита + notify
-            let notification =
-                NotificationCenter.default
+            let notification = NotificationCenter.default
 
             if amount > maxPrincipal {
                 amount = maxPrincipal
-                notification.post(
-                    Notification(name: .outOfRange))
+                notification.post(Notification(name: .outOfRange))
                 
             } else if amount < minPrincipal {
                 amount = minPrincipal
-                notification.post(
-                    Notification(name: .outOfRange))
+                notification.post(Notification(name: .outOfRange))
             }
-        }
-        willSet {
-        // FIXME: вернуть запись данных только если значение изменилось
-            UserDefaults.standard.set(newValue,
+            UserDefaults.standard.set(amount,
                                       forKey: "Principal")
         }
     }
     var rate: Double {    //  годовая процентная ставка
         didSet {
             // контроль границ диапазона суммы кредита + notify
-            let notification =
-                NotificationCenter.default
+            let notification = NotificationCenter.default
             
             if rate > maxRate {
                 rate = maxRate
-                notification.post(
-                    Notification(name: .outOfRange))
+                notification.post(Notification(name: .outOfRange))
                 
             } else if rate < minRate {
                 rate = minRate
-                notification.post(
-                    Notification(name: .outOfRange))
+                notification.post(Notification(name: .outOfRange))
             }
-        }
-        willSet {
-        // FIXME: вернуть запись данных только если значение изменилось
-            UserDefaults.standard.set(newValue,
+            UserDefaults.standard.set(rate,
                                       forKey: "Rate")
         }
     }
@@ -86,24 +74,17 @@ struct Loan {
     var term: Double {    //  срок кредита в месяцах
         didSet {
             // контроль границ диапазона суммы кредита + notify
-            let notification =
-                NotificationCenter.default
+            let notification = NotificationCenter.default
             
             if term > maxTerm {
                 term = maxTerm
-                notification.post(
-                    Notification(name: .outOfRange))
+                notification.post(Notification(name: .outOfRange))
                 
             } else if term < minTerm {
                 term = minTerm
-                notification.post(
-                    Notification(name: .outOfRange))
+                notification.post(Notification(name: .outOfRange))
             }
-        }
-        willSet {
-        // FIXME: вернуть запись данных только если значение изменилось
-        // if term != newValue {  // save if value changes
-            UserDefaults.standard.set(newValue,
+            UserDefaults.standard.set(term,
                                       forKey: "Term")
         }
     }
