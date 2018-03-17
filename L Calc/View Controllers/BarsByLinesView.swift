@@ -10,8 +10,7 @@ import UIKit
 
 @IBDesignable class BarsByLinesView: UIView {
     
-    var interestColor = UIColor.white
-    var principalColor = UIColor.red
+    var dataColor = UIColor.red
     
     private struct Constants {
         static let cornerRadiusSize = CGSize(width: 14.0,
@@ -28,8 +27,8 @@ import UIKit
     @IBInspectable var startColor = UIColor.clear   // UIColor(rgb: 0xce9ffc)
     @IBInspectable var endColor = UIColor.clear // UIColor(rgb: 0x7367f0)
     
-//        var principalPoints: [Int] = [1, 0, 6]
-    var principalPoints: [Int] = [1, 0, 6, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1]
+//        var dataPoints: [Int] = [1, 0, 6]
+    var dataPoints: [Int] = [1, 0, 6, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1]
     
     
     override func draw(_ rect: CGRect) {
@@ -66,7 +65,7 @@ import UIKit
         
         //calculate the x point
         let margin = Constants.margin
-        let spacer = (width - margin * 2) / CGFloat(principalPoints.count + 1)
+        let spacer = (width - margin * 2) / CGFloat(dataPoints.count + 1)
         let columnXPoint = { (column:Int) -> CGFloat in
             //Calculate gap between points
             var x: CGFloat = CGFloat(column + 1) * spacer
@@ -88,7 +87,7 @@ import UIKit
             }
             return maxSum
         }
-        let maxValue = principalPoints.max()!
+        let maxValue = dataPoints.max()!
         
         let columnYPoint = { (graphPoint:Int) -> CGFloat in
             var y:CGFloat = CGFloat(graphPoint) / CGFloat(maxValue) * graphHeight
@@ -112,32 +111,32 @@ import UIKit
         if spacer < 9 { barWidth = spacer / 2}
         
         // Draw stacked bar diagram
-        let principalPath = UIBezierPath()
-        principalPath.lineWidth = barWidth
+        let dataPath = UIBezierPath()
+        dataPath.lineWidth = barWidth
         let interestPath = UIBezierPath()
         interestPath.lineWidth = barWidth
-        for i in 0..<principalPoints.count {
+        for i in 0..<dataPoints.count {
             
             let point1 = CGPoint(x: columnXPoint(i),
-                                 y: columnYPoint(principalPoints[i]))
+                                 y: columnYPoint(dataPoints[i]))
             
             let nextPoint1 = CGPoint(x: point1.x,
-                                     y: point1.y + columnYHeight(principalPoints[i]))
-            principalPath.move(to: nextPoint1)
-            principalPath.addLine(to: point1)
+                                     y: point1.y + columnYHeight(dataPoints[i]))
+            dataPath.move(to: nextPoint1)
+            dataPath.addLine(to: point1)
             
         }
         
         
         let duration: CFTimeInterval = 2
-        animateOutline(principalPath,
-                       with: principalColor,
+        animateOutline(dataPath,
+                       with: dataColor,
                        lineWidth: barWidth,
                        duration: duration)
         
         
-                principalColor.setStroke()
-                principalPath.stroke()
+                dataColor.setStroke()
+                dataPath.stroke()
         //        simpleAnimation()
         
         
