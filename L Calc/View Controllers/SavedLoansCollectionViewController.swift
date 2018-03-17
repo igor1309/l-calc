@@ -31,7 +31,7 @@ class SavedLoansCollectionViewController: UIViewController {
         super.viewDidAppear(true)
         
         //MARK: animation https://www.raywenderlich.com/173544/ios-animation-tutorial-getting-started-3
-        UIView.animate(withDuration: 0.5,
+        UIView.animate(withDuration: 0.35,
                        delay: 0.15,
                        options: [.curveEaseOut,
                                  .transitionCrossDissolve],
@@ -64,10 +64,10 @@ extension SavedLoansCollectionViewController: UICollectionViewDelegate, UICollec
         
         let formatter = NumberFormatter()
         // FIXME: use decimals setting!!
-        let amount = Double(i * 1000 * 1000)
-        let rate = 9 + Double(i) / 10
-        let term = Double(i * 10)
-     
+        let amount = Double(1000 * 1000)    //Double(i * 1000 * 1000)
+        let rate = 9.40                    //9 + Double(i) / 10
+        let term = Double(i) * 10
+
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = NumberFormatter.Style.decimal
 
@@ -79,7 +79,6 @@ extension SavedLoansCollectionViewController: UICollectionViewDelegate, UICollec
                               term: term,
                               type: InterestType.fixedPrincipal)
         cell.graphView.dataPoints = loan.loanPaymentsMonthlyTotal()
-        print(cell.graphView.dataPoints.count)
         
         return cell
     }

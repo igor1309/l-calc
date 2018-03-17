@@ -10,58 +10,58 @@ import UIKit
 
 @IBDesignable class BarsByLinesView: UIView {
     
-    var dataColor = UIColor.red
+    var dataColor = UIColor(hexString: "D6D6D6")
     
     private struct Constants {
         static let cornerRadiusSize = CGSize(width: 14.0,
                                              height: 14.0)
-        static let margin: CGFloat = 4.0
+        static let margin: CGFloat = 0.0
         static let topBorder: CGFloat = 6
-        static let bottomBorder: CGFloat = 6
+        static let bottomBorder: CGFloat = 4
         static let colorAlpha: CGFloat = 0.3
         static let barWidth: CGFloat = 8.0
     }
     
     // the properties for the gradient
-    @IBInspectable var coolHueIndex: Int = -1
-    @IBInspectable var startColor = UIColor.clear   // UIColor(rgb: 0xce9ffc)
-    @IBInspectable var endColor = UIColor.clear // UIColor(rgb: 0x7367f0)
+//    @IBInspectable var coolHueIndex: Int = -1
+//    @IBInspectable var startColor = UIColor.clear   // UIColor(rgb: 0xce9ffc)
+//    @IBInspectable var endColor = UIColor.clear // UIColor(rgb: 0x7367f0)
     
 //        var dataPoints: [Int] = [1, 0, 6]
-    var dataPoints: [Int] = [1, 0, 6, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1]
+    var dataPoints: [Int] = [1, 0, 6, 4, 5, 6, 7, 8, 9, 10, 0, 6, 4, 5, 6, 7, 10, 10, 1]
     
     
     override func draw(_ rect: CGRect) {
         
-        if coolHueIndex > -1 && coolHueIndex < 60 {
-            startColor = UIColor.clear
-            endColor = UIColor.clear
-        }
-        
+//        if coolHueIndex > -1 && coolHueIndex < 60 {
+//            startColor = UIColor.clear
+//            endColor = UIColor.clear
+//        }
+//
         let width = rect.width
         let height = rect.height
-        
-        let path = UIBezierPath(
-            roundedRect: rect,
-            byRoundingCorners: UIRectCorner.allCorners,
-            cornerRadii: Constants.cornerRadiusSize)
-        path.addClip()
-        
-        let context = UIGraphicsGetCurrentContext()!
-        let colors = [startColor.cgColor, endColor.cgColor]
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let colorLocations: [CGFloat] = [0.0, 1.0]
-        
-        let gradient = CGGradient(colorsSpace: colorSpace,
-                                  colors: colors as CFArray,
-                                  locations: colorLocations)!
-        
-        let startPoint = CGPoint.zero
-        let endPoint = CGPoint(x: 0, y: self.bounds.height)
-        context.drawLinearGradient(gradient,
-                                   start: startPoint,
-                                   end: endPoint,
-                                   options: CGGradientDrawingOptions(rawValue: 0))
+//
+//        let path = UIBezierPath(
+//            roundedRect: rect,
+//            byRoundingCorners: UIRectCorner.allCorners,
+//            cornerRadii: Constants.cornerRadiusSize)
+//        path.addClip()
+//
+//        let context = UIGraphicsGetCurrentContext()!
+//        let colors = [startColor.cgColor, endColor.cgColor]
+//        let colorSpace = CGColorSpaceCreateDeviceRGB()
+//        let colorLocations: [CGFloat] = [0.0, 1.0]
+//
+//        let gradient = CGGradient(colorsSpace: colorSpace,
+//                                  colors: colors as CFArray,
+//                                  locations: colorLocations)!
+//
+//        let startPoint = CGPoint.zero
+//        let endPoint = CGPoint(x: 0, y: self.bounds.height)
+//        context.drawLinearGradient(gradient,
+//                                   start: startPoint,
+//                                   end: endPoint,
+//                                   options: CGGradientDrawingOptions(rawValue: 0))
         
         //calculate the x point
         let margin = Constants.margin
@@ -78,17 +78,7 @@ import UIKit
         let bottomBorder: CGFloat = Constants.bottomBorder
         let graphHeight = height - topBorder - bottomBorder
         
-        func maxOf2Sum(a: [Int], b: [Int]) -> Int {
-            var maxSum = 0
-            for i in 0...a.count - 1 {
-                if maxSum < a[i] + b[i] {
-                    maxSum = a[i] + b[i]
-                }
-            }
-            return maxSum
-        }
         let maxValue = dataPoints.max()!
-        
         let columnYPoint = { (graphPoint:Int) -> CGFloat in
             var y:CGFloat = CGFloat(graphPoint) / CGFloat(maxValue) * graphHeight
             y = graphHeight + topBorder - y // Flip the graph
@@ -127,19 +117,8 @@ import UIKit
             
         }
         
-        
-        let duration: CFTimeInterval = 2
-        animateOutline(dataPath,
-                       with: dataColor,
-                       lineWidth: barWidth,
-                       duration: duration)
-        
-        
-                dataColor.setStroke()
-                dataPath.stroke()
-        //        simpleAnimation()
-        
-        
+        dataColor.setStroke()
+        dataPath.stroke()
         
         
         //Draw horizontal graph lines on the top of everything
@@ -169,51 +148,6 @@ import UIKit
         
         linePath.lineWidth = 1.0
         linePath.stroke()
-    }
-    
-    
-    fileprivate func animateOutline(_ path: UIBezierPath,
-                                    with color: UIColor,
-                                    lineWidth: CGFloat,
-                                    duration: CFTimeInterval) {
-        //MARK: animation via https://stackoverflow.com/questions/26578023/animate-drawing-of-a-circle
-        
-        // Setup the CAShapeLayer with the path, colors, and line width
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = path.cgPath
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeColor = color.cgColor
-        shapeLayer.lineWidth = lineWidth;
-        // Don't draw the circle initially
-        shapeLayer.strokeEnd = 0.0
-        
-        // Add the shapeLayer to the view's layer's sublayers
-        layer.addSublayer(shapeLayer)
-        
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.duration = duration
-        animation.fromValue = 0
-        animation.toValue = 1
-        shapeLayer.strokeEnd = 1.0
-        // Do animation with selected pacing
-        animation.timingFunction = CAMediaTimingFunction(
-            name: kCAMediaTimingFunctionEaseInEaseOut)
-        
-        // Do the actual animation
-        shapeLayer.add(animation, forKey: "strokeEnd")
-        
-        // Clear animation trace
-        //        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
-        //            shapeLayer.strokeColor = UIColor.clear.cgColor
-        //        }
-    }
-    
-    fileprivate func simpleAnimation() {
-        //FIXME: need a better animation
-        self.alpha = 0.1
-        UIView.animate(withDuration: 0.75) {
-            self.alpha = 1.0
-        }
     }
 }
 
