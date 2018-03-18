@@ -138,7 +138,7 @@ class LoanMainViewController: UIViewController {
         switch loan.type {
         case .interestOnly:
             loanTypeSegment.selectedSegmentIndex = 0
-            monthlyPaymentCommentLabel.text = "ПЕРВЫЙ ПЛАТЕЖ"
+            monthlyPaymentCommentLabel.text = "ЕЖЕМЕСЯЧНЫЙ* ПЛАТЕЖ"
             
         case .fixedPrincipal:
             loanTypeSegment.selectedSegmentIndex = 1
