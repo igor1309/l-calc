@@ -32,7 +32,7 @@ class SavedLoansCollectionViewController: UIViewController {
         
         //MARK: animation https://www.raywenderlich.com/173544/ios-animation-tutorial-getting-started-3
         UIView.animate(withDuration: 0.35,
-                       delay: 0.15,
+                       delay: 0.05,
                        options: [.curveEaseOut,
                                  .transitionCrossDissolve],
                        animations: {
@@ -79,12 +79,12 @@ extension SavedLoansCollectionViewController: UICollectionViewDelegate, UICollec
         var imageName: String
         let t = i % 3
         switch t {
+        case 0:
+            imageName = "Images/fixedPrincipal"
         case 1:
             imageName = "Images/interestOnly"
         case 2:
             imageName = "Images/fixedPayment"
-        case 3:
-            imageName = "Images/fixedPrincipal"
         default:
             imageName = "Images/fixedPayment"
         }
