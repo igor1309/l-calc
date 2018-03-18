@@ -24,12 +24,13 @@ class SavedLoansCollectionViewController: UIViewController {
         
         //MARK: animation https://www.raywenderlich.com/173544/ios-animation-tutorial-getting-started-3
 //        savedLoansCollectionView.center.x -= view.bounds.width
-        savedLoansCollectionView.alpha = 0.1
+//        savedLoansCollectionView.alpha = 0.1
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
+        /*
         //MARK: animation https://www.raywenderlich.com/173544/ios-animation-tutorial-getting-started-3
         UIView.animate(withDuration: 0.35,
                        delay: 0.05,
@@ -41,6 +42,7 @@ class SavedLoansCollectionViewController: UIViewController {
         },
                        completion: nil
         )
+        */
     }
 }
 
