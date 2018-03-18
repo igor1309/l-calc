@@ -74,11 +74,22 @@ extension SavedLoansCollectionViewController: UICollectionViewDelegate, UICollec
         cell.amountLabel.text = String (describing: formatter.string(for: amount)!)
         cell.rateLabel.text = String(format: "%.2f", rate) + "%"
         cell.termLabel.text = String(Int(term))
-        let loan: Loan = Loan(amount: amount,
-                              rate: rate,
-                              term: term,
-                              type: InterestType.fixedPrincipal)
-        cell.graphView.dataPoints = loan.loanPaymentsMonthlyTotal()
+
+        
+        var imageName: String
+        let t = i % 3
+        switch t {
+        case 1:
+            imageName = "Images/interestOnly"
+        case 2:
+            imageName = "Images/fixedPayment"
+        case 3:
+            imageName = "Images/fixedPrincipal"
+        default:
+            imageName = "Images/fixedPayment"
+        }
+        cell.graphImageView.image = UIImage(named: imageName)
+        
         
         return cell
     }
